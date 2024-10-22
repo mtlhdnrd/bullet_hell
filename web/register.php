@@ -27,7 +27,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }else{
         //Add username and password to database
         $sql = "INSERT INTO player_login(username, password)  VALUES('{$username}', '{$password}');";
-        if(make_query($conn, $sql))
+        $sql2 = "INSERT INTO players(username, points, winrate, all_games_played, kills, deaths, most_used_music_id, music_pack_id) VALUES('{$username}', 0, 0.0, 0, 0, 0, NULL, NULL);";
+        if(make_query($conn, $sql2) && make_query($conn, $sql))
             echo "Signup Completed successfully";
         //Signup complete, go to login
         header("Location: login.php");
@@ -42,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Gunkmasters</title>
+    <title>Duel masters</title>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

@@ -2,7 +2,7 @@
 // Include config file
 require_once "config.php";
 require_once "utils.php";
- 
+
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -29,7 +29,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         if($row['password'] === $password)
         {
             //Login complete, proceed to website
-            session_start();
             $_SESSION['username'] = $username;
             header("location: index.php");
         }else{
