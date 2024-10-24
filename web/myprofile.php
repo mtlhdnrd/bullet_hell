@@ -4,16 +4,17 @@
         header("location: login.php");
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunkmasters</title>
-    <?php require_once("links.php");?>
+    <title><?php echo $_SESSION['username'];?></title>
 </head>
-<body style="background-image: url('./src/i am starving brother.jpg'); background-repeat: no-repeat; background-size:cover;">
-    <?php include("header.php");?>
+<body>
+    <?php require_once("header.php")?>
+    <div class="container d-flex" style="margin: 120px 300px 0 300px;">
+        <h1 class="text-start text-black fw-1" ><?php echo $_SESSION['username'];?></h1>
+    </div>
 </body>
 </html>
