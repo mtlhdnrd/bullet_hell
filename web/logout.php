@@ -1,4 +1,4 @@
 <?php
-session_start();
-unset($_SESSION['username']);
+require_once("utils.php");
+logout();
 header("location: login.php");

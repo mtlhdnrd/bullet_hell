@@ -7,3 +7,7 @@ function make_query($conn, $sql)
 function is_logged_in(){
     return isset($_SESSION['username']);
 }
+
+function logout(){
+    unset($_SESSION['username']);
+}

@@ -4,3 +4,45 @@
     width: 70px;
     display:inline-block;
 }
+.bg-custom{
+    background-color: #748330;
+}
+.navbar{
+    margin: 20px;
+    border-radius: 20px;
+}
+.login-button{
+    padding: 8px 20px;
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: 5px;
+}
+.login-button:hover{
+    color: black;
+}
+.menu-element{
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: 5px;
+    transition: 0.3s;
+    position: relative;
+}
+.menu-element::before{
+    content:"";
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+.menu-element:hover::before{
+    width: 100%;
+    visibility: visible;
+}
