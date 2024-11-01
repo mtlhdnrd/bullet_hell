@@ -2,45 +2,6 @@
 // Include config file
 require_once "config.php";
 require_once "utils.php";
-
-// Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    //Check for any uncompleted fields
-    if(!isset($_POST['username'])){
-        $username_err = "Please enter a valid username";
-    }
-    if(!isset($_POST['password'])){
-        $password_err = "Please enter a valid password";
-    }
-    if($username_err == "")
-        $username = $_POST['username'];
-    if($password_err == "")
-        $password = $_POST['password'];
-    //Check if username exists in the database
-    $sql = "SELECT * FROM player_login WHERE username='{$username}';";
-    $result = make_query($conn, $sql);
-    if($result->num_rows == 1)
-    {
-        //Check if $result's password is the same as the field's
-        $row = $result->fetch_assoc();
-        if($row['password'] === $password)
-        {
-            //Login complete, proceed to website
-            $_SESSION['username'] = $username;
-            header("location: index.php");
-        }else{
-            $password_err = "Invalid password";
-        }
-        
-    }else{
-
-        $username_err = "Username doesn't exist";
-    }
-
-}
 ?>
  
 <!DOCTYPE html>
@@ -67,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" name="username" class="form-control" required>
+                            <input type="text" name="username" class="form-control"  required>
                             <?php echo(!empty($username_err)) ? "<p class='text-danger'>{$username_err}</p>" : ''; ?>
                         </div>
                         <div class="form-group">
@@ -92,17 +53,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         </div>
     </div>
 </div>
-
-    <script>
-        function togglePwVisibility(){
-            var field = document.getElementById("password");
-            if(field.type==="password"){
-                field.type = "text";
-            }else{
-                field.type = "password";
-            }
-            //TODO itt hagytam abba
-        }
-    </script>
 </body>
 </html> 
