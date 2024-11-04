@@ -24,15 +24,14 @@ function checkUsername(username, callback) {
   });
 }
 function addNewUser(){
-	let username = document.getElementById('username');
-	let password = document.getElementById('password');
+	let username = $("#username").val();
+	let password = $("#password").val();
+	//TODO hash password
+	alert(password);
 	let url = `api/register_user.php?username=${username}&password=${password}`;
-	return $.ajax({
-		type: "POST",
-		url: url,
-		success: function(data){
-			console.log(data);
-		}
+	return $.post("api/register_user.php", {
+		username : username,
+		password : password
 	});
 }
 
