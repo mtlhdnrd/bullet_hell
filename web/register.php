@@ -9,14 +9,13 @@ require_once "utils.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duel masters</title>
+    <title>Bullet Hell</title>
     <?php require_once("links.php");?>
-    <script src="src/"></script>
 </head>
 <body>
     <div class="container mt-5">
     <div class="row mb-5">
-        <h1 class="text-center text-black">Welcome to Duel Masters</h1>
+        <h1 class="text-center text-black">Welcome to Bullet Hell</h1>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -43,8 +42,8 @@ require_once "utils.php";
                             </div>
                             <?php echo(!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                         </div>
-                        <button type="submit" class="btn btn-primary my-3 px-4 py-2" style="background-color: green; border: none;">Sign up</button>
                     </form>
+                    <button class="btn btn-primary my-3 px-4 py-2" style="background-color: green; border: none;" onclick="addNewUser()">Sign up</button>
                 </div>
                 <div class="card-footer">
                     Already have an account? <a href="login.php">Log in my brother</a>
