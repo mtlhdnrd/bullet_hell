@@ -1,0 +1,39 @@
+HAM FACTORY
+3;scythe;		missing
+1;cleaver;		done
+2;nailgun;		done
+1;knife;		done
+2;chainsaw;		done
+1;taser;		done
+
+RIOT
+3;hatespeech;		missing
+1;knife;		done
+2;pistol;		missing
+1;molotov;		missing (AoE fx missing)
+1;cleaver;		done
+2;sawedoff;		missing
+
+EDO
+3;musket;		missing
+2;bow;			missing
+1;dagger;		missing
+1;kunai;		missing
+2;katana;		missing
+1;spear;		missing
+
+WARZONE
+3;sniper;		missing
+2;ak;			missing
+1;mp40			missing
+1;pistol;		missing
+2;shotgun		done
+1;machete		missing
+
+SPACEPORT
+3;switchrifle;		missing
+1;e_baton;		missing
+1;e_pistol;		missing
+1;e_smg;		missing
+2;e_bow;		missing
+2;blitzwerfer;		missing
