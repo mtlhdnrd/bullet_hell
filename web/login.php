@@ -9,14 +9,13 @@ require_once "utils.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duel Masters</title>
+    <title>Bullet Hell</title>
     <?php require_once('links.php');?>
 </head>
 <body>
-    
 <div class="container mt-5">
     <div class="row mb-5">
-        <h1 class="text-center text-black">Welcome to Duel Masters</h1>
+        <h1 class="text-center text-black">Welcome to Bullet Hell</h1>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-6">
