@@ -1,6 +1,6 @@
 <?php
     require_once("utils.php");
-    if(!is_logged_in()){
+    if(!is_logged_in()) {
         header("location: login.php");
     }
 ?>

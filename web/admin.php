@@ -1,7 +1,6 @@
 <?php
 require_once("utils.php");
-if(!(isset($_SESSION['admin_login']) && $_SESSION['admin_login'] == true))
-{
+if(!(isset($_SESSION['admin_login']) && $_SESSION['admin_login'] == true)) {
     header("location: admin_login.php");
 }
 ?>

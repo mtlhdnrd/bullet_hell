@@ -8,8 +8,7 @@ $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 $admin_uname = "admin";
 $admin_password = "admin";
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if($_SERVER["REQUEST_METHOD"] == "POST") {
     //Check for any uncompleted fields
     if(!isset($_POST['username'])){
         $username_err = "Please enter a valid username";
@@ -17,22 +16,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(!isset($_POST['password'])){
         $password_err = "Please enter a valid password";
     }
-    if($username_err == "")
+    if($username_err == "") {
         $username = $_POST['username'];
-    if($password_err == "")
+    }
+    if($password_err == "") {
         $password = $_POST['password'];
+    }
     //Check if username exists in the database
     $sql = "SELECT * FROM player_login WHERE username='{$username}';";
     $result = make_query($conn, $sql);
-    if($_POST['username'] == $admin_uname && $_POST['password'] == $admin_password)
-    {
+    if($_POST['username'] == $admin_uname && $_POST['password'] == $admin_password) {
         $_SESSION['admin_login'] = true;
         header("location: admin.php");
     }
 
 }
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,14 +58,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     </div>
 
     <script>
-        function togglePwVisibility(){
+        function togglePwVisibility() {
             var field = document.getElementById("password");
-            if(field.type==="password"){
+            if(field.type==="password") {
                 field.type = "text";
-            }else{
+            } else {
                 field.type = "password";
             }
         }
     </script>
 </body>
-</html> 
+</html>

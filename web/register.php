@@ -3,7 +3,7 @@
 require_once "config.php";
 require_once "utils.php";
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,4 +55,4 @@ require_once "utils.php";
 </div>
 
 </body>
-</html> 
+</html>
