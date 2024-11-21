@@ -18,8 +18,8 @@ if(isset($_GET['user']) && count($_GET) == 1) {
     } else {
         $return[$username] = 0;
     }
-    //print_r($return);
     echo json_encode($return);
+    
 } else {
     echo "HIBA!";
 }

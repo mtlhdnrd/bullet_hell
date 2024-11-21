@@ -9,16 +9,22 @@ function togglePwVisibility() {
 }
 
 function checkUsername(username, callback) {
+    let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
+    if(!username.match(allowed_username)) {
+        $("#username-invalid-character").removeClass("d-none");
+    }else{
+        $("#username-invalid-character").addClass("d-none");
+    }
     let url = `api/username_exists.php?user=${username}`;
-    return $.ajax({
+    $.ajax({
         type: "GET",
         url: url,
         success: function (data) {
-            console.log(data);
             if (eval(`data.${username}`) == 1) {
-                console.log("letezik");
+                $("#username-exists").removeClass("d-none");
+
             } else {
-                console.log("nope");
+                $("#username-exists").addClass("d-none");
             }
         },
     });
@@ -26,17 +32,33 @@ function checkUsername(username, callback) {
 function addNewUser() {
     let username = $("#username").val();
     let password = $("#password").val();
-    //TODO hash password
-    alert(password);
-    let url = `api/register_user.php?username=${username}&password=${password}`;
-    return $.post("api/register_user.php", {
-        username: username,
-        password: password
-    });
+    let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
+    if(!username.match(allowed_username)) {
+        alert("nigga");
+        $("#username-invalid-character").removeClass("d-none");
+    } else {
+        $("#username-invalid-character").addClass("d-none");
+        let data = $("#register-form").serialize();
+        //TODO hash password
+        $.ajax({
+            type: "POST",
+            url: 'api/register_user.php',
+            data: data,
+            success: function (data, textStatus, xhr) {
+                switch (xhr.status) {
+                    case 201:
+                        window.location = "index.php";
+                }
+            },
+            error: function (data, textStatus, xhr) {
+                console.error(xhr);
+            }
+        });
+    }
 }
 
 $(document).ready(function () {
-    $('#username').keyup(function () {
+    $('#username').keyup(function (event) {
         checkUsername($(this).val());
     });
 });
