@@ -5,7 +5,6 @@ function togglePwVisibility() {
     } else {
         field.type = "password";
     }
-    //TODO itt hagytam abba
 }
 
 function checkUsername(username, callback) {
@@ -30,11 +29,8 @@ function checkUsername(username, callback) {
     });
 }
 function addNewUser() {
-    let username = $("#username").val();
-    let password = $("#password").val();
     let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
     if(!username.match(allowed_username)) {
-        alert("nigga");
         $("#username-invalid-character").removeClass("d-none");
     } else {
         $("#username-invalid-character").addClass("d-none");
@@ -47,7 +43,7 @@ function addNewUser() {
             success: function (data, textStatus, xhr) {
                 switch (xhr.status) {
                     case 201:
-                        window.location = "index.php";
+                        window.open("index.php");
                 }
             },
             error: function (data, textStatus, xhr) {
@@ -55,6 +51,19 @@ function addNewUser() {
             }
         });
     }
+}
+
+function LoginUser(){
+    let url = `api/login_check.php`;
+    let data = $("#login-form").serialize();
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: data,
+        success: function (data) {
+            console.log(data);
+        },
+    });
 }
 
 $(document).ready(function () {
