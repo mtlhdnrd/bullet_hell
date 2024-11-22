@@ -45,6 +45,7 @@ require_once "utils.php";
                                 <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                             </div>
                         </form>
+                        <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
                         <button type="submit" class="btn btn-primary my-3 px-4 py-2" onclick="LoginUser()">Log in</button>
 
                     </div>

@@ -2,15 +2,18 @@
     background: url('src/pw/1.png');
     height: 70px;
     width: 70px;
-    display:inline-block;
+    display: inline-block;
 }
+
 .bg-custom {
     background-color: #748330;
 }
+
 .navbar {
     margin: 20px;
     border-radius: 20px;
 }
+
 .login-button {
     padding: 8px 20px;
     color: #fff;
@@ -20,9 +23,11 @@
     font-variant: small-caps;
     letter-spacing: 5px;
 }
+
 .login-button:hover {
     color: black;
 }
+
 .menu-element {
     font-weight: bold;
     font-variant: small-caps;
@@ -30,8 +35,9 @@
     transition: 0.3s;
     position: relative;
 }
+
 .menu-element::before {
-    content:"";
+    content: "";
     position: relative;
     bottom: 0;
     left: 50%;
@@ -42,10 +48,17 @@
     visibility: hidden;
     transition: 0.3s ease-in-out;
 }
+
 .menu-element:hover::before {
     width: 100%;
     visibility: visible;
 }
-.hidden{
+
+.hidden {
     visibility: hidden;
+}
+
+#logout {
+    color: white;
+    text-decoration: none;
 }

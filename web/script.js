@@ -9,9 +9,9 @@ function togglePwVisibility() {
 
 function checkUsername(username, callback) {
     let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
-    if(!username.match(allowed_username)) {
+    if (!username.match(allowed_username)) {
         $("#username-invalid-character").removeClass("d-none");
-    }else{
+    } else {
         $("#username-invalid-character").addClass("d-none");
     }
     let url = `api/username_exists.php?user=${username}`;
@@ -30,12 +30,8 @@ function checkUsername(username, callback) {
 }
 function addNewUser() {
     let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
-    if(!username.match(allowed_username)) {
-        $("#username-invalid-character").removeClass("d-none");
-    } else {
-        $("#username-invalid-character").addClass("d-none");
+    if (username.match(allowed_username)) {
         let data = $("#register-form").serialize();
-        //TODO hash password
         $.ajax({
             type: "POST",
             url: 'api/register_user.php',
@@ -53,16 +49,29 @@ function addNewUser() {
     }
 }
 
-function LoginUser(){
+function LoginUser() {
     let url = `api/login_check.php`;
     let data = $("#login-form").serialize();
     $.ajax({
         type: "GET",
         url: url,
         data: data,
-        success: function (data) {
-            console.log(data);
+        success: function (data, textStatus, xhr) {
+            switch (xhr.status) {
+                case 200:
+                    window.open("index.php", "_self");
+                    break;
+                
+            }
         },
+        error: function(xhr) {
+            switch(xhr.status)
+            {
+                case 401:
+                    $("#incorrect-login").removeClass("d-none");
+                    break;
+            }
+        }
     });
 }
 
