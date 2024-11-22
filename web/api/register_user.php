@@ -1,5 +1,6 @@
 <?php
 include_once("../config.php");
+include_once("../utils.php");
 // Define variables and initialize with empty values
 if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
     $username = $_POST['username'];

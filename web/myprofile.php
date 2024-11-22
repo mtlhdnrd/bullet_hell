@@ -12,8 +12,8 @@
     <title><?php echo $_SESSION['username'];?></title>
 </head>
 <body>
-    <?php require_once("header.php")?>
-    <div class="container d-flex" style="margin: 120px 300px 0 300px;">
+    <?php include("header.php")?>
+    <div class="container-fluid d-flex">
         <h1 class="text-start text-black fw-1" ><?php echo $_SESSION['username'];?></h1>
     </div>
 </body>

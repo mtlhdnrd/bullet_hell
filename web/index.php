@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunkmasters</title>
+    <title>Bullet Hell - The Game</title>
     <?php require_once("links.php");?>
 </head>
 <body style="background-image: url('./src/i am starving brother.jpg'); background-repeat: no-repeat; background-size:cover;">
