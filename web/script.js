@@ -30,7 +30,7 @@ function checkUsername(username, callback) {
 }
 function addNewUser() {
     let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
-    if (username.match(allowed_username)) {
+    if ($("#username").val().match(allowed_username)) {
         let data = $("#register-form").serialize();
         $.ajax({
             type: "POST",
@@ -39,7 +39,7 @@ function addNewUser() {
             success: function (data, textStatus, xhr) {
                 switch (xhr.status) {
                     case 201:
-                        window.open("index.php");
+                        window.open("index.php", "_self");
                 }
             },
             error: function (data, textStatus, xhr) {

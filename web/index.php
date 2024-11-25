@@ -13,7 +13,7 @@
     <title>Bullet Hell - The Game</title>
     <?php require_once("links.php");?>
 </head>
-<body style="background-image: url('./src/i am starving brother.jpg'); background-repeat: no-repeat; background-size:cover;">
+<body>
     <?php include("header.php");?>
 </body>
 </html>
