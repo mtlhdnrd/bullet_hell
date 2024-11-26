@@ -48,10 +48,8 @@
     width: 100%;
     visibility: visible;
 }
-.stat-card{
-    border-radius: 5px;
-    transition: 0.3s;
-}
-.stat-card:hover{
-    background-color: #748330;
+
+#logout {
+    color: white;
+    text-decoration: none;
 }

@@ -30,8 +30,12 @@ function checkUsername(username, callback) {
 }
 function addNewUser() {
     let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
-    if ($("#username").val().match(allowed_username)) {
+    if(!$("#username").val().match(allowed_username)) {
+        $("#username-invalid-character").removeClass("d-none");
+    } else {
+        $("#username-invalid-character").addClass("d-none");
         let data = $("#register-form").serialize();
+        //TODO hash password
         $.ajax({
             type: "POST",
             url: 'api/register_user.php',
