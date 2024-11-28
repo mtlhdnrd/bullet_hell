@@ -12,7 +12,7 @@ function GetUserData(username){
             $("#stat-gamesplayed").text(json[0].all_games_played);
             $("#stat-kills").text(json[0].kills);
             $("#stat-deaths").text(json[0].deaths);
-            $("#stat-music").text(json[0].most_used_music_id);
+            $("#stat-music").text(json[0].name);
         }
     })
     return ret;
