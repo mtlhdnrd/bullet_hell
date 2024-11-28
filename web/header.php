@@ -1,5 +1,5 @@
 <?php require_once("links.php");?>
-<nav class="navbar navbar-expand-lg fixed-top bg-custom">
+<nav class="navbar navbar-expand-lg bg-custom px-lg-5">
   <div class="container-fluid">
     <a class="navbar-brand me-auto" href="index.php"><img src="./src/logo.png" width="70" height="70" alt=""></a>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -10,7 +10,7 @@
       <div class="offcanvas-body bg-custom">
         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link mx-lg-4 menu-element text-white fs-5" aria-current="page" href="#rolunk">about us</a>
+            <a class="nav-link mx-lg-4 menu-element text-white fs-5" aria-current="page" href="#rolunk">the game</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link mx-lg-4 text-white menu-element fs-5" href="#">wiki</a>

@@ -4,7 +4,7 @@ include_once("../utils.php");
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
-if (isset($_GET['username']) && isset($_GET['password']) && count($_GET) == 2) {
+    if (isset($_GET['username']) && isset($_GET['password']) && count($_GET) == 2) {
     $username = $_GET['username'];
     $result = $conn->prepare( "SELECT password FROM player_login WHERE `username` = \"". mysqli_real_escape_string($conn,  $username) . "\"");
     $result->execute();

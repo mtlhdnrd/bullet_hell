@@ -30,7 +30,7 @@ function checkUsername(username, callback) {
 }
 function addNewUser() {
     let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
-    if(!username.match(allowed_username)) {
+    if(!$("#username").val().match(allowed_username)) {
         $("#username-invalid-character").removeClass("d-none");
     } else {
         $("#username-invalid-character").addClass("d-none");
