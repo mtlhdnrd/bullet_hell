@@ -1,0 +1,7 @@
+AUTHOR: crt_head
+FIGHT1: nuclear spite
+FIGHT2:	yokai bleed
+FIGHT3:	flower fields
+MENU1:	deja vu
+MENU2:	boctok
+MVP:	azure

@@ -1,0 +1,7 @@
+AUTHOR: hellstar.plus
+FIGHT1:	any time
+FIGHT2:	hkf
+FIGHT3:	
+MENU1:	heretical priestess
+MENU2:	
+MVP:	
