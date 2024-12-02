@@ -1,13 +1,12 @@
 <?php
 session_start();
-function make_query($conn, $sql)
-{
+function make_query($conn, $sql) {
     return $conn -> query($sql);
 }
-function is_logged_in(){
+function is_logged_in() {
     return isset($_SESSION['username']);
 }
 
-function logout(){
+function logout() {
     unset($_SESSION['username']);
 }

@@ -1,17 +1,15 @@
-.pw_visibility{
+.pw_visibility {
     background: url('src/pw/1.png');
     height: 70px;
     width: 70px;
-    display:inline-block;
+    display: inline-block;
 }
-.bg-custom{
+
+.bg-custom {
     background-color: #748330;
 }
-.navbar{
-    margin: 20px;
-    border-radius: 20px;
-}
-.login-button{
+
+.login-button {
     padding: 8px 20px;
     color: #fff;
     transition: 0.3s;
@@ -20,18 +18,21 @@
     font-variant: small-caps;
     letter-spacing: 5px;
 }
-.login-button:hover{
+
+.login-button:hover {
     color: black;
 }
-.menu-element{
+
+.menu-element {
     font-weight: bold;
     font-variant: small-caps;
     letter-spacing: 5px;
     transition: 0.3s;
     position: relative;
 }
-.menu-element::before{
-    content:"";
+
+.menu-element::before {
+    content: "";
     position: relative;
     bottom: 0;
     left: 50%;
@@ -42,7 +43,13 @@
     visibility: hidden;
     transition: 0.3s ease-in-out;
 }
-.menu-element:hover::before{
+
+.menu-element:hover::before {
     width: 100%;
     visibility: visible;
+}
+
+#logout {
+    color: white;
+    text-decoration: none;
 }
