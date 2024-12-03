@@ -1,6 +1,6 @@
 <?php
-include_once("../config.php");
-include_once("../utils.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['newpw'];

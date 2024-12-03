@@ -1,8 +1,8 @@
 <?php
-require_once("utils.php");
-require("links.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
 if (!is_logged_in()) {
-    header("location: login.php");
+    header("Location: ../login/login.php");
 }
 
 ?>
@@ -16,12 +16,12 @@ if (!is_logged_in()) {
 </head>
 
 <body>
-    <?php include("header.php") ?>
-    <script src="load_profile_data.js" defer></script>
-    <script src="change_password.js"></script>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php"); ?>
+    <script src="<?php $_SERVER['DOCUMENT_ROOT'];?>/bullet_hell/web/src/js/load_profile_data.js" defer></script>
+    <script src="<?php $_SERVER['DOCUMENT_ROOT'];?>/bullet_hell/web/src/js/change_password.js" defer></script>
     <div class="profile-container">
         <div class="justify-contents-center">
-            <img src="src/knight_web.png" class="anti-alias mx-auto " alt="player avatar" style="width: 100%; object-fit: cover;">
+            <img src="../src/images/knight_web.png" class="anti-alias mx-auto " alt="player avatar" style="width: 100%; object-fit: cover;">
             <div class="row bg-light p-5">
                 <h1 class="text-start text-black fw-1 text-center" id="username"><?php echo $_SESSION['username']; ?></h1>
             </div>

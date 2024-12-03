@@ -1,6 +1,6 @@
 <?php
-require_once("../utils.php");
-require("../links.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,8 @@ require("../links.php");
 </head>
 
 <body>
-    <?php require_once("../header.php"); ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
+ ?>
     <style>
         .block {
             background-color: red;
