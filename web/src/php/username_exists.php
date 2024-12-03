@@ -1,5 +1,5 @@
 <?php
-include_once("../config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 header("Content-Type: application/json");
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";

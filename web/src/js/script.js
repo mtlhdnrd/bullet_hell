@@ -14,7 +14,7 @@ function checkUsername(username, callback) {
     } else {
         $("#username-invalid-character").addClass("d-none");
     }
-    let url = `api/username_exists.php?user=${username}`;
+    let url = `../src/php/username_exists.php?user=${username}`;
     $.ajax({
         type: "GET",
         url: url,
@@ -30,20 +30,21 @@ function checkUsername(username, callback) {
 }
 function addNewUser() {
     let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
-    if(!$("#username").val().match(allowed_username)) {
+    if (!$("#username").val().match(allowed_username)) {
         $("#username-invalid-character").removeClass("d-none");
     } else {
         $("#username-invalid-character").addClass("d-none");
         let data = $("#register-form").serialize();
         //TODO hash password
+        alert("hdsfds");
         $.ajax({
             type: "POST",
-            url: 'api/register_user.php',
+            url: '../src/php/register_user.php',
             data: data,
             success: function (data, textStatus, xhr) {
                 switch (xhr.status) {
                     case 201:
-                        window.open("index.php", "_self");
+                        window.open("../main/index.php", "_self");
                 }
             },
             error: function (data, textStatus, xhr) {
@@ -54,23 +55,24 @@ function addNewUser() {
 }
 
 function LoginUser() {
-    let url = `api/login_check.php`;
-    let data = $("#login-form").serialize();
+    event.preventDefault();
+    let url = `../src/php/login_check.php`;
+    let username = $("#username").val();
+    let pw = $("#password").val();
     $.ajax({
         type: "GET",
         url: url,
-        data: data,
+        data: { username: username, password: pw },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
                 case 200:
-                    window.open("index.php", "_self");
+                    window.open("../main/index.php", "_self");
                     break;
-                
+
             }
         },
-        error: function(xhr) {
-            switch(xhr.status)
-            {
+        error: function (xhr) {
+            switch (xhr.status) {
                 case 401:
                     $("#incorrect-login").removeClass("d-none");
                     break;

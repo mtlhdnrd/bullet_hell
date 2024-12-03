@@ -19,7 +19,11 @@ function changePassword() {
                 {
                     $.ajax({
                         type: "POST",
+<<<<<<< HEAD
+                        url: "../src/php/change_password.php",
+=======
                         url: "api/change_password.php",
+>>>>>>> a16139a9b193d29a37be08f3ea7365c4d6b4c1b2
                         data: {username:username, newpw:newpw}, 
                         success: function(data, textStatus, xhr){
                             switch(xhr.status)
@@ -52,7 +56,11 @@ function isPasswordCorrect(username, password) {
     return new Promise((resolve, reject) => {
         $.ajax({
             type: "GET",
+<<<<<<< HEAD
+            url: "../src/php/login_check.php",
+=======
             url: "api/login_check.php",
+>>>>>>> a16139a9b193d29a37be08f3ea7365c4d6b4c1b2
             data: { username: username, password: password },
             success: function (data, textStatus, xhr) {
                 if (xhr.status === 200) {
