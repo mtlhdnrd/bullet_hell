@@ -1,0 +1,7 @@
+AUTHOR: dusqk
+FIGHT1:	lands of gaia
+FIGHT2:	hearts key.mem
+FIGHT3:	angel-eisheth_evoke
+MENU1:	angel memory
+MENU2:	heart breaks 2005 (saved ver)
+MVP:	under_lust

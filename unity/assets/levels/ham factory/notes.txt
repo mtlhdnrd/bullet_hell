@@ -1,0 +1,4 @@
+active animations:
+-at least one lamp flickering
+-smoke(darker multiply in bg, brighter add in fg)
+-blood dripping from the cow
