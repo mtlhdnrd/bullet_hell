@@ -13,7 +13,7 @@
             <a class="nav-link mx-lg-4 menu-element text-white fs-5" aria-current="page" href="#rolunk">the game</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link mx-lg-4 text-white menu-element fs-5" href="#">wiki</a>
+            <a class="nav-link mx-lg-4 text-white menu-element fs-5" href="codex/codex.php">codex</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-lg-4 text-white menu-element fs-5" href="#">leaderboards</a>

@@ -15,5 +15,5 @@ if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
     http_response_code(201);
     $_SESSION['username'] = $username;
 } else {
-    echo "ejnye";
+    http_response_code(400);
 }
