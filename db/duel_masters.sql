@@ -11,21 +11,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Adatbázis: `duel_masters`
---
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `maps`
---
+CREATE DATABASE IF NOT EXISTS bullet_hell;
+USE bullet_hell;
 
 CREATE TABLE `maps` (
   `id` int(11) NOT NULL,
@@ -379,7 +366,3 @@ ALTER TABLE `weapon_skins`
   ADD CONSTRAINT `weapon_skins_ibfk_1` FOREIGN KEY (`weapon_id`) REFERENCES `weapons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `weapon_skins_ibfk_2` FOREIGN KEY (`rarity`) REFERENCES `rarities` (`id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

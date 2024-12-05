@@ -1,0 +1,16 @@
+make a palette for the factory
+	-reddish orange, fully colored
+
+remake sprite colors:
+	-cow
+	-boxes
+	-bar
+	-towerblock
+	-fire(we dont need gif btw)
+
+need:
+	-cow remains(ribs, heads, guts)
+	-background
+	-ladder
+	-floors
+	-floor ribs
