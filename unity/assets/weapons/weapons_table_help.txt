@@ -9,7 +9,7 @@ HAM FACTORY
 RIOT
 3;hatespeech;		missing
 1;knife;		done
-2;pistol;		missing
+2;pistol;		done
 1;molotov;		missing (AoE fx missing)
 1;cleaver;		done
 2;sawedoff;		missing
@@ -26,7 +26,7 @@ WARZONE
 3;sniper;		missing
 2;ak;			missing
 1;mp40			missing
-1;pistol;		missing
+1;pistol;		done
 2;shotgun		done
 1;machete		missing
 
