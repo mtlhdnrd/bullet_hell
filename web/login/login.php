@@ -1,7 +1,7 @@
 <?php
 // Include config file
-require_once "config.php";
-require_once "utils.php";
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ require_once "utils.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bullet Hell</title>
-    <?php require_once('links.php'); ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
 </head>
 
 <body>
@@ -26,10 +26,10 @@ require_once "utils.php";
                         Login
                     </div>
                     <div class="card-body">
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="login-form">
+                        <form action="" method="get" id="login-form" onsubmit="LoginUser()">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" name="username" class="form-control" required>
+                                <input type="text" name="username" class="form-control" id="username" required>
                                 <?php echo (!empty($username_err)) ? "<p class='text-danger'>{$username_err}</p>" : ''; ?>
                             </div>
                             <div class="form-group">
@@ -44,13 +44,14 @@ require_once "utils.php";
                                 </div>
                                 <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                             </div>
+                            <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
+                            <button class="btn btn-primary my-3 px-4 py-2" type="submit">Log in</button>
                         </form>
-                        <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
-                        <button type="submit" class="btn btn-primary my-3 px-4 py-2" onclick="LoginUser()">Log in</button>
+
 
                     </div>
                     <div class="card-footer">
-                        Don't have an account? <a href="register.php">Make one my brother</a>
+                        Don't have an account? <a href="../register/register.php">Make one my brother</a>
                     </div>
                 </div>
             </div>

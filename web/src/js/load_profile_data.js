@@ -3,7 +3,7 @@ function GetUserData(username){
     let ret;
     $.ajax({
         type: "GET",
-        url: "api/get_user_statistics.php",
+        url: "../src/php/get_user_statistics.php",
         data: {username:username},
         success: function(data, textStatus, xhr){
             let json = $.parseJSON(data);

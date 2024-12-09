@@ -1,7 +1,7 @@
 <?php
 // Include config file
-require_once "config.php";
-require_once "utils.php";
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +11,7 @@ require_once "utils.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bullet Hell</title>
-    <link rel="stylesheet" href="style.css">
-    <?php require_once("links.php"); ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");?>
 </head>
 
 <body>
@@ -52,7 +51,7 @@ require_once "utils.php";
                         <button class="btn btn-primary my-3 px-4 py-2" style="background-color: green; border: none;" onclick="addNewUser()">Sign up</button>
                     </div>
                     <div class="card-footer">
-                        Already have an account? <a href="login.php">Log in my brother</a>
+                        Already have an account? <a href="../login/login.php">Log in my brother</a>
                     </div>
                 </div>
             </div>
