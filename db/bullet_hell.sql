@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Okt 22. 11:51
+-- Létrehozás ideje: 2024. Nov 28. 13:38
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -11,8 +11,21 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS bullet_hell;
-USE bullet_hell;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Adatbázis: `bullet_hell`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `maps`
+--
 
 CREATE TABLE `maps` (
   `id` int(11) NOT NULL,
@@ -53,11 +66,19 @@ CREATE TABLE `map_weapons` (
 
 CREATE TABLE `music_packs` (
   `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `anthem` varchar(50) NOT NULL,
   `main_menu_theme1` varchar(50) NOT NULL,
   `main_menu_theme2` varchar(50) NOT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `music_packs`
+--
+
+INSERT INTO `music_packs` (`id`, `name`, `anthem`, `main_menu_theme1`, `main_menu_theme2`, `description`) VALUES
+(1, 'Dusqk', 'relative path', 'relative path', 'relative path', 'képzelj el egy orosz embert, aki cracken van, és elektronikus zenét  csinál');
 
 -- --------------------------------------------------------
 
@@ -73,8 +94,19 @@ CREATE TABLE `players` (
   `kills` int(11) NOT NULL,
   `deaths` int(11) NOT NULL,
   `most_used_music_id` int(11) DEFAULT NULL,
-  `music_pack_id` int(11) DEFAULT NULL
+  `music_pack_id` int(11) DEFAULT NULL,
+  `active_skin_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `players`
+--
+
+INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kills`, `deaths`, `most_used_music_id`, `music_pack_id`, `active_skin_id`) VALUES
+('batyu', 21, 45, 12, 7, 3, 1, 1, 1),
+('batyuzo', 0, 0, NULL, 0, 0, NULL, NULL, 1),
+('gembarnus', 0, 0, NULL, 0, 0, NULL, NULL, 1),
+('xXNiggerSlayerXx', 0, 0, NULL, 0, 0, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -87,6 +119,16 @@ CREATE TABLE `player_login` (
   `password` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- A tábla adatainak kiíratása `player_login`
+--
+
+INSERT INTO `player_login` (`username`, `password`) VALUES
+('batyu', 'batyucsakbatyu'),
+('batyuzo', 'batyuzik'),
+('gembarnus', 'gembarnus'),
+('xXNiggerSlayerXx', 'adminadmin');
+
 -- --------------------------------------------------------
 
 --
@@ -95,11 +137,17 @@ CREATE TABLE `player_login` (
 
 CREATE TABLE `player_skins` (
   `id` int(11) NOT NULL,
-  `player_id` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `file_name` varchar(255) NOT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `player_skins`
+--
+
+INSERT INTO `player_skins` (`id`, `name`, `file_name`, `description`) VALUES
+(1, 'Knight', 'path-to-knight', 'The most common soldier');
 
 -- --------------------------------------------------------
 
@@ -201,7 +249,8 @@ ALTER TABLE `music_packs`
 ALTER TABLE `players`
   ADD PRIMARY KEY (`username`),
   ADD KEY `most_used_music_id` (`most_used_music_id`),
-  ADD KEY `music_pack_id` (`music_pack_id`);
+  ADD KEY `music_pack_id` (`music_pack_id`),
+  ADD KEY `fk_players_player_skins` (`active_skin_id`);
 
 --
 -- A tábla indexei `player_login`
@@ -213,8 +262,7 @@ ALTER TABLE `player_login`
 -- A tábla indexei `player_skins`
 --
 ALTER TABLE `player_skins`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `player_id` (`player_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- A tábla indexei `player_skin_inventory`
@@ -271,13 +319,13 @@ ALTER TABLE `map_assets`
 -- AUTO_INCREMENT a táblához `music_packs`
 --
 ALTER TABLE `music_packs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `player_skins`
 --
 ALTER TABLE `player_skins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `rarities`
@@ -324,6 +372,7 @@ ALTER TABLE `map_weapons`
 -- Megkötések a táblához `players`
 --
 ALTER TABLE `players`
+  ADD CONSTRAINT `fk_players_player_skins` FOREIGN KEY (`active_skin_id`) REFERENCES `player_skins` (`id`),
   ADD CONSTRAINT `players_ibfk_1` FOREIGN KEY (`most_used_music_id`) REFERENCES `music_packs` (`id`),
   ADD CONSTRAINT `players_ibfk_2` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`);
 
@@ -334,17 +383,10 @@ ALTER TABLE `player_login`
   ADD CONSTRAINT `player_login_ibfk_1` FOREIGN KEY (`username`) REFERENCES `players` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Megkötések a táblához `player_skins`
---
-ALTER TABLE `player_skins`
-  ADD CONSTRAINT `player_skins_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Megkötések a táblához `player_skin_inventory`
 --
 ALTER TABLE `player_skin_inventory`
-  ADD CONSTRAINT `player_skin_inventory_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `player_skin_inventory_ibfk_2` FOREIGN KEY (`skin_id`) REFERENCES `player_skins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `player_skin_inventory_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Megkötések a táblához `player_weapon_skin_inventory`
@@ -366,3 +408,7 @@ ALTER TABLE `weapon_skins`
   ADD CONSTRAINT `weapon_skins_ibfk_1` FOREIGN KEY (`weapon_id`) REFERENCES `weapons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `weapon_skins_ibfk_2` FOREIGN KEY (`rarity`) REFERENCES `rarities` (`id`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

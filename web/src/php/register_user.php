@@ -1,6 +1,6 @@
 <?php
-include_once("../config.php");
-include_once("../utils.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 // Define variables and initialize with empty values
 if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
     $username = $_POST['username'];
@@ -15,5 +15,5 @@ if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
     http_response_code(201);
     $_SESSION['username'] = $username;
 } else {
-    echo "ejnye";
+    http_response_code(400);
 }
