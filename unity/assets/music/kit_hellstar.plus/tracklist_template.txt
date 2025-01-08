@@ -1,7 +1,7 @@
 AUTHOR: hellstar.plus
-FIGHT1:	any time
+FIGHT1:	trauma posting
 FIGHT2:	hkf
-FIGHT3:	
+FIGHT3:	any time
 MENU1:	heretical priestess
-MENU2:	
+MENU2:	sever
 MVP:	
