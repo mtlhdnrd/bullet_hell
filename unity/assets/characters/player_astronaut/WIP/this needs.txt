@@ -1,6 +1,0 @@
-head.png
-foot.png
-body.png
-animation_.gif
-animaton_.aseprite
-foot_anim.aep
