@@ -42,7 +42,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
                 </div>
                 <div class="col-6 block mx-auto">
                     <h1 class="text-white position-absolute">Characters</h1>
-                    <a href="maps.php">
+                    <a href="characters.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>

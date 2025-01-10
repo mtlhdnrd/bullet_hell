@@ -12,11 +12,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="maps">
+<body data-page="characters">
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
     <script src="script.js"></script>
-    <div class="container map-container">
+    <div class="container character-container">
         <div class="row mx-auto">
             <div class="col search-bar-block input-group my-5 mx-5">
                 <input type="text" class="form-control" placeholder="Search" aria-label="Searching" aria-describedby="basic-addon2">
