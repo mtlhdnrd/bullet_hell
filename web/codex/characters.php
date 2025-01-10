@@ -19,7 +19,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
     <div class="container character-container">
         <div class="row mx-auto">
             <div class="col search-bar-block input-group my-5 mx-5">
-                <input type="text" class="form-control" placeholder="Search" aria-label="Searching" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Searching" aria-describedby="basic-addon2" id="search-bar">
                 <div class="input-group-append">
                     <span class="input-group-text" id="basic-addon2">?</span>
                 </div>

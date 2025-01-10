@@ -64,3 +64,22 @@ addEventListener("load", (event) => {
             break;
     }
 });
+
+function SearchForItem(page){
+    switch(page)
+    {
+        case "maps":
+            //TODO Continue
+            console.log("searching for maps");
+            break;
+        case "characters":
+            console.log("searching fof characters");
+            break;
+    }
+}
+
+$(document).ready(function(){
+    $('#search-bar').keyup(function(event){
+        SearchForItem(document.body.dataset.page);
+    });
+});
