@@ -5,3 +5,5 @@ FIGHT3: neotokyo
 MENU1:	electrosphere
 MENU2:	mecha grey
 MVP:	night ops
+
+"Sometimes you want to be known as the chill guy at work. Sometimes you want to impress someone with how calm you are. But sometimes... sometimes you just want to turn on sv_cheats and bring chaos upon the world. Today is your day!"
