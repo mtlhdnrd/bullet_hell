@@ -6,13 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
     switch ($_GET['data_type']) {
         case 'maps':
             //Query all the maps along with their data
-            if(!is_null($_GET['condition']))
+            $query = "";
+            if(isset($_GET['condition']))
             {
-                $stmt = $conn->prepare("SELECT name, description, file_name FROM maps" + $_GET['condition'] + ";");
+                $query = "SELECT name, description, file_name FROM maps WHERE ". $_GET['condition'] . ";";
             }else{
-                $stmt = $conn->prepare("SELECT name, description, file_name FROM maps;");
-
+                $query = "SELECT name, description, file_name FROM maps;";
             }
+            $stmt = $conn->prepare($query);
             $stmt->execute();
             if($stmt->errno)
             {
@@ -29,7 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             break;
         case 'characters':
             $username = $_SESSION['username'];
-            $stmt = $conn->prepare("SELECT player_skins.id, player_skins.name, player_skins.file_name, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? ORDER BY player_skins.id;");
+            $query = "";
+            if(isset($_GET['condition']))
+            {
+                $query = "SELECT player_skins.id, player_skins.name, player_skins.file_name, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? WHERE ".$_GET['condition']. "ORDER BY player_skins.id;";
+            }
+            else{
+                $query = "SELECT player_skins.id, player_skins.name, player_skins.file_name, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? ORDER BY player_skins.id;";
+            }
+            $stmt = $conn->prepare($query);
             $stmt->bind_param('s', $username);
             $stmt->execute();
             if($stmt->errno){
@@ -50,4 +59,4 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
 }else{
     echo "ERROR";
 }
-?>
+?>[]

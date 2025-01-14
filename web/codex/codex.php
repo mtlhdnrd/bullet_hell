@@ -1,6 +1,9 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
+if (!is_logged_in()) {
+    header("Location: ../login/login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,13 +37,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
         </div>
         <span class="codex-tiles">
             <div class="row mx-auto">
-                <div class="col-6 block mx-auto">
+                <div class="col-lg-6 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Maps</h1>
                     <a href="maps.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>
-                <div class="col-6 block mx-auto">
+                <div class="col-lg-6 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Characters</h1>
                     <a href="characters.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
@@ -48,19 +51,19 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
                 </div>
             </div>
             <div class="row mx-auto">
-                <div class="col-4 block mx-auto">
+                <div class="col-lg-4 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Music</h1>
                     <a href="maps.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>
-                <div class="col-4 block mx-auto">
+                <div class="col-lg-4 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Weapons</h1>
                     <a href="maps.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>
-                <div class="col-4 block mx-auto">
+                <div class="col-lg-4 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Skins</h1>
                     <a href="maps.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
