@@ -44,7 +44,7 @@ if (!is_logged_in()) {
                     </a>
                 </div>
                 <div class="col-lg-6 col-sm-12 block mx-auto">
-                    <h1 class="text-white position-absolute">Characters</h1>
+                    <h1 class="text-white position-absolute">Character skins</h1>
                     <a href="characters.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
@@ -53,7 +53,7 @@ if (!is_logged_in()) {
             <div class="row mx-auto">
                 <div class="col-lg-4 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Music</h1>
-                    <a href="maps.php">
+                    <a href="music.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>
@@ -64,7 +64,7 @@ if (!is_logged_in()) {
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-12 block mx-auto">
-                    <h1 class="text-white position-absolute">Skins</h1>
+                    <h1 class="text-white position-absolute">Weapon skins</h1>
                     <a href="maps.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>

@@ -48,6 +48,28 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
                 }
             }
             echo json_encode($characters);
+            break;
+        case 'music':
+            $query = "";
+            if (isset($_GET['condition'])) {
+                $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs WHERE " . $_GET['condition'] . ";";
+            } else {
+                $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs;";
+            }
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            if ($stmt->errno) {
+                echo $stmt->error;
+            }
+            $result = $stmt->get_result();
+            $music = [];
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $music[] = $row;
+                }
+            }
+            echo json_encode($music);
+            break;
         default:
             //echo "Some error happened";
             break;

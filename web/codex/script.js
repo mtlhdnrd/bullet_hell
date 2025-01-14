@@ -53,6 +53,33 @@ function LoadCharacters(){
     });
 }
 
+function LoadMusic(){
+    $.ajax({
+        type: "GET",
+        url: "load_codex_data.php",
+        data: { data_type: "music"},
+        dataType: 'json', // Expect JSON response
+        success: function (data, textStatus, xhr) {
+            var container = $('.music-container'); // Select the container
+
+            $.each(data, function (index, music) {
+                var characterBlock = `
+         <div class="row bg-light mx-auto map-block mb-4">
+  <div class="col-12 d-flex flex-column align-items-center"> 
+    <img src="${music.main_menu_theme1}" class="img-fluid" alt="${music.name}" width="500" height="200">
+    <div class="text-start w-100"> <div class="col-12"> 
+      <h2>${music.anthem}</h2>
+      <p>${music.description}</p>
+    </div>
+  </div> 
+</div>`;
+                container.append(characterBlock);
+            });
+        }
+    });
+}
+
+
 addEventListener("load", (event) => {
     switch(document.body.dataset.page)
     {
@@ -61,6 +88,9 @@ addEventListener("load", (event) => {
             break;
         case "characters":
             LoadCharacters();
+            break;
+        case "music":
+            LoadMusic();
             break;
     }
 });
