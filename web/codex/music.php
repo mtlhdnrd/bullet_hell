@@ -15,7 +15,7 @@ if (!is_logged_in()) {
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="maps">
+<body data-page="music">
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
     <script src="script.js"></script>
@@ -28,7 +28,7 @@ if (!is_logged_in()) {
                 </div>
             </div>
         </div>
-        <div class="map-container">
+        <div class="music-container">
             
         </div>
         

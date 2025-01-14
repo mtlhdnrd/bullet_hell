@@ -23,6 +23,8 @@ public class playerController : MonoBehaviour {
     public float coyoteCount;
     public float jumpBuffer;
     public float horizontal;
+    public bool forward;
+    
     
 
     private void FixedUpdate() {
@@ -81,11 +83,13 @@ public class playerController : MonoBehaviour {
 
         if (mouseWorldPos.x>transform.position.x)
         {
+            forward = true;
             body.rotation = Quaternion.Euler(0,180,0);
             head.eulerAngles = new Vector3(180f, head.eulerAngles.y, head.eulerAngles.z);
         }
-        if (mouseWorldPos.x < transform.position.x)
+        else if (mouseWorldPos.x < transform.position.x)
         {
+            forward = false;
             body.rotation = Quaternion.Euler(0, 0, 0);
             head.eulerAngles = new Vector3(0f, head.eulerAngles.y, head.eulerAngles.z);
 
