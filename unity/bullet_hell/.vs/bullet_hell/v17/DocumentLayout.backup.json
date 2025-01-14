@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\morgan\\school\\prog\\prototype\\BulletHell_prototypes\\pf6\\bullet_hell\\",
+  "WorkspaceRootPath": "C:\\xampp\\htdocs\\bullet_hell\\unity\\bullet_hell\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F26305F2-F275-947B-294F-F2DEA01E0D32}|Assembly-CSharp.csproj|c:\\users\\morgan\\school\\prog\\prototype\\bullethell_prototypes\\pf6\\bullet_hell\\assets\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F26305F2-F275-947B-294F-F2DEA01E0D32}|Assembly-CSharp.csproj|solutionrelative:assets\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\xampp\\htdocs\\bullet_hell\\unity\\bullet_hell\\assets\\bodyanim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\bodyanim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26305F2-F275-947B-294F-F2DEA01E0D32}|Assembly-CSharp.csproj|C:\\xampp\\htdocs\\bullet_hell\\unity\\bullet_hell\\assets\\crosshair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26305F2-F275-947B-294F-F2DEA01E0D32}|Assembly-CSharp.csproj|solutionrelative:assets\\crosshair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "playerController.cs",
-              "DocumentMoniker": "C:\\Users\\morgan\\school\\prog\\prototype\\BulletHell_prototypes\\pf6\\bullet_hell\\Assets\\player\\playerController.cs",
-              "RelativeDocumentMoniker": "Assets\\player\\playerController.cs",
-              "ToolTip": "C:\\Users\\morgan\\school\\prog\\prototype\\BulletHell_prototypes\\pf6\\bullet_hell\\Assets\\player\\playerController.cs",
-              "RelativeToolTip": "Assets\\player\\playerController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAA5wBUAAAAcAAAAAAAAAA==",
+              "Title": "bodyAnim.cs",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\bullet_hell\\unity\\bullet_hell\\Assets\\bodyAnim.cs",
+              "RelativeDocumentMoniker": "Assets\\bodyAnim.cs",
+              "ToolTip": "C:\\xampp\\htdocs\\bullet_hell\\unity\\bullet_hell\\Assets\\bodyAnim.cs",
+              "RelativeToolTip": "Assets\\bodyAnim.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA+wCMAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T11:07:12.777Z",
+              "WhenOpened": "2025-01-14T08:40:30.646Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "crosshair.cs",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\bullet_hell\\unity\\bullet_hell\\Assets\\crosshair.cs",
+              "RelativeDocumentMoniker": "Assets\\crosshair.cs",
+              "ToolTip": "C:\\xampp\\htdocs\\bullet_hell\\unity\\bullet_hell\\Assets\\crosshair.cs",
+              "RelativeToolTip": "Assets\\crosshair.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T07:59:52.133Z"
             }
           ]
         }
