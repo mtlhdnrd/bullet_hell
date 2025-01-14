@@ -36,7 +36,6 @@ function addNewUser() {
         $("#username-invalid-character").addClass("d-none");
         let data = $("#register-form").serialize();
         //TODO hash password
-        alert("hdsfds");
         $.ajax({
             type: "POST",
             url: '../src/php/register_user.php',
