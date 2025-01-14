@@ -59,7 +59,7 @@ if (!is_logged_in()) {
                 </div>
                 <div class="col-lg-4 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Weapons</h1>
-                    <a href="maps.php">
+                    <a href="weapons.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>

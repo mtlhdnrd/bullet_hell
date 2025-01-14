@@ -51,24 +51,28 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             break;
         case 'music':
             $query = "";
-            if (isset($_GET['condition'])) {
-                $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs WHERE " . $_GET['condition'] . ";";
-            } else {
-                $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs;";
-            }
-            $stmt = $conn->prepare($query);
-            $stmt->execute();
-            if ($stmt->errno) {
-                echo $stmt->error;
-            }
-            $result = $stmt->get_result();
-            $music = [];
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $music[] = $row;
+                if(isset($_GET['condition'])){
+                    $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2, CASE WHEN player_music_inventory.player_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM music_packs LEFT JOIN player_music_inventory ON music_packs.id = player_music_inventory.music_pack_id AND player_music_inventory.player_id = ? WHERE ".$_GET['condition']." ORDER BY music_packs.name;";
+                }else{
+                    $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2, CASE WHEN player_music_inventory.player_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM music_packs LEFT JOIN player_music_inventory ON music_packs.id = player_music_inventory.music_pack_id AND player_music_inventory.player_id = ? ORDER BY music_packs.name;";
                 }
-            }
-            echo json_encode($music);
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param('s', $_SESSION['username']);
+                $stmt->execute();
+                if($stmt->errno)
+                {
+                    echo $stmt->error;
+                }
+                $result = $stmt->get_result();
+                $music =  [];
+                if($result->num_rows >0){
+                    while($row = $result->fetch_assoc()){
+                        $music[] = $row;
+                    }
+                }
+                echo json_encode($music);
+            break;
+            case 'weapons':
             break;
         default:
             //echo "Some error happened";

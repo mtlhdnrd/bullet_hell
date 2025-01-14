@@ -3,7 +3,7 @@ function LoadMaps() {
     $.ajax({
         type: "GET",
         url: "load_codex_data.php",
-        data: { data_type: "maps"},
+        data: { data_type: "maps" },
         dataType: 'json', // Expect JSON response
         success: function (data, textStatus, xhr) {
             var container = $('.map-container'); // Select the container
@@ -25,12 +25,12 @@ function LoadMaps() {
     });
 }
 
-function LoadCharacters(){
-    
+function LoadCharacters() {
+
     $.ajax({
         type: "GET",
         url: "load_codex_data.php",
-        data: { data_type: "characters"},
+        data: { data_type: "characters" },
         dataType: 'json', // Expect JSON response
         success: function (data, textStatus, xhr) {
             var container = $('.character-container'); // Select the container
@@ -53,11 +53,11 @@ function LoadCharacters(){
     });
 }
 
-function LoadMusic(){
+function LoadMusic() {
     $.ajax({
         type: "GET",
         url: "load_codex_data.php",
-        data: { data_type: "music"},
+        data: { data_type: "music" },
         dataType: 'json', // Expect JSON response
         success: function (data, textStatus, xhr) {
             var container = $('.music-container'); // Select the container
@@ -81,8 +81,7 @@ function LoadMusic(){
 
 
 addEventListener("load", (event) => {
-    switch(document.body.dataset.page)
-    {
+    switch (document.body.dataset.page) {
         case "maps":
             LoadMaps();
             break;
@@ -95,14 +94,13 @@ addEventListener("load", (event) => {
     }
 });
 
-function SearchForItem(page, value){
-    switch(page)
-    {
+function SearchForItem(page, value) {
+    switch (page) {
         case "maps":
             $.ajax({
                 type: "GET",
                 url: "load_codex_data.php",
-                data: {data_type : "maps", condition : "name LIKE '"+value+"%'"},
+                data: { data_type: "maps", condition: "name LIKE '" + value + "%'" },
                 dataType: 'json',
                 success: function (data, textStatus, xhr) {
                     var container = $('.map-container'); // Select the container
@@ -130,12 +128,11 @@ function SearchForItem(page, value){
             $.ajax({
                 type: "GET",
                 url: "load_codex_data.php",
-                data: {data_type : "characters", condition : "name LIKE '"+value+"%'"},
+                data: { data_type: "characters", condition: "name LIKE '" + value + "%'" },
                 dataType: 'json',
                 success: function (data, textStatus, xhr) {
                     var container = $('.character-container'); // Select the container
                     container.html("");
-                    container.append(``)
                     $.each(data, function (index, character) {
                         var characterBlock = `
                  <div class="row bg-light mx-auto map-block mb-4">
@@ -153,12 +150,36 @@ function SearchForItem(page, value){
                 }
             }
             );
-            break;
+            break
+        case "music":
+            $.ajax({
+                type: "GET",
+                url: "load_codex_data.php",
+                data: { data_type: "music", condition: "name LIKE '" + value + "%'" },
+                dataType: 'json',
+                success: function (data, textStatus, xhr) {
+                    var container = $(".music-container");
+                    container.html("");
+                    $.each(data, function (index, music) {
+                        var characterBlock = `
+         <div class="row bg-light mx-auto map-block mb-4">
+  <div class="col-12 d-flex flex-column align-items-center"> 
+    <img src="${music.main_menu_theme1}" class="img-fluid" alt="${music.name}" width="500" height="200">
+    <div class="text-start w-100"> <div class="col-12"> 
+      <h2>${music.anthem}</h2>
+      <p>${music.description}</p>
+    </div>
+  </div> 
+</div>`;
+                    container.append(characterBlock);
+                    });
+                }
+            });
     }
 }
 
-$(document).ready(function(){
-    $('#search-bar').keyup(function(event){
+$(document).ready(function () {
+    $('#search-bar').keyup(function (event) {
         SearchForItem(document.body.dataset.page, $("#search-bar").val());
     });
 });
