@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\morgan\\school\\prog\\prototype\\BulletHell_prototypes\\pf6\\bullet_hell\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F26305F2-F275-947B-294F-F2DEA01E0D32}|Assembly-CSharp.csproj|c:\\users\\morgan\\school\\prog\\prototype\\bullethell_prototypes\\pf6\\bullet_hell\\assets\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26305F2-F275-947B-294F-F2DEA01E0D32}|Assembly-CSharp.csproj|solutionrelative:assets\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "playerController.cs",
+              "DocumentMoniker": "C:\\Users\\morgan\\school\\prog\\prototype\\BulletHell_prototypes\\pf6\\bullet_hell\\Assets\\player\\playerController.cs",
+              "RelativeDocumentMoniker": "Assets\\player\\playerController.cs",
+              "ToolTip": "C:\\Users\\morgan\\school\\prog\\prototype\\BulletHell_prototypes\\pf6\\bullet_hell\\Assets\\player\\playerController.cs",
+              "RelativeToolTip": "Assets\\player\\playerController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAA5wBUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T11:07:12.777Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

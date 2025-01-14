@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ground
   layers:
   - Default
   - TransparentFX
@@ -38,6 +39,36 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: COLLISION
+    uniqueID: 2375484563
+    locked: 0
+  - name: C3
+    uniqueID: 2550670963
+    locked: 0
+  - name: C2
+    uniqueID: 2568587485
+    locked: 0
+  - name: C1
+    uniqueID: 2189081987
+    locked: 0
+  - name: B3
+    uniqueID: 1640699119
+    locked: 0
+  - name: B2
+    uniqueID: 1195957307
+    locked: 0
+  - name: B1
+    uniqueID: 1415460917
+    locked: 0
+  - name: A3
+    uniqueID: 2917502515
+    locked: 0
+  - name: A2
+    uniqueID: 2277825453
+    locked: 0
+  - name: A1
+    uniqueID: 2888737647
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

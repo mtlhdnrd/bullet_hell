@@ -6,7 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
     switch ($_GET['data_type']) {
         case 'maps':
             //Query all the maps along with their data
-            $stmt = $conn->prepare("SELECT name, description, file_name FROM maps;");
+            if(!is_null($_GET['condition']))
+            {
+                $stmt = $conn->prepare("SELECT name, description, file_name FROM maps" + $_GET['condition'] + ";");
+            }else{
+                $stmt = $conn->prepare("SELECT name, description, file_name FROM maps;");
+
+            }
             $stmt->execute();
             if($stmt->errno)
             {
