@@ -73,6 +73,26 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
                 echo json_encode($music);
             break;
             case 'weapons':
+                $query = "";
+                if(isset($_GET['condition'])){
+                    $query = "SELECT name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, description FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id WHERE ".$_GET['condition'].";";
+                }else{
+                    $query = "SELECT name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, mag, description FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id;";
+                }
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+                if($stmt->errno)
+                {
+                    echo $stmt->error;
+                }
+                $result = $stmt->get_result();
+                $weapons = [];
+                if($result->num_rows >0){
+                    while($row = $result->fetch_assoc()){
+                        $weapons[] = $row;
+                    }
+                }
+                echo json_encode($weapons);
             break;
         default:
             //echo "Some error happened";
