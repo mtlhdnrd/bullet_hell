@@ -16,6 +16,7 @@ if (!is_logged_in()) {
 </head>
 
 <body data-page="weapons">
+
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
     <script src="script.js"></script>
@@ -31,8 +32,6 @@ if (!is_logged_in()) {
         <div class="weapon-container">
             
         </div>
-        
-    </div>
 </body>
 
 </html>
