@@ -123,8 +123,6 @@ function LoadWeapons() {
     });
 }
 
-
-
 addEventListener("load", (event) => {
     switch (document.body.dataset.page) {
         case "maps":
@@ -260,7 +258,6 @@ function SearchForItem(page, value) {
                     });
                 }
             });
-    
     }
 }
 
