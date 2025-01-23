@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Dec 02. 14:23
--- Kiszolgáló verziója: 10.4.28-MariaDB
--- PHP verzió: 8.2.4
+-- Létrehozás ideje: 2025. Jan 14. 12:08
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,15 +29,13 @@ USE `bullet_hell`;
 -- Tábla szerkezet ehhez a táblához `maps`
 --
 
-CREATE TABLE IF NOT EXISTS `maps` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `maps` (
+  `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `file_name` varchar(50) NOT NULL,
   `description` text DEFAULT NULL,
-  `music_pack_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `music_pack_id` (`music_pack_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `music_pack_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `maps`
@@ -55,12 +53,10 @@ INSERT INTO `maps` (`id`, `name`, `file_name`, `description`, `music_pack_id`) V
 -- Tábla szerkezet ehhez a táblához `map_assets`
 --
 
-CREATE TABLE IF NOT EXISTS `map_assets` (
-  `asset_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `map_assets` (
+  `asset_id` int(11) NOT NULL,
   `map_id` int(11) NOT NULL,
-  `file_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`asset_id`),
-  KEY `map_id` (`map_id`)
+  `file_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -69,11 +65,9 @@ CREATE TABLE IF NOT EXISTS `map_assets` (
 -- Tábla szerkezet ehhez a táblához `map_weapons`
 --
 
-CREATE TABLE IF NOT EXISTS `map_weapons` (
+CREATE TABLE `map_weapons` (
   `map_id` int(11) NOT NULL,
-  `weapon_id` int(11) NOT NULL,
-  PRIMARY KEY (`map_id`,`weapon_id`),
-  KEY `weapon_id` (`weapon_id`)
+  `weapon_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -100,23 +94,22 @@ INSERT INTO `map_weapons` (`map_id`, `weapon_id`) VALUES
 -- Tábla szerkezet ehhez a táblához `music_packs`
 --
 
-CREATE TABLE IF NOT EXISTS `music_packs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `music_packs` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `anthem` varchar(50) NOT NULL,
   `main_menu_theme1` varchar(50) NOT NULL,
   `main_menu_theme2` varchar(50) NOT NULL,
-  `description` text DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `music_packs`
 --
 
 INSERT INTO `music_packs` (`id`, `name`, `anthem`, `main_menu_theme1`, `main_menu_theme2`, `description`) VALUES
-(1, 'Dusqk', 'relative path', 'relative path', 'relative path', 'Floaty, angelic voices and electric beats assist you in your fight with your opponent.\r\nby Dusqk'),
-(2, 'CRT_HEAD', 'relative path', 'relative path', 'relative path', 'Imagine a russian bloke on crack. This figure plays his favorite music while you disfigure your enemy.\r\nby crt_head');
+(1, 'Dusqk', 'relative path', 'relative path', 'relative path', 'Floaty, angelic voices and electric beats assist you in your fight with your opponent.\nby Dusqk'),
+(2, 'CRT_HEAD', 'relative path', 'relative path', 'relative path', 'Imagine a russian bloke on crack. This figure plays his favorite music while you disfigure your enemy.\nby crt_head');
 
 -- --------------------------------------------------------
 
@@ -124,7 +117,7 @@ INSERT INTO `music_packs` (`id`, `name`, `anthem`, `main_menu_theme1`, `main_men
 -- Tábla szerkezet ehhez a táblához `players`
 --
 
-CREATE TABLE IF NOT EXISTS `players` (
+CREATE TABLE `players` (
   `username` varchar(255) NOT NULL,
   `points` int(11) NOT NULL,
   `winrate` double NOT NULL,
@@ -133,11 +126,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `deaths` int(11) NOT NULL,
   `most_used_music_id` int(11) DEFAULT NULL,
   `music_pack_id` int(11) DEFAULT NULL,
-  `active_skin_id` int(11) NOT NULL,
-  PRIMARY KEY (`username`),
-  KEY `most_used_music_id` (`most_used_music_id`),
-  KEY `music_pack_id` (`music_pack_id`),
-  KEY `fk_players_player_skins` (`active_skin_id`)
+  `active_skin_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -147,8 +136,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kills`, `deaths`, `most_used_music_id`, `music_pack_id`, `active_skin_id`) VALUES
 ('batyu', 21, 45, 12, 7, 3, 1, 1, 1),
 ('batyuzo', 0, 0, NULL, 0, 0, NULL, NULL, 1),
-('gembarnus', 0, 0, NULL, 0, 0, NULL, NULL, 1),
-('xXNiggerSlayerXx', 0, 0, NULL, 0, 0, NULL, NULL, 1);
+('gembarnus', 0, 0, NULL, 0, 0, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -156,10 +144,9 @@ INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kil
 -- Tábla szerkezet ehhez a táblához `player_login`
 --
 
-CREATE TABLE IF NOT EXISTS `player_login` (
+CREATE TABLE `player_login` (
   `username` varchar(255) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  PRIMARY KEY (`username`)
+  `password` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -169,8 +156,7 @@ CREATE TABLE IF NOT EXISTS `player_login` (
 INSERT INTO `player_login` (`username`, `password`) VALUES
 ('batyu', 'batyucsakbatyu'),
 ('batyuzo', 'batyuzik'),
-('gembarnus', 'gembarnus'),
-('xXNiggerSlayerXx', 'adminadmin');
+('gembarnus', 'gembarnus');
 
 -- --------------------------------------------------------
 
@@ -178,20 +164,22 @@ INSERT INTO `player_login` (`username`, `password`) VALUES
 -- Tábla szerkezet ehhez a táblához `player_skins`
 --
 
-CREATE TABLE IF NOT EXISTS `player_skins` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `player_skins` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `file_name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `player_skins`
 --
 
 INSERT INTO `player_skins` (`id`, `name`, `file_name`, `description`) VALUES
-(1, 'Knight', 'path-to-knight', 'The most common soldier');
+(1, 'Knight', 'knight path', 'The most common soldier'),
+(2, 'Rogue', 'rogue path', 'Beheaded his own master. Imagine what he can do to you...'),
+(3, 'Samurai', 'samurai path', 'Bound by loyalty, but not by law. Beware!'),
+(4, 'Entity', 'entity path', 'Zero identity, defined only by its boundaries.');
 
 -- --------------------------------------------------------
 
@@ -199,12 +187,20 @@ INSERT INTO `player_skins` (`id`, `name`, `file_name`, `description`) VALUES
 -- Tábla szerkezet ehhez a táblához `player_skin_inventory`
 --
 
-CREATE TABLE IF NOT EXISTS `player_skin_inventory` (
+CREATE TABLE `player_skin_inventory` (
   `player_id` varchar(255) NOT NULL,
-  `skin_id` int(11) NOT NULL,
-  PRIMARY KEY (`player_id`,`skin_id`),
-  KEY `skin_id` (`skin_id`)
+  `skin_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `player_skin_inventory`
+--
+
+INSERT INTO `player_skin_inventory` (`player_id`, `skin_id`) VALUES
+('gembarnus', 1),
+('gembarnus', 2),
+('gembarnus', 3),
+('gembarnus', 4);
 
 -- --------------------------------------------------------
 
@@ -212,11 +208,9 @@ CREATE TABLE IF NOT EXISTS `player_skin_inventory` (
 -- Tábla szerkezet ehhez a táblához `player_weapon_skin_inventory`
 --
 
-CREATE TABLE IF NOT EXISTS `player_weapon_skin_inventory` (
+CREATE TABLE `player_weapon_skin_inventory` (
   `player_id` varchar(255) NOT NULL,
-  `weapon_skin_id` int(11) NOT NULL,
-  PRIMARY KEY (`player_id`,`weapon_skin_id`),
-  KEY `weapon_skin_id` (`weapon_skin_id`)
+  `weapon_skin_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -225,11 +219,10 @@ CREATE TABLE IF NOT EXISTS `player_weapon_skin_inventory` (
 -- Tábla szerkezet ehhez a táblához `rarities`
 --
 
-CREATE TABLE IF NOT EXISTS `rarities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rarity` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `rarities` (
+  `id` int(11) NOT NULL,
+  `rarity` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `rarities`
@@ -246,8 +239,8 @@ INSERT INTO `rarities` (`id`, `rarity`) VALUES
 -- Tábla szerkezet ehhez a táblához `weapons`
 --
 
-CREATE TABLE IF NOT EXISTS `weapons` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `weapons` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `file_name` varchar(255) NOT NULL,
   `damage` int(11) NOT NULL,
@@ -257,31 +250,30 @@ CREATE TABLE IF NOT EXISTS `weapons` (
   `projectile_speed` float DEFAULT NULL,
   `mag` int(11) DEFAULT NULL,
   `description` text DEFAULT 'A deadly weapon',
-  PRIMARY KEY (`id`),
-  KEY `rarity_id` (`rarity_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `devinfo` text DEFAULT 'FIRE:'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `weapons`
 --
 
-INSERT INTO `weapons` (`id`, `name`, `file_name`, `damage`, `fire_rate`, `semi_auto`, `rarity_id`, `projectile_speed`, `mag`, `description`) VALUES
-(11, 'Scythe', '', 100, 1, 1, 3, NULL, NULL, 'A deadly weapon'),
-(12, 'Nailgun', '', 20, 3, 2, 2, 0.8, 13, 'A deadly weapon'),
-(13, 'Cleaver', '', 70, 0.8, 1, 1, NULL, NULL, 'A deadly weapon'),
-(14, 'Chainsaw', '', 3, 20, 2, 2, NULL, NULL, 'A deadly weapon'),
-(15, 'Taser', '', 50, 1, 1, 1, NULL, NULL, 'A deadly weapon'),
-(16, 'Knife', '', 50, 1.5, 3, 1, NULL, NULL, 'A deadly weapon'),
-(21, 'The Power of Words', '', 10, 30, 2, 3, 343, 60, 'A deadly weapon'),
-(22, 'Pistol', '', 35, 3, 1, 1, 1, 12, 'A deadly weapon'),
-(23, 'Shotgun', '', 15, 0.75, 1, 2, 0.85, 7, 'A deadly weapon'),
-(24, 'Pressure!', '', 7, 4, 1, 2, 0.85, 2, 'A deadly weapon'),
-(31, 'Wrath of Nobunaga', '', 400, 1, 1, 3, 0.8, 1, 'A deadly weapon'),
-(32, 'Bow', '', 70, 0.3, 1, 2, 0.75, 1, 'A deadly weapon'),
-(33, 'Kunai', '', 40, 1, 1, 1, 0.75, 0, 'A deadly weapon'),
-(34, 'Dagger', '', 50, 1.5, 3, 3, 0.5, 0, 'A deadly weapon'),
-(35, 'Katana', '', 75, 1, 3, 2, 0, 0, 'A deadly weapon'),
-(36, 'Spear', '', 50, 0.6, 3, 1, 0, 0, 'A deadly weapon');
+INSERT INTO `weapons` (`id`, `name`, `file_name`, `damage`, `fire_rate`, `semi_auto`, `rarity_id`, `projectile_speed`, `mag`, `description`, `devinfo`) VALUES
+(11, 'Scythe', '', 100, 1, 1, 3, NULL, NULL, 'A lethal and cool-looking weapon wielded by Death itself', 'FIRE: melee attack\nALTFIRE: take away enemy weapon\nUNEQUIP: default'),
+(12, 'Nailgun', '', 20, 3, 2, 2, 0.8, 13, 'Safety instructions would suggest you NOT to pin coworkers to a wall...', 'FIRE: shoot (gravity)\nALTFIRE: -\nUNEQUIP: default'),
+(13, 'Cleaver', '', 70, 0.8, 1, 1, 0.4, NULL, 'Chop things up with this very nuanced instrument of destruction. Don\'t cut your finger.', 'FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),
+(14, 'Chainsaw', '', 3, 20, 2, 2, NULL, 200, 'Ever heard of Mick Gordon? The Doom Slayer? Hell, maybe?', 'FIRE: rev, damage on\nALTFIRE: -\nUNEQUIP: default'),
+(15, 'Taser', '', 50, 1, 1, 1, NULL, NULL, 'Some crackhead clunker cranked the crap out of this cruel (but previously non-lethal) critter.', 'FIRE: check triggerbox in front of muzzle\nALTFIRE: -\nUNEQUIP: default'),
+(16, 'Knife', '', 50, 1.5, 3, 1, 0.4, NULL, 'If the glove don\'t fit, stop wearing them and continue stabbing', 'FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default'),
+(21, 'The Power of Words', '', 10, 30, 2, 3, 343, 90, 'SPREAD AWARENESS IN A CONE', 'FIRE: check triggerbox in front of muzzle\nALFTIRE: -\nUNEQUIP: default'),
+(22, 'Pistol', '', 35, 3, 1, 1, 1, 12, '9 millimeters is a LOT.', 'FIRE: shoot particle\nALTFIRE: -\nUNEQUIP: default'),
+(23, 'Shotgun', '', 15, 0.75, 1, 2, 0.85, 7, 'If you get the general direction right, you\'ll have no problems with this one', 'FIRE: shoot particles(7)\nALTFIRE: -\nUNEQUIP: default'),
+(24, 'Pressure!', '', 7, 4, 1, 2, 0.85, 2, 'You already massacred a perfectly good metal tube, so everyone knows you have the resolve', 'FIRE: shoot particles(15)\nALTFIRE: -\nUNEQUIP: default'),
+(31, 'Wrath of Nobunaga', '', 400, 1, 1, 3, 0.8, 1, 'The legendary daimyo left you a present. He will smile upon you if you put it to good use!', 'FIRE: shoot particle (3 ricochet, every bounce halves damage)\nALTFIRE: -\nUNEQUIP: default'),
+(32, 'Bow', '', 70, 0.3, 1, 2, 0.6, 1, 'Ranged weapon against pointy sticks, who would win?', 'FIRE: shoot particle (gravity)\nALTFIRE: refill\nUNEQUIP: default'),
+(33, 'Kunai', '', 40, 1, 1, 1, 0.6, NULL, 'If your arms aren\'t long enough... damn that\'s a straight line...', 'FIRE: melee attack\nALTFIRE: throw\nUNEQUIP: default'),
+(34, 'Dagger', '', 50, 1.5, 3, 1, NULL, NULL, 'If all else fails...', 'FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),
+(35, 'Katana', '', 75, 1, 3, 2, NULL, NULL, 'Craftsmanship and lethality meet in your hands.', 'FIRE: melee attack\nALTFIRE: stab\nUNEQUIP: default'),
+(36, 'Spear', '', 50, 0.6, 3, 1, 0.4, NULL, 'Poke fun at the idiots trying to reach you with a knife', 'FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default');
 
 -- --------------------------------------------------------
 
@@ -289,16 +281,146 @@ INSERT INTO `weapons` (`id`, `name`, `file_name`, `damage`, `fire_rate`, `semi_a
 -- Tábla szerkezet ehhez a táblához `weapon_skins`
 --
 
-CREATE TABLE IF NOT EXISTS `weapon_skins` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `weapon_skins` (
+  `id` int(11) NOT NULL,
   `weapon_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `file_name` varchar(255) NOT NULL,
-  `rarity` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `weapon_id` (`weapon_id`),
-  KEY `rarity` (`rarity`)
+  `rarity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexek a kiírt táblákhoz
+--
+
+--
+-- A tábla indexei `maps`
+--
+ALTER TABLE `maps`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `music_pack_id` (`music_pack_id`);
+
+--
+-- A tábla indexei `map_assets`
+--
+ALTER TABLE `map_assets`
+  ADD PRIMARY KEY (`asset_id`),
+  ADD KEY `map_id` (`map_id`);
+
+--
+-- A tábla indexei `map_weapons`
+--
+ALTER TABLE `map_weapons`
+  ADD PRIMARY KEY (`map_id`,`weapon_id`),
+  ADD KEY `weapon_id` (`weapon_id`);
+
+--
+-- A tábla indexei `music_packs`
+--
+ALTER TABLE `music_packs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `players`
+--
+ALTER TABLE `players`
+  ADD PRIMARY KEY (`username`),
+  ADD KEY `most_used_music_id` (`most_used_music_id`),
+  ADD KEY `music_pack_id` (`music_pack_id`),
+  ADD KEY `fk_players_player_skins` (`active_skin_id`);
+
+--
+-- A tábla indexei `player_login`
+--
+ALTER TABLE `player_login`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- A tábla indexei `player_skins`
+--
+ALTER TABLE `player_skins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `player_skin_inventory`
+--
+ALTER TABLE `player_skin_inventory`
+  ADD PRIMARY KEY (`player_id`,`skin_id`),
+  ADD KEY `skin_id` (`skin_id`);
+
+--
+-- A tábla indexei `player_weapon_skin_inventory`
+--
+ALTER TABLE `player_weapon_skin_inventory`
+  ADD PRIMARY KEY (`player_id`,`weapon_skin_id`),
+  ADD KEY `weapon_skin_id` (`weapon_skin_id`);
+
+--
+-- A tábla indexei `rarities`
+--
+ALTER TABLE `rarities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `weapons`
+--
+ALTER TABLE `weapons`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rarity_id` (`rarity_id`);
+
+--
+-- A tábla indexei `weapon_skins`
+--
+ALTER TABLE `weapon_skins`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `weapon_id` (`weapon_id`),
+  ADD KEY `rarity` (`rarity`);
+
+--
+-- A kiírt táblák AUTO_INCREMENT értéke
+--
+
+--
+-- AUTO_INCREMENT a táblához `maps`
+--
+ALTER TABLE `maps`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+
+--
+-- AUTO_INCREMENT a táblához `map_assets`
+--
+ALTER TABLE `map_assets`
+  MODIFY `asset_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT a táblához `music_packs`
+--
+ALTER TABLE `music_packs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT a táblához `player_skins`
+--
+ALTER TABLE `player_skins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT a táblához `rarities`
+--
+ALTER TABLE `rarities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT a táblához `weapons`
+--
+ALTER TABLE `weapons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT a táblához `weapon_skins`
+--
+ALTER TABLE `weapon_skins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Megkötések a kiírt táblákhoz

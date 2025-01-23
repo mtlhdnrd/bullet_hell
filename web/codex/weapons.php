@@ -32,32 +32,9 @@ if (!is_logged_in()) {
         <div class="weapon-container">
             
         </div>-->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 hero-element bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-12">
-                            <ul>
-                                <li>stats</li>
-                                <li>stats</li>
-                                <li>stats</li>
-                                <li>stats</li>
-                                <li>stats</li>
-                                <li>stats</li>
-
-                            </ul>
-                        </div>
-                        <div class="col-lg-4 col-sm-12">
-                            <img src="../src/images/2.png" class="d-block mx-auto img-fluid" alt="">
-                        </div>
-                        <div class="col-lg-4 col-sm-12">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni labore eligendi, recusandae qui voluptate modi, amet consequatur aut excepturi impedit obcaecati inventore aspernatur? Ratione sit magnam, molestias asperiores assumenda quis amet sequi officiis dicta vero ipsum laborum aliquam quaerat libero ex ea fuga veritatis iste? Rerum aliquid vel commodi necessitatibus?</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <script src="weapons.js"></script>
+    <div class="hero-section">
+        
     </div>
     <div class="container">
         <div class="row">

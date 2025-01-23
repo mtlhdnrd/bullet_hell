@@ -75,9 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             case 'weapons':
                 $query = "";
                 if(isset($_GET['condition'])){
-                    $query = "SELECT name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, description FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id WHERE ".$_GET['condition'].";";
+                    $query = "SELECT weapons.id, name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, description, devinfo FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id WHERE ".$_GET['condition'].";";
                 }else{
-                    $query = "SELECT name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, mag, description FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id;";
+                    $query = "SELECT weapons.id, name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, mag, description, devinfo FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id;";
                 }
                 $stmt = $conn->prepare($query);
                 $stmt->execute();
