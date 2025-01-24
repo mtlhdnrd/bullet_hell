@@ -12,3 +12,21 @@ body{
 .carousel-control-prev , .carousel-control-next{
     filter: invert(100%);
 }
+.weapon-tile img{
+    transition: 1.2s;
+}
+.weapon-tile img,div{
+    transition: 0.1s ease-in-out;
+}
+.weapon-tile img{
+    opacity: 0;
+}
+.weapon-tile div{
+    opacity: 1;
+}
+.weapon-tile:hover img{
+   opacity: 1;
+}
+.weapon-tile:hover div{
+    opacity: 0;
+}

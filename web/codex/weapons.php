@@ -26,18 +26,21 @@ if (!is_logged_in()) {
 
     </div>
     <div class="other-weapons-section">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-3 col-sm-12">
+                    <div class="weapon-tile d-flex flex-column align-items-center bg-dark">
+                        <img src="../src/images/1.png" alt="alt" class="img-thumbnail w-50">
+                        <div class="text-center">Weapon [vípön]</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-12">
+                    <div class="weapon-tile d-flex flex-column align-items-center bg-dark">
+                        <img src="../src/images/1.png" alt="alt" class="img-thumbnail w-50">
+                        <div class="text-center">Weapon [vípön]</div>
+                    </div>
+                </div>
             </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
