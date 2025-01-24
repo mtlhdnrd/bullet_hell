@@ -72,7 +72,7 @@ function DisplayWeapons() {
                            </ul>
                         </div>
                         <div class="col-lg-4 col-sm-12">
-                            <img src="../src/images/2.png" class="d-block mx-auto img-fluid" alt="">
+                            <img src="${weapons[0].file_name}" class="d-block mx-auto img-fluid" alt="">
                         </div>
                         <div class="col-lg-4 col-sm-12 my-5">
                             <p>${weapons[0].description}</p>
@@ -83,5 +83,46 @@ function DisplayWeapons() {
         </div>
     </div>
     `;
+    let carouselItems = [];
+    for (let index = 1; index < weapons.length; index+=3) {
+        const weapon1 = weapons[index];
+        const weapon2 = weapons[index+1];
+        const weapon3 = weapons[index+2];
+        
+        const code = `
+            <div class="carousel-item">
+                    <div class="d-flex justify-content-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="${weapon1.file_name}" class="card-img-top" alt="${weapon1.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${weapon1.name}</h5>
+                                <p class="card-text">${weapon1.description}</p>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="${weapon2.file_name}" class="card-img-top" alt="${weapon2.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${weapon2.name}</h5>
+                                <p class="card-text">${weapon2.description}</p>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="${weapon3.file_name}" class="card-img-top" alt="${weapon3.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${weapon3.name}</h5>
+                                <p class="card-text">${weapon3.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        `;
+        carouselItems.push(code);
+    }
     $('.hero-section').append(heroSection);
+    let carousel = $('.carousel-inner');
+    carouselItems.forEach(item => {
+        carousel.append(item);
+    });
+    $('.carousel-item:first').addClass('active');
+    $('.carousel-inner').carousel();
 }

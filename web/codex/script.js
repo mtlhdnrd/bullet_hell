@@ -87,7 +87,6 @@ function LoadMusic() {
 }
 
 function LoadWeapons() {
-<<<<<<< HEAD
 $.ajax({
 type: "GET",
 url: "load_codex_data.php",
@@ -125,43 +124,6 @@ success: function (data, textStatus, xhr) {
 }
 
 
-=======
-    $.ajax({
-        type: "GET",
-        url: "load_codex_data.php",
-        data: { data_type: "weapons" },
-        dataType: 'json',
-        success: function (data, textStatus, xhr) {
-            var container = $('.weapon-container'); // Select the container
-            var togglerNumber = 0;
-            $.each(data, function (index, weapon) {
-                var characterBlock = `<div class="row bg-light mx-auto map-block mb-4">
-                <div class="col-12 d-flex flex-column align-items-center">
-                    <img src="${weapon.file_name}" class="img-fluid" alt="knight_web.png" width="500" height="200">
-                    <div class="text-start w-100">
-                        <div class="col-12">
-                            <h2>${weapon.name}</h2>
-                            <p>${weapon.description}</p>
-                            <a href="#weaponToggler${togglerNumber}" data-toggle="collapse" aria-expanded="false"><i class="fa-solid fa-chevron-down"></i></a>
-
-                            <div class="collapse" id="weaponToggler${togglerNumber}">
-                                <p>Damage: ${weapon.damage}</p>
-                                <p>Fire rate: ${weapon.fire_rate}</p>
-                                <p>Semi auto: ${weapon.semi_auto == "1"? "Yes":"No"}</p>
-                                <p>Rarity: ${weapon.rarity}</p>
-                                <p>Projectile speed: ${weapon.projectile_speed === null ? "-":weapon.projectile_speed}</p>
-                                <p>Magazine: ${weapon.mag === null ? "-":weapon.mag}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-                container.append(characterBlock);
-            });
-        }
-    });
-}
->>>>>>> 3e70b702daa2e958a0e077dfcbf6235ebf51f5dc
 
 addEventListener("load", (event) => {
     switch (document.body.dataset.page) {
@@ -298,10 +260,7 @@ function SearchForItem(page, value) {
                     });
                 }
             });
-<<<<<<< HEAD
     
-=======
->>>>>>> 3e70b702daa2e958a0e077dfcbf6235ebf51f5dc
     }
 }
 
