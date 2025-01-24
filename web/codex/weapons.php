@@ -13,17 +13,6 @@ if (!is_logged_in()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codex</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .carousel-inner .carousel-item {
-            transition: transform 0.5s ease-in-out;
-            /* Add smooth transition */
-        }
-
-        .card {
-            margin: 0 15px;
-            /* Add space between cards */
-        }
-    </style>
     <link rel="stylesheet" href="style.css">
 
 </head>

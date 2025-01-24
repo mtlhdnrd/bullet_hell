@@ -35,6 +35,7 @@ class Weapon {
 }
 
 let weapons = [];
+let weaponIndex = 0;
 
 addEventListener("load", LoadWeapons());
 
@@ -60,22 +61,22 @@ function DisplayWeapons() {
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-sm-12 my-5">
-                            <h2>${weapons[0].name}</h2>
+                            <h2>${weapons[weaponIndex].name}</h2>
                             <ul>
-                                <li>Damage: ${weapons[0].damage}</li>
-                                <li>Fire rate: ${weapons[0].fire_rate}</li>
-                                <li>Semi auto: ${weapons[0].semi_auto}</li>
-                                <li>Rarity: ${weapons[0].rarity}</li>
-                                <li>Projectile speed:${weapons[0].projectile_speed === null ? "-":weapons[0].projectile_speed}}</li>
-                                <li>Magazine: ${weapons[0].mag === null ? "-":weapons[0].mag}</li>
+                                <li>Damage: ${weapons[weaponIndex].damage}</li>
+                                <li>Fire rate: ${weapons[weaponIndex].fire_rate}</li>
+                                <li>Semi auto: ${weapons[weaponIndex].semi_auto}</li>
+                                <li>Rarity: ${weapons[weaponIndex].rarity}</li>
+                                <li>Projectile speed:${weapons[weaponIndex].projectile_speed === null ? "-":weapons[weaponIndex].projectile_speed}</li>
+                                <li>Magazine: ${weapons[weaponIndex].mag === null ? "-":weapons[weaponIndex].mag}</li>
 
                            </ul>
                         </div>
                         <div class="col-lg-4 col-sm-12">
-                            <img src="${weapons[0].file_name}" class="d-block mx-auto img-fluid" alt="">
+                            <img src="${weapons[weaponIndex].file_name}" class="d-block mx-auto img-fluid" alt="">
                         </div>
                         <div class="col-lg-4 col-sm-12 my-5">
-                            <p>${weapons[0].description}</p>
+                            <p>${weapons[weaponIndex].description}</p>
                         </div>
                     </div>
                 </div>
@@ -84,45 +85,56 @@ function DisplayWeapons() {
     </div>
     `;
     let carouselItems = [];
-    for (let index = 1; index < weapons.length; index+=3) {
+    for (let index = 0; index < weapons.length; index+=3) {
         const weapon1 = weapons[index];
         const weapon2 = weapons[index+1];
         const weapon3 = weapons[index+2];
         
-        const code = `
+        let code = `
             <div class="carousel-item">
                     <div class="d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card swap-btn" id="${index}" style="width: 18rem;">
                             <img src="${weapon1.file_name}" class="card-img-top" alt="${weapon1.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${weapon1.name}</h5>
                                 <p class="card-text">${weapon1.description}</p>
                             </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
+                        </div>`;
+        if(index + 1 < weapons.length) {
+            code += `
+                        <div class="card swap-btn" id="${index+1}" style="width: 18rem;">
                             <img src="${weapon2.file_name}" class="card-img-top" alt="${weapon2.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${weapon2.name}</h5>
                                 <p class="card-text">${weapon2.description}</p>
                             </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="${weapon3.file_name}" class="card-img-top" alt="${weapon3.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${weapon3.name}</h5>
-                                <p class="card-text">${weapon3.description}</p>
+                        </div>`;
+            if(index + 2 < weapons.length) {
+                code += `
+                            <div class="card swap-btn" id="${index+2}" style="width: 18rem;">
+                                <img src="${weapon3.file_name}" class="card-img-top" alt="${weapon3.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${weapon3.name}</h5>
+                                    <p class="card-text">${weapon3.description}</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-        `;
+                        </div>`;
+            }
+        }
+        code += "</div>";
         carouselItems.push(code);
     }
-    $('.hero-section').append(heroSection);
+    $('.hero-section').html(heroSection);
     let carousel = $('.carousel-inner');
+    carousel.html("");
     carouselItems.forEach(item => {
         carousel.append(item);
     });
     $('.carousel-item:first').addClass('active');
+    $('.swap-btn').click(function() {
+        let index = $(this).attr("id");
+        weaponIndex = index;
+        DisplayWeapons();
+    });
     $('.carousel-inner').carousel();
 }
