@@ -1,0 +1,10 @@
+-char_handCloseA: gun hold
+-char_handCloseB: knife hold
+-char_handFarA: shotgun hold
+-char_handFarB: empty hand (+30° alignment compensation)
+
+gun hold: guns pistols bows
+knife hold: melee
+
+shotgun hold: assault rifles
+empty hand: pistols, bow(on string), melee
