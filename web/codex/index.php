@@ -12,7 +12,7 @@ if (!is_logged_in()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codex</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body>
@@ -39,7 +39,7 @@ if (!is_logged_in()) {
             <div class="row mx-auto">
                 <div class="col-lg-6 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Maps</h1>
-                    <a href="maps.php">
+                    <a href="maps_grid.php">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>
@@ -59,7 +59,7 @@ if (!is_logged_in()) {
                 </div>
                 <div class="col-lg-6 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Weapons</h1>
-                    <a href="weapons.php">
+                    <a href="weapons.php?weapon=0">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>

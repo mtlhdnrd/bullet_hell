@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
 if (!is_logged_in()) {
     header("Location: ../login/login.php");
 }
-$weaponIndex = $_GET['weapon'];
+$mapId = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,21 +12,17 @@ $weaponIndex = $_GET['weapon'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codex</title>
+    <title>Maps</title>
     <link rel="stylesheet" href="src/style.css">
 </head>
 
-<body data-page="weapons">
-
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
-    ?>
-    <script src="src/weapons.js" type="module"></script>
-    <div class="hero-section">
+<body>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php") ?>
+    <script src="src/map_details.js" type="module"></script>
+    <div class="map-details">
 
     </div>
-    <div class="other-weapons-section">
-        
-    </div>
+    
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-class Weapon {
+export class Weapon {
     constructor(id, name, file_name, damage, fire_rate, semi_auto, rarity, projectile_speed, mag, description, devinfo) {
         this.id = id;
         this.name = name;
@@ -12,6 +12,7 @@ class Weapon {
         this.description = description;
         this.devinfo = devinfo;
     }
+    
     DebugInfo() {
         const separator = "-".repeat(30);
         return `
@@ -34,8 +35,40 @@ class Weapon {
     }
 }
 
+export class WeaponFactory{
+    constructor(id, name, file_name) {
+        this.id = id
+        this.name = name;
+        this.file_name = file_name;
+        this.damage = 0
+        this.fire_rate = 0
+        this.semi_auto = true;
+        this.rarity = "";
+        this.projectile_speed = 0;
+        this.mag = 0;
+        this.description = "";
+        this.devinfo = "";
+    }
+
+    SetParams(damage, fire_rate, semi_auto, rarity, projectile_speed, mag, description, devinfo){
+        this.damage = damage;
+        this.fire_rate = fire_rate;
+        this.semi_auto = semi_auto;
+        this.rarity = rarity;
+        this.projectile_speed = projectile_speed;
+        this.mag = mag;
+        this.description = description;
+        this.devinfo = devinfo;
+    }
+
+    Build(){
+        return new Weapon(id, this.name, file_name, damage, fire_rate, semi_auto, rarity, projectile_speed, mag, description, devinfo);
+    }
+}
+
 let weapons = [];
-var currentWeapon = 0;
+const urlParams = new URLSearchParams(window.location.search);
+let currentWeapon = urlParams.get('weapon');
 addEventListener("load", LoadWeapons());
 
 function LoadWeapons() {
@@ -83,59 +116,6 @@ function DisplayWeapons() {
         </div>
     </div>
     `;
-   /* let carouselItems = [];
-    for (let index = 0; index < weapons.length; index+=3) {
-        const weapon1 = weapons[index];
-        const weapon2 = weapons[index+1];
-        const weapon3 = weapons[index+2];
-        
-        let code = `
-            <div class="carousel-item">
-                    <div class="d-flex justify-content-center">
-                        <div class="card swap-btn" id="${index}" style="width: 18rem;">
-                            <img src="${weapon1.file_name}" class="card-img-top" alt="${weapon1.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${weapon1.name}</h5>
-                                <p class="card-text">${weapon1.description}</p>
-                            </div>
-                        </div>`;
-        if(index + 1 < weapons.length) {
-            code += `
-                        <div class="card swap-btn" id="${index+1}" style="width: 18rem;">
-                            <img src="${weapon2.file_name}" class="card-img-top" alt="${weapon2.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${weapon2.name}</h5>
-                                <p class="card-text">${weapon2.description}</p>
-                            </div>
-                        </div>`;
-            if(index + 2 < weapons.length) {
-                code += `
-                            <div class="card swap-btn" id="${index+2}" style="width: 18rem;">
-                                <img src="${weapon3.file_name}" class="card-img-top" alt="${weapon3.name}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${weapon3.name}</h5>
-                                    <p class="card-text">${weapon3.description}</p>
-                                </div>
-                            </div>
-                        </div>`;
-            }
-        }
-        code += "</div>";
-        carouselItems.push(code);
-    }
-    $('.hero-section').html(heroSection);
-    let carousel = $('.carousel-inner');
-    carousel.html("");
-    carouselItems.forEach(item => {
-        carousel.append(item);
-    });
-    $('.carousel-item:first').addClass('active');
-    $('.swap-btn').click(function() {
-        let index = $(this).attr("id");
-        weaponIndex = index;
-        DisplayWeapons();
-    });
-    $('.carousel-inner').carousel();*/
 
     let rowNum = parseInt(weapons.length) % 4 == 0 ? parseInt(weapons.length/4) : parseInt(weapons.length/4+1);
     let containerHtml = `<div class="container pb-5 pt-3">`;
@@ -166,7 +146,6 @@ function DisplayWeapons() {
     rowContent.forEach(row => {containerHtml+=row;});
     containerHtml+="</div>";
     $('.hero-section').html(heroSection);
-    console.log(containerHtml);
     $('.other-weapons-section').html(containerHtml);
 
     $('.swap-btn').click(function() {
