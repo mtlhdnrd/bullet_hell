@@ -35,8 +35,7 @@ class Weapon {
 }
 
 let weapons = [];
-let weaponIndex = 0;
-
+var currentWeapon = 0;
 addEventListener("load", LoadWeapons());
 
 function LoadWeapons() {
@@ -61,22 +60,22 @@ function DisplayWeapons() {
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-sm-12 my-5">
-                            <h2>${weapons[weaponIndex].name}</h2>
+                            <h2>${weapons[currentWeapon].name}</h2>
                             <ul>
-                                <li>Damage: ${weapons[weaponIndex].damage}</li>
-                                <li>Fire rate: ${weapons[weaponIndex].fire_rate}</li>
-                                <li>Semi auto: ${weapons[weaponIndex].semi_auto}</li>
-                                <li>Rarity: ${weapons[weaponIndex].rarity}</li>
-                                <li>Projectile speed:${weapons[weaponIndex].projectile_speed === null ? "-":weapons[weaponIndex].projectile_speed}</li>
-                                <li>Magazine: ${weapons[weaponIndex].mag === null ? "-":weapons[weaponIndex].mag}</li>
+                                <li>Damage: ${weapons[currentWeapon].damage}</li>
+                                <li>Fire rate: ${weapons[currentWeapon].fire_rate}</li>
+                                <li>Semi auto: ${weapons[currentWeapon].semi_auto}</li>
+                                <li>Rarity: ${weapons[currentWeapon].rarity}</li>
+                                <li>Projectile speed:${weapons[currentWeapon].projectile_speed === null ? "-":weapons[currentWeapon].projectile_speed}</li>
+                                <li>Magazine: ${weapons[currentWeapon].mag === null ? "-":weapons[currentWeapon].mag}</li>
 
                            </ul>
                         </div>
                         <div class="col-lg-4 col-sm-12">
-                            <img src="${weapons[weaponIndex].file_name}" class="d-block mx-auto img-fluid" alt="">
+                            <img src="${weapons[currentWeapon].file_name}" class="d-block mx-auto img-fluid" alt="">
                         </div>
                         <div class="col-lg-4 col-sm-12 my-5">
-                            <p>${weapons[weaponIndex].description}</p>
+                            <p>${weapons[currentWeapon].description}</p>
                         </div>
                     </div>
                 </div>
@@ -84,7 +83,7 @@ function DisplayWeapons() {
         </div>
     </div>
     `;
-    let carouselItems = [];
+   /* let carouselItems = [];
     for (let index = 0; index < weapons.length; index+=3) {
         const weapon1 = weapons[index];
         const weapon2 = weapons[index+1];
@@ -136,5 +135,43 @@ function DisplayWeapons() {
         weaponIndex = index;
         DisplayWeapons();
     });
-    $('.carousel-inner').carousel();
+    $('.carousel-inner').carousel();*/
+
+    let rowNum = parseInt(weapons.length) % 4 == 0 ? parseInt(weapons.length/4) : parseInt(weapons.length/4+1);
+    let containerHtml = `<div class="container pb-5 pt-3">`;
+    let rowContent = [];
+    let weaponIndex = 0;
+    for (let rn = 0; rn < rowNum; rn++) {
+        let rowStr = `
+            <div class="row">
+        `;
+        for(let cn = 0; cn < 4; cn++)
+        {
+            weaponIndex+=1;
+            if(weaponIndex < weapons.length)
+            {
+                rowStr += `
+                <div class="col-lg-3 col-sm-12 p-0">
+                    <div class="weapon-tile d-flex flex-column align-items-center swap-btn" id=${weaponIndex}>
+                        <img src="../src/images/knight_web.png" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50">
+                        <div class="text-center">${weapons[weaponIndex].name}</div>
+                    </div>
+                </div>`;
+            }
+        }
+        rowStr+=`</div>`;
+        rowContent.push(rowStr);
+    }
+
+    rowContent.forEach(row => {containerHtml+=row;});
+    containerHtml+="</div>";
+    $('.hero-section').html(heroSection);
+    console.log(containerHtml);
+    $('.other-weapons-section').html(containerHtml);
+
+    $('.swap-btn').click(function() {
+        let index = $(this).attr("id");
+        currentWeapon = index;
+        DisplayWeapons();
+    });
 }

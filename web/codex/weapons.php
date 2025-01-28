@@ -26,22 +26,7 @@ if (!is_logged_in()) {
 
     </div>
     <div class="other-weapons-section">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-3 col-sm-12">
-                    <div class="weapon-tile d-flex flex-column align-items-center bg-dark">
-                        <img src="../src/images/1.png" alt="alt" class="img-thumbnail w-50">
-                        <div class="text-center">Weapon [vípön]</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-12">
-                    <div class="weapon-tile d-flex flex-column align-items-center bg-dark">
-                        <img src="../src/images/1.png" alt="alt" class="img-thumbnail w-50">
-                        <div class="text-center">Weapon [vípön]</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
