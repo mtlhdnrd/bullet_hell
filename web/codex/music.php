@@ -18,7 +18,7 @@ if (!is_logged_in()) {
 <body data-page="music">
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <script src="script.js"></script>
+    <script src="src/script.js"></script>
     <div class="container">
         <div class="row mx-auto">
             <div class="col search-bar-block input-group my-5 mx-5">

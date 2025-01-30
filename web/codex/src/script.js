@@ -68,7 +68,7 @@ function LoadMusic() {
   <div class="col-12 d-flex flex-column align-items-center"> 
     <img src="${music.main_menu_theme1}" class="img-fluid" alt="${music.name}" width="500" height="200">
     <div class="text-start w-100"> <div class="col-12"> 
-      <h2>${music.anthem}</h2>
+      <h2>${music.name}</h2>
       <p>${music.description}</p>
     </div>
   </div> 
@@ -214,7 +214,7 @@ function SearchForItem(page, value) {
   <div class="col-12 d-flex flex-column align-items-center"> 
     <img src="${music.main_menu_theme1}" class="img-fluid" alt="${music.name}" width="500" height="200">
     <div class="text-start w-100"> <div class="col-12"> 
-      <h2>${music.anthem}</h2>
+      <h2>${music.name}</h2>
       <p>${music.description}</p>
     </div>
   </div> 

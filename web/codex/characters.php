@@ -4,6 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
 if (!is_logged_in()) {
     header("Location: ../login/login.php");
 }
+$characterIndex = $_GET['character'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,22 +16,15 @@ if (!is_logged_in()) {
     <link rel="stylesheet" href="src/style.css">
 </head>
 
-<body data-page="characters">
+<body data-page="weapons">
+
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <script src="src/script.js"></script>
-    <div class="container">
-        <div class="row mx-auto">
-            <div class="col search-bar-block input-group my-5 mx-5">
-                <input type="text" class="form-control" placeholder="Search" aria-label="Searching" aria-describedby="basic-addon2" id="search-bar">
-                <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">?</span>
-                </div>
-            </div>
-        </div>
-        <div class="character-container">
-            
-        </div>
+    <script src="src/character.js" type="module"></script>
+    <div class="hero-section">
+
+    </div>
+    <div class="other-characters-section">
         
     </div>
 </body>

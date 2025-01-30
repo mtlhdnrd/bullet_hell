@@ -145,7 +145,7 @@ function DisplayWeapons() {
             {
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
-                    <div class="weapon-tile d-flex flex-column align-items-center swap-btn" id=${weapons[weaponIndex].id}>
+                    <div class="codex-tile d-flex flex-column align-items-center swap-btn" id=${weapons[weaponIndex].id}>
                         <img src="../src/images/knight_web.png" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50">
                         <div class="text-center">${weapons[weaponIndex].name}</div>
                     </div>

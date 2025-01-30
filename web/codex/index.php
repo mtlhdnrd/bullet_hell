@@ -45,7 +45,7 @@ if (!is_logged_in()) {
                 </div>
                 <div class="col-lg-6 col-sm-12 block mx-auto">
                     <h1 class="text-white position-absolute">Characters</h1>
-                    <a href="characters.php">
+                    <a href="characters.php?character=1">
                         <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
                     </a>
                 </div>
