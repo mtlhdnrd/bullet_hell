@@ -17,7 +17,7 @@
             <a class="nav-link mx-lg-4 text-white menu-element fs-5" href="../codex/">codex</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-lg-4 text-white menu-element fs-5" href="#">leaderboards</a>
+            <a class="nav-link mx-lg-4 text-white menu-element fs-5" href="../leaderboard/">leaderboards</a>
           </li>
         </ul>
       </div>

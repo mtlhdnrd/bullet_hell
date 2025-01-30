@@ -140,7 +140,6 @@ function DisplayWeapons() {
         `;
         for(let cn = 0; cn < 4; cn++)
         {
-            weaponIndex+=1;
             if(weaponIndex < weapons.length)
             {
                 rowStr += `
@@ -151,6 +150,7 @@ function DisplayWeapons() {
                     </div>
                 </div>`;
             }
+            weaponIndex+=1;
         }
         rowStr+=`</div>`;
         rowContent.push(rowStr);
