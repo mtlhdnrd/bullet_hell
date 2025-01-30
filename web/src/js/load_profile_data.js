@@ -7,6 +7,7 @@ function GetUserData(username){
         data: {username:username},
         success: function(data, textStatus, xhr){
             let json = $.parseJSON(data);
+            console.log(json);
             $("#stat-points").text(json[0].points);
             $("#stat-winrate").text(json[0].winrate);
             $("#stat-gamesplayed").text(json[0].all_games_played);
