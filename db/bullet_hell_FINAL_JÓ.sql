@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Jan 14. 12:08
+-- Létrehozás ideje: 2025. Jan 30. 12:14
 -- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.0.30
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,10 +42,10 @@ CREATE TABLE `maps` (
 --
 
 INSERT INTO `maps` (`id`, `name`, `file_name`, `description`, `music_pack_id`) VALUES
-(1, 'Slaughterhouse', '', 'This is the kind of place you really shouldn\'t go into, but out of sheer curiosity, you step in. The scent of blood and what you see overloads your senses. You will never get out.', NULL),
-(2, 'Riot', '', 'Someone\'s had enough. That someone had a loud voice. This voice was used to destroy things. Now you\'ve had enough.', NULL),
-(3, 'Palace of the Setting Sun', '', 'I live by the sword, you die by my sword.', NULL),
-(100, 'Limitless', '', 'Every weapon deserves a chance to shine. Even if they are trash. But you never know.', NULL);
+(1, 'Slaughterhouse', '', 'This is the kind of place you really shouldn\'t go into, but out of sheer curiosity, you step in. The scent of blood and what you see overloads your senses. You will never get out.', 3),
+(2, 'Riot', '', 'Someone\'s had enough. That someone had a loud voice. This voice was used to destroy things. Now you\'ve had enough.', 1),
+(3, 'Palace of the Setting Sun', '', 'I live by the sword, you die by my sword.', 2),
+(100, 'Limitless', '', 'Every weapon deserves a chance to shine. Even if they are trash. But you never know.', 5);
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,10 @@ CREATE TABLE `music_packs` (
 
 INSERT INTO `music_packs` (`id`, `name`, `anthem`, `main_menu_theme1`, `main_menu_theme2`, `description`) VALUES
 (1, 'Dusqk', 'relative path', 'relative path', 'relative path', 'Floaty, angelic voices and electric beats assist you in your fight with your opponent.\nby Dusqk'),
-(2, 'CRT_HEAD', 'relative path', 'relative path', 'relative path', 'Imagine a russian bloke on crack. This figure plays his favorite music while you disfigure your enemy.\nby crt_head');
+(2, 'CRT_HEAD1', 'relative path', 'relative path', 'relative path', 'Imagine a russian bloke on crack. This figure plays his favorite music while you disfigure your enemy.\nby crt_head1'),
+(3, 'CRT_HEAD2', 'night ops', 'electrosphere', 'mecha grey', 'Imagine a russian bloke on crack. This figure plays his favorite music while you disfigure your enemy.\nby crt_head2'),
+(4, 'avest', 'avest', 'avest', 'avest', 'You are about to fight the most important battle of your life!'),
+(5, 'Mute City', 'Mute City', 'Mute City', 'Mute City', 'Being the last one standing is not so easy. Knowing your opponent as well as yourself is where the victory lies.');
 
 -- --------------------------------------------------------
 
@@ -126,7 +129,7 @@ CREATE TABLE `players` (
   `deaths` int(11) NOT NULL,
   `most_used_music_id` int(11) DEFAULT NULL,
   `music_pack_id` int(11) DEFAULT NULL,
-  `active_skin_id` int(11) NOT NULL
+  `active_skin_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -136,7 +139,8 @@ CREATE TABLE `players` (
 INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kills`, `deaths`, `most_used_music_id`, `music_pack_id`, `active_skin_id`) VALUES
 ('batyu', 21, 45, 12, 7, 3, 1, 1, 1),
 ('batyuzo', 0, 0, NULL, 0, 0, NULL, NULL, 1),
-('gembarnus', 0, 0, NULL, 0, 0, NULL, NULL, 1);
+('gembarnus', 0, 0, NULL, 0, 0, NULL, NULL, 1),
+('gizmo', 0, 0, 0, 0, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -156,7 +160,8 @@ CREATE TABLE `player_login` (
 INSERT INTO `player_login` (`username`, `password`) VALUES
 ('batyu', 'batyucsakbatyu'),
 ('batyuzo', 'batyuzik'),
-('gembarnus', 'gembarnus');
+('gembarnus', 'gembarnus'),
+('gizmo', 'gizmo');
 
 -- --------------------------------------------------------
 
@@ -205,17 +210,6 @@ INSERT INTO `player_skin_inventory` (`player_id`, `skin_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `player_weapon_skin_inventory`
---
-
-CREATE TABLE `player_weapon_skin_inventory` (
-  `player_id` varchar(255) NOT NULL,
-  `weapon_skin_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `rarities`
 --
 
@@ -258,36 +252,22 @@ CREATE TABLE `weapons` (
 --
 
 INSERT INTO `weapons` (`id`, `name`, `file_name`, `damage`, `fire_rate`, `semi_auto`, `rarity_id`, `projectile_speed`, `mag`, `description`, `devinfo`) VALUES
-(11, 'Scythe', '', 100, 1, 1, 3, NULL, NULL, 'A lethal and cool-looking weapon wielded by Death itself', 'FIRE: melee attack\nALTFIRE: take away enemy weapon\nUNEQUIP: default'),
-(12, 'Nailgun', '', 20, 3, 2, 2, 0.8, 13, 'Safety instructions would suggest you NOT to pin coworkers to a wall...', 'FIRE: shoot (gravity)\nALTFIRE: -\nUNEQUIP: default'),
-(13, 'Cleaver', '', 70, 0.8, 1, 1, 0.4, NULL, 'Chop things up with this very nuanced instrument of destruction. Don\'t cut your finger.', 'FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),
-(14, 'Chainsaw', '', 3, 20, 2, 2, NULL, 200, 'Ever heard of Mick Gordon? The Doom Slayer? Hell, maybe?', 'FIRE: rev, damage on\nALTFIRE: -\nUNEQUIP: default'),
-(15, 'Taser', '', 50, 1, 1, 1, NULL, NULL, 'Some crackhead clunker cranked the crap out of this cruel (but previously non-lethal) critter.', 'FIRE: check triggerbox in front of muzzle\nALTFIRE: -\nUNEQUIP: default'),
-(16, 'Knife', '', 50, 1.5, 3, 1, 0.4, NULL, 'If the glove don\'t fit, stop wearing them and continue stabbing', 'FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default'),
-(21, 'The Power of Words', '', 10, 30, 2, 3, 343, 90, 'SPREAD AWARENESS IN A CONE', 'FIRE: check triggerbox in front of muzzle\nALFTIRE: -\nUNEQUIP: default'),
-(22, 'Pistol', '', 35, 3, 1, 1, 1, 12, '9 millimeters is a LOT.', 'FIRE: shoot particle\nALTFIRE: -\nUNEQUIP: default'),
-(23, 'Shotgun', '', 15, 0.75, 1, 2, 0.85, 7, 'If you get the general direction right, you\'ll have no problems with this one', 'FIRE: shoot particles(7)\nALTFIRE: -\nUNEQUIP: default'),
-(24, 'Pressure!', '', 7, 4, 1, 2, 0.85, 2, 'You already massacred a perfectly good metal tube, so everyone knows you have the resolve', 'FIRE: shoot particles(15)\nALTFIRE: -\nUNEQUIP: default'),
-(31, 'Wrath of Nobunaga', '', 400, 1, 1, 3, 0.8, 1, 'The legendary daimyo left you a present. He will smile upon you if you put it to good use!', 'FIRE: shoot particle (3 ricochet, every bounce halves damage)\nALTFIRE: -\nUNEQUIP: default'),
-(32, 'Bow', '', 70, 0.3, 1, 2, 0.6, 1, 'Ranged weapon against pointy sticks, who would win?', 'FIRE: shoot particle (gravity)\nALTFIRE: refill\nUNEQUIP: default'),
-(33, 'Kunai', '', 40, 1, 1, 1, 0.6, NULL, 'If your arms aren\'t long enough... damn that\'s a straight line...', 'FIRE: melee attack\nALTFIRE: throw\nUNEQUIP: default'),
-(34, 'Dagger', '', 50, 1.5, 3, 1, NULL, NULL, 'If all else fails...', 'FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),
-(35, 'Katana', '', 75, 1, 3, 2, NULL, NULL, 'Craftsmanship and lethality meet in your hands.', 'FIRE: melee attack\nALTFIRE: stab\nUNEQUIP: default'),
-(36, 'Spear', '', 50, 0.6, 3, 1, 0.4, NULL, 'Poke fun at the idiots trying to reach you with a knife', 'FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default');
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `weapon_skins`
---
-
-CREATE TABLE `weapon_skins` (
-  `id` int(11) NOT NULL,
-  `weapon_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `file_name` varchar(255) NOT NULL,
-  `rarity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(11, 'Scythe', 'weapons/def_scythe_ink.png', 100, 1, 1, 3, NULL, NULL, 'A lethal and cool-looking weapon wielded by Death itself', 'FIRE: melee attack\nALTFIRE: take away enemy weapon\nUNEQUIP: default'),
+(12, 'Nailgun', 'weapons/def_nailgun1.png', 20, 3, 2, 2, 0.8, 13, 'Safety instructions would suggest you NOT to pin coworkers to a wall...', 'FIRE: shoot (gravity)\nALTFIRE: -\nUNEQUIP: default'),
+(13, 'Cleaver', 'weapons/def_cleaver_ink1.png', 70, 0.8, 1, 1, 0.4, NULL, 'Chop things up with this very nuanced instrument of destruction. Don\'t cut your finger.', 'FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),
+(14, 'Chainsaw', 'weapons/def_chainsaw_ink1.png', 3, 20, 2, 2, NULL, 200, 'Ever heard of Mick Gordon? The Doom Slayer? Hell, maybe?', 'FIRE: rev, damage on\nALTFIRE: -\nUNEQUIP: default'),
+(15, 'Taser', 'weapons/taser1.png', 50, 1, 1, 1, NULL, NULL, 'Some crackhead clunker cranked the crap out of this cruel (but previously non-lethal) critter.', 'FIRE: check triggerbox in front of muzzle\nALTFIRE: -\nUNEQUIP: default'),
+(16, 'Knife', 'weapons/def_knife_ink.png', 50, 1.5, 3, 1, 0.4, NULL, 'If the glove don\'t fit, stop wearing them and continue stabbing', 'FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default'),
+(21, 'The Power of Words', 'weapons/def_hatespeech.png', 10, 30, 2, 3, 343, 90, 'SPREAD AWARENESS IN A CONE', 'FIRE: check triggerbox in front of muzzle\nALFTIRE: -\nUNEQUIP: default'),
+(22, 'Pistol', 'weapons/def_pistol1.png', 35, 3, 1, 1, 1, 12, '9 millimeters is a LOT.', 'FIRE: shoot particle\nALTFIRE: -\nUNEQUIP: default'),
+(23, 'Shotgun', 'weapons/def_shotgun.png', 15, 0.75, 1, 2, 0.85, 7, 'If you get the general direction right, you\'ll have no problems with this one', 'FIRE: shoot particles(7)\nALTFIRE: -\nUNEQUIP: default'),
+(24, 'Pressure!', 'no_photo.jpg', 7, 4, 1, 2, 0.85, 2, 'You already massacred a perfectly good metal tube, so everyone knows you have the resolve', 'FIRE: shoot particles(15)\nALTFIRE: -\nUNEQUIP: default'),
+(31, 'Wrath of Nobunaga', 'no_photo.jpg', 400, 1, 1, 3, 0.8, 1, 'The legendary daimyo left you a present. He will smile upon you if you put it to good use!', 'FIRE: shoot particle (3 ricochet, every bounce halves damage)\nALTFIRE: -\nUNEQUIP: default'),
+(32, 'Bow', 'no_photo.jpg', 70, 0.3, 1, 2, 0.6, 1, 'Ranged weapon against pointy sticks, who would win?', 'FIRE: shoot particle (gravity)\nALTFIRE: refill\nUNEQUIP: default'),
+(33, 'Kunai', 'weapons/def_kunai_ink.png', 40, 1, 1, 1, 0.6, NULL, 'If your arms aren\'t long enough... damn that\'s a straight line...', 'FIRE: melee attack\nALTFIRE: throw\nUNEQUIP: default'),
+(34, 'Dagger', 'no_photo.jpg', 50, 1.5, 3, 1, NULL, NULL, 'If all else fails...', 'FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),
+(35, 'Katana', 'no_photo.jpg', 75, 1, 3, 2, NULL, NULL, 'Craftsmanship and lethality meet in your hands.', 'FIRE: melee attack\nALTFIRE: stab\nUNEQUIP: default'),
+(36, 'Spear', 'no_photo.jpg', 50, 0.6, 3, 1, 0.4, NULL, 'Poke fun at the idiots trying to reach you with a knife', 'FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -349,13 +329,6 @@ ALTER TABLE `player_skin_inventory`
   ADD KEY `skin_id` (`skin_id`);
 
 --
--- A tábla indexei `player_weapon_skin_inventory`
---
-ALTER TABLE `player_weapon_skin_inventory`
-  ADD PRIMARY KEY (`player_id`,`weapon_skin_id`),
-  ADD KEY `weapon_skin_id` (`weapon_skin_id`);
-
---
 -- A tábla indexei `rarities`
 --
 ALTER TABLE `rarities`
@@ -367,14 +340,6 @@ ALTER TABLE `rarities`
 ALTER TABLE `weapons`
   ADD PRIMARY KEY (`id`),
   ADD KEY `rarity_id` (`rarity_id`);
-
---
--- A tábla indexei `weapon_skins`
---
-ALTER TABLE `weapon_skins`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `weapon_id` (`weapon_id`),
-  ADD KEY `rarity` (`rarity`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -396,7 +361,7 @@ ALTER TABLE `map_assets`
 -- AUTO_INCREMENT a táblához `music_packs`
 --
 ALTER TABLE `music_packs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `player_skins`
@@ -415,12 +380,6 @@ ALTER TABLE `rarities`
 --
 ALTER TABLE `weapons`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
-
---
--- AUTO_INCREMENT a táblához `weapon_skins`
---
-ALTER TABLE `weapon_skins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Megkötések a kiírt táblákhoz
@@ -466,24 +425,10 @@ ALTER TABLE `player_skin_inventory`
   ADD CONSTRAINT `player_skin_inventory_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Megkötések a táblához `player_weapon_skin_inventory`
---
-ALTER TABLE `player_weapon_skin_inventory`
-  ADD CONSTRAINT `player_weapon_skin_inventory_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `player_weapon_skin_inventory_ibfk_2` FOREIGN KEY (`weapon_skin_id`) REFERENCES `weapon_skins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Megkötések a táblához `weapons`
 --
 ALTER TABLE `weapons`
   ADD CONSTRAINT `weapons_ibfk_1` FOREIGN KEY (`rarity_id`) REFERENCES `rarities` (`id`);
-
---
--- Megkötések a táblához `weapon_skins`
---
-ALTER TABLE `weapon_skins`
-  ADD CONSTRAINT `weapon_skins_ibfk_1` FOREIGN KEY (`weapon_id`) REFERENCES `weapons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `weapon_skins_ibfk_2` FOREIGN KEY (`rarity`) REFERENCES `rarities` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
