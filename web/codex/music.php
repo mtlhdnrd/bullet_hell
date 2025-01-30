@@ -11,14 +11,14 @@ if (!is_logged_in()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codex</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Music</title>
+    <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body data-page="music">
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <script src="script.js"></script>
+    <script src="src/script.js"></script>
     <div class="container">
         <div class="row mx-auto">
             <div class="col search-bar-block input-group my-5 mx-5">

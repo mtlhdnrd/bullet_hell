@@ -8,9 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             //Query all the maps along with their data
             $query = "";
             if (isset($_GET['condition'])) {
-                $query = "SELECT name, description, file_name FROM maps WHERE " . $_GET['condition'] . ";";
+                $query = "SELECT maps.name, maps.description, maps.file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id WHERE " . $_GET['condition'] . ";";
             } else {
-                $query = "SELECT name, description, file_name FROM maps;";
+                $query = "SELECT maps.name, maps.description,  maps.file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id;";
             }
             $stmt = $conn->prepare($query);
             $stmt->execute();
@@ -52,12 +52,11 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
         case 'music':
             $query = "";
                 if(isset($_GET['condition'])){
-                    $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2, CASE WHEN player_music_inventory.player_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM music_packs LEFT JOIN player_music_inventory ON music_packs.id = player_music_inventory.music_pack_id AND player_music_inventory.player_id = ? WHERE ".$_GET['condition']." ORDER BY music_packs.name;";
+                    $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs WHERE ".$_GET['condition']." ORDER BY music_packs.name;";
                 }else{
-                    $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2, CASE WHEN player_music_inventory.player_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM music_packs LEFT JOIN player_music_inventory ON music_packs.id = player_music_inventory.music_pack_id AND player_music_inventory.player_id = ? ORDER BY music_packs.name;";
+                    $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs ORDER BY music_packs.name;";
                 }
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param('s', $_SESSION['username']);
                 $stmt->execute();
                 if($stmt->errno)
                 {
@@ -75,9 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             case 'weapons':
                 $query = "";
                 if(isset($_GET['condition'])){
-                    $query = "SELECT name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, description FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id WHERE ".$_GET['condition'].";";
+                    $query = "SELECT weapons.id, name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, description, devinfo FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id WHERE ".$_GET['condition'].";";
                 }else{
-                    $query = "SELECT name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, mag, description FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id;";
+                    $query = "SELECT weapons.id, name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, mag, description, devinfo FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id;";
                 }
                 $stmt = $conn->prepare($query);
                 $stmt->execute();

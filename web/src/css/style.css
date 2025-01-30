@@ -21,6 +21,7 @@
 
 .login-button:hover {
     color: black;
+    text-decoration: inherit;
 }
 
 .menu-element {
