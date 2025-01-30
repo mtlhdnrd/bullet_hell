@@ -62,13 +62,13 @@ export class WeaponFactory{
     }
 
     Build(){
-        return new Weapon(id, this.name, file_name, damage, fire_rate, semi_auto, rarity, projectile_speed, mag, description, devinfo);
+        return new Weapon(this.id, this.name, this.file_name, this.damage, this.fire_rate, this.semi_auto, this.rarity, this.projectile_speed, this.mag, this.description, this.devinfo);
     }
 }
 
-let weapons = [];
+var weapons = [];
 const urlParams = new URLSearchParams(window.location.search);
-let currentWeapon = urlParams.get('weapon');
+let currentWeapon = parseInt(urlParams.get('weapon') == 0 ? -1 : urlParams.get('weapon'));
 addEventListener("load", LoadWeapons());
 
 function LoadWeapons() {
@@ -85,7 +85,20 @@ function LoadWeapons() {
         }
     });
 }
+
+function GetWeaponById(id){ //Returns a weapon from the weapons list that has matching id
+    let i = 0;
+    while (i < weapons.length && weapons[i].id != id) {
+        i++;
+    }
+    if(i < weapons.length)
+        return weapons[i];
+    else
+        return null;
+}
+
 function DisplayWeapons() {
+    let heroWeapon = currentWeapon === -1 ? weapons[0] : GetWeaponById(currentWeapon);
     let heroSection = `
             <div class="container-fluid">
         <div class="row">
@@ -93,22 +106,22 @@ function DisplayWeapons() {
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-sm-12 my-5">
-                            <h2>${weapons[currentWeapon].name}</h2>
+                            <h2>${heroWeapon.name}</h2>
                             <ul>
-                                <li>Damage: ${weapons[currentWeapon].damage}</li>
-                                <li>Fire rate: ${weapons[currentWeapon].fire_rate}</li>
-                                <li>Semi auto: ${weapons[currentWeapon].semi_auto}</li>
-                                <li>Rarity: ${weapons[currentWeapon].rarity}</li>
-                                <li>Projectile speed:${weapons[currentWeapon].projectile_speed === null ? "-":weapons[currentWeapon].projectile_speed}</li>
-                                <li>Magazine: ${weapons[currentWeapon].mag === null ? "-":weapons[currentWeapon].mag}</li>
+                                <li>Damage: ${heroWeapon.damage}</li>
+                                <li>Fire rate: ${heroWeapon.fire_rate}</li>
+                                <li>Semi auto: ${heroWeapon.semi_auto}</li>
+                                <li>Rarity: ${heroWeapon.rarity}</li>
+                                <li>Projectile speed:${heroWeapon.projectile_speed === null ? "-":heroWeapon.projectile_speed}</li>
+                                <li>Magazine: ${heroWeapon.mag === null ? "-":heroWeapon.mag}</li>
 
                            </ul>
                         </div>
                         <div class="col-lg-4 col-sm-12">
-                            <img src="${weapons[currentWeapon].file_name}" class="d-block mx-auto img-fluid" alt="">
+                            <img src="${heroWeapon.file_name}" class="d-block mx-auto img-fluid" alt="">
                         </div>
                         <div class="col-lg-4 col-sm-12 my-5">
-                            <p>${weapons[currentWeapon].description}</p>
+                            <p>${heroWeapon.description}</p>
                         </div>
                     </div>
                 </div>
@@ -132,7 +145,7 @@ function DisplayWeapons() {
             {
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
-                    <div class="weapon-tile d-flex flex-column align-items-center swap-btn" id=${weaponIndex}>
+                    <div class="weapon-tile d-flex flex-column align-items-center swap-btn" id=${weapons[weaponIndex].id}>
                         <img src="../src/images/knight_web.png" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50">
                         <div class="text-center">${weapons[weaponIndex].name}</div>
                     </div>

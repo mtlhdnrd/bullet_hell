@@ -22,7 +22,9 @@ $mapId = $_GET['id'];
     <div class="map-details">
 
     </div>
-    
+    <div class="map-weapons">
+        
+    </div>
 </body>
 
 </html>

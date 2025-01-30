@@ -42,7 +42,7 @@ function DisplayMap() {
 `;
     $(".map-details").html(detailsHtml);
 }
-
+LoadMapWeapons();
 function LoadMapWeapons(){
     $.ajax({
         type: "GET",
@@ -60,6 +60,37 @@ function LoadMapWeapons(){
     });
 }
 function DisplayMapWeapons(){
-    console.log(weapons);
-    weapons.forEach(weapon =>{console.log(weapon.DebugInfo());});
+    let rowNum = parseInt(weapons.length) % 4 == 0 ? parseInt(weapons.length/4) : parseInt(weapons.length/4+1);
+    let weaponHtml = `<div class="container pb-5 pt-3">`;
+    let rowContent = [];
+    let weaponIndex = 0;
+    for (let rn = 0; rn < rowNum; rn++) {
+        let rowStr = `
+            <div class="row">
+        `;
+        for(let cn = 0; cn < 4; cn++)
+        {
+            weaponIndex+=1;
+            if(weaponIndex < weapons.length)
+            {
+                rowStr += `
+                <div class="col-lg-3 col-sm-12 p-0">
+                    <div class="weapon-tile d-flex flex-column align-items-center weapon-link" id=${weapons[weaponIndex].id}>
+                        <img src="../src/images/knight_web.png" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50">
+                        <div class="text-center">${weapons[weaponIndex].name}</div>
+                    </div>
+                </div>`;
+            }
+        }
+        rowStr+=`</div>`;
+        rowContent.push(rowStr);
+    }
+
+    rowContent.forEach(row => {weaponHtml+=row;});
+    weaponHtml+="</div>";
+    $('.map-weapons').html(weaponHtml);
+    $('.weapon-link').click(function(){
+        let index = $(this).attr("id");
+        window.location = `weapons.php?weapon=${index}`;
+    });
 }
