@@ -1,7 +1,11 @@
 .codex-tiles img{
     width: 100%;
     height: 100%;
-    border: 2px solid yellow;
+}
+.codex-menu-tile{
+    margin: 0px;
+    background-color: #d7cece;
+    border: 1px solid black;
 }
 .map-block{
     margin-top: 20px;
@@ -13,4 +17,11 @@ body{
     font-weight: 300;
     color: #827c7c;
     border-bottom: 1px solid #827c7c;
+}
+.hero-image{
+    width: 450px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin:auto;
 }

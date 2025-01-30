@@ -118,7 +118,7 @@ function DisplayWeapons() {
                            </ul>
                         </div>
                         <div class="col-lg-4 col-sm-12">
-                            <img src="${heroWeapon.file_name}" class="d-block mx-auto img-fluid" alt="">
+                            <img src="../src/images/${heroWeapon.file_name}" class="d-block mx-auto img-fluid anti-alias hero-image" alt="">
                         </div>
                         <div class="col-lg-4 col-sm-12 my-5">
                             <p>${heroWeapon.description}</p>
@@ -146,7 +146,7 @@ function DisplayWeapons() {
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
                     <div class="codex-tile d-flex flex-column align-items-center swap-btn" id=${weapons[weaponIndex].id}>
-                        <img src="../src/images/knight_web.png" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50">
+                        <img src="../src/images/${weapons[weaponIndex].file_name}" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50 anti-alias img-fluid">
                         <div class="text-center">${weapons[weaponIndex].name}</div>
                     </div>
                 </div>`;

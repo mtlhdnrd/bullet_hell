@@ -73,10 +73,11 @@ function DisplayMapWeapons(){
             weaponIndex+=1;
             if(weaponIndex < weapons.length)
             {
+                console.log(weapons[weaponIndex]);
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
                     <div class="weapon-tile d-flex flex-column align-items-center weapon-link" id=${weapons[weaponIndex].id}>
-                        <img src="../src/images/knight_web.png" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50">
+                        <img src="../src/images/${weapons[weaponIndex].file_name}" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50">
                         <div class="text-center">${weapons[weaponIndex].name}</div>
                     </div>
                 </div>`;

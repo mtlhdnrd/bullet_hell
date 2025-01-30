@@ -18,49 +18,33 @@ if (!is_logged_in()) {
 <body>
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <style>
-        .block {
-            background-color: red;
-            border: 1px solid black;
-            margin: 3px;
-            height: 250px;
-        }
-    </style>
-    <div class="container">
-        <div class="row">
-            <div class="col search-bar-block input-group my-5 mx-5">
-                <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">?</span>
-                </div>
-            </div>
-        </div>
+    <div class="container my-5">
         <span class="codex-tiles">
             <div class="row mx-auto">
-                <div class="col-lg-6 col-sm-12 block mx-auto">
+                <div class="col-lg-6 col-sm-12 block mx-auto codex-menu-tile">
                     <h1 class="text-white position-absolute">Maps</h1>
                     <a href="maps_grid.php">
-                        <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
+                        <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="" class="anti-alias">
                     </a>
                 </div>
-                <div class="col-lg-6 col-sm-12 block mx-auto">
+                <div class="col-lg-6 col-sm-12 block mx-auto codex-menu-tile">
                     <h1 class="text-white position-absolute">Characters</h1>
                     <a href="characters.php?character=1">
-                        <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
+                        <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="" class="anti-alias">
                     </a>
                 </div>
             </div>
             <div class="row mx-auto">
-                <div class="col-lg-6 col-sm-12 block mx-auto">
+                <div class="col-lg-6 col-sm-12 block mx-auto codex-menu-tile">
                     <h1 class="text-white position-absolute">Music</h1>
                     <a href="music.php">
-                        <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
+                        <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="" class="anti-alias">
                     </a>
                 </div>
-                <div class="col-lg-6 col-sm-12 block mx-auto">
+                <div class="col-lg-6 col-sm-12 block mx-auto codex-menu-tile">
                     <h1 class="text-white position-absolute">Weapons</h1>
                     <a href="weapons.php?weapon=0">
-                        <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="">
+                        <img src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/knight_web.png" alt="" class="anti-alias">
                     </a>
                 </div>
 
