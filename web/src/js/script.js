@@ -53,6 +53,12 @@ function addNewUser() {
     }
 }
 
+function LoginAdmin(){
+    let username = $('#username');
+    let password = $('#password');
+    
+}
+
 function LoginUser() {
     event.preventDefault();
     let url = `../src/php/login_check.php`;

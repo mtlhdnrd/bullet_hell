@@ -1,71 +1,59 @@
 <?php
 // Include config file
-require_once "config.php";
-require_once "utils.php";
-
-// Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
-$admin_uname = "admin";
-$admin_password = "admin";
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    //Check for any uncompleted fields
-    if(!isset($_POST['username'])){
-        $username_err = "Please enter a valid username";
-    }
-    if(!isset($_POST['password'])){
-        $password_err = "Please enter a valid password";
-    }
-    if($username_err == "") {
-        $username = $_POST['username'];
-    }
-    if($password_err == "") {
-        $password = $_POST['password'];
-    }
-    //Check if username exists in the database
-    $sql = "SELECT * FROM player_login WHERE username='{$username}';";
-    $result = make_query($conn, $sql);
-    if($_POST['username'] == $admin_uname && $_POST['password'] == $admin_password) {
-        $_SESSION['admin_login'] = true;
-        header("location: admin.php");
-    }
-
-}
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Admin</title>
+    <title>Bullet Hell</title>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
 </head>
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <div class="form-element">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"  method="post">
-            <label for="username">Admin name:</label>
-            <input type="text" name="username" class="">
-            <label for="password">Password:</label>
-            <input type="password" name="password" class="" id="password">
-            <input type="checkbox" onclick="togglePwVisibility()" class="pw_visibility">
-            <?php echo(!empty($username_err)) ? "<p style='color: red'>{$username_err} </p>" : '' ?>
-            <input type="submit" value="Log in" class="btn btn-primary">
-        </form>
-    </div>
 
-    <script>
-        function togglePwVisibility() {
-            var field = document.getElementById("password");
-            if(field.type==="password") {
-                field.type = "text";
-            } else {
-                field.type = "password";
-            }
-        }
-    </script>
+<body>
+    <div class="container mt-5">
+        <div class="row mb-5">
+            <h1 class="text-center text-black">Admin Panel</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Login
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="get" id="login-form" onsubmit="LoginAdmin()">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" class="form-control" id="username" required>
+                                <?php echo (!empty($username_err)) ? "<p class='text-danger'>{$username_err}</p>" : ''; ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-group">
+                                    <input type="password" name="password" class="form-control" id="password" required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary" type="button" onclick="togglePwVisibility()">
+                                            <i class="fa fa-eye" id="eyeIcon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
+                            </div>
+                            <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
+                            <button class="btn btn-primary my-3 px-4 py-2" type="submit">Log in</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
