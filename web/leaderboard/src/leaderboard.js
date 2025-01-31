@@ -40,8 +40,20 @@ function GetLeaderboardData() {
             });
         }
         }).then((result) => {
-                leaderboard.forEach(element => {
-                    console.log(element.DebugInfo());
+            let tableContents = "";
+                leaderboard.forEach(player => {
+                    let playerData = `
+                        <tr>
+                            <td>${player.username}</td>
+                            <td>${player.points}</td>
+                            <td>${player.winrate}</td>
+                            <td>${player.all_games_played}</td>
+                            <td>${player.kills}</td>
+                            <td>${player.deaths}</td>
+                        </tr>
+                    `;
+                    tableContents+=playerData;
                 });
+                $('.table-contents').html(tableContents);
         });
 }
