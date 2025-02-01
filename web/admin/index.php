@@ -1,6 +1,8 @@
 <?php
-require_once("utils.php");
-if(!(isset($_SESSION['admin_login']) && $_SESSION['admin_login'] == true)) {
+// Include config file
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
+if(!is_admin_logged_in()) {
     header("location: admin_login.php");
 }
 ?>
@@ -13,6 +15,6 @@ if(!(isset($_SESSION['admin_login']) && $_SESSION['admin_login'] == true)) {
     <title>Admin panel - Bullet Hell</title>
 </head>
 <body>
-    <h1>Bullet hell</h1>
+    <h1>Bullet hell - admin panel</h1>
 </body>
 </html>

@@ -6,11 +6,12 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
     if (isset($_GET['username']) && isset($_GET['password']) && count($_GET) == 2) {
     $username = $_GET['username'];
     $result = $conn->prepare( "SELECT password FROM player_login WHERE `username` = ? AND `is_admin` = 1;");
+    $result->bind_param('s',$username);
     $result->execute();
     $result->bind_result($queried_pw);
     $result->fetch();
     if ($queried_pw === $_GET['password']) {
-        $_SESSION['username'] = $username;
+        $_SESSION['admin_login'] = "true";
         http_response_code(200);
 
     } else {
@@ -19,6 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
     }
     //echo json_encode($return);
     } else {
-    print_r($_GET);
+        http_response_code(response_code: 404);
+        print_r($_GET);
     }
 }
