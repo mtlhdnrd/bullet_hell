@@ -1,10 +1,9 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
-header('Content-Type: application/json; charset=utf-8');
 if($_SERVER['REQUEST_METHOD'] === 'GET')
 {
-    $query = "SELECT players.username, players.points, players.winrate, players.all_games_played, players.kills, players.deaths FROM players INNER JOIN player_login ON players.username = player_login.username WHERE player_login.is_admin = 0 ORDER BY players.points DESC;";
+    $query = "SELECT players.username, players.points, players.winrate, players.all_games_played, players.kills, players.deaths FROM players INNER JOIN player_login ON players.username = player_login.username WHERE player_login.is_admin = 0;";
     $stmt = $conn->prepare($query);
     $stmt->execute();
     if($stmt->errno){
