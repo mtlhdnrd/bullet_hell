@@ -10,13 +10,13 @@
                         <a class="nav-link active" aria-current="page" href="user_management.php">User management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Weapon management</a>
+                        <a class="nav-link" href="weapon_management.php">Weapon management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Map management</a>
+                        <a class="nav-link" href="map_management.php">Map management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Music management</a>
+                        <a class="nav-link" href="music_management.php">Music management</a>
                     </li>
                 </ul>
             </div>
