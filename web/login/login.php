@@ -26,7 +26,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
                         Login
                     </div>
                     <div class="card-body">
-                        <form action="" method="get" id="login-form" onsubmit="LoginUser()">
+                        <!--form action="" method="get" id="login-form" onsubmit="LoginUser()"-->
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" name="username" class="form-control" id="username" required>
@@ -45,8 +45,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
                                 <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                             </div>
                             <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
-                            <button class="btn btn-primary my-3 px-4 py-2" type="submit">Log in</button>
-                        </form>
+                            <button class="btn btn-primary my-3 px-4 py-2" onclick="LoginUser()">Log in</button>
+                        <!--/form-->
 
 
                     </div>
