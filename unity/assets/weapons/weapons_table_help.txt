@@ -15,12 +15,12 @@ RIOT
 2;sawedoff;		done
 
 EDO
-3;musket;		missing
+3;musket;		done (sniper fx can be used for it, make it look grand)
 2;bow;			missing
-1;dagger;		missing
+1;dagger;		done
 1;kunai;		done
 2;katana;		missing
-1;kusarigama;		missing
+1;kusarigama;		done
 
 WARZONE
 3;sniper;		missing
@@ -30,4 +30,4 @@ WARZONE
 2;shotgun		done
 1;machete		missing
 
-practice tool has ALL the weapons
+practice tool has ALL the weapons ()
