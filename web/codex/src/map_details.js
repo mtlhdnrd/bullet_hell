@@ -1,6 +1,5 @@
-
-import {Map} from './map_grid.js';
-import {Weapon, WeaponFactory} from './weapons.js';
+import { Map } from "./map_grid.js";
+import { Weapon, WeaponFactory } from "./weapons.js";
 var maps = [];
 var weapons = [];
 function LoadMaps() {
@@ -8,20 +7,27 @@ function LoadMaps() {
         type: "GET",
         url: "load_codex_data.php",
         data: { data_type: "maps" },
-        dataType: 'json', // Expect JSON response
+        dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
             $.each(data, function (index, map) {
-                maps.push(new Map(map.name, map.file_name, map.description, map.music_pack_name, map.music_pack_description));
+                maps.push(
+                    new Map(
+                        map.name,
+                        map.file_name,
+                        map.description,
+                        map.music_pack_name,
+                        map.music_pack_description
+                    )
+                );
             });
-        }
+        },
     }).then((result) => {
         DisplayMap();
-    });;
-
+    });
 }
 LoadMaps();
 const urlParams = new URLSearchParams(window.location.search);
-const currentMap = urlParams.get('id');
+const currentMap = urlParams.get("id");
 function DisplayMap() {
     let map = maps[currentMap];
     let detailsHtml = `
@@ -43,24 +49,31 @@ function DisplayMap() {
     $(".map-details").html(detailsHtml);
 }
 LoadMapWeapons();
-function LoadMapWeapons(){
+function LoadMapWeapons() {
     $.ajax({
         type: "GET",
         url: "load_map_weapons.php",
-        data: {map: currentMap},
-        dataType: 'json',
-        success: function(data, textStatus, xhr){
+        data: { map: currentMap },
+        dataType: "json",
+        success: function (data, textStatus, xhr) {
             $.each(data, function (index, weapon) {
-                let wf = new WeaponFactory(weapon.id, weapon.name, weapon.file_name);
+                let wf = new WeaponFactory(
+                    weapon.id,
+                    weapon.name,
+                    weapon.file_name
+                );
                 weapons.push(wf.Build());
             });
-        }
-    }).then((result)=>{
+        },
+    }).then((result) => {
         DisplayMapWeapons();
     });
 }
-function DisplayMapWeapons(){
-    let rowNum = parseInt(weapons.length) % 4 == 0 ? parseInt(weapons.length/4) : parseInt(weapons.length/4+1);
+function DisplayMapWeapons() {
+    let rowNum =
+        parseInt(weapons.length) % 4 == 0
+            ? parseInt(weapons.length / 4)
+            : parseInt(weapons.length / 4 + 1);
     let weaponHtml = `<div class="container pb-5 pt-3">`;
     let rowContent = [];
     let weaponIndex = 0;
@@ -68,11 +81,9 @@ function DisplayMapWeapons(){
         let rowStr = `
             <div class="row">
         `;
-        for(let cn = 0; cn < 4; cn++)
-        {
-            weaponIndex+=1;
-            if(weaponIndex < weapons.length)
-            {
+        for (let cn = 0; cn < 4; cn++) {
+            weaponIndex += 1;
+            if (weaponIndex < weapons.length) {
                 console.log(weapons[weaponIndex]);
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
@@ -83,14 +94,16 @@ function DisplayMapWeapons(){
                 </div>`;
             }
         }
-        rowStr+=`</div>`;
+        rowStr += `</div>`;
         rowContent.push(rowStr);
     }
 
-    rowContent.forEach(row => {weaponHtml+=row;});
-    weaponHtml+="</div>";
-    $('.map-weapons').html(weaponHtml);
-    $('.weapon-link').click(function(){
+    rowContent.forEach((row) => {
+        weaponHtml += row;
+    });
+    weaponHtml += "</div>";
+    $(".map-weapons").html(weaponHtml);
+    $(".weapon-link").click(function () {
         let index = $(this).attr("id");
         window.location = `weapons.php?weapon=${index}`;
     });

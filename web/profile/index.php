@@ -12,18 +12,23 @@ if (!is_logged_in()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $_SESSION['username']; ?></title>
+    <title>
+        <?php echo $_SESSION['username']; ?>
+    </title>
 </head>
 
 <body>
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php"); ?>
-    <script src="<?php $_SERVER['DOCUMENT_ROOT'];?>/bullet_hell/web/src/js/load_profile_data.js" defer></script>
-    <script src="<?php $_SERVER['DOCUMENT_ROOT'];?>/bullet_hell/web/src/js/change_password.js" defer></script>
+    <script src="<?php $_SERVER['DOCUMENT_ROOT']; ?>/bullet_hell/web/src/js/load_profile_data.js" defer></script>
+    <script src="<?php $_SERVER['DOCUMENT_ROOT']; ?>/bullet_hell/web/src/js/change_password.js" defer></script>
     <div class="profile-container">
         <div class="justify-contents-center">
-            <img src="../src/images/knight_web.png" class="anti-alias mx-auto " alt="player avatar" style="width: 100%; object-fit: cover;">
+            <img src="../src/images/knight_web.png" class="anti-alias mx-auto " alt="player avatar"
+                style="width: 100%; object-fit: cover;">
             <div class="row bg-light p-5">
-                <h1 class="text-start text-black fw-1 text-center" id="username"><?php echo $_SESSION['username']; ?></h1>
+                <h1 class="text-start text-black fw-1 text-center" id="username">
+                    <?php echo $_SESSION['username']; ?>
+                </h1>
             </div>
         </div>
         <div class="container-fluid justify-contents-center">

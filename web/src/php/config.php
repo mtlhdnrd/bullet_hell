@@ -10,6 +10,6 @@ define('DB_NAME', 'bullet_hell');
 $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 // Check connection
-if($conn === false) {
+if ($conn === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }

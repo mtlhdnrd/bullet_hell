@@ -1,11 +1,10 @@
-
-function GetUserData(username){
+function GetUserData(username) {
     let ret;
     $.ajax({
         type: "GET",
         url: "../src/php/get_user_statistics.php",
-        data: {username:username},
-        success: function(data, textStatus, xhr){
+        data: { username: username },
+        success: function (data, textStatus, xhr) {
             let json = $.parseJSON(data);
             console.log(json);
             $("#stat-points").text(json[0].points);
@@ -14,10 +13,10 @@ function GetUserData(username){
             $("#stat-kills").text(json[0].kills);
             $("#stat-deaths").text(json[0].deaths);
             $("#stat-music").text(json[0].name);
-        }
-    })
+        },
+    });
     return ret;
 }
-addEventListener("load", (event)=>{
+addEventListener("load", (event) => {
     let userData = GetUserData($("#username").text());
-})
+});

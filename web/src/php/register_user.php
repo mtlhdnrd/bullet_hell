@@ -9,7 +9,7 @@ if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
     $result = $conn->prepare($query);
     $result->bind_param("s", $username);
     $result->execute();
-    $result = $conn->prepare( "INSERT INTO `player_login` (username, password) VALUES(?,?);");
+    $result = $conn->prepare("INSERT INTO `player_login` (username, password) VALUES(?,?);");
     $result->bind_param("ss", $username, $password);
     $result->execute();
     http_response_code(201);

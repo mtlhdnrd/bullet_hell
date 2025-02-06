@@ -20,6 +20,7 @@ if (!is_admin_logged_in()) {
 </head>
 
 <body>
-   <?php require_once("admin_header.php")?>
+    <?php require_once("admin_header.php") ?>
 </body>
+
 </html>

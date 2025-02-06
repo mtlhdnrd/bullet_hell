@@ -1,11 +1,11 @@
-function LoadWeaponTable(){
+function LoadWeaponTable() {
     $.ajax({
         type: "GET",
         url: "admin_get_weapon_data.php",
         dataType: "json",
-        success: function(data, textStatus, xhr){
+        success: function (data, textStatus, xhr) {
             let tableContents = "";
-            $.each(data, function(index, weapon){
+            $.each(data, function (index, weapon) {
                 let weaponData = `
                 <tr>
                 <td>${weapon.id}</td>
@@ -21,38 +21,37 @@ function LoadWeaponTable(){
                 <td><i class="fa-solid fa-trash delete-btn" id=${weapon.id}></i></td>
             </tr>
                 `;
-                tableContents+=weaponData;
+                tableContents += weaponData;
             });
-            $('.table-contents').html(tableContents);
-            $('.delete-btn').click(function(){
+            $(".table-contents").html(tableContents);
+            $(".delete-btn").click(function () {
                 ConfirmDelete($(this).attr("id"));
             });
-        }
+        },
     });
 }
 
 function ConfirmDelete(id) {
     if (confirm("Are you sure you want to delete the weapon?")) {
-      DeleteWeapon(id);
+        DeleteWeapon(id);
     }
 }
 
-function DeleteWeapon(id)
-{
+function DeleteWeapon(id) {
     $.ajax({
         type: "DELETE",
         url: "admin_delete_weapon.php",
-        data: {id:id},
-        success: function(data, textStatus, xhr){
-            switch(xhr.status){
+        data: { id: id },
+        success: function (data, textStatus, xhr) {
+            switch (xhr.status) {
                 case 200:
                     console.log("Weapon removed successfully");
                     LoadWeaponTable();
                     break;
             }
-        }
+        },
     });
 }
-$(document).ready(function(){
+$(document).ready(function () {
     LoadWeaponTable();
 });

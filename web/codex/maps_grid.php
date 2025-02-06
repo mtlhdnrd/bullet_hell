@@ -21,7 +21,7 @@ if (!is_logged_in()) {
     ?>
     <script src="src/map_grid.js" type="module"></script>
     <div class="maps-section">
-        
+
     </div>
 </body>
 

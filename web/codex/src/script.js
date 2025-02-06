@@ -1,12 +1,11 @@
-
 function LoadMaps() {
     $.ajax({
         type: "GET",
         url: "load_codex_data.php",
         data: { data_type: "maps" },
-        dataType: 'json', // Expect JSON response
+        dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
-            var container = $('.map-container'); // Select the container
+            var container = $(".map-container"); // Select the container
 
             $.each(data, function (index, map) {
                 var mapBlock = `
@@ -21,19 +20,18 @@ function LoadMaps() {
 </div>`;
                 container.append(mapBlock);
             });
-        }
+        },
     });
 }
 
 function LoadCharacters() {
-
     $.ajax({
         type: "GET",
         url: "load_codex_data.php",
         data: { data_type: "characters" },
-        dataType: 'json', // Expect JSON response
+        dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
-            var container = $('.character-container'); // Select the container
+            var container = $(".character-container"); // Select the container
 
             $.each(data, function (index, characters) {
                 var characterBlock = `
@@ -49,7 +47,7 @@ function LoadCharacters() {
 </div>`;
                 container.append(characterBlock);
             });
-        }
+        },
     });
 }
 
@@ -58,9 +56,9 @@ function LoadMusic() {
         type: "GET",
         url: "load_codex_data.php",
         data: { data_type: "music" },
-        dataType: 'json', // Expect JSON response
+        dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
-            var container = $('.music-container'); // Select the container
+            var container = $(".music-container"); // Select the container
 
             $.each(data, function (index, music) {
                 var characterBlock = `
@@ -76,29 +74,36 @@ function LoadMusic() {
                 container.append(characterBlock);
             });
             //Bindig individual event handlers to collapse toggler buttons
-            var togglerButtons = $('.weapon-container').find('.collapse');
+            var togglerButtons = $(".weapon-container").find(".collapse");
             togglerButtons.each(function () {
-                $(this).on('show.bs.collapse hide.bs.collapse', function () {
-                    $(this).prev().find("i").toggleClass("fa-solid fa-chevron-down fa-solid fa-chevron-up");
+                $(this).on("show.bs.collapse hide.bs.collapse", function () {
+                    $(this)
+                        .prev()
+                        .find("i")
+                        .toggleClass(
+                            "fa-solid fa-chevron-down fa-solid fa-chevron-up"
+                        );
                 });
             });
-        }
+        },
     });
 }
 
 function LoadWeapons() {
-$.ajax({
-type: "GET",
-url: "load_codex_data.php",
-data: { data_type: "weapons" },
-dataType: 'json',
-success: function (data, textStatus, xhr) {
-    var container = $('.weapon-container'); // Select the container
-    var togglerNumber = 0;
-    $.each(data, function (index, weapon) {
-        var characterBlock = `<div class="row bg-light mx-auto map-block mb-4">
+    $.ajax({
+        type: "GET",
+        url: "load_codex_data.php",
+        data: { data_type: "weapons" },
+        dataType: "json",
+        success: function (data, textStatus, xhr) {
+            var container = $(".weapon-container"); // Select the container
+            var togglerNumber = 0;
+            $.each(data, function (index, weapon) {
+                var characterBlock = `<div class="row bg-light mx-auto map-block mb-4">
         <div class="col-12 d-flex flex-column align-items-center">
-            <img src="${weapon.file_name}" class="img-fluid" alt="knight_web.png" width="500" height="200">
+            <img src="${
+                weapon.file_name
+            }" class="img-fluid" alt="knight_web.png" width="500" height="200">
             <div class="text-start w-100">
                 <div class="col-12">
                     <h2>${weapon.name}</h2>
@@ -108,22 +113,28 @@ success: function (data, textStatus, xhr) {
                     <div class="collapse" id="weaponToggler${togglerNumber}">
                         <p>Damage: ${weapon.damage}</p>
                         <p>Fire rate: ${weapon.fire_rate}</p>
-                        <p>Semi auto: ${weapon.semi_auto == "1"? "Yes":"No"}</p>
+                        <p>Semi auto: ${
+                            weapon.semi_auto == "1" ? "Yes" : "No"
+                        }</p>
                         <p>Rarity: ${weapon.rarity}</p>
-                        <p>Projectile speed: ${weapon.projectile_speed === null ? "-":weapon.projectile_speed}</p>
-                        <p>Magazine: ${weapon.mag === null ? "-":weapon.mag}</p>
+                        <p>Projectile speed: ${
+                            weapon.projectile_speed === null
+                                ? "-"
+                                : weapon.projectile_speed
+                        }</p>
+                        <p>Magazine: ${
+                            weapon.mag === null ? "-" : weapon.mag
+                        }</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>`;
-        container.append(characterBlock);
+                container.append(characterBlock);
+            });
+        },
     });
 }
-});
-}
-
-
 
 addEventListener("load", (event) => {
     switch (document.body.dataset.page) {
@@ -148,12 +159,15 @@ function SearchForItem(page, value) {
             $.ajax({
                 type: "GET",
                 url: "load_codex_data.php",
-                data: { data_type: "maps", condition: "name LIKE '" + value + "%'" },
-                dataType: 'json',
+                data: {
+                    data_type: "maps",
+                    condition: "name LIKE '" + value + "%'",
+                },
+                dataType: "json",
                 success: function (data, textStatus, xhr) {
-                    var container = $('.map-container'); // Select the container
+                    var container = $(".map-container"); // Select the container
                     container.html("");
-                    container.append(``)
+                    container.append(``);
                     $.each(data, function (index, maps) {
                         var characterBlock = `
                  <div class="row bg-light mx-auto map-block mb-4">
@@ -168,18 +182,20 @@ function SearchForItem(page, value) {
         </div>`;
                         container.append(characterBlock);
                     });
-                }
-            }
-            );
+                },
+            });
             break;
         case "characters":
             $.ajax({
                 type: "GET",
                 url: "load_codex_data.php",
-                data: { data_type: "characters", condition: "name LIKE '" + value + "%'" },
-                dataType: 'json',
+                data: {
+                    data_type: "characters",
+                    condition: "name LIKE '" + value + "%'",
+                },
+                dataType: "json",
                 success: function (data, textStatus, xhr) {
-                    var container = $('.character-container'); // Select the container
+                    var container = $(".character-container"); // Select the container
                     container.html("");
                     $.each(data, function (index, character) {
                         var characterBlock = `
@@ -195,16 +211,18 @@ function SearchForItem(page, value) {
         </div>`;
                         container.append(characterBlock);
                     });
-                }
-            }
-            );
-            break
+                },
+            });
+            break;
         case "music":
             $.ajax({
                 type: "GET",
                 url: "load_codex_data.php",
-                data: { data_type: "music", condition: "name LIKE '" + value + "%'" },
-                dataType: 'json',
+                data: {
+                    data_type: "music",
+                    condition: "name LIKE '" + value + "%'",
+                },
+                dataType: "json",
                 success: function (data, textStatus, xhr) {
                     var container = $(".music-container");
                     container.html("");
@@ -221,15 +239,18 @@ function SearchForItem(page, value) {
 </div>`;
                         container.append(characterBlock);
                     });
-                }
+                },
             });
             break;
         case "weapons":
             $.ajax({
                 type: "GET",
                 url: "load_codex_data.php",
-                data: { data_type: "weapons", condition : "name LIKE '"+value+"%'"},
-                dataType: 'json',
+                data: {
+                    data_type: "weapons",
+                    condition: "name LIKE '" + value + "%'",
+                },
+                dataType: "json",
                 success: function (data, textStatus, xhr) {
                     var container = $(".weapon-container");
                     container.html("");
@@ -237,7 +258,9 @@ function SearchForItem(page, value) {
                     $.each(data, function (index, weapon) {
                         var characterBlock = `<div class="row bg-light mx-auto map-block mb-4">
                         <div class="col-12 d-flex flex-column align-items-center">
-                            <img src="${weapon.file_name}" class="img-fluid" alt="knight_web.png" width="500" height="200">
+                            <img src="${
+                                weapon.file_name
+                            }" class="img-fluid" alt="knight_web.png" width="500" height="200">
                             <div class="text-start w-100">
                                 <div class="col-12">
                                     <h2>${weapon.name}</h2>
@@ -247,10 +270,22 @@ function SearchForItem(page, value) {
                                     <div class="collapse" id="weaponToggler${togglerNumber}">
                                         <p>Damage: ${weapon.damage}</p>
                                         <p>Fire rate: ${weapon.fire_rate}</p>
-                                        <p>Semi auto: ${weapon.semi_auto == "1"? "Yes":"No"}</p>
+                                        <p>Semi auto: ${
+                                            weapon.semi_auto == "1"
+                                                ? "Yes"
+                                                : "No"
+                                        }</p>
                                         <p>Rarity: ${weapon.rarity}</p>
-                                        <p>Projectile speed: ${weapon.projectile_speed === null ? "-":weapon.projectile_speed}</p>
-                                        <p>Magazine: ${weapon.mag === null ? "-":weapon.mag}</p>
+                                        <p>Projectile speed: ${
+                                            weapon.projectile_speed === null
+                                                ? "-"
+                                                : weapon.projectile_speed
+                                        }</p>
+                                        <p>Magazine: ${
+                                            weapon.mag === null
+                                                ? "-"
+                                                : weapon.mag
+                                        }</p>
                                     </div>
                                 </div>
                             </div>
@@ -258,14 +293,13 @@ function SearchForItem(page, value) {
                     </div>`;
                         container.append(characterBlock);
                     });
-                }
+                },
             });
-    
     }
 }
 
 $(document).ready(function () {
-    $('#search-bar').keyup(function (event) {
+    $("#search-bar").keyup(function (event) {
         SearchForItem(document.body.dataset.page, $("#search-bar").val());
     });
 });

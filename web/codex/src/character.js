@@ -5,7 +5,7 @@ export class Character {
         this.file_name = file_name;
         this.description = description;
     }
-    
+
     DebugInfo() {
         const separator = "-".repeat(30);
         return `
@@ -21,10 +21,11 @@ export class Character {
     }
 }
 
-
 var characters = [];
 const urlParams = new URLSearchParams(window.location.search);
-let currentCharacter = parseInt(urlParams.get('character') == 0 ? -1 : urlParams.get('character'));
+let currentCharacter = parseInt(
+    urlParams.get("character") == 0 ? -1 : urlParams.get("character")
+);
 addEventListener("load", LoadCharacters());
 
 function LoadCharacters() {
@@ -32,29 +33,38 @@ function LoadCharacters() {
         type: "GET",
         url: "load_codex_data.php",
         data: { data_type: "characters" },
-        dataType: 'json',
+        dataType: "json",
         success: function (data, textStatus, xhr) {
             $.each(data, function (index, character) {
-                characters.push(new Character(character.id, character.name, character.file_name, character.description));
+                characters.push(
+                    new Character(
+                        character.id,
+                        character.name,
+                        character.file_name,
+                        character.description
+                    )
+                );
             });
             DisplayCharacters();
-        }
+        },
     });
 }
 
-function GetCharacterById(id){ //Returns a character from the characters list that has matching id
+function GetCharacterById(id) {
+    //Returns a character from the characters list that has matching id
     let i = 0;
     while (i < characters.length && characters[i].id != id) {
         i++;
     }
-    if(i < characters.length)
-        return characters[i];
-    else
-        return null;
+    if (i < characters.length) return characters[i];
+    else return null;
 }
 
 function DisplayCharacters() {
-    let heroCharacter = currentCharacter === -1 ? characters[0] : GetCharacterById(currentCharacter);
+    let heroCharacter =
+        currentCharacter === -1
+            ? characters[0]
+            : GetCharacterById(currentCharacter);
     let heroSection = `
             <div class="container-fluid">
         <div class="row">
@@ -75,7 +85,10 @@ function DisplayCharacters() {
     </div>
     `;
 
-    let rowNum = parseInt(characters.length) % 4 == 0 ? parseInt(characters.length/4) : parseInt(characters.length/4+1);
+    let rowNum =
+        parseInt(characters.length) % 4 == 0
+            ? parseInt(characters.length / 4)
+            : parseInt(characters.length / 4 + 1);
     let containerHtml = `<div class="container pb-5 pt-3">`;
     let rowContent = [];
     let characterIndex = 0;
@@ -83,10 +96,8 @@ function DisplayCharacters() {
         let rowStr = `
             <div class="row">
         `;
-        for(let cn = 0; cn < 4; cn++)
-        {
-            if(characterIndex < characters.length)
-            {
+        for (let cn = 0; cn < 4; cn++) {
+            if (characterIndex < characters.length) {
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
                     <div class="codex-tile d-flex flex-column align-items-center swap-btn" id=${characters[characterIndex].id}>
@@ -95,18 +106,20 @@ function DisplayCharacters() {
                     </div>
                 </div>`;
             }
-            characterIndex+=1;
+            characterIndex += 1;
         }
-        rowStr+=`</div>`;
+        rowStr += `</div>`;
         rowContent.push(rowStr);
     }
 
-    rowContent.forEach(row => {containerHtml+=row;});
-    containerHtml+="</div>";
-    $('.hero-section').html(heroSection);
-    $('.other-characters-section').html(containerHtml);
+    rowContent.forEach((row) => {
+        containerHtml += row;
+    });
+    containerHtml += "</div>";
+    $(".hero-section").html(heroSection);
+    $(".other-characters-section").html(containerHtml);
 
-    $('.swap-btn').click(function() {
+    $(".swap-btn").click(function () {
         let index = $(this).attr("id");
         currentCharacter = index;
         DisplayCharacters();

@@ -20,12 +20,12 @@ if (!is_logged_in()) {
     <table class="table table-dark table-striped">
         <thead class="thead-dark">
             <tr>
-            <th scope="col">Username</th>
-            <th scope="col">Points</th>
-            <th scope="col">Winrate</th>
-            <th scope="col">Games Played</th>
-            <th scope="col">Kills</th>
-            <th scope="col">Deaths</th>
+                <th scope="col">Username</th>
+                <th scope="col">Points</th>
+                <th scope="col">Winrate</th>
+                <th scope="col">Games Played</th>
+                <th scope="col">Kills</th>
+                <th scope="col">Deaths</th>
 
             </tr>
         </thead>

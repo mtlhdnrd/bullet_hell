@@ -21,7 +21,6 @@ function checkUsername(username, callback) {
         success: function (data) {
             if (eval(`data.${username}`) == 1) {
                 $("#username-exists").removeClass("d-none");
-
             } else {
                 $("#username-exists").addClass("d-none");
             }
@@ -38,7 +37,7 @@ function addNewUser() {
         //TODO hash password
         $.ajax({
             type: "POST",
-            url: '../src/php/register_user.php',
+            url: "../src/php/register_user.php",
             data: data,
             success: function (data, textStatus, xhr) {
                 switch (xhr.status) {
@@ -48,7 +47,7 @@ function addNewUser() {
             },
             error: function (data, textStatus, xhr) {
                 console.error(xhr);
-            }
+            },
         });
     }
 }
@@ -67,7 +66,6 @@ function LoginUser() {
                 case 200:
                     window.open("../index.php", "_self");
                     break;
-
             }
         },
         error: function (xhr) {
@@ -76,12 +74,12 @@ function LoginUser() {
                     $("#incorrect-login").removeClass("d-none");
                     break;
             }
-        }
+        },
     });
 }
 
 $(document).ready(function () {
-    $('#username').keyup(function (event) {
+    $("#username").keyup(function (event) {
         checkUsername($(this).val());
     });
 });

@@ -1,5 +1,17 @@
 export class Weapon {
-    constructor(id, name, file_name, damage, fire_rate, semi_auto, rarity, projectile_speed, mag, description, devinfo) {
+    constructor(
+        id,
+        name,
+        file_name,
+        damage,
+        fire_rate,
+        semi_auto,
+        rarity,
+        projectile_speed,
+        mag,
+        description,
+        devinfo
+    ) {
         this.id = id;
         this.name = name;
         this.file_name = file_name;
@@ -12,7 +24,7 @@ export class Weapon {
         this.description = description;
         this.devinfo = devinfo;
     }
-    
+
     DebugInfo() {
         const separator = "-".repeat(30);
         return `
@@ -35,13 +47,13 @@ export class Weapon {
     }
 }
 
-export class WeaponFactory{
+export class WeaponFactory {
     constructor(id, name, file_name) {
-        this.id = id
+        this.id = id;
         this.name = name;
         this.file_name = file_name;
-        this.damage = 0
-        this.fire_rate = 0
+        this.damage = 0;
+        this.fire_rate = 0;
         this.semi_auto = true;
         this.rarity = "";
         this.projectile_speed = 0;
@@ -50,7 +62,16 @@ export class WeaponFactory{
         this.devinfo = "";
     }
 
-    SetParams(damage, fire_rate, semi_auto, rarity, projectile_speed, mag, description, devinfo){
+    SetParams(
+        damage,
+        fire_rate,
+        semi_auto,
+        rarity,
+        projectile_speed,
+        mag,
+        description,
+        devinfo
+    ) {
         this.damage = damage;
         this.fire_rate = fire_rate;
         this.semi_auto = semi_auto;
@@ -61,14 +82,28 @@ export class WeaponFactory{
         this.devinfo = devinfo;
     }
 
-    Build(){
-        return new Weapon(this.id, this.name, this.file_name, this.damage, this.fire_rate, this.semi_auto, this.rarity, this.projectile_speed, this.mag, this.description, this.devinfo);
+    Build() {
+        return new Weapon(
+            this.id,
+            this.name,
+            this.file_name,
+            this.damage,
+            this.fire_rate,
+            this.semi_auto,
+            this.rarity,
+            this.projectile_speed,
+            this.mag,
+            this.description,
+            this.devinfo
+        );
     }
 }
 
 var weapons = [];
 const urlParams = new URLSearchParams(window.location.search);
-let currentWeapon = parseInt(urlParams.get('weapon') == 0 ? -1 : urlParams.get('weapon'));
+let currentWeapon = parseInt(
+    urlParams.get("weapon") == 0 ? -1 : urlParams.get("weapon")
+);
 addEventListener("load", LoadWeapons());
 
 function LoadWeapons() {
@@ -76,29 +111,43 @@ function LoadWeapons() {
         type: "GET",
         url: "load_codex_data.php",
         data: { data_type: "weapons" },
-        dataType: 'json',
+        dataType: "json",
         success: function (data, textStatus, xhr) {
             $.each(data, function (index, weapon) {
-                weapons.push(new Weapon(weapon.id, weapon.name, weapon.file_name, weapon.damage, weapon.fire_rate, weapon.semi_auto, weapon.rarity, weapon.projectile_speed, weapon.mag, weapon.description, weapon.devinfo));
+                weapons.push(
+                    new Weapon(
+                        weapon.id,
+                        weapon.name,
+                        weapon.file_name,
+                        weapon.damage,
+                        weapon.fire_rate,
+                        weapon.semi_auto,
+                        weapon.rarity,
+                        weapon.projectile_speed,
+                        weapon.mag,
+                        weapon.description,
+                        weapon.devinfo
+                    )
+                );
             });
             DisplayWeapons();
-        }
+        },
     });
 }
 
-function GetWeaponById(id){ //Returns a weapon from the weapons list that has matching id
+function GetWeaponById(id) {
+    //Returns a weapon from the weapons list that has matching id
     let i = 0;
     while (i < weapons.length && weapons[i].id != id) {
         i++;
     }
-    if(i < weapons.length)
-        return weapons[i];
-    else
-        return null;
+    if (i < weapons.length) return weapons[i];
+    else return null;
 }
 
 function DisplayWeapons() {
-    let heroWeapon = currentWeapon === -1 ? weapons[0] : GetWeaponById(currentWeapon);
+    let heroWeapon =
+        currentWeapon === -1 ? weapons[0] : GetWeaponById(currentWeapon);
     let heroSection = `
             <div class="container-fluid">
         <div class="row">
@@ -112,13 +161,23 @@ function DisplayWeapons() {
                                 <li>Fire rate: ${heroWeapon.fire_rate}</li>
                                 <li>Semi auto: ${heroWeapon.semi_auto}</li>
                                 <li>Rarity: ${heroWeapon.rarity}</li>
-                                <li>Projectile speed:${heroWeapon.projectile_speed === null ? "-":heroWeapon.projectile_speed}</li>
-                                <li>Magazine: ${heroWeapon.mag === null ? "-":heroWeapon.mag}</li>
+                                <li>Projectile speed:${
+                                    heroWeapon.projectile_speed === null
+                                        ? "-"
+                                        : heroWeapon.projectile_speed
+                                }</li>
+                                <li>Magazine: ${
+                                    heroWeapon.mag === null
+                                        ? "-"
+                                        : heroWeapon.mag
+                                }</li>
 
                            </ul>
                         </div>
                         <div class="col-lg-4 col-sm-12">
-                            <img src="../src/images/${heroWeapon.file_name}" class="d-block mx-auto img-fluid anti-alias hero-image" alt="">
+                            <img src="../src/images/${
+                                heroWeapon.file_name
+                            }" class="d-block mx-auto img-fluid anti-alias hero-image" alt="">
                         </div>
                         <div class="col-lg-4 col-sm-12 my-5">
                             <p>${heroWeapon.description}</p>
@@ -130,7 +189,10 @@ function DisplayWeapons() {
     </div>
     `;
 
-    let rowNum = parseInt(weapons.length) % 4 == 0 ? parseInt(weapons.length/4) : parseInt(weapons.length/4+1);
+    let rowNum =
+        parseInt(weapons.length) % 4 == 0
+            ? parseInt(weapons.length / 4)
+            : parseInt(weapons.length / 4 + 1);
     let containerHtml = `<div class="container pb-5 pt-3">`;
     let rowContent = [];
     let weaponIndex = 0;
@@ -138,10 +200,8 @@ function DisplayWeapons() {
         let rowStr = `
             <div class="row">
         `;
-        for(let cn = 0; cn < 4; cn++)
-        {
-            if(weaponIndex < weapons.length)
-            {
+        for (let cn = 0; cn < 4; cn++) {
+            if (weaponIndex < weapons.length) {
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
                     <div class="codex-tile d-flex flex-column align-items-center swap-btn" id=${weapons[weaponIndex].id}>
@@ -150,18 +210,20 @@ function DisplayWeapons() {
                     </div>
                 </div>`;
             }
-            weaponIndex+=1;
+            weaponIndex += 1;
         }
-        rowStr+=`</div>`;
+        rowStr += `</div>`;
         rowContent.push(rowStr);
     }
 
-    rowContent.forEach(row => {containerHtml+=row;});
-    containerHtml+="</div>";
-    $('.hero-section').html(heroSection);
-    $('.other-weapons-section').html(containerHtml);
+    rowContent.forEach((row) => {
+        containerHtml += row;
+    });
+    containerHtml += "</div>";
+    $(".hero-section").html(heroSection);
+    $(".other-weapons-section").html(containerHtml);
 
-    $('.swap-btn').click(function() {
+    $(".swap-btn").click(function () {
         let index = $(this).attr("id");
         currentWeapon = index;
         DisplayWeapons();

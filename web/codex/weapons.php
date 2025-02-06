@@ -26,7 +26,7 @@ $weaponIndex = $_GET['weapon'];
 
     </div>
     <div class="other-weapons-section">
-        
+
     </div>
 </body>
 

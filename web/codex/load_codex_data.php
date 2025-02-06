@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
                 }
             }
             echo json_encode($maps);
-            break;  
+            break;
         case 'characters':
             $username = $_SESSION['username'];
             $query = "";
@@ -51,47 +51,45 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             break;
         case 'music':
             $query = "";
-                if(isset($_GET['condition'])){
-                    $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs WHERE ".$_GET['condition']." ORDER BY music_packs.name;";
-                }else{
-                    $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs ORDER BY music_packs.name;";
+            if (isset($_GET['condition'])) {
+                $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs WHERE " . $_GET['condition'] . " ORDER BY music_packs.name;";
+            } else {
+                $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs ORDER BY music_packs.name;";
+            }
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            if ($stmt->errno) {
+                echo $stmt->error;
+            }
+            $result = $stmt->get_result();
+            $music = [];
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $music[] = $row;
                 }
-                $stmt = $conn->prepare($query);
-                $stmt->execute();
-                if($stmt->errno)
-                {
-                    echo $stmt->error;
-                }
-                $result = $stmt->get_result();
-                $music =  [];
-                if($result->num_rows >0){
-                    while($row = $result->fetch_assoc()){
-                        $music[] = $row;
-                    }
-                }
-                echo json_encode($music);
+            }
+            echo json_encode($music);
             break;
-            case 'weapons':
-                $query = "";
-                if(isset($_GET['condition'])){
-                    $query = "SELECT weapons.id, name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, description, devinfo FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id WHERE ".$_GET['condition'].";";
-                }else{
-                    $query = "SELECT weapons.id, name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, mag, description, devinfo FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id;";
+        case 'weapons':
+            $query = "";
+            if (isset($_GET['condition'])) {
+                $query = "SELECT weapons.id, name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, description, devinfo FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id WHERE " . $_GET['condition'] . ";";
+            } else {
+                $query = "SELECT weapons.id, name, file_name, damage, fire_rate, semi_auto, rarities.rarity, projectile_speed, mag, description, devinfo FROM weapons INNER JOIN rarities ON weapons.rarity_id = rarities.id;";
+            }
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            if ($stmt->errno) {
+                echo $stmt->error;
+            }
+            $result = $stmt->get_result();
+            $weapons = [];
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $weapons[] = $row;
                 }
-                $stmt = $conn->prepare($query);
-                $stmt->execute();
-                if($stmt->errno)
-                {
-                    echo $stmt->error;
-                }
-                $result = $stmt->get_result();
-                $weapons = [];
-                if($result->num_rows >0){
-                    while($row = $result->fetch_assoc()){
-                        $weapons[] = $row;
-                    }
-                }
-                echo json_encode($weapons);
+            }
+            echo json_encode($weapons);
             break;
         default:
             //echo "Some error happened";

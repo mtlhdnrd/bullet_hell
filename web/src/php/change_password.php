@@ -6,9 +6,9 @@ if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
     $password = $_POST['newpw'];
     $result = $conn->prepare("UPDATE player_login SET password=? WHERE username=?;");
     $result->bind_param("ss", $password, $username);
-    if($result->execute()){
+    if ($result->execute()) {
         http_response_code(200);
-    }else{
+    } else {
         http_response_code(400);
     }
 

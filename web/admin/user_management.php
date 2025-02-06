@@ -23,20 +23,20 @@ if (!is_admin_logged_in()) {
     <div class="content">
         <h1>Players</h1>
         <table class="table table-dark table-striped">
-        <thead class="thead-dark">
-            <tr>
-            <th scope="col">Username</th>
-            <th scope="col">Points</th>
-            <th scope="col">Winrate</th>
-            <th scope="col">Games Played</th>
-            <th scope="col">Kills</th>
-            <th scope="col">Deaths</th>
-            <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody class="table-contents">
-        </tbody>
-    </table>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Points</th>
+                    <th scope="col">Winrate</th>
+                    <th scope="col">Games Played</th>
+                    <th scope="col">Kills</th>
+                    <th scope="col">Deaths</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody class="table-contents">
+            </tbody>
+        </table>
     </div>
     <script src="user_management.js"></script>
 </body>

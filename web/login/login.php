@@ -27,25 +27,25 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
                     </div>
                     <div class="card-body">
                         <!--form action="" method="get" id="login-form" onsubmit="LoginUser()"-->
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" name="username" class="form-control" id="username" required>
-                                <?php echo (!empty($username_err)) ? "<p class='text-danger'>{$username_err}</p>" : ''; ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <div class="input-group">
-                                    <input type="password" name="password" class="form-control" id="password" required>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-secondary" type="button" onclick="togglePwVisibility()">
-                                            <i class="fa fa-eye" id="eyeIcon"></i>
-                                        </button>
-                                    </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" class="form-control" id="username" required>
+                            <?php echo (!empty($username_err)) ? "<p class='text-danger'>{$username_err}</p>" : ''; ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-group">
+                                <input type="password" name="password" class="form-control" id="password" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="button" onclick="togglePwVisibility()">
+                                        <i class="fa fa-eye" id="eyeIcon"></i>
+                                    </button>
                                 </div>
-                                <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                             </div>
-                            <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
-                            <button class="btn btn-primary my-3 px-4 py-2" onclick="LoginUser()">Log in</button>
+                            <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
+                        </div>
+                        <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
+                        <button class="btn btn-primary my-3 px-4 py-2" onclick="LoginUser()">Log in</button>
                         <!--/form-->
 
 

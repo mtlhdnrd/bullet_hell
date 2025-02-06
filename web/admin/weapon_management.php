@@ -23,24 +23,24 @@ if (!is_admin_logged_in()) {
     <div class="content">
         <h1>Weapons</h1>
         <table class="table table-dark table-striped">
-        <thead class="thead-dark">
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Damage</th>
-            <th scope="col">Fire rate</th>
-            <th scope="col">Semi auto</th>
-            <th scope="col">Rarity</th>
-            <th scope="col">Projectile speed</th>
-            <th scope="col">Mag</th>
-            <th scope="col">Description</th>
-            <th scope="col">Devinfo</th>
-            <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody class="table-contents">
-        </tbody>
-    </table>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Damage</th>
+                    <th scope="col">Fire rate</th>
+                    <th scope="col">Semi auto</th>
+                    <th scope="col">Rarity</th>
+                    <th scope="col">Projectile speed</th>
+                    <th scope="col">Mag</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Devinfo</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody class="table-contents">
+            </tbody>
+        </table>
     </div>
     <script src="weapon_management.js"></script>
 </body>

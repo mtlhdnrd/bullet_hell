@@ -23,7 +23,7 @@ $mapId = $_GET['id'];
 
     </div>
     <div class="map-weapons">
-        
+
     </div>
 </body>
 
