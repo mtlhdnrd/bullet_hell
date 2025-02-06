@@ -154,7 +154,7 @@ CREATE TABLE `player_login` (
 
 LOCK TABLES `player_login` WRITE;
 /*!40000 ALTER TABLE `player_login` DISABLE KEYS */;
-INSERT INTO `player_login` VALUES ('batyu','batyucsakbatyu',0),('batyuzo','batyuzik',0),('gembarnus','gembarnus',0),('girmany','gizmo',1),('gizmo','gizmo',0);
+INSERT INTO `player_login` VALUES ('batyu','batyucsakbatyu',0),('batyuzo','batyuzik',0),('foo','bar',0),('gembarnus','gembarnus',0),('girmany','gizmo',1),('gizmo','gizmo',0);
 /*!40000 ALTER TABLE `player_login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,11 +219,11 @@ DROP TABLE IF EXISTS `players`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `players` (
   `username` varchar(255) NOT NULL,
-  `points` int(11) NOT NULL,
-  `winrate` double NOT NULL,
-  `all_games_played` int(11) DEFAULT NULL,
-  `kills` int(11) NOT NULL,
-  `deaths` int(11) NOT NULL,
+  `points` int(11) NOT NULL DEFAULT 0,
+  `winrate` double NOT NULL DEFAULT 0,
+  `all_games_played` int(11) NOT NULL DEFAULT 0,
+  `kills` int(11) NOT NULL DEFAULT 0,
+  `deaths` int(11) NOT NULL DEFAULT 0,
   `most_used_music_id` int(11) DEFAULT NULL,
   `music_pack_id` int(11) DEFAULT NULL,
   `active_skin_id` int(11) DEFAULT NULL,
@@ -243,7 +243,7 @@ CREATE TABLE `players` (
 
 LOCK TABLES `players` WRITE;
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
-INSERT INTO `players` VALUES ('batyu',21,45,12,7,3,1,1,1),('batyuzo',0,0,NULL,0,0,NULL,NULL,1),('gembarnus',0,0,NULL,0,0,NULL,NULL,1),('girmany',0,0,0,0,0,NULL,NULL,NULL),('gizmo',0,0,0,0,0,NULL,NULL,NULL);
+INSERT INTO `players` VALUES ('batyu',21,45,12,7,3,1,1,1),('batyuzo',0,0,0,0,0,NULL,NULL,1),('foo',0,0,0,0,0,NULL,NULL,NULL),('gembarnus',0,0,0,0,0,NULL,NULL,1),('girmany',0,0,0,0,0,NULL,NULL,NULL),('gizmo',0,0,0,0,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `players` ENABLE KEYS */;
 UNLOCK TABLES;
 
