@@ -43,7 +43,7 @@ function addNewUser() {
             success: function (data, textStatus, xhr) {
                 switch (xhr.status) {
                     case 201:
-                        window.open("../main/index.php", "_self");
+                        window.open("../index.php", "_self");
                 }
             },
             error: function (data, textStatus, xhr) {
@@ -65,7 +65,7 @@ function LoginUser() {
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
                 case 200:
-                    window.open("../main/index.php", "_self");
+                    window.open("../index.php", "_self");
                     break;
 
             }
