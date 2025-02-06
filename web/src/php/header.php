@@ -27,10 +27,10 @@
         </ul>
       </div>
     </div>
-    <a href="../profile/" class="login-button fs-5" id="login-username">
+    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/bullet_hell/web/profile/" class="login-button fs-5" id="login-username">
       <?php echo $_SESSION['username']; ?>
     </a>
-    <a href="../src/php/logout.php" id="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/bullet_hell/web/src/php/logout.php" id="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
     <button class="navbar-toggler shadow-none border-0 pe-0" type="button" data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

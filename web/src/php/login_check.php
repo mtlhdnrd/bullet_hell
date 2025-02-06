@@ -17,7 +17,6 @@ if (isset($_GET['username']) && isset($_GET['password']) && count($_GET) == 2) {
 
     } else {
         http_response_code(401);
-
     }
     //echo json_encode($return);
 } else {

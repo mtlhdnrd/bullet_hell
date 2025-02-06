@@ -4,7 +4,7 @@ document.addEventListener("load", (event) => {
     $("#password-changed").addClass("d-none");
 });
 function changePassword() {
-    let username = $("#username").text();
+    let username = $("#username").text().trim();
     let password = $("#current-pw").val();
 
     isPasswordCorrect(username, password)
