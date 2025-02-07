@@ -27,6 +27,7 @@ function checkUsername(username, callback) {
         },
     });
 }
+
 function addNewUser() {
     let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
     if (!$("#username").val().match(allowed_username)) {
@@ -53,15 +54,14 @@ function addNewUser() {
 }
 
 function LoginUser() {
-    event.preventDefault();
-    let url = `../src/php/login_check.php`;
+    let url = "../src/php/login_check.php";
     let username = $("#username").val();
-    let pw = $("#password").val();
+    let password = $("#password").val();
     $.ajax({
         type: "GET",
         url: url,
-        data: { username: username, password: pw },
-        success: function (data, textStatus, xhr) {
+        data: { username: username, password: password },
+        success: function (_data, _textStatus, xhr) {
             switch (xhr.status) {
                 case 200:
                     window.open("../index.php", "_self");
@@ -79,7 +79,16 @@ function LoginUser() {
 }
 
 $(document).ready(function () {
-    $("#username").keyup(function (event) {
-        checkUsername($(this).val());
+    $("#username").keyup(function () {
+        let username = $(this).val();
+        if (username != "") {
+            checkUsername(username);
+        }
+    });
+
+    $(".login-input").keyup(function (e) {
+        if (e.key == "Enter" || e.keyCode == 13) {
+            $("#login-button").trigger("click");
+        }
     });
 });
