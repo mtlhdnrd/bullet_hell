@@ -91,7 +91,7 @@ CREATE TABLE `maps` (
   PRIMARY KEY (`id`),
   KEY `music_pack_id` (`music_pack_id`),
   CONSTRAINT `maps_ibfk_1` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +100,7 @@ CREATE TABLE `maps` (
 
 LOCK TABLES `maps` WRITE;
 /*!40000 ALTER TABLE `maps` DISABLE KEYS */;
-INSERT INTO `maps` VALUES (1,'Slaughterhouse','','This is the kind of place you really shouldn\'t go into, but out of sheer curiosity, you step in. The scent of blood and what you see overloads your senses. You will never get out.',3),(2,'Riot','','Someone\'s had enough. That someone had a loud voice. This voice was used to destroy things. Now you\'ve had enough.',1),(3,'Palace of the Setting Sun','','I live by the sword, you die by my sword.',2),(100,'Limitless','','Every weapon deserves a chance to shine. Even if they are trash. But you never know.',5);
+INSERT INTO `maps` VALUES (1,'Slaughterhouse','','This is the kind of place you really shouldn\'t go into, but out of sheer curiosity, you step in. The scent of blood and what you see overloads your senses. You will never get out.',3),(2,'Riot','','Someone\'s had enough. That someone had a loud voice. This voice was used to destroy things. Now you\'ve had enough.',1),(3,'Palace of the Setting Sun','','I live by the sword, you die by my sword.',2),(4,'Limitless','','Every weapon deserves a chance to shine. Even if they are trash. But you never know.',5);
 /*!40000 ALTER TABLE `maps` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +154,7 @@ CREATE TABLE `player_login` (
 
 LOCK TABLES `player_login` WRITE;
 /*!40000 ALTER TABLE `player_login` DISABLE KEYS */;
-INSERT INTO `player_login` VALUES ('batyu','batyucsakbatyu',0),('batyuzo','batyuzik',0),('foo','bar',0),('gembarnus','gembarnus',0),('girmany','gizmo',1),('gizmo','gizmo',0);
+INSERT INTO `player_login` VALUES ('batyu','batyucsakbatyu',0),('batyuzo','batyuzik',0),('gembarnus','gembarnus',0),('girmany','gizmo',1),('gizmo','gizmo',0);
 /*!40000 ALTER TABLE `player_login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +243,7 @@ CREATE TABLE `players` (
 
 LOCK TABLES `players` WRITE;
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
-INSERT INTO `players` VALUES ('batyu',21,45,12,7,3,1,1,1),('batyuzo',0,0,0,0,0,NULL,NULL,1),('foo',0,0,0,0,0,NULL,NULL,NULL),('gembarnus',0,0,0,0,0,NULL,NULL,1),('girmany',0,0,0,0,0,NULL,NULL,NULL),('gizmo',0,0,0,0,0,NULL,NULL,NULL);
+INSERT INTO `players` VALUES ('batyu',21,45,12,7,3,1,1,1),('batyuzo',0,0,0,0,0,NULL,NULL,1),('gembarnus',0,0,0,0,0,NULL,NULL,1),('girmany',0,0,0,0,0,NULL,NULL,NULL),('gizmo',0,0,0,0,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `players` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,7 +302,7 @@ CREATE TABLE `weapons` (
 
 LOCK TABLES `weapons` WRITE;
 /*!40000 ALTER TABLE `weapons` DISABLE KEYS */;
-INSERT INTO `weapons` VALUES (11,'Scythe','weapons/def_scythe_ink.png',100,1,1,3,NULL,NULL,'A lethal and cool-looking weapon wielded by Death itself','FIRE: melee attack\nALTFIRE: take away enemy weapon\nUNEQUIP: default'),(12,'Nailgun','weapons/def_nailgun1.png',20,3,2,2,0.8,13,'Safety instructions would suggest you NOT to pin coworkers to a wall...','FIRE: shoot (gravity)\nALTFIRE: -\nUNEQUIP: default'),(13,'Cleaver','weapons/def_cleaver_ink1.png',70,0.8,1,1,0.4,NULL,'Chop things up with this very nuanced instrument of destruction. Don\'t cut your finger.','FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),(14,'Chainsaw','weapons/def_chainsaw_ink1.png',3,20,2,2,NULL,200,'Ever heard of Mick Gordon? The Doom Slayer? Hell, maybe?','FIRE: rev, damage on\nALTFIRE: -\nUNEQUIP: default'),(15,'Taser','weapons/taser1.png',50,1,1,1,NULL,NULL,'Some crackhead clunker cranked the crap out of this cruel (but previously non-lethal) critter.','FIRE: check triggerbox in front of muzzle\nALTFIRE: -\nUNEQUIP: default'),(16,'Knife','weapons/def_knife_ink.png',50,1.5,3,1,0.4,NULL,'If the glove don\'t fit, stop wearing them and continue stabbing','FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default'),(21,'The Power of Words','weapons/def_hatespeech.png',10,30,2,3,343,90,'SPREAD AWARENESS IN A CONE','FIRE: check triggerbox in front of muzzle\nALFTIRE: -\nUNEQUIP: default'),(22,'Pistol','weapons/def_pistol1.png',35,3,1,1,1,12,'9 millimeters is a LOT.','FIRE: shoot particle\nALTFIRE: -\nUNEQUIP: default'),(23,'Shotgun','weapons/def_shotgun.png',15,0.75,1,2,0.85,7,'If you get the general direction right, you\'ll have no problems with this one','FIRE: shoot particles(7)\nALTFIRE: -\nUNEQUIP: default'),(24,'Pressure!','no_photo.jpg',7,4,1,2,0.85,2,'You already massacred a perfectly good metal tube, so everyone knows you have the resolve','FIRE: shoot particles(15)\nALTFIRE: -\nUNEQUIP: default'),(31,'Wrath of Nobunaga','no_photo.jpg',400,1,1,3,0.8,1,'The legendary daimyo left you a present. He will smile upon you if you put it to good use!','FIRE: shoot particle (3 ricochet, every bounce halves damage)\nALTFIRE: -\nUNEQUIP: default'),(32,'Bow','no_photo.jpg',70,0.3,1,2,0.6,1,'Ranged weapon against pointy sticks, who would win?','FIRE: shoot particle (gravity)\nALTFIRE: refill\nUNEQUIP: default'),(33,'Kunai','weapons/def_kunai_ink.png',40,1,1,1,0.6,NULL,'If your arms aren\'t long enough... damn that\'s a straight line...','FIRE: melee attack\nALTFIRE: throw\nUNEQUIP: default'),(34,'Dagger','no_photo.jpg',50,1.5,3,1,NULL,NULL,'If all else fails...','FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),(35,'Katana','no_photo.jpg',75,1,3,2,NULL,NULL,'Craftsmanship and lethality meet in your hands.','FIRE: melee attack\nALTFIRE: stab\nUNEQUIP: default'),(36,'Spear','no_photo.jpg',50,0.6,3,1,0.4,NULL,'Poke fun at the idiots trying to reach you with a knife','FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default');
+INSERT INTO `weapons` VALUES (11,'Scythe','weapons/def_scythe_ink.png',100,1,1,3,NULL,NULL,'A lethal and cool-looking weapon wielded by Death itself','FIRE: melee attack\nALTFIRE: take away enemy weapon\nUNEQUIP: default'),(12,'Nailgun','weapons/def_nailgun1.png',20,3,2,2,0.8,13,'Safety instructions would suggest you NOT to pin coworkers to a wall...','FIRE: shoot (gravity)\nALTFIRE: -\nUNEQUIP: default'),(13,'Cleaver','weapons/def_cleaver_ink.png',70,0.8,1,1,0.4,NULL,'Chop things up with this very nuanced instrument of destruction. Don\'t cut your finger.','FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),(14,'Chainsaw','weapons/def_chainsaw_ink1.png',3,20,2,2,NULL,200,'Ever heard of Mick Gordon? The Doom Slayer? Hell, maybe?','FIRE: rev, damage on\nALTFIRE: -\nUNEQUIP: default'),(15,'Taser','weapons/taser1.png',50,1,1,1,NULL,NULL,'Some crackhead clunker cranked the crap out of this cruel (but previously non-lethal) critter.','FIRE: check triggerbox in front of muzzle\nALTFIRE: -\nUNEQUIP: default'),(16,'Knife','weapons/def_knife_ink.png',50,1.5,3,1,0.4,NULL,'If the glove don\'t fit, stop wearing them and continue stabbing','FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default'),(21,'The Power of Words','weapons/def_hatespeech.png',10,30,2,3,343,90,'SPREAD AWARENESS IN A CONE','FIRE: check triggerbox in front of muzzle\nALFTIRE: -\nUNEQUIP: default'),(22,'Pistol','weapons/def_pistol1.png',35,3,1,1,1,12,'9 millimeters is a LOT.','FIRE: shoot particle\nALTFIRE: -\nUNEQUIP: default'),(23,'Shotgun','weapons/def_shotgun.png',15,0.75,1,2,0.85,7,'If you get the general direction right, you\'ll have no problems with this one','FIRE: shoot particles(7)\nALTFIRE: -\nUNEQUIP: default'),(24,'Pressure!','no_photo.jpg',7,4,1,2,0.85,2,'You already massacred a perfectly good metal tube, so everyone knows you have the resolve','FIRE: shoot particles(15)\nALTFIRE: -\nUNEQUIP: default'),(31,'Wrath of Nobunaga','no_photo.jpg',400,1,1,3,0.8,1,'The legendary daimyo left you a present. He will smile upon you if you put it to good use!','FIRE: shoot particle (3 ricochet, every bounce halves damage)\nALTFIRE: -\nUNEQUIP: default'),(32,'Bow','no_photo.jpg',70,0.3,1,2,0.6,1,'Ranged weapon against pointy sticks, who would win?','FIRE: shoot particle (gravity)\nALTFIRE: refill\nUNEQUIP: default'),(33,'Kunai','weapons/def_kunai_ink.png',40,1,1,1,0.6,NULL,'If your arms aren\'t long enough... damn that\'s a straight line...','FIRE: melee attack\nALTFIRE: throw\nUNEQUIP: default'),(34,'Dagger','no_photo.jpg',50,1.5,3,1,NULL,NULL,'If all else fails...','FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),(35,'Katana','no_photo.jpg',75,1,3,2,NULL,NULL,'Craftsmanship and lethality meet in your hands.','FIRE: melee attack\nALTFIRE: stab\nUNEQUIP: default'),(36,'Spear','no_photo.jpg',50,0.6,3,1,0.4,NULL,'Poke fun at the idiots trying to reach you with a knife','FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default');
 /*!40000 ALTER TABLE `weapons` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -315,4 +315,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-06  9:32:28
+-- Dump completed on 2025-02-07 10:14:38
