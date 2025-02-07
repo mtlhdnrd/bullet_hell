@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
 ?>
 <nav class="navbar navbar-expand-lg bg-custom px-lg-5">
     <div class="container-fluid">
@@ -16,7 +16,8 @@
             <div class="offcanvas-body bg-custom">
                 <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link mx-lg-4 menu-element text-white fs-5" aria-current="page" href="#rolunk">the
+                        <a class="nav-link mx-lg-4 menu-element text-white fs-5" aria-current="page"
+                            href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/index.php#rolunk">the
                             game</a>
                     </li>
                     <li class="nav-item ">
@@ -28,7 +29,7 @@
                             href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/leaderboard/">leaderboards</a>
                     </li>
                     <?php
-                    if(is_user_admin()) {
+                    if (is_user_admin()) {
                         echo "<li class=\"nav-item\">
                                 <a class=\"nav-link mx-lg-4 text-white menu-element fs-5\"
                                 href=\"/bullet_hell/web/admin/\">admin panel</a>

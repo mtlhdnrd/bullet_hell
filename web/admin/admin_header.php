@@ -23,6 +23,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="character_management.php">Character management</a>
                 </li>
+                <hr class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.php">Back to homepage</a>
+                </li>
             </ul>
         </div>
     </div>
