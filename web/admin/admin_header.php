@@ -19,6 +19,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="music_management.php">Music management</a>
                 </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="character_management.php">Character management</a>
+                </li>
             </ul>
         </div>
     </div>
