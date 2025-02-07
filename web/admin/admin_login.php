@@ -42,7 +42,6 @@ if(!is_user_admin()) {
                                     </button>
                                 </div>
                             </div>
-                            <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                         </div>
                         <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
                         <button class="btn btn-primary my-3 px-4 py-2" id="login-button" onclick="LoginAdmin()">Log in</button>

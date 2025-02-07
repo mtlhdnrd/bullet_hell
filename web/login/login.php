@@ -32,7 +32,6 @@ if(is_logged_in()) {
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" name="username" class="form-control login-input" id="username" required>
-                            <?php echo (!empty($username_err)) ? "<p class='text-danger'>{$username_err}</p>" : ''; ?>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
@@ -44,7 +43,6 @@ if(is_logged_in()) {
                                     </button>
                                 </div>
                             </div>
-                            <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                         </div>
                         <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
                         <button class="btn btn-primary my-3 px-4 py-2" id="login-button" onclick="LoginUser()">Log in</button>
