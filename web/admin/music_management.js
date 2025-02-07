@@ -1,20 +1,19 @@
-function LoadMapTable() {
+function LoadMusicTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_map_data.php",
+        url: "admin_get_music_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
-            $.each(data, function (index, map) {
-                let mapData = `
+            $.each(data, function (index, music) {
+                let musicData = `
                     <tr>
-                        <td>${map.name}</td>
-                        <td>${map.description}</td>
-                        <td>${map.music_pack}</td>
-                        <td><i class="fa-solid fa-trash delete-btn" id=${map.id}></i><td>
+                        <td>${music.name}</td>
+                        <td>${music.description}</td>
+                        <td><i class="fa-solid fa-trash delete-btn" id=${music.id}></i><td>
                     </tr>
                     `;
-                tableContents += mapData;
+                tableContents += musicData;
             });
             $(".table-contents").html(tableContents);
             $(".delete-btn").click(function () {
@@ -25,20 +24,20 @@ function LoadMapTable() {
 }
 
 function ConfirmDelete(id) {
-    if (confirm("Are you sure you want to delete the map?")) {
-        DeleteMap(id);
+    if (confirm("Are you sure you want to delete the music pack?")) {
+        DeleteMusic(id);
     }
 }
 
-function DeleteMap(id) {
+function DeleteMusic(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_map.php",
+        url: "admin_delete_music.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
                 case 200:
-                    LoadMapTable();
+                    LoadMusicTable();
                     break;
             }
         },
@@ -46,5 +45,5 @@ function DeleteMap(id) {
 }
 
 $(document).ready(function () {
-    LoadMapTable();
+    LoadMusicTable();
 });
