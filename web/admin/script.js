@@ -1,6 +1,6 @@
 function LoginAdmin() {
-    let url = `./admin_login_check.php`
-    let password = $("#password_admin").val();
+    let url = "./admin_login_check.php";
+    let password = $("#password").val();
     $.ajax({
         type: "GET",
         url: url,
