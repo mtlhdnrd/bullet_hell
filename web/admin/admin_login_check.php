@@ -2,8 +2,8 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['username']) && isset($_GET['password']) && count($_GET) == 2) {
-        $username = $_GET['username'];
+    if (isset($_GET['password']) && count($_GET) == 1) {
+        $username = $_SESSION['username'];
         $result = $conn->prepare("SELECT password FROM player_login WHERE `username` = ? AND `is_admin` = 1;");
         $result->bind_param('s', $username);
         $result->execute();
