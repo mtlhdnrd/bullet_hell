@@ -1,5 +1,8 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
+if($_SERVER["REQUEST_URI"] == "/bullet_hell/web/src/php/header.php") {
+    header("Location: /bullet_hell/web/index.php");
+}
 ?>
 <nav class="navbar navbar-expand-lg bg-custom px-lg-5">
     <div class="container-fluid">
