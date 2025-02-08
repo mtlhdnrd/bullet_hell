@@ -14,7 +14,7 @@ if (!is_admin_logged_in()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/logo.png">
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
     <title>Weapon management</title>
 </head>
 
@@ -42,7 +42,7 @@ if (!is_admin_logged_in()) {
             </tbody>
         </table>
     </div>
-    <script src="weapon_management.js"></script>
+    <script src="src/weapon_management.js"></script>
 </body>
 
 </html>

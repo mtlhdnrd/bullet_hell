@@ -1,20 +1,19 @@
-function LoadMapTable() {
+function LoadCharacterTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_map_data.php",
+        url: "./api/admin_get_character_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
-            $.each(data, function (index, map) {
-                let mapData = `
+            $.each(data, function (index, character) {
+                let characterData = `
                     <tr>
-                        <td>${map.name}</td>
-                        <td>${map.description}</td>
-                        <td>${map.music_pack}</td>
-                        <td><i class="fa-solid fa-trash delete-btn" id=${map.id}></i><td>
+                        <td>${character.name}</td>
+                        <td>${character.description}</td>
+                        <td><i class="fa-solid fa-trash delete-btn" id=${character.id}></i><td>
                     </tr>
                     `;
-                tableContents += mapData;
+                tableContents += characterData;
             });
             $(".table-contents").html(tableContents);
             $(".delete-btn").click(function () {
@@ -25,20 +24,20 @@ function LoadMapTable() {
 }
 
 function ConfirmDelete(id) {
-    if (confirm("Are you sure you want to delete the map?")) {
-        DeleteMap(id);
+    if (confirm("Are you sure you want to delete the character?")) {
+        DeleteCharacter(id);
     }
 }
 
-function DeleteMap(id) {
+function DeleteCharacter(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_map.php",
+        url: "admin_delete_character.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
                 case 200:
-                    LoadMapTable();
+                    LoadCharacterTable();
                     break;
             }
         },
@@ -46,5 +45,5 @@ function DeleteMap(id) {
 }
 
 $(document).ready(function () {
-    LoadMapTable();
+    LoadCharacterTable();
 });

@@ -16,7 +16,7 @@ if (!is_admin_logged_in()) {
     <title>Admin Panel</title>
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
     <link rel="icon" type="image/x-icon" href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="styl esheet" href="src/style.css">
 </head>
 
 <body>

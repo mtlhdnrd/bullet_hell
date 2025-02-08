@@ -1,7 +1,7 @@
 function LoadUserTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_user_data.php",
+        url: "./api/admin_get_user_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";

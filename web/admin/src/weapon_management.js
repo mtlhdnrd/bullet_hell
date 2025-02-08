@@ -1,7 +1,7 @@
 function LoadWeaponTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_weapon_data.php",
+        url: "./api/admin_get_weapon_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
