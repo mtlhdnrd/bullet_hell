@@ -32,7 +32,7 @@ function ConfirmDelete(id) {
 function DeleteCharacter(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_character.php",
+        url: "./api/admin_delete_character.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {

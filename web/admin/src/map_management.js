@@ -33,7 +33,7 @@ function ConfirmDelete(id) {
 function DeleteMap(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_map.php",
+        url: "./api/admin_delete_map.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {

@@ -32,7 +32,7 @@ function ConfirmDelete(id) {
 function DeleteMusic(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_music.php",
+        url: "./api/admin_delete_music.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {

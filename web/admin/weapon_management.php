@@ -42,6 +42,56 @@ if (!is_admin_logged_in()) {
             </tbody>
         </table>
     </div>
+    <div class="container">
+        <h1>Add New Weapon</h1>
+        <form action="" id="weapon-form" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="Awesome Gun" required>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="text" class="form-control" id="image" name="image" value="no_photo.jpg" accept="image/*" required>
+            </div>
+            <div class="mb-3">
+                <label for="damage" class="form-label">Damage</label>
+                <input type="number" class="form-control" id="damage" name="damage" value="10" required>
+            </div>
+            <div class="mb-3">
+                <label for="fire_rate" class="form-label">Fire Rate</label>
+                <input type="number" class="form-control" id="fire_rate" name="fire_rate" value="1.0" step="0.1" required>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="semi_auto" name="semi_auto" value="1">
+                <label class="form-check-label" for="semi_auto">Semi Auto</label>
+            </div>
+            <div class="mb-3">
+                <label for="rarity" class="form-label">Rarity</label>
+                <select class="form-select" id="rarity" name="rarity_id" required>
+                    <option value="1" selected>Common</option>
+                    <option value="2">Uncommon</option>
+                    <option value="3">Unique</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="projectile_speed" class="form-label">Projectile Speed</label>
+                <input type="number" class="form-control" id="projectile_speed" name="projectile_speed" value="5.5" step="0.1">
+            </div>
+            <div class="mb-3">
+                <label for="mag" class="form-label">Magazine Size</label>
+                <input type="number" class="form-control" id="mag" name="mag" value="30">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description">A standard issue weapon.</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="devinfo" class="form-label">Dev Info</label>
+                <textarea class="form-control" id="devinfo" name="devinfo">None</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Weapon</button>
+        </form>
+    </div>
     <script src="src/weapon_management.js"></script>
 </body>
 

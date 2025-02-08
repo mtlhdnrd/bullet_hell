@@ -35,7 +35,7 @@ function ConfirmDelete(username) {
 function DeleteUser(username) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_user.php",
+        url: "./api/admin_delete_user.php",
         data: { username: username },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
