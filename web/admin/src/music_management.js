@@ -46,4 +46,19 @@ function DeleteMusic(id) {
 
 $(document).ready(function () {
     LoadMusicTable();
+    $("#music-pack-form").submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "./api/admin_add_new_music.php",
+            data: $(this).serialize(),
+            success: function(data, textStatus, xhr){
+                alert("New music added!");
+                LoadMusicTable();
+            },
+            error: function(xhr, status, error){
+                console.error(error);
+            }
+        });
+    });
 });

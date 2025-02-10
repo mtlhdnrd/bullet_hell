@@ -15,7 +15,6 @@ IF($_SERVER['REQUEST_METHOD'] === 'POST')
     $description = $_POST['description'];
     $devinfo = $_POST['devinfo'];
     $query = "INSERT INTO weapons (name, file_name, damage, fire_rate, semi_auto, rarity_id, projectile_speed, mag, description, devinfo) VALUES(?,?,?,?,?,?,?,?,?,?)";
-    echo "Rarity: ".$rarity;
     $stmt = $conn->prepare($query);
     $stmt->bind_param("ssidiidiss", $name, $image, $damage, $fire_rate, $semi_auto, $rarity, $projectile_speed, $mag, $description, $devinfo);
     $stmt->execute();

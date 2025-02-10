@@ -47,3 +47,22 @@ function DeleteCharacter(id) {
 $(document).ready(function () {
     LoadCharacterTable();
 });
+
+$(document).ready(function () {
+    LoadCharacterTable();
+    $("#character-form").submit(function(event){
+        event.preventDefault();
+        alert("bro");
+        $.ajax({
+            type: "POST",
+            url: "./api/admin_add_new_character.php",
+            data: $(this).serialize(),
+            success: function(data, textStatus, xhr){
+                LoadCharacterTable();
+            },
+            error: function(xhr, status, error){
+                console.error(error);
+            }
+        });
+    });
+});

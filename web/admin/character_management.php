@@ -33,6 +33,25 @@ if (!is_admin_logged_in()) {
             </tbody>
         </table>
     </div>
+    <div class="container">
+        <h1>Add New Character</h1>
+        <form action="" id="character-form" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="Vanguard" required>
+            </div>
+            <div class="mb-3">
+                <label for="file" class="form-label">File</label>
+                <input type="text" class="form-control" id="file" name="file" value="vanguard.png" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description"
+                    name="description">A fierce warrior leading the charge.</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Character</button>
+        </form>
+    </div>
     <script src="src/character_management.js"></script>
 </body>
 

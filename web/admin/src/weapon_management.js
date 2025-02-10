@@ -61,7 +61,7 @@ $(document).ready(function () {
             url: "./api/admin_add_new_weapon.php",
             data: $(this).serialize(),
             success: function(data, textStatus, xhr){
-                console.log("Successful: "+xhr.status);
+                alert("Weapon addedd successfully!");
                 LoadWeaponTable();
             },
             error: function(xhr, status, error)
