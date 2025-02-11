@@ -24,17 +24,15 @@ if (!is_logged_in()) {
     <div class="profile-container">
         <div class="justify-contents-center">
             <?php
-                $query = "SELECT player_skins.file_name FROM player_skins INNER JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id INNER JOIN players ON player_skin_inventory.player_id = players.username WHERE players.username = ?;";
+                $query = "SELECT player_skins.file_name as `file_name` FROM player_skins INNER JOIN players ON players.active_skin_id = player_skins.id WHERE players.username = ?;";
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("s", $_SESSION["username"]);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 while ($row = $result->fetch_assoc()) {
-                    echo "<img "
+                    echo "<img src='../src/images/characters/{$row['file_name']}' class='img-fluid anti-alias mx-auto' alt='player character'>";
                 }
             ?>
-            <img src="../src/images/knight_web.png" class="anti-alias mx-auto " alt="player avatar"
-                style="width: 100%; object-fit: cover;">
             <div class="row p-5">
                 <h1 class="text-start text-black fw-1 text-center" id="username">
                     <?php echo $_SESSION['username']; ?>

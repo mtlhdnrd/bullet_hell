@@ -1,4 +1,4 @@
-function GetUserData(username) {
+function LoadUserData(username) {
     let ret;
     $.ajax({
         type: "GET",
@@ -16,17 +16,26 @@ function GetUserData(username) {
     });
     return ret;
 }
-function GetUsername(){
-    fetch('../src/php/get_username.php')
-  .then(response => response.json())
-  .then(username => {
-    GetUserData(username);
-        return username;
+async function GetUsername() {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            type: "GET",
+            url: "../src/php/get_username.php",
+            success: function(data, textStatus, xhr){
+                resolve(data);
+            },
+            error: function(xhr, status, error){
+                console.error(error);
+                reject(error);
+            }
+        });
     });
 }
-addEventListener("load", (event) => {
-    GetUsername().then(username => {
-        console.log("username: "+username);
-        
-    });
+addEventListener("load", async (event) => {
+    try {
+        const username = await GetUsername();
+        LoadUserData(username); 
+    } catch (error) {
+        console.error("Error:", error); 
+    }
 });
