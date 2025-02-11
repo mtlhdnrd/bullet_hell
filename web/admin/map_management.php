@@ -28,6 +28,7 @@ if (!is_admin_logged_in()) {
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Music pack</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody class="table-contents">

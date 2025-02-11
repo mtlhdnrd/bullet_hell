@@ -14,7 +14,7 @@ function LoadUserTable() {
                         <td>${user.all_games_played}</td>
                         <td>${user.kills}</td>
                         <td>${user.deaths}</td>
-                        <td><i class="fa-solid fa-trash delete-btn" id=${user.username}></i><td>
+                        <td><i class="fa-solid fa-trash delete-btn" id=${user.username}></i></td>
                     </tr>
                     `;
                 tableContents += playerData;

@@ -11,7 +11,7 @@ function LoadMapTable() {
                         <td>${map.name}</td>
                         <td>${map.description}</td>
                         <td>${map.music_pack}</td>
-                        <td><i class="fa-solid fa-trash delete-btn" id=${map.id}></i><td>
+                        <td><i class="fa-solid fa-trash delete-btn" id=${map.id}></i></td>
                     </tr>
                     `;
                 tableContents += mapData;

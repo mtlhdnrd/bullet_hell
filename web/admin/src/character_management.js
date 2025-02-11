@@ -10,7 +10,7 @@ function LoadCharacterTable() {
                     <tr>
                         <td>${character.name}</td>
                         <td>${character.description}</td>
-                        <td><i class="fa-solid fa-trash delete-btn" id=${character.id}></i><td>
+                        <td><i class="fa-solid fa-trash delete-btn" id=${character.id}></i></td>
                     </tr>
                     `;
                 tableContents += characterData;

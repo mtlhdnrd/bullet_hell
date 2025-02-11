@@ -10,7 +10,7 @@ function LoadMusicTable() {
                     <tr>
                         <td>${music.name}</td>
                         <td>${music.description}</td>
-                        <td><i class="fa-solid fa-trash delete-btn" id=${music.id}></i><td>
+                        <td><i class="fa-solid fa-trash delete-btn" id=${music.id}></i></td>
                     </tr>
                     `;
                 tableContents += musicData;
