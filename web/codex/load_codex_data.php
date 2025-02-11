@@ -52,9 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
         case 'music':
             $query = "";
             if (isset($_GET['condition'])) {
-                $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs WHERE " . $_GET['condition'] . " ORDER BY music_packs.name;";
+                $query = "SELECT name, cover_image, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs WHERE " . $_GET['condition'] . " ORDER BY music_packs.name;";
             } else {
-                $query = "SELECT name, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs ORDER BY music_packs.name;";
+                $query = "SELECT name, cover_image, anthem, description, main_menu_theme1, main_menu_theme2 FROM music_packs ORDER BY music_packs.name;";
             }
             $stmt = $conn->prepare($query);
             $stmt->execute();

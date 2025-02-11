@@ -23,6 +23,16 @@ if (!is_logged_in()) {
     <script src="<?php $_SERVER['DOCUMENT_ROOT']; ?>/bullet_hell/web/src/js/change_password.js" defer></script>
     <div class="profile-container">
         <div class="justify-contents-center">
+            <?php
+                $query = "SELECT player_skins.file_name FROM player_skins INNER JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id INNER JOIN players ON player_skin_inventory.player_id = players.username WHERE players.username = ?;";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("s", $_SESSION["username"]);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                while ($row = $result->fetch_assoc()) {
+                    echo "<img "
+                }
+            ?>
             <img src="../src/images/knight_web.png" class="anti-alias mx-auto " alt="player avatar"
                 style="width: 100%; object-fit: cover;">
             <div class="row p-5">
