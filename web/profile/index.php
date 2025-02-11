@@ -25,7 +25,7 @@ if (!is_logged_in()) {
         <div class="justify-contents-center">
             <img src="../src/images/knight_web.png" class="anti-alias mx-auto " alt="player avatar"
                 style="width: 100%; object-fit: cover;">
-            <div class="row bg-light p-5">
+            <div class="row p-5">
                 <h1 class="text-start text-black fw-1 text-center" id="username">
                     <?php echo $_SESSION['username']; ?>
                 </h1>

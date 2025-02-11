@@ -51,13 +51,25 @@ if (!is_admin_logged_in()) {
                 <textarea class="form-control" id="description" name="description">A standard issue map.</textarea>
             </div>
             <div class="mb-3">
+
                 <label for="rarity" class="form-label">Music Pack</label>
                 <select class="form-select" id="music_id" name="music_id" required>
-                    <option value="1" selected>Dusqk</option>
-                    <option value="2">CRT_HEAD1</option>
-                    <option value="3">CRT_HEAD2</option>
-                    <option value="4">avest</option>
-                    <option value="5">Mute City</option>
+                    <?php
+                        $query = "SELECT music_packs.id, music_packs.name FROM music_packs;";
+                        $stmt = $conn->prepare($query);
+                        $stmt->execute();
+                        if ($stmt->errno) {
+                            echo $stmt->error;
+                        }
+                        $result = $stmt->get_result();
+                        $musics = [];
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='".$row['id']."'>".$row['name']."</option>";
+                            }
+                        }
+                    ?>
+                    
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Add Map</button>

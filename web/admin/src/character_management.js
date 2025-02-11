@@ -52,7 +52,6 @@ $(document).ready(function () {
     LoadCharacterTable();
     $("#character-form").submit(function(event){
         event.preventDefault();
-        alert("bro");
         $.ajax({
             type: "POST",
             url: "./api/admin_add_new_character.php",
