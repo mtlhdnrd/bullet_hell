@@ -14,7 +14,7 @@ if (!is_admin_logged_in()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/logo.png">
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
     <title>Map management</title>
 </head>
 
@@ -34,7 +34,35 @@ if (!is_admin_logged_in()) {
             </tbody>
         </table>
     </div>
-    <script src="map_management.js"></script>
+    <div class="container">
+        <h1>Add New Map</h1>
+        <form action="" id="map-form" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="Awesome Map" required>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">File</label>
+                <input type="text" class="form-control" id="file" name="file" value="no_file.jpg" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description">A standard issue map.</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="rarity" class="form-label">Music Pack</label>
+                <select class="form-select" id="music_id" name="music_id" required>
+                    <option value="1" selected>Dusqk</option>
+                    <option value="2">CRT_HEAD1</option>
+                    <option value="3">CRT_HEAD2</option>
+                    <option value="4">avest</option>
+                    <option value="5">Mute City</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Map</button>
+        </form>
+    </div>
+    <script src="src/map_management.js"></script>
 </body>
 
 </html>

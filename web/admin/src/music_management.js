@@ -1,7 +1,7 @@
 function LoadMusicTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_music_data.php",
+        url: "./api/admin_get_music_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -32,7 +32,7 @@ function ConfirmDelete(id) {
 function DeleteMusic(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_music.php",
+        url: "./api/admin_delete_music.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
@@ -46,4 +46,19 @@ function DeleteMusic(id) {
 
 $(document).ready(function () {
     LoadMusicTable();
+    $("#music-pack-form").submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "./api/admin_add_new_music.php",
+            data: $(this).serialize(),
+            success: function(data, textStatus, xhr){
+                alert("New music added!");
+                LoadMusicTable();
+            },
+            error: function(xhr, status, error){
+                console.error(error);
+            }
+        });
+    });
 });

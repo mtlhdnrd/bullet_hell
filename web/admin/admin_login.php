@@ -50,7 +50,7 @@ if(!is_user_admin()) {
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="src/script.js"></script>
 </body>
 
 </html>

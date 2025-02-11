@@ -14,7 +14,7 @@ if (!is_admin_logged_in()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/logo.png">
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
     <title>Character management</title>
 </head>
 
@@ -33,7 +33,26 @@ if (!is_admin_logged_in()) {
             </tbody>
         </table>
     </div>
-    <script src="character_management.js"></script>
+    <div class="container">
+        <h1>Add New Character</h1>
+        <form action="" id="character-form" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="Vanguard" required>
+            </div>
+            <div class="mb-3">
+                <label for="file" class="form-label">File</label>
+                <input type="text" class="form-control" id="file" name="file" value="vanguard.png" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description"
+                    name="description">A fierce warrior leading the charge.</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Character</button>
+        </form>
+    </div>
+    <script src="src/character_management.js"></script>
 </body>
 
 </html>

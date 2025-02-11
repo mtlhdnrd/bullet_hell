@@ -1,7 +1,7 @@
 function LoadCharacterTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_character_data.php",
+        url: "./api/admin_get_character_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -32,7 +32,7 @@ function ConfirmDelete(id) {
 function DeleteCharacter(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_character.php",
+        url: "./api/admin_delete_character.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
@@ -46,4 +46,23 @@ function DeleteCharacter(id) {
 
 $(document).ready(function () {
     LoadCharacterTable();
+});
+
+$(document).ready(function () {
+    LoadCharacterTable();
+    $("#character-form").submit(function(event){
+        event.preventDefault();
+        alert("bro");
+        $.ajax({
+            type: "POST",
+            url: "./api/admin_add_new_character.php",
+            data: $(this).serialize(),
+            success: function(data, textStatus, xhr){
+                LoadCharacterTable();
+            },
+            error: function(xhr, status, error){
+                console.error(error);
+            }
+        });
+    });
 });

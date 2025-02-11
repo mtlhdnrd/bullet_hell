@@ -1,7 +1,7 @@
 function LoadMapTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_map_data.php",
+        url: "./api/admin_get_map_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -33,7 +33,7 @@ function ConfirmDelete(id) {
 function DeleteMap(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_map.php",
+        url: "./api/admin_delete_map.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
@@ -47,4 +47,19 @@ function DeleteMap(id) {
 
 $(document).ready(function () {
     LoadMapTable();
+    $("#map-form").submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "./api/admin_add_new_map.php",
+            data: $(this).serialize(),
+            success: function(data, textStatus, xhr){
+                alert("New map added!");
+                LoadMapTable();
+            },
+            error: function(xhr, status, error){
+                console.error(error);
+            }
+        });
+    });
 });

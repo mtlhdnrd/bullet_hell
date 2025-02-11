@@ -1,7 +1,7 @@
 function LoadWeaponTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_weapon_data.php",
+        url: "./api/admin_get_weapon_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -40,7 +40,7 @@ function ConfirmDelete(id) {
 function DeleteWeapon(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_weapon.php",
+        url: "./api/admin_delete_weapon.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
@@ -54,4 +54,20 @@ function DeleteWeapon(id) {
 }
 $(document).ready(function () {
     LoadWeaponTable();
+    $("#weapon-form").submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "./api/admin_add_new_weapon.php",
+            data: $(this).serialize(),
+            success: function(data, textStatus, xhr){
+                alert("Weapon addedd successfully!");
+                LoadWeaponTable();
+            },
+            error: function(xhr, status, error)
+            {
+                console.error(error);
+            }
+        });
+    });
 });

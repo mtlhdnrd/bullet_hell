@@ -1,7 +1,7 @@
 function LoadUserTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_user_data.php",
+        url: "./api/admin_get_user_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -35,7 +35,7 @@ function ConfirmDelete(username) {
 function DeleteUser(username) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_user.php",
+        url: "./api/admin_delete_user.php",
         data: { username: username },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
