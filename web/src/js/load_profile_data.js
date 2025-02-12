@@ -16,6 +16,17 @@ function GetUserData(username) {
     });
     return ret;
 }
+function GetUsername(){
+    fetch('../src/php/get_username.php')
+  .then(response => response.json())
+  .then(username => {
+    GetUserData(username);
+        return username;
+    });
+}
 addEventListener("load", (event) => {
-    let userData = GetUserData($("#username").text());
+    GetUsername().then(username => {
+        console.log("username: "+username);
+        
+    });
 });

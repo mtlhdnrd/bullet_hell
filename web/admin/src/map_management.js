@@ -1,7 +1,7 @@
 function LoadMapTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_map_data.php",
+        url: "./api/admin_get_map_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -11,7 +11,7 @@ function LoadMapTable() {
                         <td>${map.name}</td>
                         <td>${map.description}</td>
                         <td>${map.music_pack}</td>
-                        <td><i class="fa-solid fa-trash delete-btn" id=${map.id}></i><td>
+                        <td><i class="fa-solid fa-trash delete-btn" id=${map.id}></i></td>
                     </tr>
                     `;
                 tableContents += mapData;
@@ -33,7 +33,7 @@ function ConfirmDelete(id) {
 function DeleteMap(id) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_map.php",
+        url: "./api/admin_delete_map.php",
         data: { id: id },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
@@ -47,4 +47,19 @@ function DeleteMap(id) {
 
 $(document).ready(function () {
     LoadMapTable();
+    $("#map-form").submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "./api/admin_add_new_map.php",
+            data: $(this).serialize(),
+            success: function(data, textStatus, xhr){
+                alert("New map added!");
+                LoadMapTable();
+            },
+            error: function(xhr, status, error){
+                console.error(error);
+            }
+        });
+    });
 });

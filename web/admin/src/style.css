@@ -16,14 +16,16 @@
         margin-left: 10px;
     }
 
-    .content {
+    /*.content {
         flex: 1;
         padding: 20px;
-    }
+    }*/
+    .container { 
+        flex-shrink: 1;
+    } 
 }
 
 .navbar hr {
-    /*color: initial;*/
     width: 90%;
     margin-left: auto;
     margin-right: auto;

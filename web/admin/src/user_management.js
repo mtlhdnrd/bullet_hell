@@ -1,7 +1,7 @@
 function LoadUserTable() {
     $.ajax({
         type: "GET",
-        url: "admin_get_user_data.php",
+        url: "./api/admin_get_user_data.php",
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -14,7 +14,7 @@ function LoadUserTable() {
                         <td>${user.all_games_played}</td>
                         <td>${user.kills}</td>
                         <td>${user.deaths}</td>
-                        <td><i class="fa-solid fa-trash delete-btn" id=${user.username}></i><td>
+                        <td><i class="fa-solid fa-trash delete-btn" id=${user.username}></i></td>
                     </tr>
                     `;
                 tableContents += playerData;
@@ -35,7 +35,7 @@ function ConfirmDelete(username) {
 function DeleteUser(username) {
     $.ajax({
         type: "DELETE",
-        url: "admin_delete_user.php",
+        url: "./api/admin_delete_user.php",
         data: { username: username },
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {

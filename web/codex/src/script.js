@@ -59,12 +59,12 @@ function LoadMusic() {
         dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
             var container = $(".music-container"); // Select the container
-
             $.each(data, function (index, music) {
+                console.log(music.cover_image);
                 var characterBlock = `
          <div class="row bg-light mx-auto map-block mb-4">
   <div class="col-12 d-flex flex-column align-items-center"> 
-    <img src="${music.main_menu_theme1}" class="img-fluid" alt="${music.name}" width="500" height="200">
+    <img src="../src/images/music/${music.cover_image}" class="img-fluid anti-alias" alt="${music.name}" width="500" height="200">
     <div class="text-start w-100"> <div class="col-12"> 
       <h2>${music.name}</h2>
       <p>${music.description}</p>
@@ -101,9 +101,8 @@ function LoadWeapons() {
             $.each(data, function (index, weapon) {
                 var characterBlock = `<div class="row bg-light mx-auto map-block mb-4">
         <div class="col-12 d-flex flex-column align-items-center">
-            <img src="${
-                weapon.file_name
-            }" class="img-fluid" alt="knight_web.png" width="500" height="200">
+            <img src="${weapon.file_name
+                    }" class="img-fluid" alt="knight_web.png" width="500" height="200">
             <div class="text-start w-100">
                 <div class="col-12">
                     <h2>${weapon.name}</h2>
@@ -113,18 +112,15 @@ function LoadWeapons() {
                     <div class="collapse" id="weaponToggler${togglerNumber}">
                         <p>Damage: ${weapon.damage}</p>
                         <p>Fire rate: ${weapon.fire_rate}</p>
-                        <p>Semi auto: ${
-                            weapon.semi_auto == "1" ? "Yes" : "No"
-                        }</p>
+                        <p>Semi auto: ${weapon.semi_auto == "1" ? "Yes" : "No"
+                    }</p>
                         <p>Rarity: ${weapon.rarity}</p>
-                        <p>Projectile speed: ${
-                            weapon.projectile_speed === null
-                                ? "-"
-                                : weapon.projectile_speed
-                        }</p>
-                        <p>Magazine: ${
-                            weapon.mag === null ? "-" : weapon.mag
-                        }</p>
+                        <p>Projectile speed: ${weapon.projectile_speed === null
+                        ? "-"
+                        : weapon.projectile_speed
+                    }</p>
+                        <p>Magazine: ${weapon.mag === null ? "-" : weapon.mag
+                    }</p>
                     </div>
                 </div>
             </div>
@@ -258,8 +254,7 @@ function SearchForItem(page, value) {
                     $.each(data, function (index, weapon) {
                         var characterBlock = `<div class="row bg-light mx-auto map-block mb-4">
                         <div class="col-12 d-flex flex-column align-items-center">
-                            <img src="${
-                                weapon.file_name
+                            <img src="${weapon.file_name
                             }" class="img-fluid" alt="knight_web.png" width="500" height="200">
                             <div class="text-start w-100">
                                 <div class="col-12">
@@ -270,22 +265,19 @@ function SearchForItem(page, value) {
                                     <div class="collapse" id="weaponToggler${togglerNumber}">
                                         <p>Damage: ${weapon.damage}</p>
                                         <p>Fire rate: ${weapon.fire_rate}</p>
-                                        <p>Semi auto: ${
-                                            weapon.semi_auto == "1"
-                                                ? "Yes"
-                                                : "No"
-                                        }</p>
+                                        <p>Semi auto: ${weapon.semi_auto == "1"
+                                ? "Yes"
+                                : "No"
+                            }</p>
                                         <p>Rarity: ${weapon.rarity}</p>
-                                        <p>Projectile speed: ${
-                                            weapon.projectile_speed === null
-                                                ? "-"
-                                                : weapon.projectile_speed
-                                        }</p>
-                                        <p>Magazine: ${
-                                            weapon.mag === null
-                                                ? "-"
-                                                : weapon.mag
-                                        }</p>
+                                        <p>Projectile speed: ${weapon.projectile_speed === null
+                                ? "-"
+                                : weapon.projectile_speed
+                            }</p>
+                                        <p>Magazine: ${weapon.mag === null
+                                ? "-"
+                                : weapon.mag
+                            }</p>
                                     </div>
                                 </div>
                             </div>
