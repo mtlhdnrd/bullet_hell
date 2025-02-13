@@ -296,3 +296,8 @@ $(document).ready(function () {
         SearchForItem(document.body.dataset.page, $("#search-bar").val());
     });
 });
+
+function OpenSite(site)
+{
+    window.open(site, "_self");
+}
