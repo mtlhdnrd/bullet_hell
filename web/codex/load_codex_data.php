@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $maps = [];
             if ($result->num_rows > 0) {
-                $maps[] = $result->fetch_all(MYSQLI_ASSOC);
+                $maps = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($maps);
             break;
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $music = [];
             if ($result->num_rows > 0) {
-                $music[] = $result->fetch_all(MYSQLI_ASSOC);
+                $music = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($music);
             break;
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $weapons = [];
             if ($result->num_rows > 0) {
-                $weapons[] = $result->fetch_all(MYSQLI_ASSOC);
+                $weapons = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($weapons);
             break;

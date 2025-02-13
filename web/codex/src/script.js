@@ -59,6 +59,7 @@ function LoadMusic() {
         dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
             var container = $(".music-container"); // Select the container
+            console.log(xhr);
             $.each(data, function (index, music) {
                 console.log(music.cover_image);
                 var characterBlock = `
