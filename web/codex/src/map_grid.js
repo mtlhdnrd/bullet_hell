@@ -30,7 +30,6 @@ function LoadMaps() {
         dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
             var container = $(".map-container"); // Select the container
-            console.log(data[0]);
             $.each(data, function (index, map) {
                 maps.push(
                     new Map(
