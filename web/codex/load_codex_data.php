@@ -8,9 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             //Query all the maps along with their data
             $query = "";
             if (isset($_GET['condition'])) {
-                $query = "SELECT maps.name, maps.description, maps.file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id WHERE " . $_GET['condition'] . ";";
+                $query = "SELECT maps.name AS name, maps.description AS map_description, maps.file_name AS map_file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id WHERE " . $_GET['condition'] . ";";
             } else {
-                $query = "SELECT maps.name, maps.description,  maps.file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id;";
+                $query = "SELECT maps.name AS name, maps.description AS map_description, maps.file_name AS map_file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id;";
             }
             $stmt = $conn->prepare($query);
             $stmt->execute();

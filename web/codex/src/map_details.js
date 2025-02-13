@@ -13,8 +13,8 @@ function LoadMaps() {
                 maps.push(
                     new Map(
                         map.name,
-                        map.file_name,
-                        map.description,
+                        map.map_file_name,
+                        map.map_description,
                         map.music_pack_name,
                         map.music_pack_description
                     )
@@ -35,7 +35,7 @@ function DisplayMap() {
         <h1>${map.name}</h1>
         <div class="row">
             <div class="col-lg-9 col-sm-12">
-                <img src="../src/images/wallpaper_test.png" alt="" class="img-fluid">
+                <img src="../src/images/maps/${map.file_name}" alt="" class="img-fluid">
             </div>
             <div class="col-lg-3 col-sm-12">
                 <div class="description-attribute">Description</div>

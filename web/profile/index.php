@@ -43,7 +43,7 @@ if (!is_logged_in()) {
         </div>
         <div class="container-fluid justify-contents-center">
             <div class="row d-flex justify-contents-center">
-                <h1>Stats</h1>
+                <h1 class="text-center">Stats</h1>
                 <hr>
             </div>
             <div class="row d-flex justify-contents-center mt-2 ">
@@ -78,6 +78,7 @@ if (!is_logged_in()) {
             <hr>
             <div class="change-pw container-fluid">
                 <h1 class="mb-5">Change password</h1>
+                <hr>
                 <h4 class="text-success d-none bg-light" id="password-changed">Password changed successfully!</h4>
                 <div class="row">
                     <div class="col-12">
