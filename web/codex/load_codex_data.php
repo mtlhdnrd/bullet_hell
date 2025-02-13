@@ -20,9 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $maps = [];
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $maps[] = $row;
-                }
+                $maps[] = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($maps);
             break;
@@ -43,9 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $characters = [];
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $characters[] = $row;
-                }
+                $characters = $result->fetch_all(MYSQLI_ASSOC);
+
             }
             echo json_encode($characters);
             break;
@@ -64,9 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $music = [];
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $music[] = $row;
-                }
+                $music[] = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($music);
             break;
@@ -85,9 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $weapons = [];
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $weapons[] = $row;
-                }
+                $weapons[] = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($weapons);
             break;
