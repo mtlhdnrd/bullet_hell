@@ -7,13 +7,14 @@ export class Map {
         music_pack_description
     ) {
         this.name = name;
+        this.file_name = file_name;
         this.description = description;
         this.music_pack_name = music_pack_name;
         this.music_pack_description = music_pack_description;
     }
 
     DebugInfo() {
-        return `Map object with name: ${this.name}, description: ${this.description}, and music_pack_id: ${this.music_pack_id}`;
+        return `Map object with name: ${this.name}, file name: ${this.file_name}, description: ${this.description}, and music_pack_id: ${this.music_pack_id}`;
     }
 }
 
@@ -34,8 +35,8 @@ function LoadMaps() {
                 maps.push(
                     new Map(
                         map.name,
-                        map.file_name,
-                        map.description,
+                        map.map_file_name,
+                        map.map_description,
                         map.music_pack_name,
                         map.music_pack_description
                     )
@@ -64,7 +65,7 @@ function DisplayMaps() {
                 rowStr += `
                 <div class="col-lg-4 col-sm-12 px-0 py-2">
                     <div class="weapon-tile d-flex flex-column align-items-center swap-btn" id=${mapIndex}>
-                        <img src="../src/images/knight_web.png" alt="${maps[mapIndex].name}" class="img-thumbnail w-50">
+                        <img src="../src/images/maps/${maps[mapIndex].file_name}" alt="${maps[mapIndex].name}" class="img-thumbnail w-50">
                         <div class="text-center">${maps[mapIndex].name}</div>
                     </div>
                 </div>`;
