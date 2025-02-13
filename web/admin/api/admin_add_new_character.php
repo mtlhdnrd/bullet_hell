@@ -4,9 +4,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 
 IF($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    $name = $_POST['name'];
-    $file = $_POST['file'];
-    $description = $_POST['description'];
+    $name = htmlspecialchars($_POST['name']);
+    $file = htmlspecialchars($_POST['file']);
+    $description = htmlspecialchars($_POST['description']);
     $query = "INSERT INTO player_skins (name, file_name, description) VALUES(?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("sss", $name, $file, $description);
