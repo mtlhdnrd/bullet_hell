@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `bullet_hell`
 --
-CREATE DATABASE IF NOT EXISTS `bullet_hell` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS `bullet_hell` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
 USE `bullet_hell`;
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE `maps` (
   `file_name` varchar(50) NOT NULL,
   `description` text DEFAULT NULL,
   `music_pack_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `maps`
@@ -56,7 +56,7 @@ CREATE TABLE `map_assets` (
   `asset_id` int(11) NOT NULL,
   `map_id` int(11) NOT NULL,
   `file_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `map_assets` (
 CREATE TABLE `map_weapons` (
   `map_id` int(11) NOT NULL,
   `weapon_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `map_weapons`
@@ -101,7 +101,7 @@ CREATE TABLE `music_packs` (
   `main_menu_theme1` varchar(50) NOT NULL,
   `main_menu_theme2` varchar(50) NOT NULL,
   `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `music_packs`
@@ -130,7 +130,7 @@ CREATE TABLE `players` (
   `most_used_music_id` int(11) DEFAULT NULL,
   `music_pack_id` int(11) DEFAULT NULL,
   `active_skin_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `players`
@@ -153,7 +153,7 @@ CREATE TABLE `player_login` (
   `username` varchar(255) NOT NULL,
   `password` varchar(128) NOT NULL,
   `is_admin` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `player_login`
@@ -177,7 +177,7 @@ CREATE TABLE `player_skins` (
   `name` varchar(255) NOT NULL,
   `file_name` varchar(255) NOT NULL,
   `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `player_skins`
@@ -199,7 +199,7 @@ INSERT INTO `player_skins` (`id`, `name`, `file_name`, `description`) VALUES
 CREATE TABLE `player_skin_inventory` (
   `player_id` varchar(255) NOT NULL,
   `skin_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `player_skin_inventory`
@@ -221,7 +221,7 @@ INSERT INTO `player_skin_inventory` (`player_id`, `skin_id`) VALUES
 CREATE TABLE `rarities` (
   `id` int(11) NOT NULL,
   `rarity` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `rarities`
@@ -250,7 +250,7 @@ CREATE TABLE `weapons` (
   `mag` int(11) DEFAULT NULL,
   `description` text DEFAULT 'A deadly weapon',
   `devinfo` text DEFAULT 'FIRE:'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `weapons`

@@ -42,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $characters = [];
             if ($result->num_rows > 0) {
                 $characters = $result->fetch_all(MYSQLI_ASSOC);
-
             }
             echo json_encode($characters);
             break;
