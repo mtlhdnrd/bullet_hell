@@ -227,7 +227,7 @@ function SearchForItem(page, value) {
                         var characterBlock = `
          <div class="row bg-light mx-auto map-block mb-4">
   <div class="col-12 d-flex flex-column align-items-center"> 
-    <img src="${music.main_menu_theme1}" class="img-fluid" alt="${music.name}" width="500" height="200">
+    <img src="../src/images/music/${music.cover_image}" class="img-fluid anti-alias" alt="${music.name}" width="500" height="200">
     <div class="text-start w-100"> <div class="col-12"> 
       <h2>${music.name}</h2>
       <p>${music.description}</p>
