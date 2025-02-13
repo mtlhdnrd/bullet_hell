@@ -30,7 +30,6 @@ function LoadMaps() {
         dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
             var container = $(".map-container"); // Select the container
-
             $.each(data, function (index, map) {
                 maps.push(
                     new Map(
@@ -43,6 +42,9 @@ function LoadMaps() {
                 );
             });
         },
+        error: function(xhr, status, error){
+            console.error(error);
+        }
     }).then((result) => {
         DisplayMaps();
     });

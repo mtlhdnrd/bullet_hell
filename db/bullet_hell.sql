@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2025 at 04:57 PM
+-- Generation Time: Feb 13, 2025 at 11:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,9 +42,9 @@ CREATE TABLE `maps` (
 --
 
 INSERT INTO `maps` (`id`, `name`, `file_name`, `description`, `music_pack_id`) VALUES
-(1, 'Slaughterhouse', '', 'This is the kind of place you really shouldn\'t go into, but out of sheer curiosity, you step in. The scent of blood and what you see overloads your senses. You will never get out.', 3),
-(3, 'Palace of the Setting Sun', '', 'I live by the sword, you die by my sword.', 2),
-(4, 'Limitless', '', 'Every weapon deserves a chance to shine. Even if they are trash. But you never know.', 5);
+(1, 'Slaughterhouse', 'slaughterhouse.png', 'This is the kind of place you really shouldn\'t go into, but out of sheer curiosity, you step in. The scent of blood and what you see overloads your senses. You will never get out.', 3),
+(3, 'Palace of the Setting Sun', 'medieval_japan.png', 'I live by the sword, you die by my sword.', 2),
+(4, 'Limitless', 'practice.png', 'Every weapon deserves a chance to shine. Even if they are trash. But you never know.', 5);
 
 -- --------------------------------------------------------
 
@@ -140,7 +140,7 @@ INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kil
 ('batyu', 21, 45, 12, 7, 3, 1, 1, 1),
 ('batyuzo', 0, 0, 0, 0, 0, NULL, 2, 1),
 ('gembarnus', 0, 0, 0, 0, 0, NULL, 3, 1),
-('girmany', 0, 0, 0, 0, 0, NULL, 4, 2),
+('girmany', 0, 0, 0, 0, 0, NULL, 4, 1),
 ('gizmo', 0, 0, 0, 0, 0, NULL, 1, 2);
 
 -- --------------------------------------------------------
@@ -184,11 +184,11 @@ CREATE TABLE `player_skins` (
 --
 
 INSERT INTO `player_skins` (`id`, `name`, `file_name`, `description`) VALUES
-(1, 'Knight', 'knight path', 'The most common soldier'),
-(2, 'Rogue', 'rogue path', 'Beheaded his own master. Imagine what he can do to you...'),
-(3, 'Samurai', 'samurai path', 'Bound by loyalty, but not by law. Beware!'),
-(4, 'Entity', 'entity path', 'Zero identity, defined only by its boundaries.'),
-(5, 'Butcher', 'butcher.png', 'Set free from the Váci hentes, on his way to kill the minorities.');
+(1, 'Knight', 'knight.png', 'The most common soldier'),
+(2, 'Rogue', 'rogue.png', 'Beheaded his own master. Imagine what he can do to you...'),
+(3, 'Samurai', 'samurai.png', 'Bound by loyalty, but not by law. Beware!'),
+(4, 'Entity', 'entity.png', 'Zero identity, defined only by its boundaries.'),
+(5, 'Butcher', 'butcher.png', 'Set free from the Váci hentes, on his way to kill the furries. (He killed the Duolingo Owl btw)');
 
 -- --------------------------------------------------------
 
@@ -210,6 +210,7 @@ INSERT INTO `player_skin_inventory` (`player_id`, `skin_id`) VALUES
 ('gembarnus', 2),
 ('gembarnus', 3),
 ('gembarnus', 4),
+('girmany', 1),
 ('girmany', 2);
 
 -- --------------------------------------------------------
