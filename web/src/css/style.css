@@ -54,6 +54,7 @@
     color: white;
     text-decoration: none;
 }
+
 .anti-alias {
     image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
     image-rendering: -moz-crisp-edges; /* Firefox                        */
@@ -75,20 +76,20 @@
     }
 }
 
-.profile-image{
+.profile-image {
     width: auto;
     height: 250px;
 }
-#stat-music:hover{
-    cursor:pointer;
-}
-.stat-card{
+
+.stat-card {
     transition: 0.2s;
 }
-.stat-card:hover{
+
+.stat-card:hover {
     background-color: #eee;
 }
-.change-pw{
+
+.change-pw {
     max-width: 500px;
     text-align: center;
 }
