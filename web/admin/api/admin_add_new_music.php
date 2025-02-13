@@ -6,12 +6,13 @@ IF($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     $name = $_POST['name'];
     $anthem = $_POST['anthem'];
+    $cover_image = $_POST['cover_image'];
     $main_menu_1 = $_POST['main_menu_1'];
     $main_menu_2 = $_POST['main_menu_2'];
     $description = $_POST['description'];
-    $query = "INSERT INTO music_packs (name, anthem, main_menu_theme1, main_menu_theme2, description) VALUES(?,?,?,?,?)";
+    $query = "INSERT INTO music_packs (name, cover_image, anthem, main_menu_theme1, main_menu_theme2, description) VALUES(?,?,?,?,?,?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("sssss", $name, $anthem, $main_menu_1, $main_menu_2, $description);
+    $stmt->bind_param("ssssss", $name, $cover_image, $anthem, $main_menu_1, $main_menu_2, $description);
     $stmt->execute();
     if($stmt->errno){
         echo $stmt->error;
