@@ -8,9 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             //Query all the maps along with their data
             $query = "";
             if (isset($_GET['condition'])) {
-                $query = "SELECT maps.name, maps.description, maps.file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id WHERE " . $_GET['condition'] . ";";
+                $query = "SELECT maps.name AS name, maps.description AS map_description, maps.file_name AS map_file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id WHERE " . $_GET['condition'] . ";";
             } else {
-                $query = "SELECT maps.name, maps.description,  maps.file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id;";
+                $query = "SELECT maps.name AS name, maps.description AS map_description, maps.file_name AS map_file_name, music_packs.name AS music_pack_name, music_packs.description AS music_pack_description FROM maps LEFT JOIN music_packs ON maps.music_pack_id = music_packs.id;";
             }
             $stmt = $conn->prepare($query);
             $stmt->execute();
@@ -20,9 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $maps = [];
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $maps[] = $row;
-                }
+                $maps = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($maps);
             break;
@@ -43,9 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $characters = [];
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $characters[] = $row;
-                }
+                $characters = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($characters);
             break;
@@ -64,9 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $music = [];
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $music[] = $row;
-                }
+                $music = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($music);
             break;
@@ -85,9 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $result = $stmt->get_result();
             $weapons = [];
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $weapons[] = $row;
-                }
+                $weapons = $result->fetch_all(MYSQLI_ASSOC);
             }
             echo json_encode($weapons);
             break;

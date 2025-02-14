@@ -1,23 +1,26 @@
-.codex-tiles img {
-    width: 100%;
-    height: 100%;
-}
 .codex-menu-tile {
     margin: 0px;
-    background-color: #d7cece;
     border: 1px solid black;
+    filter: grayscale(100%);
 }
+.codex-menu-tile:hover{
+    filter: grayscale(0%);
+}
+
 .map-block {
     margin-top: 20px;
 }
+
 body {
     text-align: left;
 }
+
 .description-attribute {
     font-weight: 300;
     color: #827c7c;
     border-bottom: 1px solid #827c7c;
 }
+
 .hero-image {
     width: 450px;
     height: auto;
@@ -25,3 +28,87 @@ body {
     display: block;
     margin: auto;
 }
+
+@media screen and (min-width: 992px){
+    .codex-wrapper {
+        display: grid;
+        width: 100%;
+        height: 90vh;
+        aspect-ratio: 16/7;
+        grid-template-columns: repeat(16, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        margin: auto;
+    }
+    
+    #maps-tile {
+        grid-column: 1 / 9;
+        grid-row: 1 / 6;
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+        padding-left: 20px;
+    }
+    #weapons-tile{
+        grid-column:9/17;
+        grid-row: 1/5;
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+        padding-left: 20px;
+    }
+    #music-tile{
+        grid-column: 1/5;
+        grid-row: 6/8;
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+    }
+    #mechanics-tile{
+        grid-column: 5/9;
+        grid-row: 6/8;
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+    }
+    #characters-tile{
+        grid-column: 9/17;
+        grid-row:5/8;
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+        padding-left: 20px;
+    }
+    
+    .dead-center-text{
+        margin-top: 21%;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 992px){
+    .codex-wrapper {
+        
+    }
+    .codex-menu-tile {
+        margin: 0px;
+        border: 1px solid black;
+        filter: grayscale(100%);
+        height: 150px;
+        padding: 20px;
+    }
+    #maps-tile {
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+    }
+    #weapons-tile{
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+    }
+    #music-tile{
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+    }
+    #mechanics-tile{
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+    }
+    #characters-tile{
+        background-image: url("../../src/images/wallpaper_test.png");
+        background-size: cover;
+    }
+    
+

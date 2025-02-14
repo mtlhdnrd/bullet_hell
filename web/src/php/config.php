@@ -8,6 +8,7 @@ define('DB_NAME', 'bullet_hell');
 
 /* Attempt to connect to MySQL database */
 $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$conn->set_charset("utf8");
 $GLOBALS["conn"] = $conn;
 
 // Check connection

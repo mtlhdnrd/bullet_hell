@@ -2,10 +2,10 @@
 // Include config file
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
-if(is_admin_logged_in()) {
+if (is_admin_logged_in()) {
     header("Location: ./index.php");
 }
-if(!is_user_admin()) {
+if (!is_user_admin()) {
     header("Location: ../index.php");
 }
 ?>
@@ -35,7 +35,8 @@ if(!is_user_admin()) {
                         <div class="form-group">
                             <label for="password_admin">Password</label>
                             <div class="input-group">
-                                <input type="password" name="password_admin" class="form-control login-input" id="password" required>
+                                <input type="password" name="password_admin" class="form-control login-input"
+                                    id="password" required>
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary" type="button" onclick="togglePwVisibility()">
                                         <i class="fa fa-eye" id="eyeIcon"></i>
@@ -44,7 +45,8 @@ if(!is_user_admin()) {
                             </div>
                         </div>
                         <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
-                        <button class="btn btn-primary my-3 px-4 py-2" id="login-button" onclick="LoginAdmin()">Log in</button>
+                        <button class="btn btn-primary my-3 px-4 py-2" id="login-button" onclick="LoginAdmin()">Log
+                            in</button>
                     </div>
                 </div>
             </div>

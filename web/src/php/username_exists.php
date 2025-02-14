@@ -21,5 +21,5 @@ if (isset($_GET['user']) && count($_GET) == 1) {
     echo json_encode($return);
 
 } else {
-    echo "HIBA!";
+    echo "USERNAME NOT EXISTS";
 }

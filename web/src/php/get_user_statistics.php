@@ -9,5 +9,5 @@ if (isset($_GET['username'])) {
     $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     echo json_encode($result);
 } else {
-    echo "HIBA";
+    echo "USERNAME NOT SET";
 }

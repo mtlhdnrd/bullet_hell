@@ -35,31 +35,37 @@ if (!is_admin_logged_in()) {
         </table>
     </div>
     <div class="container">
-    <h1>Add New Music Pack</h1>
-    <form action="" id="music-pack-form" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="Cool music" required>
-        </div>
-        <div class="mb-3">
-            <label for="anthem" class="form-label">Anthem</label>
-            <input type="text" class="form-control" id="anthem" name="anthem" value="no_file.mp3" required>
-        </div>
-        <div class="mb-3">
-            <label for="main_menu_theme1" class="form-label">Main Menu Theme 1</label>
-            <input type="text" class="form-control" id="main_menu_1" name="main_menu_1" value="no_file.mp3" required>
-        </div>
-        <div class="mb-3">
-            <label for="main_menu_theme2" class="form-label">Main Menu Theme 2</label>
-            <input type="text" class="form-control" id="main_menu_2" name="main_menu_2" value="no_file.mp3" required>
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" name="description"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Add Music Pack</button>
-    </form>
-</div>
+        <h1>Add New Music Pack</h1>
+        <form action="" id="music-pack-form" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="Cool music" required>
+            </div>
+            <div class="mb-3">
+                <label for="cover_image" class="form-label">Cover Image</label>
+                <input type="text" class="form-control" id="cover_image" name="cover_image" value="cover.png" required>
+            </div>
+            <div class="mb-3">
+                <label for="anthem" class="form-label">Anthem</label>
+                <input type="text" class="form-control" id="anthem" name="anthem" value="no_file.mp3" required>
+            </div>
+            <div class="mb-3">
+                <label for="main_menu_theme1" class="form-label">Main Menu Theme 1</label>
+                <input type="text" class="form-control" id="main_menu_1" name="main_menu_1" value="no_file.mp3"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="main_menu_theme2" class="form-label">Main Menu Theme 2</label>
+                <input type="text" class="form-control" id="main_menu_2" name="main_menu_2" value="no_file.mp3"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Music Pack</button>
+        </form>
+    </div>
     <script src="src/music_management.js"></script>
 </body>
 

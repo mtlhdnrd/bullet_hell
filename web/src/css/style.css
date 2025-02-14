@@ -54,6 +54,7 @@
     color: white;
     text-decoration: none;
 }
+
 .anti-alias {
     image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
     image-rendering: -moz-crisp-edges; /* Firefox                        */
@@ -73,4 +74,22 @@
     .profile-container {
         display: flex;
     }
+}
+
+.profile-image {
+    width: auto;
+    height: 250px;
+}
+
+.stat-card {
+    transition: 0.2s;
+}
+
+.stat-card:hover {
+    background-color: #eee;
+}
+
+.change-pw {
+    max-width: 500px;
+    text-align: center;
 }
