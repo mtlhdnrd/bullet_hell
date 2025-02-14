@@ -20,29 +20,19 @@ if (!is_logged_in()) {
     ?>
     <div class="codex-wrapper">
         <div class="codex-menu-tile" id="maps-tile" onclick="OpenSite('maps_grid.php')">
-            <a href="maps_grid.php">
-                <h1 class="text-white position-absolute">Maps</h1>
-            </a>
+                <h1 class="text-white display-1">Maps</h1>
         </div>
         <div class="codex-menu-tile" id="characters-tile" onclick="OpenSite('characters.php?character=1')">
-            <a href="characters.php?character=1">
-                <h1 class="text-white position-absolute">Characters</h1>
-            </a>
+                <h1 class="text-white display-1">Characters</h1>
         </div>
         <div class="codex-menu-tile" id="music-tile" onclick="OpenSite('music.php')">
-            <a href="music.php">
-                <h1 class="text-white position-absolute">Music</h1>
-            </a>
+                <h1 class="text-white dead-center-text display-4">Music</h1>
         </div>
         <div class="codex-menu-tile" id="weapons-tile" onclick="OpenSite('weapons.php?weapon=0')">
-            <a href="weapons.php?weapon=0">
-                <h1 class="text-white position-absolute">Weapons</h1>
-            </a>
+                <h1 class="text-white display-2">Weapons</h1>
         </div>
         <div class="codex-menu-tile" id="mechanics-tile" onclick="OpenSite('mechanics.php')">
-            <a href="mechanics.php">
-                <h1 class="text-white position-absolute">Mechanics</h1>
-            </a>
+            <h1 class="text-white dead-center-text display-4">Mechanics</h1>
         </div>
     </div>
 </body>
