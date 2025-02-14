@@ -42,9 +42,9 @@ function LoadMaps() {
                 );
             });
         },
-        error: function(xhr, status, error){
+        error: function (xhr, status, error) {
             console.error(error);
-        }
+        },
     }).then((result) => {
         DisplayMaps();
     });
