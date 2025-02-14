@@ -1,5 +1,5 @@
 <?php
-if($_SERVER["REQUEST_URI"] == "/bullet_hell/web/admin/admin_header.php") {
+if ($_SERVER["REQUEST_URI"] == "/bullet_hell/web/admin/admin_header.php") {
     header("Location: /bullet_hell/web/index.php");
 }
 ?>
