@@ -102,6 +102,15 @@ body {
         background-image: url("../../src/images/wallpaper_test.png");
         background-size: cover;
     }
+    #music-tile > h1{
+        font-size: 47px;
+    }
+    #weapons-tile > h1{
+        font-size: 47px;
+    }
+    #mechanics-tile > h1{
+        font-size: 47px;
+    }
     #mechanics-tile{
         background-image: url("../../src/images/wallpaper_test.png");
         background-size: cover;
