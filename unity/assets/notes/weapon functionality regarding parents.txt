@@ -1,0 +1,9 @@
+-equip
+-drop
+-throw
+-fire
+-altfire
+
+drop(){enable box collider, lose control, clear parent}
+throw(){drop(), enable "istrigger"}
+altfire on thrown(){drop(),disable gravity on rigidbody, disable drag, disable mass}
