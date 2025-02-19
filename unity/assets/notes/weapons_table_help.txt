@@ -16,10 +16,10 @@ RIOT
 
 EDO
 3;musket;		done (sniper fx can be used for it, make it look grand)
-2;bow;			missing
+2;bow;			done
 1;dagger;		done
 1;kunai;		done
-2;katana;		missing
+2;katana;		done
 1;kusarigama;		done
 
 WARZONE
@@ -28,6 +28,6 @@ WARZONE
 1;mp40			missing
 1;pistol;		done
 2;shotgun		done
-1;machete		missing
+1;machete		done
 
 practice tool has ALL the weapons ()
