@@ -28,16 +28,7 @@ $characterIndex = $_GET['character'];
 
     </div> -->
     <div class="character-container">
-        <div class="character-slide container-fluid p-0">
-            <div class="row mx-auto">
-                <div class="col-lg-9 col-md-12 p-3">
-                    <h2 class="d-inline">Butcher</h2><br>
-                    <p class="d-inline">Set free from the Váci hentes, on his way to kill the furries. (He killed the Duolingo Owl btw)</p>
-                </div>
-                <div class="col-lg-3 col-md-12">
-                    <img src="knight.png" alt="" class="img-fluid img-fluid anti-alias mx-auto profile-image">
-                </div>
-            </div>
+        <div class="character-slides-container container-fluid p-0">
         </div>
     </div>
 </body>

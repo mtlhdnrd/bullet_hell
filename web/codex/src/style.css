@@ -122,7 +122,7 @@ body {
 }
 
 .character-slide{
-    background-image: url("../../src/images/character-slide-sample.jpg");
+    /* background-image: url("../../src/images/character-slide-sample.jpg");  */
     background-repeat: no-repeat;
     background-size: cover;
     color:#d4cece;

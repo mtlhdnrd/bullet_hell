@@ -1,8 +1,9 @@
 export class Character {
-    constructor(id, name, file_name, description) {
+    constructor(id, name, file_name, background_image, description) {
         this.id = id;
         this.name = name;
         this.file_name = file_name;
+        this.background_image = "character-slide-sample.jpg";
         this.description = description;
     }
 
@@ -41,6 +42,7 @@ function LoadCharacters() {
                         character.id,
                         character.name,
                         character.file_name,
+                        character.background_image,
                         character.description
                     )
                 );
@@ -61,7 +63,7 @@ function GetCharacterById(id) {
 }
 
 function DisplayCharacters() {
-    let heroCharacter =
+    /*let heroCharacter =
         currentCharacter === -1
             ? characters[0]
             : GetCharacterById(currentCharacter);
@@ -96,7 +98,6 @@ function DisplayCharacters() {
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
                     <div class="codex-tile d-flex flex-column align-items-center swap-btn" id=${characters[characterIndex].id}>
-                        <img src="../src/images/knight_web.png" alt="${characters[characterIndex].name}" class="img-fluid anti-alias mx-auto profile-image">
                         <div class="text-center">${characters[characterIndex].name}</div>
                     </div>
                 </div>`;
@@ -118,5 +119,32 @@ function DisplayCharacters() {
         let index = $(this).attr("id");
         currentCharacter = index;
         DisplayCharacters();
+    });*/
+    let characterSlides = '';
+    characters.forEach(character => {
+       characterSlides += `
+                <div class="character-slide p-0" id="${character.id}">
+                    <div class="row mx-auto">
+                        <div class="col-lg-9 col-sm-12 my-5">
+                            <h2>${character.name}</h2>
+                            <p>${character.description}</p>
+                        </div>
+                        <div class="col-lg-3 col-sm-12">
+                            <img src="${character.file_name}" class="d-block mx-auto img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>`;
     });
+    $('.character-slides-container').html(characterSlides);
 }
+$(document).ready(function() {
+    $('.character-slide').each(function() {
+        let charId = $(this).attr("id");
+        let character = GetCharacterById(charId); // Store the result for efficiency
+        if (character && character.background_image) { // Check if character and image exist
+            $(this).css("background-image", `url('../../src/images/${character.background_image}')`); // Use template literal
+        } else {
+            console.warn(`No background image found for character with ID: ${charId}`);
+        }
+    });
+});
