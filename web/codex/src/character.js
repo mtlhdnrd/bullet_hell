@@ -66,23 +66,18 @@ function DisplayCharacters() {
             ? characters[0]
             : GetCharacterById(currentCharacter);
     let heroSection = `
-            <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 hero-element bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12 my-5">
+
+                <div class="character-slide container-fluid p-0">
+                    <div class="row mx-auto">
+                        <div class="col-lg-9 col-sm-12 my-5">
                             <h2>${heroCharacter.name}</h2>
                             <p>${heroCharacter.description}</p>
                         </div>
-                        <div class="col-lg-6 col-sm-12">
+                        <div class="col-lg-3 col-sm-12">
                             <img src="${heroCharacter.file_name}" class="d-block mx-auto img-fluid" alt="">
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
     `;
 
     let rowNum =
@@ -101,7 +96,7 @@ function DisplayCharacters() {
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
                     <div class="codex-tile d-flex flex-column align-items-center swap-btn" id=${characters[characterIndex].id}>
-                        <img src="../src/images/knight_web.png" alt="${characters[characterIndex].name}" class="img-thumbnail w-50">
+                        <img src="../src/images/knight_web.png" alt="${characters[characterIndex].name}" class="img-fluid anti-alias mx-auto profile-image">
                         <div class="text-center">${characters[characterIndex].name}</div>
                     </div>
                 </div>`;
@@ -116,7 +111,7 @@ function DisplayCharacters() {
         containerHtml += row;
     });
     containerHtml += "</div>";
-    $(".hero-section").html(heroSection);
+    $(".character-container").html(heroSection);
     $(".other-characters-section").html(containerHtml);
 
     $(".swap-btn").click(function () {
