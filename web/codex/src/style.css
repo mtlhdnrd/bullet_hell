@@ -124,5 +124,18 @@ body {
         background-image: url("../../src/images/wallpaper_test.png");
         background-size: cover;
     }
-    
+}
 
+.character-slide{
+    /* background-image: url("../../src/images/character-slide-sample.jpg");  */
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:#d4cece;
+}
+.character-slide .row{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+}
+.character-slide > img{
+    height: 400px;
+    width: 300px;
+}
