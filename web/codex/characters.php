@@ -27,9 +27,7 @@ $characterIndex = $_GET['character'];
     <div class="other-characters-section">
 
     </div> -->
-    <div class="character-container">
-        <div class="character-slides-container container-fluid p-0">
-        </div>
+    <div class="character-slides-container container-fluid p-0">
     </div>
 </body>
 

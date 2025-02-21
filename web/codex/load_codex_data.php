@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             $username = $_SESSION['username'];
             $query = "";
             if (isset($_GET['condition'])) {
-                $query = "SELECT player_skins.id, player_skins.name, player_skins.file_name, player_skins.background_image, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? WHERE " . $_GET['condition'] . "ORDER BY player_skins.id;";
+                $query = "SELECT player_skins.id, player_skins.name, player_skins.display_image, player_skins.background_image, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? WHERE " . $_GET['condition'] . "ORDER BY player_skins.id;";
             } else {
-                $query = "SELECT player_skins.id, player_skins.name, player_skins.file_name, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? ORDER BY player_skins.id;";
+                $query = "SELECT player_skins.id, player_skins.name, player_skins.display_image, player_skins.background_image, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? ORDER BY player_skins.id;";
             }
             $stmt = $conn->prepare($query);
             $stmt->bind_param('s', $username);
