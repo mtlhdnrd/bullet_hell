@@ -24,13 +24,13 @@ if (!is_logged_in()) {
     <div class="profile-container py-3">
         <div class="justify-contents-center">
             <?php
-            $query = "SELECT player_skins.file_name as `file_name` FROM player_skins INNER JOIN players ON players.active_skin_id = player_skins.id WHERE players.username = ?;";
+            $query = "SELECT player_skins.display_image as `display_image` FROM player_skins INNER JOIN players ON players.active_skin_id = player_skins.id WHERE players.username = ?;";
             $stmt = $conn->prepare($query);
             $stmt->bind_param("s", $_SESSION["username"]);
             $stmt->execute();
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                echo "<img src='../src/images/characters/{$row['file_name']}' class='img-fluid anti-alias mx-auto profile-image' alt='player character'>";
+                echo "<img src='../src/images/characters/{$row['display_image']}' class='img-fluid anti-alias mx-auto profile-image' alt='player character'>";
             }
             ?>
             <div class="row p-5">
