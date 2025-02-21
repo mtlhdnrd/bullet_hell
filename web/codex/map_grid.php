@@ -22,34 +22,45 @@ if (!is_logged_in()) {
     ?>
     <!--div class="maps-section"-->
     <div>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="">
+        <div id="carouselExampleControls" class="carousel slide">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="w-100 h-100 anti-alias mx-auto" alt="First slide"
                         style="background-image: url('../src/images/maps/medieval_japan.png'); background-repeat: no-repeat; background-size: cover;">
-
                         <div class="map-description-tile text-right m-0">
                             <h1>Medieval Japan</h1>
-                            <p>This is an ancient yappanese map. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, saepe?</p>
+                            <p>This is an ancient yappanese map. Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Minus, saepe?</p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100 h-100 anti-alias mx-auto" src="../src/images/maps/practice.png"
-                        alt="Second slide">
+                <div class="w-100 h-100 anti-alias mx-auto" alt="First slide"
+                        style="background-image: url('../src/images/maps/practice.png'); background-repeat: no-repeat; background-size: cover;">
+                        <div class="map-description-tile text-right m-0">
+                            <h1>Medieval Japan</h1>
+                            <p>This is an ancient yappanese map. Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Minus, saepe?</p>
+                        </div>
+                </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100 h-100 anti-alias mx-auto" src="../src/images/maps/slaughterhouse.png"
-                        alt="Third slide">
+                <div class="w-100 h-100 anti-alias mx-auto" alt="First slide"
+                        style="background-image: url('../src/images/maps/slaughterhouse.png'); background-repeat: no-repeat; background-size: cover;">
+                        <div class="map-description-tile text-right m-0">
+                            <h1>Medieval Japan</h1>
+                            <p>This is an ancient yappanese map. Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Minus, saepe?</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+                <img src="../src/images/ui/carousel-prev-icon.png" class=" anti-alias" alt="">
             </a>
             <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+                <img src="../src/images/ui/carousel-next-icon.png" class="img-fluid anti-alias" alt="">
+
             </a>
         </div>
     </div>
