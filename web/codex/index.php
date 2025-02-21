@@ -37,4 +37,5 @@ if (!is_logged_in()) {
     </div>
 </body>
 <script src="src/script.js"></script>
+
 </html>

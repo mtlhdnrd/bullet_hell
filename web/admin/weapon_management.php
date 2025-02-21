@@ -51,7 +51,8 @@ if (!is_admin_logged_in()) {
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input type="text" class="form-control" id="image" name="image" value="no_photo.jpg" accept="image/*" required>
+                <input type="text" class="form-control" id="image" name="image" value="no_photo.jpg" accept="image/*"
+                    required>
             </div>
             <div class="mb-3">
                 <label for="damage" class="form-label">Damage</label>
@@ -59,7 +60,8 @@ if (!is_admin_logged_in()) {
             </div>
             <div class="mb-3">
                 <label for="fire_rate" class="form-label">Fire Rate</label>
-                <input type="number" class="form-control" id="fire_rate" name="fire_rate" value="1.0" step="0.1" required>
+                <input type="number" class="form-control" id="fire_rate" name="fire_rate" value="1.0" step="0.1"
+                    required>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="semi_auto" name="semi_auto" value="1">
@@ -75,7 +77,8 @@ if (!is_admin_logged_in()) {
             </div>
             <div class="mb-3">
                 <label for="projectile_speed" class="form-label">Projectile Speed</label>
-                <input type="number" class="form-control" id="projectile_speed" name="projectile_speed" value="5.5" step="0.1">
+                <input type="number" class="form-control" id="projectile_speed" name="projectile_speed" value="5.5"
+                    step="0.1">
             </div>
             <div class="mb-3">
                 <label for="mag" class="form-label">Magazine Size</label>

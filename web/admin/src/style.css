@@ -20,9 +20,9 @@
         flex: 1;
         padding: 20px;
     }*/
-    .container { 
+    .container {
         flex-shrink: 1;
-    } 
+    }
 }
 
 .navbar hr {

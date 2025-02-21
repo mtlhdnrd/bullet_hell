@@ -54,20 +54,19 @@ function DeleteWeapon(id) {
 }
 $(document).ready(function () {
     LoadWeaponTable();
-    $("#weapon-form").submit(function(event){
+    $("#weapon-form").submit(function (event) {
         event.preventDefault();
         $.ajax({
             type: "POST",
             url: "./api/admin_add_new_weapon.php",
             data: $(this).serialize(),
-            success: function(data, textStatus, xhr){
+            success: function (data, textStatus, xhr) {
                 alert("Weapon addedd successfully!");
                 LoadWeaponTable();
             },
-            error: function(xhr, status, error)
-            {
+            error: function (xhr, status, error) {
                 console.error(error);
-            }
+            },
         });
     });
 });

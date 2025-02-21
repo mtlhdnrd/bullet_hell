@@ -2,8 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 
-IF($_SERVER['REQUEST_METHOD'] === 'POST')
-{
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = htmlspecialchars($_POST['name']);
     $file = htmlspecialchars($_POST['file']);
     $description = htmlspecialchars($_POST['description']);
@@ -12,8 +11,8 @@ IF($_SERVER['REQUEST_METHOD'] === 'POST')
     $stmt = $conn->prepare($query);
     $stmt->bind_param("sssi", $name, $file, $description, $music);
     $stmt->execute();
-    if($stmt->errno){
+    if ($stmt->errno) {
         echo $stmt->error;
     }
-    http_response_code(200);    
+    http_response_code(200);
 }

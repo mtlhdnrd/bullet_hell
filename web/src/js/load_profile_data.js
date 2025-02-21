@@ -21,21 +21,21 @@ async function GetUsername() {
         $.ajax({
             type: "GET",
             url: "../src/php/get_username.php",
-            success: function(data, textStatus, xhr){
+            success: function (data, textStatus, xhr) {
                 resolve(data);
             },
-            error: function(xhr, status, error){
+            error: function (xhr, status, error) {
                 console.error(error);
                 reject(error);
-            }
+            },
         });
     });
 }
 addEventListener("load", async (event) => {
     try {
         const username = await GetUsername();
-        LoadUserData(username); 
+        LoadUserData(username);
     } catch (error) {
-        console.error("Error:", error); 
+        console.error("Error:", error);
     }
 });
