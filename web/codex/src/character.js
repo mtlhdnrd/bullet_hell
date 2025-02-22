@@ -1,8 +1,9 @@
 export class Character {
-    constructor(id, name, file_name, description) {
+    constructor(id, name, display_image, background_image, description) {
         this.id = id;
         this.name = name;
-        this.file_name = file_name;
+        this.display_image = display_image;
+        this.background_image = "character-slide-sample.jpg";
         this.description = description;
     }
 
@@ -14,7 +15,7 @@ export class Character {
             ${separator}
             ID: ${this.id}
             Name: ${this.name}
-            File Name: ${this.file_name}
+            File Name: ${this.display_image}
             Description: ${this.description}
             ${separator}
                     `;
@@ -26,8 +27,6 @@ const urlParams = new URLSearchParams(window.location.search);
 let currentCharacter = parseInt(
     urlParams.get("character") == 0 ? -1 : urlParams.get("character")
 );
-addEventListener("load", LoadCharacters());
-
 function LoadCharacters() {
     $.ajax({
         type: "GET",
@@ -40,7 +39,8 @@ function LoadCharacters() {
                     new Character(
                         character.id,
                         character.name,
-                        character.file_name,
+                        character.display_image,
+                        character.background_image,
                         character.description
                     )
                 );
@@ -61,67 +61,35 @@ function GetCharacterById(id) {
 }
 
 function DisplayCharacters() {
-    let heroCharacter =
-        currentCharacter === -1
-            ? characters[0]
-            : GetCharacterById(currentCharacter);
-    let heroSection = `
-            <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 hero-element bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12 my-5">
-                            <h2>${heroCharacter.name}</h2>
-                            <p>${heroCharacter.description}</p>
+    let characterSlides = '';
+    characters.forEach(character => {
+       characterSlides += `
+                <div class="character-slide p-0" id="${character.id}">
+                    <div class="row mx-auto">
+                        <div class="col-lg-7 col-sm-12 my-5 text-left">
+                            <h2 class="d-inline">${character.name}</h2>
+                            <p>${character.description}</p>
                         </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <img src="${heroCharacter.file_name}" class="d-block mx-auto img-fluid" alt="">
+                        <div class="col-lg-5 col-sm-12">
+                            <img src="${character.display_image}" class="d-block img-fluid profile-image anti-alias" alt="">
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-
-    let rowNum =
-        parseInt(characters.length) % 4 == 0
-            ? parseInt(characters.length / 4)
-            : parseInt(characters.length / 4 + 1);
-    let containerHtml = `<div class="container pb-5 pt-3">`;
-    let rowContent = [];
-    let characterIndex = 0;
-    for (let rn = 0; rn < rowNum; rn++) {
-        let rowStr = `
-            <div class="row">
-        `;
-        for (let cn = 0; cn < 4; cn++) {
-            if (characterIndex < characters.length) {
-                rowStr += `
-                <div class="col-lg-3 col-sm-12 p-0">
-                    <div class="codex-tile d-flex flex-column align-items-center swap-btn" id=${characters[characterIndex].id}>
-                        <img src="../src/images/knight_web.png" alt="${characters[characterIndex].name}" class="img-thumbnail w-50">
-                        <div class="text-center">${characters[characterIndex].name}</div>
                     </div>
                 </div>`;
-            }
-            characterIndex += 1;
-        }
-        rowStr += `</div>`;
-        rowContent.push(rowStr);
-    }
-
-    rowContent.forEach((row) => {
-        containerHtml += row;
     });
-    containerHtml += "</div>";
-    $(".hero-section").html(heroSection);
-    $(".other-characters-section").html(containerHtml);
+    $('.character-slides-container').html(characterSlides);
+    $(".character-slide").each(function() {
+        let charId = $(this).attr("id");
+        let character = GetCharacterById(charId); // Store the result for efficiency
+        if (character && character.background_image) { // Check if character and image exist
+            console.log(character.background_image);
+            $(this).css("background-image", `url(../src/images/${character.background_image})`);
 
-    $(".swap-btn").click(function () {
-        let index = $(this).attr("id");
-        currentCharacter = index;
-        DisplayCharacters();
+        } else {
+            console.warn(`No background image found for character with ID: ${charId}`);
+        }
     });
 }
+$(document).ready(function() {
+    LoadCharacters();
+    
+});

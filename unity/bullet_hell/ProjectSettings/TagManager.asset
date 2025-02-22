@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
+  - weapon
+  - playerAssets
+  - mapLoader
+  - gameManager
+  - lightsMain
+  - ladder
+  - death
+  - healthbar
   layers:
   - Default
   - TransparentFX
@@ -13,12 +21,12 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Weapon
+  - Inactive
+  - Ground2
+  - Ladder
+  - Death
   - 
   - 
   - 
@@ -71,4 +79,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: spritesUI
+    uniqueID: 4234245037
     locked: 0
