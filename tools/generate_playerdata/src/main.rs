@@ -57,7 +57,12 @@ fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     let mut players: Vec<Player> = vec![];
     let mut logins: Vec<PlayerLogin> = vec![];
 
-    for _ in 0..100 {
+    let number_of_players = match std::env::args().nth(1) {
+        Some(number) => number.parse::<i32>().unwrap_or(100),
+        None => 100,
+    };
+
+    for _ in 0..number_of_players {
         let username: String = (0..30)
             .map(|_| rng.sample(rand::distr::Alphanumeric) as char)
             .collect();
@@ -70,6 +75,7 @@ fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     let url = "mysql://root:@localhost:3306/bullet_hell";
     let pool = Pool::new(url)?;
     let mut conn = pool.get_conn()?;
+
     conn.exec_batch(
         r"INSERT INTO players (username, points, winrate, all_games_played, kills, deaths, most_used_music_id, music_pack_id, active_skin_id)
           VALUES (:username, :points, :winrate, :all_games_played, :kills, :deaths, :most_used_music_id, :music_pack_id, :active_skin_id)",
