@@ -10,6 +10,7 @@ define('DB_NAME', 'bullet_hell');
 $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $conn->set_charset("utf8");
 $GLOBALS["conn"] = $conn;
+$GLOBALS["players_per_page"] = 5;
 
 // Check connection
 if ($conn === false) {
