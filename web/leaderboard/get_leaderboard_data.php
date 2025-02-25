@@ -6,8 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $players_per_page = $GLOBALS["players_per_page"];
     $query = "SELECT players.username, players.points, players.winrate, players.all_games_played, players.kills, players.deaths FROM players INNER JOIN player_login ON players.username = player_login.username ORDER BY players.points DESC LIMIT $players_per_page";
     if (isset($_GET["p"])) {
-        $page = $_GET["p"];
-        $offset = $page * $players_per_page;
+        $page = intval($_GET["p"]);
+        if(!is_integer($page) || $page < 1) {
+            $page = 1;
+        }
+        $offset = ($page - 1) * $players_per_page;
         $query = $query." OFFSET $offset";
     }
     $query = $query.";";

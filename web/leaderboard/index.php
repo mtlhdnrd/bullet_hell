@@ -26,12 +26,12 @@ if (!is_logged_in()) {
                 <th scope="col">Games Played</th>
                 <th scope="col">Kills</th>
                 <th scope="col">Deaths</th>
-
             </tr>
         </thead>
         <tbody class="table-contents">
         </tbody>
     </table>
+    <div class="bg-dark text-center" id="page-controls"></div>
 
     <script src="src/leaderboard.js"></script>
 </body>
