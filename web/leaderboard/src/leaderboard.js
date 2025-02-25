@@ -41,9 +41,25 @@ $(document).ready(function () {
 });
 
 function GetLeaderboardData() {
+    var number_of_pages = 1;
     $.ajax({
         type: "GET",
-        url: "get_leaderboard_data.php",
+        url: "get_number_of_pages.php",
+        async: false,
+        success: function (data, textStatus, xhr) {
+            number_of_pages = Number(data)
+            if(isNaN(number_of_pages) || number_of_pages < 1) {
+                number_of_pages = 1;
+            }
+        }
+    });
+    var page = Number(GetUrlParameter("p"));
+    if(isNaN(page) || page < 1 || page > number_of_pages) {
+        window.location.search = "p=1";
+    }
+    $.ajax({
+        type: "GET",
+        url: `get_leaderboard_data.php?p=${page}`,
         success: function (data, textStatus, xhr) {
             $.each(data, function (index, player) {
                 leaderboard.push(
@@ -76,5 +92,40 @@ function GetLeaderboardData() {
             tableContents += playerData;
         });
         $(".table-contents").html(tableContents);
+
+        var pagecontrols = "";
+        var previous_page = null;
+        if(page != 1) {
+            previous_page = page - 1;
+        }
+        var next_page = null;
+        if(page < number_of_pages) {
+            next_page = page + 1;
+        }
+
+        if(previous_page != null) {
+            pagecontrols += `<span class="m-2"><a href="${window.location.pathname}?p=${previous_page}">previous</a></span>`
+        }
+        if(next_page != null) {
+            pagecontrols += `<span class="m-2"><a href="${window.location.pathname}?p=${next_page}">next</a></span>`
+        }
+        $("#page-controls").html(pagecontrols);
     });
+}
+
+// credit: https://stackoverflow.com/questions/19491336/how-to-get-url-parameter-using-jquery-or-plain-javascript
+function GetUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
 }
