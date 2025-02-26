@@ -104,10 +104,14 @@ function GetLeaderboardData() {
         }
 
         if(previous_page != null) {
-            pagecontrols += `<span class="m-2"><a href="${window.location.pathname}?p=${previous_page}">previous</a></span>`
+            pagecontrols += `<a class="h-100 text-decoration-none" href="${window.location.pathname}?p=${previous_page}">
+                <img src="../src/images/ui/carousel-prev-icon.png" alt="" class="img-fluid anti-alias">
+            </a>`
         }
         if(next_page != null) {
-            pagecontrols += `<span class="m-2"><a href="${window.location.pathname}?p=${next_page}">next</a></span>`
+            pagecontrols += `<a class="h-100 text-decoration-none" href="${window.location.pathname}?p=${next_page}">
+                <img src="../src/images/ui/carousel-next-icon.png" alt="" class="img-fluid anti-alias">
+            </a>`
         }
         $("#page-controls").html(pagecontrols);
     });
