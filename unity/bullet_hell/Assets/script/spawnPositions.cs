@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawnPositions : MonoBehaviour
-{
+public class spawnPositions : MonoBehaviour {
     [Header("ham_factory")]
     public Vector2 ham_unique;
     //left side only

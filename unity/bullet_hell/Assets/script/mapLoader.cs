@@ -4,8 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class mapLoader : MonoBehaviour
-{
+public class mapLoader : MonoBehaviour {
     [Header("misc")]
     public Light2D global;
     public Light2D emission;
@@ -54,13 +53,11 @@ public class mapLoader : MonoBehaviour
 
 
 
-    public bool loadMap(string mapName)
-    {
+    public bool loadMap(string mapName) {
         i = 0;
         current1 = 0;
         current2 = 0;
-        if (mapName == "ham")
-        {
+        if(mapName == "ham") {
             //level layers
             layerUpdate("A1", a1, ham_A1);
             layerUpdate("A2", a2, ham_A2);
@@ -81,9 +78,7 @@ public class mapLoader : MonoBehaviour
             //active map
             activeMap = "ham";
             return true;
-        }
-        else if (mapName == "prac")
-        {
+        } else if(mapName == "prac") {
             //level layers
             layerUpdate("A1", a1, prac_A1);
             layerUpdate("A2", a2, prac_A2);
@@ -102,9 +97,7 @@ public class mapLoader : MonoBehaviour
             //active map
             activeMap = "prac";
             return true;
-        }
-        else if (mapName == "jap")
-        {
+        } else if(mapName == "jap") {
             //level layers
             layerUpdate("A2", a2, jap_A2);
             layerUpdate("B1", b1, jap_B1);
@@ -124,37 +117,28 @@ public class mapLoader : MonoBehaviour
             //active map
             activeMap = "jap";
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
 
-    private void layerUpdate(string name, GameObject obj, Sprite toLoad)
-    {
+    private void layerUpdate(string name, GameObject obj, Sprite toLoad) {
         obj.GetComponent<SpriteRenderer>().sprite = toLoad;
     }
 
-    private void collUpdate(string mapName)
-    {
-        if (mapName == "ham")
-        {
+    private void collUpdate(string mapName) {
+        if(mapName == "ham") {
             ham_coll.enabled = true;
             prac_coll.enabled = false;
             jap_parkour.enabled = false;
             jap_coll.enabled = false;
 
-        }
-        else if (mapName == "prac")
-        {
+        } else if(mapName == "prac") {
             ham_coll.enabled = false;
             prac_coll.enabled = true;
             jap_parkour.enabled = false;
             jap_coll.enabled = false;
-        }
-        else if (mapName == "jap")
-        {
+        } else if(mapName == "jap") {
             ham_coll.enabled = false;
             prac_coll.enabled = false;
             jap_parkour.enabled = true;
@@ -162,40 +146,27 @@ public class mapLoader : MonoBehaviour
         }
     }
 
-    private void layerAnim(int frame)
-    {
+    private void layerAnim(int frame) {
 
 
-        if (activeMap == "prac")
-        {
-            if (frame % 4 == 0 && current1 < 5)
-            {
+        if(activeMap == "prac") {
+            if(frame % 4 == 0 && current1 < 5) {
                 current1++;
-            }
-            else if (frame % 4 == 0)
-            {
+            } else if(frame % 4 == 0) {
                 current1 = 0;
             }
             layerUpdate("C1", c1, prac_C1[current1]);
             layerUpdate("C2", c2, prac_C2[current1]);
             emission.lightCookieSprite = prac_emission[current1];
-        }
-        else if (activeMap == "jap")
-        {
-            if (frame % 4 == 0 && current1 < jap_A1.Length - 1)
-            {
+        } else if(activeMap == "jap") {
+            if(frame % 4 == 0 && current1 < jap_A1.Length - 1) {
                 current1++;
-            }
-            else if (frame % 4 == 0)
-            {
+            } else if(frame % 4 == 0) {
                 current1 = 0;
             }
-            if (frame % 4 == 0 && current2 < jap_emission.Length - 1)
-            {
+            if(frame % 4 == 0 && current2 < jap_emission.Length - 1) {
                 current2++;
-            }
-            else if (frame % 4 == 0)
-            {
+            } else if(frame % 4 == 0) {
                 current2 = 0;
             }
             layerUpdate("A1", a1, jap_A1[current1]);
@@ -204,8 +175,7 @@ public class mapLoader : MonoBehaviour
     }
 
     //for dynamic/animated stuff on any map
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         i++;
         layerAnim(i);
     }

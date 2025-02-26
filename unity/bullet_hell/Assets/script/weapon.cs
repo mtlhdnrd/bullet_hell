@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class weapon : MonoBehaviour
-{
+public class weapon : MonoBehaviour {
     public Rigidbody2D rb;
     public BoxCollider2D coll;
     public float[] handCloseOffset = new float[3];
@@ -23,32 +22,26 @@ public class weapon : MonoBehaviour
     //cooldown is always 1 second.
 
 
-    public virtual void Fire()
-    {
+    public virtual void Fire() {
         //use firing function of a weapon
     }
 
-    public virtual void AltFire()
-    {
+    public virtual void AltFire() {
         //use alt firing function of a weapon
     }
 
-    public virtual void Throw()
-    {
+    public virtual void Throw() {
     }
 
-    public virtual void SetValues()
-    {
+    public virtual void SetValues() {
     }
 
-    public virtual void equip(GameObject parent)
-    {
+    public virtual void equip(GameObject parent) {
         transform.SetParent(parent.transform);
         SetValues();
     }
 
-    public virtual void FixedUpdate()
-    {
-        if (cooldown > 0) { cooldown -= .016f; }
+    public virtual void FixedUpdate() {
+        if(cooldown > 0) { cooldown -= .016f; }
     }
 }
