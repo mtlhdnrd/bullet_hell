@@ -21,41 +21,40 @@ if (!is_logged_in()) {
 
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
+    <div class="container-fluid p-0">
+        <div id="image-carousel">
 
-        <div class="slide w-100 h-100 anti-alias"
-            style="background-image: url('../src/images/maps/medieval_japan.png'); background-repeat: no-repeat; background-size: cover;">
-            <div class="map-description-tile text-right m-0">
-                <h1>Medieval Japan</h1>
-                <p>This is an ancient yappanese map. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Minus, saepe?</p>
+            <div class="carousel-item active">
+                <img src="../src/images/maps/japan_display_00000.png" alt="Map 1">
+                <div class="description-label">
+                    <h1>Map 1 Name</h1>
+                    <p>Description of Map 1. Lorem ipsum dolor sit amet...</p>
+                </div>
             </div>
-        </div>
-        <div class="slide w-100 h-100 anti-alias"
-            style="background-image: url('../src/images/maps/practice.png'); background-repeat: no-repeat; background-size: cover;">
-            <div class="map-description-tile text-right m-0">
-                <h1>Medieval Japan</h1>
-                <p>This is an ancient yappanese map. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Minus, saepe?</p>
+            <div class="carousel-item">
+                <img src="../src/images/maps/practice_display_00000.png" alt="Map 2">
+                <div class="description-label">
+                    <h1>Map 2 Name</h1>
+                    <p>Description of Map 2.  Consectetur adipiscing elit...</p>
+                </div>
             </div>
-        </div>
-        <div class="slide w-100 h-100 anti-alias"
-            style="background-image: url('../src/images/maps/slaughterhouse.png'); background-repeat: no-repeat; background-size: cover;">
-            <div class="map-description-tile text-right m-0">
-                <h1>Medieval Japan</h1>
-                <p>This is an ancient yappanese map. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Minus, saepe?</p>
+            <div class="carousel-item">
+                <img src="../src/images/maps/ham_display_00000.png" alt="Map 3">
+                <div class="description-label">
+                    <h1>Map 3 Name</h1>
+                    <p>Description of Map 3. Sed do eiusmod tempor...</p>
+                </div>
             </div>
+
+            <button id="prevBtn" class="carousel-control-prev" type="button">
+                <img src="../src/images/ui/carousel-prev-icon.png" alt="Previous">
+            </button>
+            <button id="nextBtn" class="carousel-control-next" type="button">
+                <img src="../src/images/ui/carousel-next-icon.png" alt="Next">
+            </button>
         </div>
-        <a class="carousel-control carousel-control-prev h-100" role="button" onclick="LoadPrevious()">
-        <img src="../src/images/ui/carousel-prev-icon.png" alt="" class="img-fluid anti-alias" >
-        </a>
-        <a class="carousel-control carousel-control-next h-100" role="button" onclick="LoadNext()">
-        <img src="../src/images/ui/carousel-next-icon.png" alt="" class="img-fluid anti-alias" >
-        </a>
     </div>
-    <br>
+
     <script src="src/carousel/script.js"></script>
 </body>
 
