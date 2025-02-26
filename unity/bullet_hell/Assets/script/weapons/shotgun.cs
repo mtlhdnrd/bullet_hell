@@ -12,7 +12,9 @@ public class shotgun : weapon
         {
             cooldown = 1 / firerate;
             magazine--;
+            GetComponentInParent<playerHealth>().playerDamaged(damage);
             Debug.Log("*pow*, rounds left: " + magazine);
+            Debug.Log("you shot yourself, idiot, hp left:" + GetComponentInParent<playerHealth>().currentHealth);
         }
         else//firing doesn't happen
         {
@@ -23,7 +25,7 @@ public class shotgun : weapon
 
     public override void AltFire()
     {
-        GameObject.Find("gameManager").GetComponent<gameManager>().initTest("ham_factory");
+        GameObject.Find("gameManager").GetComponent<gameManager>().initTest("ham");
     }
 
     public override void SetValues()
@@ -35,6 +37,9 @@ public class shotgun : weapon
 
     private void Awake()
     {
+
+        weaponName = "shotgun";
+        weaponHands = new char[] {'a','a'};
         gameObject.layer = 8;
         magazine = 7;
         rarity = 2;

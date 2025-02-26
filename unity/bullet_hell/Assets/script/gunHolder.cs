@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
+using TMPro;
 using UnityEngine;
 
 public class gunHolder : MonoBehaviour
@@ -11,15 +13,40 @@ public class gunHolder : MonoBehaviour
     public float[] HCO = new float[3];//hand close offset
     public float[] HFO = new float[3];//hand far offset
     public float[] WPO = new float[3];//weapon offset
+    private char[] weaponHands;
 
 
+    public GameObject handClose;
+    public GameObject handFar;
     public GameObject equipped = null;
+    public GameObject player;
+
+    public bodyAnim playerAnim;
     public scanner scan;
+    public TextMeshProUGUI equippedText;
+
+    //this is the little thing that shows your magazine-left
+    public GameObject magInfo;
+    public TextMeshProUGUI magInfoText;
+    public Vector3 offset;
 
     [Header("weapon script ref")]
     public weapon weaponScript;
 
+    private void updateMaginfo()
+    {
+        if (equipped!=null)
+        {
+            magInfo.transform.position = player.transform.position+offset;
+            magInfoText.SetText(weaponScript.magazine.ToString());
+            magInfoText.color = new Color(1, 1, 1, 1);
+        }
+    }
 
+    private void hideMagInfo()
+    {
+        magInfoText.color = new Color(1, 1, 1, 0);
+    }
 
     //title says it all
     private void lookAtMouse()
@@ -103,27 +130,29 @@ public class gunHolder : MonoBehaviour
         HCO = weaponScript.handCloseOffset;
         HFO = weaponScript.handFarOffset;
         WPO = weaponScript.weaponOffset;
-
+        weaponHands = weaponScript.weaponHands;
 
         //set grabbed values to sprites
-        foreach (Transform child in transform)
-        {
-            if (child.name == "handClose")
-            {
-                child.localPosition = new Vector3(HCO[0], HCO[1], 0);
-                child.localRotation = Quaternion.Euler(0, 0, HCO[2]);
-            }
-            else if (child.name == "handFar")
-            {
-                child.localPosition = new Vector3(HFO[0], HFO[1], 0);
-                child.localRotation = Quaternion.Euler(0, 0, HFO[2]);
-            }
-        }
-        equipped.transform.localPosition = new Vector3(WPO[0], WPO[1], 0);
+
+        //close hand
+        handClose.transform.localPosition = new Vector2(HCO[0], HCO[1]);
+        handClose.transform.localRotation = Quaternion.Euler(0, 0, HCO[2]);
+
+        //far hand
+        handFar.transform.localPosition = new Vector2(HFO[0], HFO[1]);
+        handFar.transform.localRotation = Quaternion.Euler(0, 0, HFO[2]);
+        //equipped weapon
+        equipped.transform.localPosition = new Vector2(WPO[0], WPO[1]);
         equipped.transform.localRotation = Quaternion.Euler(0, 0, WPO[2]);
+
+        playerAnim.updateHands(weaponHands[0], weaponHands[1]);
     }
 
-
+    public void bareHandsOffset()
+    {
+        HCO = new float[] { -.4f, .3f, -65 };
+        HFO = new float[] { -.7f, .3f, -65 };
+    }
 
     public bool Fire()
     {
@@ -151,27 +180,33 @@ public class gunHolder : MonoBehaviour
         GameObject toEquip = scan.getEquippable();
         if (toEquip != null)
         {
-
             Drop();
             equipped = toEquip;
-            weaponScript = equipped.GetComponent<weapon>();
+            weaponScript = equipped.GetComponent<weapon>();//set weaponscript
+            //weaponscript interactions
             weaponScript.equip(gameObject);
             weaponScript.SetValues();
-            equipped.transform.localPosition = Vector3.zero;
+            equippedText.SetText(weaponScript.weaponName);
+            //reset positions
+            equipped.transform.localPosition = Vector2.zero;
             equipped.transform.localRotation = Quaternion.Euler(0, 0, 0);
             setOffset();
         }
-
     }
 
     public void Drop()
     {
+
         //base for throw and forfeiting control overall
         if (equipped != null)
         {
             equipped.transform.SetParent(null);
             scan.addDropped(equipped.GetComponent<Collider2D>());
             equipped = null;
+            equippedText.SetText("bare bands");
+            playerAnim.updateHands('b', 'b');//fists
+            hideMagInfo();
+            bareHandsOffset();//fists offset
         }
 
 
@@ -180,6 +215,11 @@ public class gunHolder : MonoBehaviour
     private void Update()
     {
         lookAtMouse();
+        updateMaginfo();
+    }
 
+    private void Awake()
+    {
+        offset = new Vector3(1f,-1f);
     }
 }

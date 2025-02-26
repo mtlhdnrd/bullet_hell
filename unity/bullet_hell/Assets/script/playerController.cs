@@ -75,10 +75,11 @@ public class playerController : MonoBehaviour
 
     public void init(string skin, Vector3 pos, int health)
     {
-        gameObject.GetComponentInChildren<bodyAnim>().skinSwitch(skin);
+        gameObject.GetComponentInChildren<bodyAnim>().init(skin);
         gameObject.transform.position = pos;
         gameObject.GetComponentInChildren<playerHealth>().currentHealth = health;
         gameObject.GetComponentInChildren<gunHolder>().equipped = null;
+        gameObject.GetComponentInChildren<gunHolder>().bareHandsOffset();
     }
 
     public void Flip()

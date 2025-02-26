@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
-    [Header("refs")]
+    [Header("script refs")]
     public mapLoader mapLoader;
     public weaponLoader weaponLoader;
     public spawnPositions spawnPositions;
     public healthbar healthbarP1;
+    public uiHandler uiHandler;
     //passedData passedData;
 
+    [Header("gameobject refs")]
     public GameObject player1;
     //public GameObject player2;
 
@@ -25,26 +27,27 @@ public class gameManager : MonoBehaviour
         //player2 goes here
     }
 
-    public void initTest(string mapname)
+    public void initTest(string mapName)
     {
-        mapLoader.loadMap(mapname);
-        healthbarP1.init("p1");
+        mapLoader.loadMap(mapName);
+        healthbarP1.init("p1", mapName);
+        uiHandler.init(new string[] { "batyuzo","200RP"});
 
-        if (mapname == "prac")
+        if (mapName == "prac")
         {
             //initplayers' skin will be controlled by passedData
             initPlayers(new string[] { "entity", null }, spawnPositions.prac_player, 200);
-            weaponLoader.init(mapname);
+            weaponLoader.init(mapName);
         }
-        else if (mapname == "ham")
+        else if (mapName == "ham")
         {
             initPlayers(new string[] { "butcher", null }, spawnPositions.ham_player, 200);
-            weaponLoader.init(mapname);
+            weaponLoader.init(mapName);
         }
-        else if (mapname == "jap")
+        else if (mapName == "jap")
         {
             initPlayers(new string[] { "rogue", null }, spawnPositions.jap_player, 200);
-            weaponLoader.init(mapname);
+            weaponLoader.init(mapName);
         }
 
 

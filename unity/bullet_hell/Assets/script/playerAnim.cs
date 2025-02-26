@@ -24,7 +24,7 @@ public class bodyAnim : MonoBehaviour
     [SerializeField] GameObject handCloseObj;
     [SerializeField] GameObject handFarObj;
     [SerializeField] GameObject headObj;
-    
+
 
     [Header("walkcycle refs")]
     [SerializeField] Sprite walk1;
@@ -56,9 +56,12 @@ public class bodyAnim : MonoBehaviour
         bodyObj = transform.Find("playerBody/body").gameObject;
         playerAssets = GameObject.FindGameObjectWithTag("gameManager").GetComponent<assets>();
 
+        //base skin
+        skinSwitch(startingCharacter);
+        updateHands('b', 'b');
     }
 
-    //always 6 frames long
+    //walkcycle 6 frames
     public void skinSwitch(string toSkin)
     {
         //set refs
@@ -70,7 +73,7 @@ public class bodyAnim : MonoBehaviour
             handFarA = playerAssets.rogue_handFarA;
             handCloseB = playerAssets.rogue_handCloseB;
             handFarB = playerAssets.rogue_handFarB;
-            stationary= playerAssets.rogue_idle;
+            stationary = playerAssets.rogue_idle;
         }
         else if (toSkin == "butcher")
         {
@@ -125,14 +128,28 @@ public class bodyAnim : MonoBehaviour
             stationary = playerAssets.entity_idle;
         }
 
-
-        //refresh non-auto-refresh sprites
         headObj.GetComponent<SpriteRenderer>().sprite = head;
-        handCloseObj.GetComponent<SpriteRenderer>().sprite = handCloseA;
-        handFarObj.GetComponent<SpriteRenderer>().sprite = handFarA;
+    }
+    public void updateHands(char close, char far)
+    {
+        if (close == 'a')
+        {
+            handCloseObj.GetComponent<SpriteRenderer>().sprite = handCloseA;
+        }
+        else if (close == 'b')
+        {
+            handCloseObj.GetComponent<SpriteRenderer>().sprite = handCloseB;
+        }
+        if (far == 'a')
+        {
+            handFarObj.GetComponent<SpriteRenderer>().sprite = handFarA;
+        }
+        else if (far == 'b')
+        {
+            handFarObj.GetComponent<SpriteRenderer>().sprite = handFarB;
+        }
 
     }
-
     private void moveAnim(int frame, bool forward)
     {
 
@@ -162,7 +179,6 @@ public class bodyAnim : MonoBehaviour
         }
         bodyObj.GetComponent<SpriteRenderer>().sprite = walk[current];
     }
-
     private void idleAnim()
     {
         current = 0;
@@ -186,6 +202,5 @@ public class bodyAnim : MonoBehaviour
         }
 
     }
-
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerHealth : MonoBehaviour
 {
     public int currentHealth;
+    public healthbar healthbarScript;
 
     //player gets damaged
     public void playerDamaged(int dmg)
@@ -12,7 +13,9 @@ public class playerHealth : MonoBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= dmg;
+            healthbarScript.healthUpdate("p1",currentHealth);
         }
+
         else { death(); }
 
     }
