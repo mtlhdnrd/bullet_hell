@@ -8,7 +8,7 @@ function togglePwVisibility() {
 }
 
 function checkUsername(username, callback) {
-    let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
+    let allowed_username = /^[a-zA-Z0-9]{2,30}$/;
     if (!username.match(allowed_username)) {
         $("#username-invalid-character").removeClass("d-none");
     } else {
@@ -29,7 +29,7 @@ function checkUsername(username, callback) {
 }
 
 function addNewUser() {
-    let allowed_username = /^[a-zA-Z0-9]{2,255}$/;
+    let allowed_username = /^[a-zA-Z0-9]{2,30}$/;
     if (!$("#username").val().match(allowed_username)) {
         $("#username-invalid-character").removeClass("d-none");
     } else {
