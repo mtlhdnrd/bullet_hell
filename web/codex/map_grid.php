@@ -14,49 +14,48 @@ if (!is_logged_in()) {
     <title>Maps</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/carousel/style.css">
 </head>
 
 <body data-page="weapons">
 
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <!--div class="maps-section"-->
-    <div>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="w-100 h-100 anti-alias mx-auto" alt="First slide"
-                        style="background-image: url('../src/images/maps/medieval_japan.png'); background-repeat: no-repeat; background-size: cover;">
+    <div class="container-fluid p-0">
+        <div id="image-carousel">
 
-                        <div class="map-description-tile text-right m-0">
-                            <h1>Medieval Japan</h1>
-                            <p>This is an ancient yappanese map. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, saepe?</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 h-100 anti-alias mx-auto" src="../src/images/maps/practice.png"
-                        alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 h-100 anti-alias mx-auto" src="../src/images/maps/slaughterhouse.png"
-                        alt="Third slide">
+            <div class="carousel-item active">
+                <img src="../src/images/maps/japan_display_00000.png" alt="Map 1">
+                <div class="description-label">
+                    <h1>Map 1 Name</h1>
+                    <p>Description of Map 1. Lorem ipsum dolor sit amet...</p>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="carousel-item">
+                <img src="../src/images/maps/practice_display_00000.png" alt="Map 2">
+                <div class="description-label">
+                    <h1>Map 2 Name</h1>
+                    <p>Description of Map 2.  Consectetur adipiscing elit...</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../src/images/maps/ham_display_00000.png" alt="Map 3">
+                <div class="description-label">
+                    <h1>Map 3 Name</h1>
+                    <p>Description of Map 3. Sed do eiusmod tempor...</p>
+                </div>
+            </div>
+
+            <button id="prevBtn" class="carousel-control-prev" type="button">
+                <img src="../src/images/ui/carousel-prev-icon.png" alt="Previous">
+            </button>
+            <button id="nextBtn" class="carousel-control-next" type="button">
+                <img src="../src/images/ui/carousel-next-icon.png" alt="Next">
+            </button>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="src/map_grid.js" type="module"></script>
+
+    <script src="src/carousel/script.js"></script>
 </body>
 
 </html>
