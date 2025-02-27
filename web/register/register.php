@@ -2,6 +2,9 @@
 // Include config file
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
+if (is_logged_in()) {
+    header("Location: ../index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +33,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
                             id="register-form">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" required>
+                                <input type="text" name="username" id="username" class="form-control login-input" required>
                             </div>
                             <p class="text-danger d-none" id="username-exists">The username already exists</p>
                             <p class="text-danger d-none" id="username-invalid-character">The username format invalid
@@ -40,7 +43,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <div class="input-group">
-                                    <input type="password" name="password" class="form-control" id="password" required>
+                                    <input type="password" name="password" class="form-control login-input" id="password" required>
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary" type="button" onclick="togglePwVisibility()">
                                             <i class="fa-solid fa-eye" id="eyeIcon"></i>
@@ -50,7 +53,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
                                 <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                             </div>
                         </form>
-                        <button class="btn btn-primary my-3 px-4 py-2" style="background-color: green; border: none;"
+                        <button class="btn btn-primary my-3 px-4 py-2" id="login-button" style="background-color: green; border: none;"
                             onclick="addNewUser()">Sign up</button>
                     </div>
                     <div class="card-footer">

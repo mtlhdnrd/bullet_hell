@@ -5,14 +5,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     $requestBody = file_get_contents('php://input');
     parse_str($requestBody, $params);
     $username = $params['username'];
-    $query = "DELETE FROM players WHERE username = ?;";
+    $query = "DELETE FROM player_login WHERE username=?;";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $username);
     $stmt->execute();
     if ($stmt->errno) {
         echo $stmt->error;
     }
-    $query = "DELETE FROM player_login WHERE username=?;";
+    $query = "DELETE FROM players WHERE username = ?;";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $username);
     $stmt->execute();
