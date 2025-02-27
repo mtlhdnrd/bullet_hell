@@ -38,7 +38,7 @@ public class bodyAnim : MonoBehaviour {
     public int i;
     private int divide;
     private void Awake() {
-        init("knight");
+        //init("knight");
     }
 
     public void init(string startingCharacter) {
