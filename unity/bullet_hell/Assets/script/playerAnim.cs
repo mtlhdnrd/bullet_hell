@@ -4,8 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class bodyAnim : MonoBehaviour
-{
+public class bodyAnim : MonoBehaviour {
 
     [Header("script refs")]
     [SerializeField] playerController player;
@@ -24,7 +23,7 @@ public class bodyAnim : MonoBehaviour
     [SerializeField] GameObject handCloseObj;
     [SerializeField] GameObject handFarObj;
     [SerializeField] GameObject headObj;
-    
+
 
     [Header("walkcycle refs")]
     [SerializeField] Sprite walk1;
@@ -38,13 +37,11 @@ public class bodyAnim : MonoBehaviour
     public int current = 0;
     public int i;
     private int divide;
-    private void Awake()
-    {
+    private void Awake() {
         init("knight");
     }
 
-    public void init(string startingCharacter)
-    {
+    public void init(string startingCharacter) {
         i = 0;
         walk = new Sprite[] { walk1, walk2, walk3, walk4, walk5, walk6 };
         divide = 60 / player.fps;
@@ -56,24 +53,23 @@ public class bodyAnim : MonoBehaviour
         bodyObj = transform.Find("playerBody/body").gameObject;
         playerAssets = GameObject.FindGameObjectWithTag("gameManager").GetComponent<assets>();
 
+        //base skin
+        skinSwitch(startingCharacter);
+        updateHands('b', 'b');
     }
 
-    //always 6 frames long
-    public void skinSwitch(string toSkin)
-    {
+    //walkcycle 6 frames
+    public void skinSwitch(string toSkin) {
         //set refs
-        if (toSkin == "rogue")
-        {
+        if(toSkin == "rogue") {
             walk = playerAssets.rogue_walk;
             head = playerAssets.rogue_head;
             handCloseA = playerAssets.rogue_handCloseA;
             handFarA = playerAssets.rogue_handFarA;
             handCloseB = playerAssets.rogue_handCloseB;
             handFarB = playerAssets.rogue_handFarB;
-            stationary= playerAssets.rogue_idle;
-        }
-        else if (toSkin == "butcher")
-        {
+            stationary = playerAssets.rogue_idle;
+        } else if(toSkin == "butcher") {
             walk = playerAssets.butcher_walk;
             head = playerAssets.butcher_head;
             handCloseA = playerAssets.butcher_handCloseA;
@@ -81,9 +77,7 @@ public class bodyAnim : MonoBehaviour
             handCloseB = playerAssets.butcher_handCloseB;
             handFarB = playerAssets.butcher_handFarB;
             stationary = playerAssets.butcher_idle;
-        }
-        else if (toSkin == "samurai")
-        {
+        } else if(toSkin == "samurai") {
             walk = playerAssets.samurai_walk;
             head = playerAssets.samurai_head;
             handCloseA = playerAssets.samurai_handCloseA;
@@ -91,9 +85,7 @@ public class bodyAnim : MonoBehaviour
             handCloseB = playerAssets.samurai_handCloseB;
             handFarB = playerAssets.samurai_handFarB;
             stationary = playerAssets.samurai_idle;
-        }
-        else if (toSkin == "knight")
-        {
+        } else if(toSkin == "knight") {
             walk = playerAssets.knight_walk;
             head = playerAssets.knight_head;
             handCloseA = playerAssets.knight_handCloseA;
@@ -101,10 +93,7 @@ public class bodyAnim : MonoBehaviour
             handCloseB = playerAssets.knight_handCloseB;
             handFarB = playerAssets.knight_handFarB;
             stationary = playerAssets.knight_idle;
-        }
-
-        else if (toSkin == "bull")
-        {
+        } else if(toSkin == "bull") {
             walk = playerAssets.bull_walk;
             head = playerAssets.bull_head;
             handCloseA = playerAssets.bull_handCloseA;
@@ -112,10 +101,7 @@ public class bodyAnim : MonoBehaviour
             handCloseB = playerAssets.bull_handCloseB;
             handFarB = playerAssets.bull_handFarB;
             stationary = playerAssets.bull_idle;
-        }
-
-        else if (toSkin == "entity")
-        {
+        } else if(toSkin == "entity") {
             walk = playerAssets.entity_walk;
             head = playerAssets.entity_head;
             handCloseA = playerAssets.entity_handCloseA;
@@ -125,67 +111,56 @@ public class bodyAnim : MonoBehaviour
             stationary = playerAssets.entity_idle;
         }
 
-
-        //refresh non-auto-refresh sprites
         headObj.GetComponent<SpriteRenderer>().sprite = head;
-        handCloseObj.GetComponent<SpriteRenderer>().sprite = handCloseA;
-        handFarObj.GetComponent<SpriteRenderer>().sprite = handFarA;
+    }
+    public void updateHands(char close, char far) {
+        if(close == 'a') {
+            handCloseObj.GetComponent<SpriteRenderer>().sprite = handCloseA;
+        } else if(close == 'b') {
+            handCloseObj.GetComponent<SpriteRenderer>().sprite = handCloseB;
+        }
+        if(far == 'a') {
+            handFarObj.GetComponent<SpriteRenderer>().sprite = handFarA;
+        } else if(far == 'b') {
+            handFarObj.GetComponent<SpriteRenderer>().sprite = handFarB;
+        }
 
     }
-
-    private void moveAnim(int frame, bool forward)
-    {
+    private void moveAnim(int frame, bool forward) {
 
         //moving forward
-        if (forward)
-        {
-            if (frame % divide == 0 && current < 5)
-            {
+        if(forward) {
+            if(frame % divide == 0 && current < 5) {
                 current++;
-            }
-            else if (frame % divide == 0)
-            {
+            } else if(frame % divide == 0) {
                 current = 0;
             }
         }
         //moving backwards
-        else
-        {
-            if (frame % divide == 0 && current > 0)
-            {
+        else {
+            if(frame % divide == 0 && current > 0) {
                 current--;
-            }
-            else if (frame % divide == 0)
-            {
+            } else if(frame % divide == 0) {
                 current = 5;
             }
         }
         bodyObj.GetComponent<SpriteRenderer>().sprite = walk[current];
     }
-
-    private void idleAnim()
-    {
+    private void idleAnim() {
         current = 0;
-        if (bodyObj != null) { bodyObj.GetComponent<SpriteRenderer>().sprite = stationary; }
+        if(bodyObj != null) { bodyObj.GetComponent<SpriteRenderer>().sprite = stationary; }
 
     }
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         i++;
-        if (player.moving && player.forwardMotion)
-        {
+        if(player.moving && player.forwardMotion) {
             moveAnim(i, true);
-        }
-        else if (player.moving && !player.forwardMotion)
-        {
+        } else if(player.moving && !player.forwardMotion) {
             moveAnim(i, false);
-        }
-        else
-        {
+        } else {
             idleAnim();
         }
 
     }
-
 
 }

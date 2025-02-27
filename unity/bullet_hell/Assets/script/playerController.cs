@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class playerController : MonoBehaviour
-{
+public class playerController : MonoBehaviour {
     [Header("Player Component Reference")]
     [SerializeField] Rigidbody2D rb;
 
@@ -35,24 +34,21 @@ public class playerController : MonoBehaviour
     public bool forwardMotion;
 
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         //!----------MOVEMENT----------!
         //moves get executed per physics update
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         //coyote decreases mid-air
-        if (coyoteCount > 0 && !groundCheckP1.grounded) { coyoteCount -= 0.2f; }
+        if(coyoteCount > 0 && !groundCheckP1.grounded) { coyoteCount -= 0.2f; }
         //buffer decreases mid-air
 
 
         grounded = groundCheckP1.grounded;
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         //ignore weapon collision
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("weapon"))
-        {
+        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("weapon")) {
             Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), obj.GetComponent<Collider2D>(), true);
         }
 
@@ -61,8 +57,7 @@ public class playerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         Flip();
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         currentHealth = gameObject.GetComponent<playerHealth>().currentHealth;
@@ -73,110 +68,90 @@ public class playerController : MonoBehaviour
 
     }
 
-    public void init(string skin, Vector3 pos, int health)
-    {
-        gameObject.GetComponentInChildren<bodyAnim>().skinSwitch(skin);
+    public void init(string skin, Vector3 pos, int health) {
+        gameObject.GetComponentInChildren<bodyAnim>().init(skin);
         gameObject.transform.position = pos;
         gameObject.GetComponentInChildren<playerHealth>().currentHealth = health;
         gameObject.GetComponentInChildren<gunHolder>().equipped = null;
+        gameObject.GetComponentInChildren<gunHolder>().bareHandsOffset();
     }
 
-    public void Flip()
-    {
+    public void Flip() {
 
         Vector3 mouseScreenPos = Input.mousePosition;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
 
         //facing right
-        if (mouseWorldPos.x > transform.position.x)
-        {
+        if(mouseWorldPos.x > transform.position.x) {
             body.GetComponentInChildren<SpriteRenderer>().flipX = true;
             moveDirection(true);
         }
         //facing left
-        if (mouseWorldPos.x < transform.position.x)
-        {
+        if(mouseWorldPos.x < transform.position.x) {
             body.GetComponentInChildren<SpriteRenderer>().flipX = false;
             moveDirection(false);
         }
     }
 
-    private void moveDirection(bool lookingRight)
-    {
+    private void moveDirection(bool lookingRight) {
         //if looks right and goes right -> forward motion
-        if (lookingRight && horizontal > 0) { forwardMotion = true; }
+        if(lookingRight && horizontal > 0) { forwardMotion = true; }
         //if looks left and goes right -> backwards motion
-        else if (!lookingRight && horizontal > 0) { forwardMotion = false; }
+        else if(!lookingRight && horizontal > 0) { forwardMotion = false; }
         //if looks left and goes left -> forward motion
-        else if (!lookingRight && horizontal < 0) { forwardMotion = true; }
+        else if(!lookingRight && horizontal < 0) { forwardMotion = true; }
         //if looks right and goes left -> backwards motion
-        else if (lookingRight && horizontal < 0) { forwardMotion = false; }
+        else if(lookingRight && horizontal < 0) { forwardMotion = false; }
     }
 
 
     //controls
-    public void Move(InputAction.CallbackContext context)
-    {
+    public void Move(InputAction.CallbackContext context) {
         horizontal = context.ReadValue<Vector2>().x;
-        if (context.performed) { moving = true; }
-        else { moving = false; }
+        if(context.performed) { moving = true; } else { moving = false; }
     }
 
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if (context.performed && groundCheckP1.grounded)
-        {
+    public void Jump(InputAction.CallbackContext context) {
+        if(context.performed && groundCheckP1.grounded) {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-        else jumpBuffer = 1f;
+        } else jumpBuffer = 1f;
     }
 
-    public void Fire(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
+    public void Fire(InputAction.CallbackContext context) {
+        if(context.performed) {
             gameObject.GetComponentInChildren<gunHolder>().Fire();
         }
 
     }
 
-    public void AltFire(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
+    public void AltFire(InputAction.CallbackContext context) {
+        if(context.performed) {
             gameObject.GetComponentInChildren<gunHolder>().AltFire();
         }
 
     }
 
-    public void Equip(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
+    public void Equip(InputAction.CallbackContext context) {
+        if(context.performed) {
             gunHolder.Equip();
         }
 
 
     }
 
-    public void ChangeSkin(InputAction.CallbackContext context)
-    {
-        if (context.performed) { gameObject.GetComponentInChildren<bodyAnim>().skinSwitch("samurai"); }
+    public void ChangeSkin(InputAction.CallbackContext context) {
+        if(context.performed) { gameObject.GetComponentInChildren<bodyAnim>().skinSwitch("samurai"); }
     }
 
-    public void Drop(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
+    public void Drop(InputAction.CallbackContext context) {
+        if(context.performed) {
             gameObject.GetComponentInChildren<gunHolder>().Drop();
         }
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("death"))
-        {
+    public void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.CompareTag("death")) {
             GetComponent<playerHealth>().death();
         }
     }
