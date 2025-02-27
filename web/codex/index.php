@@ -19,7 +19,7 @@ if (!is_logged_in()) {
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
     <div class="codex-wrapper">
-        <div class="codex-menu-tile" id="maps-tile" onclick="OpenSite('map_grid.php')">
+        <div class="codex-menu-tile" id="maps-tile" onclick="OpenSite('maps.php')">
                 <h1 class="text-white display-1">Maps</h1>
         </div>
         <div class="codex-menu-tile" id="characters-tile" onclick="OpenSite('characters.php?character=1')">
