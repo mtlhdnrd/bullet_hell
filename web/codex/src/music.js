@@ -1,4 +1,3 @@
-
 function LoadMusic() {
     $.ajax({
         type: "GET",
@@ -7,14 +6,12 @@ function LoadMusic() {
         dataType: "json", // Expect JSON response
         success: function (data, textStatus, xhr) {
             var container = $(".music-container"); // Select the container
-            console.log(xhr);
             $.each(data, function (index, music) {
-                console.log(music.cover_image);
                 var characterBlock = `
          <div class="row bg-light mx-auto map-block mb-4">
-  <div class="col-12 d-flex flex-column align-items-center"> 
+  <div class="col-12 d-flex flex-column align-items-center">
     <img src="../src/images/music/${music.cover_image}" class="img-fluid anti-alias" alt="${music.name}" width="500" height="200">
-    <div class="text-start w-100"> <div class="col-12"> 
+    <div class="text-start w-100"> <div class="col-12">
       <h2>${music.name}</h2>
       <p>${music.description}</p>
       <audio controls>
@@ -22,9 +19,15 @@ function LoadMusic() {
           Your browser does not support the audio element.
       </audio>
     </div>
-  </div> 
+  </div>
 </div>`;
                 container.append(characterBlock);
+            });
+
+            $("audio").on("play", function () {
+                $("audio").not(this).each(function (index, audio) {
+                    audio.pause();
+                });
             });
         },
     });
@@ -40,7 +43,7 @@ function SearchForMusic(value) {
         url: "load_codex_data.php",
         data: {
             data_type: "music",
-            condition: "name LIKE '" + value + "%'",
+            condition: "name LIKE '%" + value + "%'",
         },
         dataType: "json",
         success: function (data, textStatus, xhr) {
@@ -49,9 +52,9 @@ function SearchForMusic(value) {
             $.each(data, function (index, music) {
                 var musicBlock = `
                     <div class="row bg-light mx-auto map-block mb-4">
-  <div class="col-12 d-flex flex-column align-items-center"> 
+  <div class="col-12 d-flex flex-column align-items-center">
     <img src="../src/images/music/${music.cover_image}" class="img-fluid anti-alias" alt="${music.name}" width="500" height="200">
-    <div class="text-start w-100"> <div class="col-12"> 
+    <div class="text-start w-100"> <div class="col-12">
       <h2>${music.name}</h2>
       <p>${music.description}</p>
       <audio controls>
@@ -59,12 +62,12 @@ function SearchForMusic(value) {
           Your browser does not support the audio element.
       </audio>
     </div>
-  </div> 
+  </div>
 </div>`;
                 container.append(musicBlock);
             });
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error("AJAX Error:", status, error);
             $(".music-container").html("<p>Error loading music data.</p>");
         }
