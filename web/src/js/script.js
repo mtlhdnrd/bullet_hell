@@ -1,11 +1,3 @@
-function togglePwVisibility() {
-    let field = document.getElementById("password");
-    if (field.type === "password") {
-        field.type = "text";
-    } else {
-        field.type = "password";
-    }
-}
 
 function checkUsername(username, callback) {
     let allowed_username = /^[a-zA-Z0-9]{2,30}$/;
