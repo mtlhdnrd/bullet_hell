@@ -24,7 +24,6 @@ if ($_SERVER["REQUEST_URI"] == "/bullet_hell/web/admin/admin_header.php") {
                 <li class="nav-item">
                     <a class="nav-link" href="music_management.php">Music management</a>
                 </li>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="character_management.php">Character management</a>
                 </li>

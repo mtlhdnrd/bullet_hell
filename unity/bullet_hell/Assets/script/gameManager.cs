@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour {
     public weaponLoader weaponLoader;
     public spawnPositions spawnPositions;
     public healthbar healthbarP1;
+    public healthbar healthbarP2;
     public uiHandler uiHandler;
     //passedData passedData;
 
@@ -24,23 +25,24 @@ public class gameManager : MonoBehaviour {
         //position needs rewriting on a per-map basis
         player1.GetComponent<playerController>().init(playerskins[0], spawnAt, health);
         //player2 goes here
-        player2.GetComponent<playerController>().init(playerskins[0], spawnAt, health);
+        player2.GetComponent<playerController>().init(playerskins[1], spawnAt * new Vector2(-1, 1), health);
     }
 
     public void initTest(string mapName) {
         mapLoader.loadMap(mapName);
         healthbarP1.init("p1", mapName);
+        healthbarP2.init("p2", mapName);
         uiHandler.init(new string[] { "batyuzo", "200RP" });
 
         if(mapName == "prac") {
             //initplayers' skin will be controlled by passedData
-            initPlayers(new string[] { "entity", null }, spawnPositions.prac_player, 200);
+            initPlayers(new string[] { "entity", "rogue" }, spawnPositions.prac_player, 200);
             weaponLoader.init(mapName);
         } else if(mapName == "ham") {
-            initPlayers(new string[] { "butcher", null }, spawnPositions.ham_player, 200);
+            initPlayers(new string[] { "butcher", "samurai" }, spawnPositions.ham_player, 200);
             weaponLoader.init(mapName);
         } else if(mapName == "jap") {
-            initPlayers(new string[] { "rogue", null }, spawnPositions.jap_player, 200);
+            initPlayers(new string[] { "rogue", "bull" }, spawnPositions.jap_player, 200);
             weaponLoader.init(mapName);
         }
     }

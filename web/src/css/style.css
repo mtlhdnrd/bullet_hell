@@ -28,8 +28,8 @@
 }
 
 .login-button:hover {
-    color: black;
-    text-decoration: inherit;
+    text-decoration: none;
+    color: white;
 }
 
 .menu-element {
