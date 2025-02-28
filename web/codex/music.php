@@ -18,7 +18,6 @@ if (!is_logged_in()) {
 <body data-page="music">
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <script src="src/script.js"></script>
     <div class="container">
         <div class="row mx-auto">
             <div class="col search-bar-block input-group my-5 mx-5">
@@ -32,8 +31,9 @@ if (!is_logged_in()) {
         <div class="music-container">
 
         </div>
-
     </div>
+    <script src="src/music.js"></script>
+
 </body>
 
 </html>

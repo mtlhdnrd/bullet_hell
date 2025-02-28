@@ -21,13 +21,13 @@ $weaponIndex = $_GET['weapon'];
 
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <script src="src/weapons.js" type="module"></script>
     <div class="hero-section">
 
     </div>
     <div class="other-weapons-section">
-
     </div>
+    <script src="src/weapons.js" type="module"></script>
+
 </body>
 
 </html>

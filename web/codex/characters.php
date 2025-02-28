@@ -20,7 +20,6 @@ $characterIndex = $_GET['character'];
 
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <script src="src/character.js" type="module"></script>
     <!-- <div class="hero-section">
 
     </div>
@@ -29,6 +28,7 @@ $characterIndex = $_GET['character'];
     </div> -->
     <div class="character-slides-container container-fluid p-0">
     </div>
+    <script src="src/character.js" type="module"></script>
 </body>
 
 </html>

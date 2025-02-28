@@ -37,7 +37,6 @@ if (!is_logged_in()) {
             </div>
         </div>
     </div>
-    <script src="src/carousel/script.js"></script>
     <script src="src/maps.js"></script>
     </body>
 

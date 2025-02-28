@@ -36,6 +36,6 @@ if (!is_logged_in()) {
         </div>
     </div>
 </body>
-<script src="src/script.js"></script>
+<script src="../src/js/script.js"></script>
 
 </html>

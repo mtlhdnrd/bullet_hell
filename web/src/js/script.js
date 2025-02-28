@@ -92,3 +92,6 @@ $(document).ready(function () {
         }
     });
 });
+function OpenSite(site) {
+    window.open(site, "_self");
+}
