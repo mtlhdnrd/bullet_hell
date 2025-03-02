@@ -5,29 +5,36 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class menu : MonoBehaviour {
+public class menu : MonoBehaviour
+{
     string player1;
     string player2;
 
-    enum Players {
+    enum Players
+    {
         Player1,
         Player2,
     }
 
-    public void matchmake() {
+    public void matchmake()
+    {
         SceneManager.LoadScene("Game");
     }
 
-    public void LoginPlayer1() {
+    public void LoginPlayer1()
+    {
         Login(Players.Player1);
     }
 
-    public void LoginPlayer2() {
+    public void LoginPlayer2()
+    {
         Login(Players.Player2);
     }
 
-    void Login(Players player) {
-        switch(player) {
+    void Login(Players player)
+    {
+        switch (player)
+        {
             case Players.Player1:
                 player1 = "batyuzo";
                 break;
@@ -40,21 +47,14 @@ public class menu : MonoBehaviour {
                 break;
         }
 
-        if(player1 != null && player2 != null) {
+        if (player1 != null && player2 != null)
+        {
             GameObject.Find("btn_matchmake").GetComponent<UnityEngine.UI.Button>().interactable = true;
         }
     }
 
-    public void quit() {
+    public void quit()
+    {
         Application.Quit();
-    }
-
-    // Start is called before the first frame update
-    void Start() {
-    }
-
-    // Update is called once per frame
-    void Update() {
-
     }
 }

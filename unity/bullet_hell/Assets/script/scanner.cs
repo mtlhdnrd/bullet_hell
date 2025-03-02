@@ -38,14 +38,10 @@ public class scanner : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("weapon"))
         {
             collisionWith.Add(collision);
         }
-
-
-
     }
 
     public void OnTriggerExit2D(Collider2D collision)

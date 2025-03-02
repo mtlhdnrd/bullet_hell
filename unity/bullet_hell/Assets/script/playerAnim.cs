@@ -9,7 +9,7 @@ public class bodyAnim : MonoBehaviour
 
     [Header("script refs")]
     [SerializeField] playerController player;
-    [SerializeField] assets playerAssets;
+    [SerializeField] playerAssets playerAssets;
 
     [Header("static pose refs")]
     [SerializeField] Sprite stationary;
@@ -43,18 +43,18 @@ public class bodyAnim : MonoBehaviour
         //init("knight");
     }
 
-    public void init(string startingCharacter)
+    public void init(string startingCharacter, playerAssets assetsRef)
     {
         i = 0;
         walk = new Sprite[] { walk1, walk2, walk3, walk4, walk5, walk6 };
         divide = 60 / player.fps;
-
+        playerAssets = assetsRef;
         //refs
         handCloseObj = transform.Find("gunHolder/handClose").gameObject;
         handFarObj = transform.Find("gunHolder/handFar").gameObject;
         headObj = transform.Find("headPos/head").gameObject;
         bodyObj = transform.Find("playerBody/body").gameObject;
-        playerAssets = GameObject.FindGameObjectWithTag("gameManager").GetComponent<assets>();
+        playerAssets = GameObject.FindGameObjectWithTag("gameManager").GetComponent<playerAssets>();
 
         //base skin
         skinSwitch(startingCharacter);

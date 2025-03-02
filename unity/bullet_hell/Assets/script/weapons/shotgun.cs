@@ -9,7 +9,7 @@ public class shotgun : weapon
 
     [Header("bullet refs")]
     public GameObject shootingPoint;
-    public muzzleFlash muzzleFlash;
+    public GameObject muzzleFlash;
     public GameObject bullet;
     public override void Fire()
     {
@@ -18,11 +18,9 @@ public class shotgun : weapon
         {
             cooldown = 1 / firerate;
             magazine--;
-            GetComponentInParent<playerHealth>().playerDamaged(damage);
             //GetComponent<AudioSource>().Play();
-            muzzleFlash.playAnim();
-            Debug.Log("*pow*, rounds left: " + magazine);
-            Debug.Log("you shot yourself, idiot, hp left:" + GetComponentInParent<playerHealth>().currentHealth);
+            Instantiate(muzzleFlash, shootingPoint.transform.position, shootingPoint.transform.rotation);
+            Instantiate(bullet, shootingPoint.transform.position, shootingPoint.transform.rotation);
             //firing doesn't happen
         }
         else
@@ -34,7 +32,7 @@ public class shotgun : weapon
 
     public override void AltFire()
     {
-        GameObject.Find("gameManager").GetComponent<gameManager>().initTest("ham");
+        GameObject.Find("gameManager").GetComponent<gameManager>().init("ham");//this is idiotic, but good for testing.
     }
 
     public override void SetValues()
@@ -54,6 +52,6 @@ public class shotgun : weapon
         ranged = true;
         damage = 15;
         firerate = 0.75f;
-        projSpeed = .85f;
+        projSpeed = .85f;//this is set in "bullet.cs" of prefab "shotgun_pellet"
     }
 }
