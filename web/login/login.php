@@ -52,23 +52,7 @@ if (is_logged_in()) {
             </div>
          </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script>
-        function TogglePwVisibility() {
-    const $passwordInput = $("#password");
-    const $eyeIcon = $("#eyeIcon");       
-
-    if ($passwordInput.attr("type") === "password") {
-        $passwordInput.attr("type", "text");
-        $eyeIcon.removeClass("fa-eye").addClass("fa-eye-slash");
-    } else {
-        $passwordInput.attr("type", "password");
-        $eyeIcon.removeClass("fa-eye-slash").addClass("fa-eye");
-    }
-}
-
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="login.js"></script>
 </body>
-
 </html>
