@@ -12,6 +12,7 @@ public class menu : MonoBehaviour
     string player1;
     string player2;
     public musicPlayer musicPlayer;
+    public List<string> maps;
 
     enum Players
     {
@@ -21,7 +22,8 @@ public class menu : MonoBehaviour
 
     public void matchmake()
     {
-        passedData.test = "yo this works";
+        passedData.test = "passedData works";
+        passedData.map = maps[Random.Range(0, maps.Count)];
         SceneManager.LoadScene("Game");
     }
 
@@ -64,6 +66,7 @@ public class menu : MonoBehaviour
 
     private void Awake()
     {
+        maps =new List<string>{"prac", "ham", "jap"};
         passedData = GameObject.FindGameObjectWithTag("passedData").GetComponent<passedData>();//because it may or may not destroy itself on load
         musicPlayer.init(passedData.p1Kit, passedData.p2Kit, 0.5f, "menu");//passeddata
     }

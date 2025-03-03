@@ -13,30 +13,25 @@ public class passedData : MonoBehaviour
     public string p2Skin;
     public string map;
     
-    private void testData()
+    private void defaults()
     {
-        p1Name = "BH1";
-        p2Name = "BH2";
+        p1Name = "batyuzo";
+        p2Name = "gizmo";
         //p1Kit = musicAssets.crt1Kit;
-        //hardcoded even more
         //p2Kit = musicAssets.hellstarKit;
-        p1Skin = "butcher";
-        p2Skin = "bull";
+        p1Skin = "knight";
+        p2Skin = "knight";
         map="prac";
     }
 
     void Awake()
     {
-        
         GameObject[] objs = GameObject.FindGameObjectsWithTag("passedData");
-
         if (objs.Length > 1)
         {
             Destroy(this.gameObject);
         }
-
-        testData();
-
         DontDestroyOnLoad(this.gameObject);
+        defaults();
     }
 }

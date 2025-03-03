@@ -7,6 +7,9 @@ public class musicAssets : MonoBehaviour
     [Header("crt_head1")]
     public musicKit crt1Kit;
 
+    [Header("crt_head2")]
+    public musicKit crt2Kit;
+
     [Header("hellstar.plus")]
     public musicKit hellstarKit;
 

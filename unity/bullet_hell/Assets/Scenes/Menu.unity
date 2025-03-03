@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passedData: {fileID: 0}
   musicPlayer: {fileID: 638080062}
+  maps: []
 --- !u!114 &148314775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,6 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passedData: {fileID: 0}
   musicPlayer: {fileID: 0}
+  maps: []
 --- !u!1 &1195410195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,8 +1382,8 @@ MonoBehaviour:
   test: test
   p1Name: 
   p2Name: 
-  p1Kit: {fileID: 2481365549410795173, guid: 56f9e0a19ae6dec46baa5a5021b37dd3, type: 3}
-  p2Kit: {fileID: 2481365549410795173, guid: 741e71d0f6ca62341bd2aa0d307a1fae, type: 3}
+  p1Kit: {fileID: 2481365549410795173, guid: 7f25397c360a8b649a831e137daa8802, type: 3}
+  p2Kit: {fileID: 2481365549410795173, guid: 7f25397c360a8b649a831e137daa8802, type: 3}
   p1Skin: 
   p2Skin: 
   map: 
