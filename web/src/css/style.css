@@ -16,7 +16,9 @@
 .bg-custom {
     background-color: rgb(30,30,40);
 }
-
+.pixel-font{
+    font-family: 'Pixelmix', sans-serif;
+}
 .login-button {
     padding: 8px 20px;
     color: #fff;
