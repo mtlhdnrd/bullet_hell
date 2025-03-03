@@ -101,9 +101,7 @@ export class WeaponFactory {
 
 var weapons = [];
 const urlParams = new URLSearchParams(window.location.search);
-let currentWeapon = parseInt(
-    urlParams.get("weapon") == 0 ? -1 : urlParams.get("weapon")
-);
+let currentWeapon = -1;
 addEventListener("load", LoadWeapons());
 
 function LoadWeapons() {
