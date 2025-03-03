@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_URI"] == "/bullet_hell/web/src/php/header.php") {
                 </ul>
             </div>
         </div>
-        <a href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/profile/" class="login-button fs-5"
+        <a href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/profile/" class="login-button fs-5 pixel-font"
             id="login-username">
             <?php echo $_SESSION['username']; ?>
         </a>
