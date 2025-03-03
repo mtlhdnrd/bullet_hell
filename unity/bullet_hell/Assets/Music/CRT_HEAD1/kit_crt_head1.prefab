@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artist: crt_head
-  coverart: {fileID: 21300000, guid: 8696578b67022d543aeea6058693d352, type: 3}
+  coverart: {fileID: 21300000, guid: 390aa185dd4ac614499f5499fd03f1fc, type: 3}
   titleF1: Aim High
   fight1: {fileID: 8300000, guid: 23ab4a25905d2e14ab47188107b13f5b, type: 3}
   titleF2: Yamaha Death

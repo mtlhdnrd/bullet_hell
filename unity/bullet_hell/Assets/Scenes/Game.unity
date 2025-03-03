@@ -3102,6 +3102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crt1Kit: {fileID: 2481365549410795173, guid: 56f9e0a19ae6dec46baa5a5021b37dd3, type: 3}
+  hellstarKit: {fileID: 2481365549410795173, guid: 741e71d0f6ca62341bd2aa0d307a1fae, type: 3}
 --- !u!1 &1124934354
 GameObject:
   m_ObjectHideFlags: 0

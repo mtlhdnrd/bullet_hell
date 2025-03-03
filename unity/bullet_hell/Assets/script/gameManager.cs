@@ -16,6 +16,7 @@ public class gameManager : MonoBehaviour
     public playerAssets playerAssets;
     public musicPlayer musicPlayer;
     public musicAssets musicAssets;
+    public passedData passedData;
     //passedData passedData;
 
     [Header("gameobject refs")]
@@ -25,29 +26,34 @@ public class gameManager : MonoBehaviour
 
     public void init(string mapName)
     {
+        
         Cursor.lockState = CursorLockMode.Confined;
-        musicPlayer.init(musicAssets.crt1Kit, musicAssets.crt1Kit, 0.5f, "fight");
-        mapLoader.loadMap(mapName);
-        healthbarP1.init("p1", mapName);
-        healthbarP2.init("p2", mapName);
-        uiHandler.init(new string[] { "batyuzo", "200RP" });
+        musicPlayer.init(passedData.p1Kit, passedData.p2Kit, 0.5f, "fight");//passeddata
+        mapLoader.loadMap(mapName);//passeddata
+        healthbarP1.init("p1", mapName);//passeddata
+        healthbarP2.init("p2", mapName);//passeddata
+        uiHandler.init(new string[] { passedData.p1Name, "200RP" });//passeddata
 
         if (mapName == "prac")
         {
             //initplayers' skin will be controlled by passedData
-            initPlayers(new string[] { "entity", "rogue" }, spawnPositions.prac_player, 200);
+            initPlayers(new string[] { passedData.p1Skin, passedData.p2Skin }, spawnPositions.prac_player, 200);//passeddata
             weaponLoader.init(mapName);
         }
         else if (mapName == "ham")
         {
-            initPlayers(new string[] { "butcher", "samurai" }, spawnPositions.ham_player, 200);
+            initPlayers(new string[] { passedData.p1Skin, passedData.p2Skin }, spawnPositions.ham_player, 200);//passeddata
             weaponLoader.init(mapName);
         }
         else if (mapName == "jap")
         {
-            initPlayers(new string[] { "rogue", "bull" }, spawnPositions.jap_player, 200);
+            initPlayers(new string[] { passedData.p1Skin, passedData.p2Skin }, spawnPositions.jap_player, 200);//passeddata
             weaponLoader.init(mapName);
         }
+        Debug.Log(passedData.test);
+        Debug.Log(passedData.test);
+        Debug.Log(passedData.test);
+        Debug.Log(passedData.test);
     }
 
     private void initPlayers(string[] playerskins, Vector2 spawnAt, int health)
@@ -58,6 +64,7 @@ public class gameManager : MonoBehaviour
 
     private void baseSettings()
     {
+        passedData = GameObject.FindGameObjectWithTag("passedData").GetComponent<passedData>();
         Cursor.visible = false;
         weaponLoader.spawnPositions = spawnPositions;
     }
@@ -67,6 +74,6 @@ public class gameManager : MonoBehaviour
     private void Awake()
     {
         baseSettings();
-        init("jap");
+        init(passedData.map);
     }
 }

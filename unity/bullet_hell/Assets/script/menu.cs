@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,8 +8,10 @@ using UnityEngine.UIElements;
 
 public class menu : MonoBehaviour
 {
+    public passedData passedData;
     string player1;
     string player2;
+    public musicPlayer musicPlayer;
 
     enum Players
     {
@@ -18,6 +21,7 @@ public class menu : MonoBehaviour
 
     public void matchmake()
     {
+        passedData.test = "yo this works";
         SceneManager.LoadScene("Game");
     }
 
@@ -56,5 +60,11 @@ public class menu : MonoBehaviour
     public void quit()
     {
         Application.Quit();
+    }
+
+    private void Awake()
+    {
+        passedData = GameObject.FindGameObjectWithTag("passedData").GetComponent<passedData>();//because it may or may not destroy itself on load
+        musicPlayer.init(passedData.p1Kit, passedData.p2Kit, 0.5f, "menu");//passeddata
     }
 }
