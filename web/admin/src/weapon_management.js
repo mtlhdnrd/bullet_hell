@@ -10,6 +10,7 @@ function LoadWeaponTable() {
                 <tr>
                 <td>${weapon.id}</td>
                 <td>${weapon.name}</td>
+                <td>${weapon.file_name}</td>
                 <td>${weapon.damage}</td>
                 <td>${weapon.fire_rate}</td>
                 <td>${weapon.semi_auto}</td>
