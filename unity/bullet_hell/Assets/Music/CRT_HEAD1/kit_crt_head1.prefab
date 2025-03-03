@@ -44,17 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b18e8ebbc7dc024e87e267a52f809e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artist: crt_head
+  artist: CRT_HEAD
   coverart: {fileID: 21300000, guid: 390aa185dd4ac614499f5499fd03f1fc, type: 3}
-  titleF1: Aim High
+  titleF1: AIM HIGH
   fight1: {fileID: 8300000, guid: 23ab4a25905d2e14ab47188107b13f5b, type: 3}
-  titleF2: Yamaha Death
+  titleF2: YAMAHA DEATH
   fight2: {fileID: 8300000, guid: 9108d6c0f17af184b9d69b069c974c23, type: 3}
-  titleF3: Neotokyo
+  titleF3: NEOTOKYO
   fight3: {fileID: 8300000, guid: 57131ea3806c185468efd7a434ab9458, type: 3}
-  titleM1: Electrosphere
+  titleM1: ELECTROSPHERE
   menu1: {fileID: 8300000, guid: 1e195d9297152c740a6ff3e7d7f6a96a, type: 3}
-  titleM2: Gunstar Heroes
+  titleM2: GUNSTAR HEROES
   menu2: {fileID: 8300000, guid: 94854a451d6448c43a783cd72f04fbf5, type: 3}
-  titleMVP: Night Ops
+  titleMVP: NIGHT OPS
   MVP: {fileID: 8300000, guid: 006603677c7c32a43a5cb1a113206b11, type: 3}

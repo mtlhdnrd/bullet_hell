@@ -1787,10 +1787,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.23281251
     y: 0
-    width: 1
-    height: 1
+    width: 0.3090278
+    height: 0.3090278
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2832,6 +2832,7 @@ MonoBehaviour:
   playerAssets: {fileID: 1022273506}
   musicPlayer: {fileID: 435740474}
   musicAssets: {fileID: 1022273509}
+  passedData: {fileID: 0}
   player1: {fileID: 390778648}
   player2: {fileID: 1428454085}
 --- !u!114 &1022273504
@@ -3102,7 +3103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crt1Kit: {fileID: 2481365549410795173, guid: 56f9e0a19ae6dec46baa5a5021b37dd3, type: 3}
+  crt2Kit: {fileID: 2481365549410795173, guid: 7ca48d9eb16a3da418ff189a4d6e3945, type: 3}
   hellstarKit: {fileID: 2481365549410795173, guid: 741e71d0f6ca62341bd2aa0d307a1fae, type: 3}
+  muteKit: {fileID: 2481365549410795173, guid: eb3b494666bcd46408438b26496330a7, type: 3}
 --- !u!1 &1124934354
 GameObject:
   m_ObjectHideFlags: 0

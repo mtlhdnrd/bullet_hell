@@ -46,15 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   artist: HELLSTAR.PLUS
   coverart: {fileID: 21300000, guid: d0bbdd6d3a687ae4cba94e2150f35e3f, type: 3}
-  titleF1: CYBERIST RITUAL
-  fight1: {fileID: 8300000, guid: d380bf84ab6ce8d40998ccfc08891b88, type: 3}
+  titleF1: CYBERIST RITUAL 202
+  fight1: {fileID: 8300000, guid: c0fd801e59463594999c5d8c1c430a58, type: 3}
   titleF2: HKF
-  fight2: {fileID: 8300000, guid: 18ab7c1dfe39f3d4da529e8376ae703b, type: 3}
+  fight2: {fileID: 8300000, guid: 483f5d8ae038e9e439828fd88ceb9406, type: 3}
   titleF3: ANY TIME
-  fight3: {fileID: 8300000, guid: fcbdb9c820246064fa16cc09f303f1dd, type: 3}
+  fight3: {fileID: 8300000, guid: 533d6ef738bcc6c4f88d0dac6b83a938, type: 3}
   titleM1: HERETICAL PRIESTESS
-  menu1: {fileID: 8300000, guid: b74e5788bac6e9b4f8c7533a796dc74a, type: 3}
+  menu1: {fileID: 8300000, guid: a0a5082585daec840a86dd2ac9b65452, type: 3}
   titleM2: SEVER
-  menu2: {fileID: 8300000, guid: 44befe2d7588bf143be791b1e5932660, type: 3}
+  menu2: {fileID: 8300000, guid: 3aaf55d8a6a600b4aa3ab627c39220bf, type: 3}
   titleMVP: RED RAW AGAINST THE GRAIN
-  MVP: {fileID: 8300000, guid: 3fedd074e1283724cb7c3e0edc3b1882, type: 3}
+  MVP: {fileID: 8300000, guid: e4b8ecd79415d824db3131ca4fba1ece, type: 3}
