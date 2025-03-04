@@ -22,3 +22,6 @@ function addNewUser() {
         });
     }
 }
+function OpenSite(site) {
+    window.open(site, "_self");
+}

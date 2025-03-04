@@ -25,10 +25,6 @@ $(document).ready(function () {
         }
     });
 });
-function OpenSite(site) {
-    window.open(site, "_self");
-}
-
 function checkUsername(username, callback) {
     let allowed_username = /^[a-zA-Z0-9]{2,30}$/;
     if (!username.match(allowed_username)) {

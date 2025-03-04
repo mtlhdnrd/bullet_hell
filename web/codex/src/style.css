@@ -144,3 +144,11 @@ body {
 .character-slide .row:hover{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
 }
+.fade-out{
+    transition: 3s;
+    opacity: 0;
+    display: block;
+}
+.fade-in{
+    opacity: 1;
+}
