@@ -9,11 +9,11 @@ body {
 
 .register-container {
     width: 100%;
-    max-width: 450px; 
+    max-width: 450px;
     padding: 2rem;
-    background-color: #343a40; 
-    border-radius: 15px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    background-color: #343a40;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .register-header {
@@ -21,12 +21,12 @@ body {
     margin-bottom: 2rem;
     color: white;
 }
-.register-header h1{
-      font-weight: bold;
 
+.register-header h1 {
+    font-weight: bold;
 }
 
-.register-input {
+.credential-input {
     background-color: #222;
     border: none;
     color: #fff;
@@ -35,31 +35,34 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.register-input:focus {
+.credential-input:focus {
     background-color: #333;
-    outline: none; 
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
 .form-control::-webkit-slider-runnable-track {
-      background: linear-gradient(to right, #007bff, #007bff);
-      height:5px;
-      border-radius: 10px;
-  }
-.form-control::-webkit-slider-thumb{
+    background: linear-gradient(to right, #007bff, #007bff);
+    height: 5px;
+    border-radius: 10px;
+}
+
+.form-control::-webkit-slider-thumb {
     -webkit-appearance: none;
-     appearance: none;
-    width:15px;
-    height:15px;
+    appearance: none;
+    width: 15px;
+    height: 15px;
     background-color: #007bff;
     border-radius: 50%;
-    margin-top:-5px;
-
+    margin-top: -5px;
 }
-label{
+
+label {
     color: white;
 }
+
 .btn-primary {
-    background-color: #007bff; 
+    background-color: #007bff;
     border: none;
     border-radius: 5px;
     padding: 0.75rem 1.5rem;
@@ -67,25 +70,26 @@ label{
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3;
 }
 
 .btn-secondary {
-     background-color: #444; 
-     border: none;
+    background-color: #444;
+    border: none;
 }
 
 .btn-secondary:hover {
     background-color: #555;
 }
 
-
 #incorrect-register {
     margin-top: 10px;
 }
-.input-group-append{
+
+.input-group-append {
     border-radius: 10px;
 }
-.card{
-    border:none;
+
+.card {
+    border: none;
 }

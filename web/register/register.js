@@ -4,22 +4,23 @@ function RegisterUser() {
         $("#username-invalid-character").removeClass("d-none");
     } else {
         $("#username-invalid-character").addClass("d-none");
-        let data = $("#register-form").serialize();
-        //TODO hash password
-        $.ajax({
-            type: "POST",
-            url: "register_user.php",
-            data: data,
-            success: function (data, textStatus, xhr) {
-                console.log(xhr.status);
-                switch (xhr.status) {
-                    case 201:
-                        window.open("../index.php", "_self");
-                }
-            },
-            error: function (data, textStatus, xhr) {
-                console.error(xhr);
-            },
+        let username = $("#username").val();
+        HashPassword($("#password").val()).then(function(hash) {
+            $.ajax({
+                type: "POST",
+                url: "register_user.php",
+                data: { username: username, password: hash },
+                success: function (data, textStatus, xhr) {
+                    console.log(xhr.status);
+                    switch (xhr.status) {
+                        case 201:
+                            window.open("../index.php", "_self");
+                    }
+                },
+                error: function (data, textStatus, xhr) {
+                    console.error(xhr);
+                },
+            });
         });
     }
 }

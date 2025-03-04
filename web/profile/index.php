@@ -85,20 +85,20 @@ if (!is_logged_in()) {
                     <div class="col-12">
                         <div class="mb-3">
                             <label for="current-pw" class="form-label">Current Password</label>
-                            <input type="password" class="form-control login-input" id="current-pw"
+                            <input type="password" class="form-control credential-input" id="current-pw"
                                 aria-describedby="emailHelp">
                             <p class="text-danger d-none" id="incorrect-password">Incorrect password!</p>
                         </div>
                         <div class="mb-3">
                             <label for="new-pw" class="form-label">New Password</label>
-                            <input type="password" class="form-control login-input" id="new-pw">
+                            <input type="password" class="form-control credential-input" id="new-pw">
                         </div>
                         <div class="mb-3">
                             <label for="new-pw-again" class="form-label">Repeat New Password</label>
-                            <input type="password" class="form-control login-input" id="new-pw-again">
+                            <input type="password" class="form-control credential-input" id="new-pw-again">
                             <p class="text-danger d-none" id="password-mismatch">Passwords do not match!</p>
                         </div>
-                        <button type="submit" class="btn btn-secondary" id="login-button"
+                        <button type="submit" class="btn btn-secondary" id="credential-submit-button"
                             onclick="changePassword()">Change</button>
 
                     </div>
@@ -106,6 +106,7 @@ if (!is_logged_in()) {
             </div>
         </div>
     </div>
+    <script src="../src/js/form_utils.js"></script>
 </body>
 
 </html>
