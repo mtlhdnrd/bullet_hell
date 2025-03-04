@@ -19,7 +19,7 @@
 .pixel-font{
     font-family: 'Pixelmix', sans-serif;
 }
-.login-button {
+.credential-submit-button {
     padding: 8px 20px;
     color: #fff;
     transition: 0.3s;
@@ -29,7 +29,7 @@
     letter-spacing: 5px;
 }
 
-.login-button:hover {
+.credential-submit-button:hover {
     text-decoration: none;
     color: white;
 }

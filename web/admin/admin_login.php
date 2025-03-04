@@ -35,7 +35,7 @@ if (!is_user_admin()) {
                         <div class="form-group">
                             <label for="password_admin">Password</label>
                             <div class="input-group">
-                                <input type="password" name="password_admin" class="form-control login-input"
+                                <input type="password" name="password_admin" class="form-control credential-input"
                                     id="password" required>
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary" type="button" onclick="togglePwVisibility()">
@@ -45,7 +45,7 @@ if (!is_user_admin()) {
                             </div>
                         </div>
                         <p class="text-danger d-none" id="incorrect-login">Incorrect login credentials!</p>
-                        <button class="btn btn-primary my-3 px-4 py-2" id="login-button" onclick="LoginAdmin()">Log
+                        <button class="btn btn-primary my-3 px-4 py-2" id="credential-submit-button" onclick="LoginAdmin()">Log
                             in</button>
                     </div>
                 </div>
@@ -53,6 +53,7 @@ if (!is_user_admin()) {
         </div>
     </div>
     <script src="src/script.js"></script>
+    <script src="../src/js/form_utils.js"></script>
 </body>
 
 </html>

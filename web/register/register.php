@@ -29,12 +29,12 @@ if (is_logged_in()) {
                         <form action="" method="post" id="register-form">
                         <div class="form-group">
                             <label for="username" class="pixel-font">Username</label>
-                            <input type="text" name="username" class="form-control register-input" id="username" required>
+                            <input type="text" name="username" class="form-control credential-input" id="username" required>
                         </div>
                         <div class="form-group">
                             <label for="password" class="pixel-font">Password</label>
                             <div class="input-group">
-                                <input type="password" name="password" class="form-control register-input" id="password" required>
+                                <input type="password" name="password" class="form-control credential-input" id="password" required>
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary pixel-font" type="button" onclick="TogglePwVisibility()">
                                          <i class="fa fa-eye" id="eyeIcon"></i>
@@ -43,7 +43,7 @@ if (is_logged_in()) {
                             </div>
                         </div>
                         <p class="text-danger d-none pixel-font" id="incorrect-register">Incorrect login credentials!</p>
-                        <button class="btn btn-success my-3 px-4 py-2 pixel-font" id="register-button" onclick="RegisterUser()">Sign up</button>
+                        <button type="button" class="btn btn-success my-3 px-4 py-2 pixel-font" id="credential-submit-button" onclick="RegisterUser()">Sign up</button>
                         </form>
 
                     <div class="text-center mt-3 text-white pixel-font">
