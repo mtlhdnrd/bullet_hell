@@ -150,7 +150,5 @@ body {
     display: block;
 }
 .fade-in{
-    transition: 3s;
     opacity: 1;
-    display: block;
 }
