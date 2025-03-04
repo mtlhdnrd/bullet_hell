@@ -1,0 +1,12 @@
+.first-place-row{
+    background-color: #FFD700!important;
+}
+.second-place-row{
+    background-color: #C0C0C0!important;
+}
+.third-place-row{
+    background-color: #CD7F32!important;
+}
+body{
+    background-color: rgb(48, 43, 43)!important;
+}

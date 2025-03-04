@@ -1,11 +1,10 @@
 body {
-    background-color: rgb(30, 30, 40);
     color: #fff;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background-image: url("../src/images/i\ am\ starving\ brother.jpg");
 }
 
 .register-container {

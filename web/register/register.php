@@ -21,7 +21,7 @@ if (is_logged_in()) {
 <div class="container">
          <div class="row justify-content-center">
                 <div class="col-md-6">
-                 <div class="register-container">
+                 <div class="register-container mx-auto">
                     <div class="register-header pixel-font">
                         <h1>Welcome to Bullet Hell</h1>
                     </div>
@@ -57,5 +57,4 @@ if (is_logged_in()) {
     <script src="register.js"></script>
     <script src="../src/js/form_utils.js"></script>
 </body>
-
 </html>
