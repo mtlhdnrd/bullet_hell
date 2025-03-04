@@ -28,7 +28,7 @@ $characterIndex = $_GET['character'];
     </div> -->
     <div class="character-slides-container container-fluid p-0">
     </div>
-    <script src="src/character.js" type="module"></script>
+    <script src="src/characters.js" type="module"></script>
 </body>
 
 </html>
