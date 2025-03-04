@@ -21,7 +21,6 @@ public class shotgun : weapon
             //GetComponent<AudioSource>().Play();
             Instantiate(muzzleFlash, shootingPoint.transform.position, shootingPoint.transform.rotation);
             Instantiate(bullet, shootingPoint.transform.position, shootingPoint.transform.rotation);
-            //firing doesn't happen
         }
         else
         {
@@ -32,7 +31,7 @@ public class shotgun : weapon
 
     public override void AltFire()
     {
-        GameObject.Find("gameManager").GetComponent<gameManager>().init("ham");//this is idiotic, but good for testing.
+        //no altfire
     }
 
     public override void SetValues()
