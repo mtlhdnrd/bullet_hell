@@ -1,6 +1,7 @@
 use mysql::prelude::*;
 use mysql::*;
 use rand::prelude::*;
+use sha2::{Sha512, Digest};
 
 struct Player {
     username: String,
@@ -41,12 +42,13 @@ struct PlayerLogin {
 impl PlayerLogin {
     fn new(username: String) -> Self {
         let mut rng = rand::rng();
+        let mut hasher = Sha512::new();
+        hasher.update(username.as_bytes());
+        let hash = format!("{:x}", hasher.finalize());
 
         Self {
             username,
-            password: (0..128)
-                .map(|_| rng.sample(rand::distr::Alphanumeric) as char)
-                .collect(),
+            password: hash,
             is_admin: rng.random_bool(1.0 / 100.0),
         }
     }
