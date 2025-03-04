@@ -43,7 +43,7 @@ function SearchForMusic(value) {
         url: "load_codex_data.php",
         data: {
             data_type: "music",
-            condition: "name LIKE '%" + value + "%'",
+            condition: value,
         },
         dataType: "json",
         success: function (data, textStatus, xhr) {
