@@ -5,7 +5,8 @@ using System.Runtime.ExceptionServices;
 using TMPro;
 using UnityEngine;
 
-public class gunHolder : MonoBehaviour {
+public class gunHolder : MonoBehaviour
+{
 
     [Header("offset-sheet")]
     //values: posY, posX, angleZ
@@ -32,20 +33,24 @@ public class gunHolder : MonoBehaviour {
     [Header("weapon script ref")]
     public weapon weaponScript;
 
-    private void updateMaginfo() {
-        if(equipped != null) {
+    private void updateMaginfo()
+    {
+        if (equipped != null)
+        {
             magInfo.transform.position = player.transform.position + offset;
             magInfoText.SetText(weaponScript.magazine.ToString());
             magInfoText.color = new Color(1, 1, 1, 1);
         }
     }
 
-    private void hideMagInfo() {
+    private void hideMagInfo()
+    {
         magInfoText.color = new Color(1, 1, 1, 0);
     }
 
     //title says it all
-    private void lookAtMouse() {
+    private void lookAtMouse()
+    {
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         float angle = Mathf.Atan2(dir.y * -1, dir.x * -1) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -53,49 +58,62 @@ public class gunHolder : MonoBehaviour {
         //flip part
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if(mousePos.x < transform.position.x) {
-            foreach(Transform child in transform) {
+        if (mousePos.x < transform.position.x)
+        {
+            foreach (Transform child in transform)
+            {
                 //check if 'spriterenderer exists'
-                if(child.GetComponentInChildren<SpriteRenderer>() != null) {
+                if (child.GetComponentInChildren<SpriteRenderer>() != null)
+                {
                     child.GetComponentInChildren<SpriteRenderer>().flipY = false;
                 }
 
                 //handClose
-                if(child.name == "handClose") {
+                if (child.name == "handClose")
+                {
                     child.localRotation = Quaternion.Euler(0, 0, HCO[2]);
                     child.localPosition = new Vector3(HCO[0], HCO[1], child.localPosition.z);
                 }
                 //handFar
-                if(child.name == "handFar") {
+                if (child.name == "handFar")
+                {
                     child.localRotation = Quaternion.Euler(0, 0, HFO[2]);
                     child.localPosition = new Vector3(HFO[0], HFO[1], child.localPosition.z);
                 }
 
                 //weapon
-                if(child.CompareTag("weapon")) {
+                if (child.CompareTag("weapon"))
+                {
                     child.localRotation = Quaternion.Euler(0, 0, WPO[2]);
                     child.localPosition = new Vector3(WPO[0], WPO[1], child.localPosition.z);
                 }
             }
-        } else {
-            foreach(Transform child in transform) {
-                if(child.GetComponentInChildren<SpriteRenderer>() != null) {
+        }
+        else
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.GetComponentInChildren<SpriteRenderer>() != null)
+                {
                     child.GetComponentInChildren<SpriteRenderer>().flipY = true;
                 }
 
                 //handClose
-                if(child.name == "handClose") {
+                if (child.name == "handClose")
+                {
                     child.localRotation = Quaternion.Euler(0, 0, -HCO[2]);
                     child.localPosition = new Vector3(HCO[0], -HCO[1], child.localPosition.z);
                 }
                 //handFar
-                if(child.name == "handFar") {
+                if (child.name == "handFar")
+                {
                     child.localRotation = Quaternion.Euler(0, 0, -HFO[2]);
                     child.localPosition = new Vector3(HFO[0], -HFO[1], child.localPosition.z);
                 }
 
                 //weapon
-                if(child.CompareTag("weapon")) {
+                if (child.CompareTag("weapon"))
+                {
                     child.localRotation = Quaternion.Euler(0, 0, -WPO[2]);
                     child.localPosition = new Vector3(WPO[0], -WPO[1], child.localPosition.z);
                 }
@@ -105,7 +123,8 @@ public class gunHolder : MonoBehaviour {
 
 
     //executes on Equip
-    public void setOffset() {
+    public void setOffset()
+    {
 
         //grab values from children
         HCO = weaponScript.handCloseOffset;
@@ -129,33 +148,44 @@ public class gunHolder : MonoBehaviour {
         playerAnim.updateHands(weaponHands[0], weaponHands[1]);
     }
 
-    public void bareHandsOffset() {
+    public void bareHandsOffset()
+    {
         HCO = new float[] { -.4f, .3f, -65 };
         HFO = new float[] { -.7f, .3f, -65 };
     }
 
-    public bool Fire() {
-        if(equipped != null) {
+    public bool Fire()
+    {
+        if (equipped != null)
+        {
             weaponScript.Fire();
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
 
     }
 
-    public bool AltFire() {
-        if(equipped != null) {
+    public bool AltFire()
+    {
+        if (equipped != null)
+        {
             weaponScript.AltFire();
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
 
-    public void Equip() {
+    public void Equip()
+    {
         GameObject toEquip = scan.getEquippable();
-        if(toEquip != null) {
+        if (toEquip != null)
+        {
             Drop();
             equipped = toEquip;
             weaponScript = equipped.GetComponent<weapon>();//set weaponscript
@@ -170,28 +200,34 @@ public class gunHolder : MonoBehaviour {
         }
     }
 
-    public void Drop() {
-
-        //base for throw and forfeiting control overall
-        if(equipped != null) {
+    public void Drop()
+    {
+        //set hands, forfeit control
+        if (equipped != null)
+        {
+            Rigidbody2D temp = equipped.GetComponent<Rigidbody2D>();//control after drop
             equipped.transform.SetParent(null);
             scan.addDropped(equipped.GetComponent<Collider2D>());
             equipped = null;
+            temp.velocity = Vector3.zero;
+            temp.angularVelocity = 0;
+            //UI+sprite updates
             equippedText.SetText("bare bands");
             playerAnim.updateHands('b', 'b');//fists
             hideMagInfo();
             bareHandsOffset();//fists offset
+            temp = null;
         }
-
-
     }
 
-    private void Update() {
+    private void Update()
+    {
         lookAtMouse();
         updateMaginfo();
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         offset = new Vector3(1f, -1f);
     }
 }

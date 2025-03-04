@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3214976680583494113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244621903719580280}
+  - component: {fileID: 2481365549410795173}
+  m_Layer: 0
+  m_Name: kit_hellstar.plus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244621903719580280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214976680583494113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2481365549410795173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214976680583494113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b18e8ebbc7dc024e87e267a52f809e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artist: HELLSTAR.PLUS
+  coverart: {fileID: 21300000, guid: d0bbdd6d3a687ae4cba94e2150f35e3f, type: 3}
+  titleF1: CYBERIST RITUAL 202
+  fight1: {fileID: 8300000, guid: c0fd801e59463594999c5d8c1c430a58, type: 3}
+  titleF2: HKF
+  fight2: {fileID: 8300000, guid: 483f5d8ae038e9e439828fd88ceb9406, type: 3}
+  titleF3: ANY TIME
+  fight3: {fileID: 8300000, guid: 533d6ef738bcc6c4f88d0dac6b83a938, type: 3}
+  titleM1: HERETICAL PRIESTESS
+  menu1: {fileID: 8300000, guid: a0a5082585daec840a86dd2ac9b65452, type: 3}
+  titleM2: SEVER
+  menu2: {fileID: 8300000, guid: 3aaf55d8a6a600b4aa3ab627c39220bf, type: 3}
+  titleMVP: RED RAW AGAINST THE GRAIN
+  MVP: {fileID: 8300000, guid: e4b8ecd79415d824db3131ca4fba1ece, type: 3}
