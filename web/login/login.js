@@ -47,7 +47,7 @@ function checkUsername(username, callback) {
 }
 
 function LoginUser() {
-    let url = "../src/php/login_check.php";
+    let url = "login_check.php";
     let username = $("#username").val();
     let password = $("#password").val();
     $.ajax({

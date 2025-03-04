@@ -6,64 +6,56 @@ if (is_logged_in()) {
     header("Location: ../index.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register.css">
     <title>Bullet Hell</title>
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="row mb-5">
-            <h1 class="text-center text-black">Welcome to Bullet Hell</h1>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Sign up
+<div class="container">
+         <div class="row justify-content-center">
+                <div class="col-md-6">
+                 <div class="register-container">
+                    <div class="register-header pixel-font">
+                        <h1>Welcome to Bullet Hell</h1>
                     </div>
-                    <div class="card-body">
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
-                            id="register-form">
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" name="username" id="username" class="form-control login-input" required>
-                            </div>
-                            <p class="text-danger d-none" id="username-exists">The username already exists</p>
-                            <p class="text-danger d-none" id="username-invalid-character">The username format invalid
-                            </p>
 
-
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <div class="input-group">
-                                    <input type="password" name="password" class="form-control login-input" id="password" required>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-secondary" type="button" onclick="togglePwVisibility()">
-                                            <i class="fa-solid fa-eye" id="eyeIcon"></i>
-                                        </button>
-                                    </div>
+                        <form action="" method="post" id="register-form">
+                        <div class="form-group">
+                            <label for="username" class="pixel-font">Username</label>
+                            <input type="text" name="username" class="form-control register-input" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="pixel-font">Password</label>
+                            <div class="input-group">
+                                <input type="password" name="password" class="form-control register-input" id="password" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary pixel-font" type="button" onclick="TogglePwVisibility()">
+                                         <i class="fa fa-eye" id="eyeIcon"></i>
+                                    </button>
                                 </div>
-                                <?php echo (!empty($password_err)) ? "<p class='text-danger'>{$password_err}</p>" : ''; ?>
                             </div>
+                        </div>
+                        <p class="text-danger d-none pixel-font" id="incorrect-register">Incorrect login credentials!</p>
+                        <button class="btn btn-success my-3 px-4 py-2 pixel-font" id="register-button" onclick="RegisterUser()">Sign up</button>
                         </form>
-                        <button class="btn btn-primary my-3 px-4 py-2" id="login-button" style="background-color: green; border: none;"
-                            onclick="addNewUser()">Sign up</button>
-                    </div>
-                    <div class="card-footer">
-                        Already have an account? <a href="../login/login.php">Log in my brother</a>
+
+                    <div class="text-center mt-3 text-white pixel-font">
+                        Already have an account? <a href="../login/login.php" class="text-info">Sign in my brother</a>
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="register.js"></script>
+    <script src="../src/js/form_utils.js"></script>
 </body>
 
 </html>
