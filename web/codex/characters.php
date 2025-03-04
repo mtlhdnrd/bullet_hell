@@ -4,7 +4,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
 if (!is_logged_in()) {
     header("Location: ../login/login.php");
 }
-$characterIndex = $_GET['character'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

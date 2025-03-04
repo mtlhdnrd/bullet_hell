@@ -23,10 +23,6 @@ export class Character {
 }
 
 var characters = [];
-const urlParams = new URLSearchParams(window.location.search);
-let currentCharacter = parseInt(
-    urlParams.get("character") == 0 ? -1 : urlParams.get("character")
-);
 function LoadCharacters() {
     $.ajax({
         type: "GET",

@@ -22,13 +22,13 @@ if (!is_logged_in()) {
         <div class="codex-menu-tile" id="maps-tile" onclick="OpenSite('maps.php')">
                 <h1 class="text-white display-1">Maps</h1>
         </div>
-        <div class="codex-menu-tile" id="characters-tile" onclick="OpenSite('characters.php?character=1')">
+        <div class="codex-menu-tile" id="characters-tile" onclick="OpenSite('characters.php')">
                 <h1 class="text-white display-1">Characters</h1>
         </div>
         <div class="codex-menu-tile" id="music-tile" onclick="OpenSite('music.php')">
                 <h1 class="text-white dead-center-text display-4">Music</h1>
         </div>
-        <div class="codex-menu-tile" id="weapons-tile" onclick="OpenSite('weapons.php?weapon=0')">
+        <div class="codex-menu-tile" id="weapons-tile" onclick="OpenSite('weapons.php')">
                 <h1 class="text-white display-2">Weapons</h1>
         </div>
         <div class="codex-menu-tile" id="mechanics-tile" onclick="OpenSite('mechanics.php')">
