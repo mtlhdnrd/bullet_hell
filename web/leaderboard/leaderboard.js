@@ -1,5 +1,6 @@
 class Player {
     constructor(
+        rank,
         username,
         points,
         winrate,
@@ -10,6 +11,7 @@ class Player {
         current_music_id,
         active_skin_id
     ) {
+        this.rank = rank;
         this.username = username;
         this.points = points;
         this.winrate = winrate;
@@ -35,7 +37,6 @@ class Player {
 }
 
 leaderboard = [];
-
 $(document).ready(function () {
     GetLeaderboardData();
 });
@@ -64,6 +65,7 @@ function GetLeaderboardData() {
             $.each(data, function (index, player) {
                 leaderboard.push(
                     new Player(
+                        player.rank,
                         player.username,
                         player.points,
                         player.winrate,
@@ -81,6 +83,7 @@ function GetLeaderboardData() {
         let tableContents = "";
         leaderboard.forEach((player) => {
             let playerData = `<tr>
+                    <td>${player.rank}</td>
                     <td>${player.username}</td>
                     <td>${player.points}</td>
                     <td>${player.winrate}</td>

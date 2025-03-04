@@ -10,6 +10,7 @@ if (!is_logged_in()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="leaderboard.css">
     <title>Bullet Hell - Leaderboard</title>
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
 </head>
@@ -21,6 +22,7 @@ if (!is_logged_in()) {
         <table class="table table-dark table-striped my-2">
             <thead class="thead-dark">
                 <tr>
+                    <th scope="col">Rank</th>
                     <th scope="col">Username</th>
                     <th scope="col">Points</th>
                     <th scope="col">Winrate</th>
@@ -36,7 +38,7 @@ if (!is_logged_in()) {
         </div>
     </div>
 
-    <script src="src/leaderboard.js"></script>
+    <script src="leaderboard.js"></script>
 </body>
 
 </html>

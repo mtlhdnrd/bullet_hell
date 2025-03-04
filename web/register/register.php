@@ -57,5 +57,4 @@ if (is_logged_in()) {
     <script src="register.js"></script>
     <script src="../src/js/form_utils.js"></script>
 </body>
-
 </html>
