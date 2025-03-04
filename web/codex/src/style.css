@@ -1,3 +1,5 @@
+@import url('../../src/css/style.css');
+
 .codex-menu-tile {
     margin: 0px;
     border: 1px solid black;
@@ -9,6 +11,7 @@
 body {
     text-align: left;
     font-family: 'Pixelmix', sans-serif;
+    background-color: var(--dark-bg);
 }
 ::-webkit-scrollbar {
     display: none;
@@ -27,7 +30,16 @@ body {
     display: block;
     margin: auto;
 }
+.hero-section{
+    background-color: var(--darker-bg);
+}
 
+.music-block{
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 5px 3px 10px #000;
+}
 @media screen and (min-width: 992px){
     .codex-wrapper {
         display: grid;
@@ -143,4 +155,12 @@ body {
 }
 .character-slide .row:hover{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+.fade-out{
+    transition: 3s;
+    opacity: 0;
+    display: block;
+}
+.fade-in{
+    opacity: 1;
 }

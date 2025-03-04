@@ -23,9 +23,6 @@ if (!is_logged_in()) {
             <div class="col search-bar-block input-group my-5 mx-5">
                 <input type="text" class="form-control" placeholder="Search" aria-label="Searching"
                     aria-describedby="basic-addon2" id="search-bar">
-                <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">?</span>
-                </div>
             </div>
         </div>
         <div class="music-container">

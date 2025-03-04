@@ -15,6 +15,8 @@ if (isset($_GET['username']) && isset($_GET['password']) && count($_GET) == 2) {
         http_response_code(200);
 
     } else {
+        echo $queried_pw."<br>";
+        echo $_GET["password"]."<br>";
         http_response_code(401);
     }
     //echo json_encode($return);

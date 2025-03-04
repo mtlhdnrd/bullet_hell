@@ -14,7 +14,10 @@ TagManager:
   - death
   - healthbar
   - passedData
+<<<<<<< HEAD
   - refHandler
+=======
+>>>>>>> aa0f745674afcbe28844bee6df24bb8b62d6af70
   layers:
   - Default
   - TransparentFX
