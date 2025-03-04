@@ -1,3 +1,10 @@
+:root{
+    --light-bg: #53575c;
+    --dark-bg: #343a40;
+    --darker-bg:#282c2f;
+    --header-bg: #171b2e;
+}
+
 .pw_visibility {
     background: url("src/pw/1.png");
     height: 70px;
@@ -14,7 +21,7 @@
 }
 
 .bg-custom {
-    background-color: rgb(30,30,40);
+    background-color: var(--header-bg);
 }
 .pixel-font{
     font-family: 'Pixelmix', sans-serif;
@@ -71,33 +78,4 @@
     image-rendering: pixelated; /* Universal support since 2021   */
     image-rendering: optimize-contrast; /* CSS3 Proposed                  */
     -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
-}
-
-@media (max-width: 400px) {
-    .profile-container {
-        display: block;
-    }
-}
-@media (min-width: 400px) {
-    .profile-container {
-        display: flex;
-    }
-}
-
-.profile-image {
-    width: auto;
-    height: 250px;
-}
-
-.stat-card {
-    transition: 0.2s;
-}
-
-.stat-card:hover {
-    background-color: #eee;
-}
-
-.change-pw {
-    max-width: 500px;
-    text-align: center;
 }
