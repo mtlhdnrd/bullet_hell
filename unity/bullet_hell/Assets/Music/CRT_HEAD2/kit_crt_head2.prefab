@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3214976680583494113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244621903719580280}
+  - component: {fileID: 2481365549410795173}
+  m_Layer: 0
+  m_Name: kit_crt_head2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244621903719580280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214976680583494113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2481365549410795173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214976680583494113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b18e8ebbc7dc024e87e267a52f809e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artist: CRT_HEAD
+  coverart: {fileID: 21300000, guid: 6a2e8aa4a86eef44e9e972537084333c, type: 3}
+  titleF1: NUCLEAR SPITE
+  fight1: {fileID: 8300000, guid: 851708089b98b2245a594f87fb9aaeb2, type: 3}
+  titleF2: YOKAI BLEED
+  fight2: {fileID: 8300000, guid: f3b93a2f03ce30f4fa69f1e2c4fc770b, type: 3}
+  titleF3: FLOWER FIELDS
+  fight3: {fileID: 8300000, guid: e5dd707f18d815245b269e3876c3d677, type: 3}
+  titleM1: DEJA VU
+  menu1: {fileID: 8300000, guid: 78959a42ba861e7439351c79c5c0e893, type: 3}
+  titleM2: BOCTOK
+  menu2: {fileID: 8300000, guid: 3c97d0d3d396ccc48a9855fd4b06f6aa, type: 3}
+  titleMVP: AZURE
+  MVP: {fileID: 8300000, guid: 120598d8b4c453b44b843b5806775815, type: 3}

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3214976680583494113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244621903719580280}
+  - component: {fileID: 2481365549410795173}
+  m_Layer: 0
+  m_Name: kit_mutecity1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244621903719580280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214976680583494113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2481365549410795173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214976680583494113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b18e8ebbc7dc024e87e267a52f809e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artist: MUTE CITY
+  coverart: {fileID: 21300000, guid: 6444c38c48912ff4d8fcf4f0c8aeafde, type: 3}
+  titleF1: COMPUTER PAUSE PTOGRAM
+  fight1: {fileID: 8300000, guid: 420cdb70904312844a9aa3ec1d1256fa, type: 3}
+  titleF2: DEEP FOREST
+  fight2: {fileID: 8300000, guid: 25baaf592d0eae240b089e38561a1d0d, type: 3}
+  titleF3: ZERO GRAVITY FLYING EYE
+  fight3: {fileID: 8300000, guid: 25b97c38eabf3e4489aa3b968b19ea59, type: 3}
+  titleM1: HOW TO DISASSOCIATE COMPLETELY
+  menu1: {fileID: 8300000, guid: 9d610100e357178459854a36ef68ed72, type: 3}
+  titleM2: COMPLIANCE
+  menu2: {fileID: 8300000, guid: c3335cecde3b9d54fa3c8fb9d07c0e54, type: 3}
+  titleMVP: LOSER TALK
+  MVP: {fileID: 8300000, guid: 6b86462c964411d47a0421489e0b4fdb, type: 3}

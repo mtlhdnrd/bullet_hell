@@ -4,7 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class healthbar : MonoBehaviour {
+public class healthbar : MonoBehaviour
+{
     [Header("sprite refs")]
     public Sprite frontL;
     public Sprite frontR;
@@ -26,24 +27,40 @@ public class healthbar : MonoBehaviour {
     public Vector2 position;
 
     //called by gameManager together with mapload and the rest
-    public void init(string player, string mapName) {
-        if(player == "p1" && mapName == "ham") {
+    public void init(string player, string mapName)
+    {
+        //p1
+        if (player == "p1" && mapName == "ham")
+        {
             initShort(backL, frontL, hamHealthL, position);
-        } else if(player == "p1" && mapName == "prac") {
+        }
+        else if (player == "p1" && mapName == "prac")
+        {
             initShort(backL, frontL, pracHealthL, position);
-        } else if(player == "p1" && mapName == "jap") {
+        }
+        else if (player == "p1" && mapName == "jap")
+        {
             initShort(backL, frontL, japHealthL, position);
-        } else if(player == "p2" && mapName == "ham") {
+        }
+
+        //p2
+        else if (player == "p2" && mapName == "ham")
+        {
             initShort(backR, frontR, hamHealthR, position * new Vector2(-1, 1));
-        } else if(player == "p2" && mapName == "prac") {
+        }
+        else if (player == "p2" && mapName == "prac")
+        {
             initShort(backR, frontR, pracHealthR, position * new Vector2(-1, 1));
-        } else if(player == "p2" && mapName == "jap") {
+        }
+        else if (player == "p2" && mapName == "jap")
+        {
             initShort(backR, frontR, japHealthR, position * new Vector2(-1, 1));
         }
     }
 
 
-    private void initShort(Sprite back, Sprite front, Sprite health, Vector2 position) {
+    private void initShort(Sprite back, Sprite front, Sprite health, Vector2 position)
+    {
         backObj.GetComponent<SpriteRenderer>().sprite = back;//back plate sprite
         frontObj.GetComponent<SpriteRenderer>().sprite = front;//front plate sprite
         healthObj.GetComponent<SpriteRenderer>().sprite = health;//health sprite
@@ -51,10 +68,10 @@ public class healthbar : MonoBehaviour {
         transform.localPosition = position;//this can be mirrored
     }
 
-    public void healthUpdate(string player, int health) {
+    public void healthUpdate(int health)
+    {
         float scale = health / 200f;//this gives us the health we can use for scale
         healthObj.transform.localScale = new Vector2(scale * .86f, 1);
-        transform.localPosition = position;
     }
 
 }
