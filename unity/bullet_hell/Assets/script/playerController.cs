@@ -48,18 +48,6 @@ public class playerController : MonoBehaviour
         grounded = groundCheckP1.grounded;
     }
 
-<<<<<<< HEAD
-=======
-    private void Awake()
-    {
-        //ignore weapon collision
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("weapon"))
-        {
-            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), obj.GetComponent<Collider2D>(), true);
-        }
-
-    }
->>>>>>> aa0f745674afcbe28844bee6df24bb8b62d6af70
 
     // Update is called once per frame
     void Update()
@@ -72,13 +60,10 @@ public class playerController : MonoBehaviour
 
     public void init(string skin, Vector3 pos, int health, playerAssets assetsRef)
     {
-<<<<<<< HEAD
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("weapon"))
         {
             Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), obj.GetComponent<Collider2D>(), true);
         }
-=======
->>>>>>> aa0f745674afcbe28844bee6df24bb8b62d6af70
         playerAssets = assetsRef;
 
         gameObject.GetComponentInChildren<bodyAnim>().init(skin, assetsRef);

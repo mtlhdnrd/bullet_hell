@@ -13,18 +13,14 @@ public class menu : MonoBehaviour
     string player2;
     public musicPlayer musicPlayer;
 
-<<<<<<< HEAD
     public List<string> maps;
 
-=======
->>>>>>> aa0f745674afcbe28844bee6df24bb8b62d6af70
     enum Players
     {
         Player1,
         Player2,
     }
 
-<<<<<<< HEAD
     public void init(passedData passedDataRef)
     {
         passedData = passedDataRef;
@@ -33,11 +29,6 @@ public class menu : MonoBehaviour
     public void matchmake()
     {
         passedData.map = maps[Random.Range(0, maps.Count)];
-=======
-    public void matchmake()
-    {
-        passedData.test = "yo this works";
->>>>>>> aa0f745674afcbe28844bee6df24bb8b62d6af70
         SceneManager.LoadScene("Game");
 
     }
@@ -89,13 +80,4 @@ public class menu : MonoBehaviour
     {
         Application.Quit();
     }
-<<<<<<< HEAD
-=======
-
-    private void Awake()
-    {
-        passedData = GameObject.FindGameObjectWithTag("passedData").GetComponent<passedData>();//because it may or may not destroy itself on load
-        musicPlayer.init(passedData.p1Kit, passedData.p2Kit, 0.5f, "menu");//passeddata
-    }
->>>>>>> aa0f745674afcbe28844bee6df24bb8b62d6af70
 }
