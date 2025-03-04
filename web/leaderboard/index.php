@@ -19,11 +19,13 @@ if (!is_logged_in()) {
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php"); ?>
 
     <div class="container">
-        <table class="table table-dark table-striped my-2">
-            <thead class="thead-dark">
+        <h1 class="pixel-font text-center my-3 py-2 bg-dark text-light border border-secondary">LEADERBOARD</h1>
+        <table class="table my-2">
+            <thead class="thead">
                 <tr>
                     <th scope="col">Rank</th>
                     <th scope="col">Username</th>
+                    <th scope="col"></th>
                     <th scope="col">Points</th>
                     <th scope="col">Winrate</th>
                     <th scope="col">Games Played</th>

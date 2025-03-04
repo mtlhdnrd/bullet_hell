@@ -81,15 +81,34 @@ function GetLeaderboardData() {
         },
     }).then((result) => {
         let tableContents = "";
+        let medal = `<td><img src="../src/images/ui/medal-1.jpg" class="img-fluid img-thumbnail" width="50"></td>`;
         leaderboard.forEach((player) => {
+            let placementDesign, rowBg;
+            switch(player.rank)
+            {
+                case 1:
+                    placementDesign = "first-place-row";
+                    break;
+                case 2:
+                    placementDesign = "second-place-row";
+                    break;
+                case 3: 
+                    placementDesign = "third-place-row";
+                    break;
+                default:
+                    placementDesign = "";
+                    break;
+            }
+            console.log(placementDesign);
             let playerData = `<tr>
-                    <td>${player.rank}</td>
-                    <td>${player.username}</td>
-                    <td>${player.points}</td>
-                    <td>${player.winrate}</td>
-                    <td>${player.all_games_played}</td>
-                    <td>${player.kills}</td>
-                    <td>${player.deaths}</td>
+                    <td class="${placementDesign}">${player.rank}</td>
+                    <td class="${placementDesign}">${player.username}</td>
+                    <td class="${placementDesign}"></td>
+                    <td class="${placementDesign}">${player.points}</td>
+                    <td class="${placementDesign}">${player.winrate}</td>
+                    <td class="${placementDesign}">${player.all_games_played}</td>
+                    <td class="${placementDesign}">${player.kills}</td>
+                    <td class="${placementDesign}">${player.deaths}</td>
                 </tr>
                 `;
             tableContents += playerData;
