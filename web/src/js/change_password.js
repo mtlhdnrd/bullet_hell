@@ -21,7 +21,7 @@ function changePassword() {
                         $.ajax({
                             type: "POST",
                             url: "../src/php/change_password.php",
-                            data: { username: username, newpw: newpw },
+                            data: { username: username, newpw: hash },
                             success: function (data, textStatus, xhr) {
                                 switch (xhr.status) {
                                     case 200:
@@ -38,7 +38,7 @@ function changePassword() {
                                 }
                             },
                         });
-                        });
+                    });
                 } else {
                     //Password mismatch
                     $("#password-mismatch").removeClass("d-none");
@@ -46,14 +46,14 @@ function changePassword() {
             } else {
                 $("#incorrect-password").removeClass("d-none");
             }
-        })
-        .catch((error) => {
-            console.error("Error:", error);
+        },
+        function(reject) {
+            console.error("Error:", reject);
             $("#incorrect-password").removeClass("d-none");
         });
 }
 function isPasswordCorrect(username, password) {
-    HashPassword(password).then(function(hash) {
+    return HashPassword(password).then(function(hash) {
         return new Promise((resolve, reject) => {
             $.ajax({
                 type: "GET",
