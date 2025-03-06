@@ -1,6 +1,6 @@
 function TogglePwVisibility() {
     const $passwordInput = $("#password");
-    const $eyeIcon = $("#eyeIcon");       
+    const $eyeIcon = $("#eyeIcon");
 
     if ($passwordInput.attr("type") === "password") {
         $passwordInput.attr("type", "text");
@@ -16,12 +16,6 @@ $(document).ready(function () {
         let username = $(this).val();
         if (username != "") {
             checkUsername(username);
-        }
-    });
-
-    $(".login-input").keyup(function (e) {
-        if (e.key == "Enter" || e.keyCode == 13) {
-            $("#login-button").trigger("click");
         }
     });
 });
@@ -47,26 +41,27 @@ function checkUsername(username, callback) {
 }
 
 function LoginUser() {
-    let url = "../src/php/login_check.php";
-    let username = $("#username").val();
-    let password = $("#password").val();
-    $.ajax({
-        type: "GET",
-        url: url,
-        data: { username: username, password: password },
-        success: function (_data, _textStatus, xhr) {
-            switch (xhr.status) {
-                case 200:
-                    window.open("../index.php", "_self");
-                    break;
-            }
-        },
-        error: function (xhr) {
-            switch (xhr.status) {
-                case 401:
-                    $("#incorrect-login").removeClass("d-none");
-                    break;
-            }
-        },
+    HashPassword($("#password").val()).then(function(hash) {
+        let url = "login_check.php";
+        let username = $("#username").val();
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: { username: username, password: hash },
+            success: function (_data, _textStatus, xhr) {
+                switch (xhr.status) {
+                    case 200:
+                        window.open("../index.php", "_self");
+                        break;
+                }
+            },
+            error: function (xhr) {
+                switch (xhr.status) {
+                    case 401:
+                        $("#incorrect-login").removeClass("d-none");
+                        break;
+                }
+            },
+        });
     });
 }

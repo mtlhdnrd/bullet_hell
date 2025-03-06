@@ -9,32 +9,36 @@ function changePassword() {
 
     isPasswordCorrect(username, password)
         .then((result) => {
+            console.log(result);
             if (result) {
                 $("#incorrect-password").addClass("d-none");
 
                 //Check if the new passwords match
                 let newpw = $("#new-pw").val();
-                if ($("#new-pw").val() === $("#new-pw-again").val()) {
-                    $.ajax({
-                        type: "POST",
-                        url: "../src/php/change_password.php",
-                        data: { username: username, newpw: newpw },
-                        success: function (data, textStatus, xhr) {
-                            switch (xhr.status) {
-                                case 200:
-                                    $("#current-pw").val("");
-                                    $("#new-pw").val("");
-                                    $("#new-pw-again").val("");
-                                    $("#password-changed").removeClass(
-                                        "d-none"
-                                    );
-                                    $("#incorrect-password").addClass("d-none");
-                                    $("#password-mismatch").addClass("d-none");
+                let newpw_again = $("#new-pw-again").val();
+                if (newpw === newpw_again) {
+                    HashPassword(newpw).then(function(hash) {
+                        $.ajax({
+                            type: "POST",
+                            url: "../src/php/change_password.php",
+                            data: { username: username, newpw: newpw },
+                            success: function (data, textStatus, xhr) {
+                                switch (xhr.status) {
+                                    case 200:
+                                        $("#current-pw").val("");
+                                        $("#new-pw").val("");
+                                        $("#new-pw-again").val("");
+                                        $("#password-changed").removeClass(
+                                            "d-none"
+                                        );
+                                        $("#incorrect-password").addClass("d-none");
+                                        $("#password-mismatch").addClass("d-none");
 
-                                    break;
-                            }
-                        },
-                    });
+                                        break;
+                                }
+                            },
+                        });
+                        });
                 } else {
                     //Password mismatch
                     $("#password-mismatch").removeClass("d-none");
@@ -49,21 +53,23 @@ function changePassword() {
         });
 }
 function isPasswordCorrect(username, password) {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            type: "GET",
-            url: "../src/php/login_check.php",
-            data: { username: username, password: password },
-            success: function (data, textStatus, xhr) {
-                if (xhr.status === 200) {
-                    resolve(true);
-                } else {
-                    reject(new Error("Authentication failed"));
-                }
-            },
-            error: function (xhr, data) {
-                reject(new Error("An error occurred."));
-            },
+    HashPassword(password).then(function(hash) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                type: "GET",
+                url: "../login/login_check.php",
+                data: { username: username, password: hash },
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        resolve(true);
+                    } else {
+                        reject(new Error("Authentication failed"));
+                    }
+                },
+                error: function (xhr, data) {
+                    reject(new Error("An error occurred."));
+                },
+            });
         });
     });
 }

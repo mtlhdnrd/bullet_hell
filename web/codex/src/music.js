@@ -8,7 +8,7 @@ function LoadMusic() {
             var container = $(".music-container"); // Select the container
             $.each(data, function (index, music) {
                 var characterBlock = `
-         <div class="row bg-light mx-auto map-block mb-4">
+         <div class="row text-white mx-auto music-block mb-4">
   <div class="col-12 d-flex flex-column align-items-center">
     <img src="../src/images/music/${music.cover_image}" class="img-fluid anti-alias" alt="${music.name}" width="500" height="200">
     <div class="text-start w-100"> <div class="col-12">
@@ -43,7 +43,7 @@ function SearchForMusic(value) {
         url: "load_codex_data.php",
         data: {
             data_type: "music",
-            condition: "name LIKE '%" + value + "%'",
+            condition: value,
         },
         dataType: "json",
         success: function (data, textStatus, xhr) {
@@ -51,7 +51,7 @@ function SearchForMusic(value) {
             container.html("");
             $.each(data, function (index, music) {
                 var musicBlock = `
-                    <div class="row bg-light mx-auto map-block mb-4">
+                    <div class="row text-white mx-auto music-block mb-4">
   <div class="col-12 d-flex flex-column align-items-center">
     <img src="../src/images/music/${music.cover_image}" class="img-fluid anti-alias" alt="${music.name}" width="500" height="200">
     <div class="text-start w-100"> <div class="col-12">

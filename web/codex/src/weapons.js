@@ -101,9 +101,7 @@ export class WeaponFactory {
 
 var weapons = [];
 const urlParams = new URLSearchParams(window.location.search);
-let currentWeapon = parseInt(
-    urlParams.get("weapon") == 0 ? -1 : urlParams.get("weapon")
-);
+let currentWeapon = -1;
 addEventListener("load", LoadWeapons());
 
 function LoadWeapons() {
@@ -151,7 +149,7 @@ function DisplayWeapons() {
     let heroSection = `
             <div class="container-fluid">
         <div class="row">
-            <div class="col-12 hero-element bg-light">
+            <div class="col-12 hero-element text-white">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-sm-12 my-5">
@@ -202,8 +200,8 @@ function DisplayWeapons() {
                 rowStr += `
                 <div class="col-lg-3 col-sm-12 p-0">
                     <div class="codex-tile d-flex flex-column align-items-center swap-btn" id=${weapons[weaponIndex].id}>
-                        <img src="../src/images/weapons/display/${weapons[weaponIndex].name}/${weapons[weaponIndex].name}_1_00000.png" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50 anti-alias img-fluid position-relative" id="weapon-img-${weapons[weaponIndex].id}">
-                        <img src="../src/images/weapons/display/${weapons[weaponIndex].name}/${weapons[weaponIndex].name}_2_00000.png" alt="${weapons[weaponIndex].name}" class="img-thumbnail w-50 anti-alias img-fluid d-none position-relative" id="weapon-img-alt-${weapons[weaponIndex].id}">
+                        <img src="../src/images/weapons/display/${weapons[weaponIndex].name}/${weapons[weaponIndex].name}_1_00000.png" alt="${weapons[weaponIndex].name}" class="w-100 anti-alias img-fluid position-relative" id="weapon-img-${weapons[weaponIndex].id}">
+                        <img src="../src/images/weapons/display/${weapons[weaponIndex].name}/${weapons[weaponIndex].name}_2_00000.png" alt="${weapons[weaponIndex].name}" class="w-100 anti-alias img-fluid d-none position-relative" id="weapon-img-alt-${weapons[weaponIndex].id}">
 
                     </div>
                 </div>`;
@@ -227,12 +225,12 @@ function DisplayWeapons() {
     });
     $('.swap-btn').each(function () {
         $(this).hover(function () {
-            $(this).children('img:nth(0)').addClass("d-none fade-out");
+            $(this).children('img:nth(0)').addClass("d-none");
+            $(this).children('img:nth(1)').addClass("fade-in");
             $(this).children('img:nth(1)').removeClass("d-none");
         }, function () {
             $(this).children('img:nth(1)').addClass("d-none");
             $(this).children('img:nth(0)').removeClass("d-none");
-            $(this).children('img:nth(0)').addClass("fade-in");
 
         });
     });

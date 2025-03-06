@@ -1,0 +1,40 @@
+@media (max-width: 400px) {
+    .profile-container {
+        display: block;
+    }
+}
+@media (min-width: 400px) {
+    .profile-container {
+        display: flex;
+    }
+}
+body{
+    font-family: 'Pixelmix', sans-serif;
+}
+.profile-container{
+    background-color: var(--dark-bg);
+    color: white;
+}
+.change-pw {
+    max-width: 500px;
+    text-align: center;
+}
+
+.profile-image {
+    width: auto;
+    height: 250px;
+}
+
+.stat-card {
+    transition: 0.2s;
+}
+
+.stat-card:hover {
+    background-color: var(--light-bg);
+}
+.profile-pic-container{
+    background-color: var(--darker-bg);
+}
+.profile-data-container{
+    background-color: var(--dark-bg);
+}

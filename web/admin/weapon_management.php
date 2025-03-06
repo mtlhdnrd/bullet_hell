@@ -27,6 +27,7 @@ if (!is_admin_logged_in()) {
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Filename</th>
                     <th scope="col">Damage</th>
                     <th scope="col">Fire rate</th>
                     <th scope="col">Semi auto</th>
