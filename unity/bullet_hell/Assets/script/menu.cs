@@ -14,27 +14,45 @@ public class menu : MonoBehaviour
     public musicPlayer musicPlayer;
     public List<string> maps;
 
+    public List<string> maps;
+
     enum Players
     {
         Player1,
         Player2,
     }
 
+    public void init(passedData passedDataRef)
+    {
+        passedData = passedDataRef;
+    }
+
     public void matchmake()
     {
-        passedData.test = "passedData works";
         passedData.map = maps[Random.Range(0, maps.Count)];
         SceneManager.LoadScene("Game");
+
     }
 
     public void LoginPlayer1()
     {
         Login(Players.Player1);
+        //set player name here
+        //set player rank here
+        passedData.p1Name = "batyuzo";
+        passedData.p1Skin = "bull";
+        
     }
 
     public void LoginPlayer2()
     {
         Login(Players.Player2);
+        //set player name here
+        //set player rank here
+        passedData.p2Name = "girmany";
+        passedData.p2Skin = "rogue";
+
+
     }
 
     void Login(Players player)
@@ -62,12 +80,5 @@ public class menu : MonoBehaviour
     public void quit()
     {
         Application.Quit();
-    }
-
-    private void Awake()
-    {
-        maps =new List<string>{"prac", "ham", "jap"};
-        passedData = GameObject.FindGameObjectWithTag("passedData").GetComponent<passedData>();//because it may or may not destroy itself on load
-        musicPlayer.init(passedData.p1Kit, passedData.p2Kit, 0.5f, "menu");//passeddata
     }
 }

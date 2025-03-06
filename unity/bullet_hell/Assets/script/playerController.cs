@@ -45,19 +45,9 @@ public class playerController : MonoBehaviour
         if (coyoteCount > 0 && !groundCheckP1.grounded) { coyoteCount -= 0.2f; }
         //buffer decreases mid-air
 
-
         grounded = groundCheckP1.grounded;
     }
 
-    private void Awake()
-    {
-        //ignore weapon collision
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("weapon"))
-        {
-            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), obj.GetComponent<Collider2D>(), true);
-        }
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -66,14 +56,14 @@ public class playerController : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         currentHealth = gameObject.GetComponent<playerHealth>().currentHealth;
 
-        //if theres a weapon equippable
-
-
-
     }
 
     public void init(string skin, Vector3 pos, int health, playerAssets assetsRef)
     {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("weapon"))
+        {
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), obj.GetComponent<Collider2D>(), true);
+        }
         playerAssets = assetsRef;
 
         gameObject.GetComponentInChildren<bodyAnim>().init(skin, assetsRef);
@@ -81,6 +71,8 @@ public class playerController : MonoBehaviour
         gameObject.GetComponentInChildren<playerHealth>().init(200, assetsRef);
         gameObject.GetComponentInChildren<gunHolder>().equipped = null;
         gameObject.GetComponentInChildren<gunHolder>().bareHandsOffset();
+
+   
     }
 
     public void Flip()
