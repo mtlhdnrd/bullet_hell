@@ -22,18 +22,6 @@ class Player {
         this.current_music_id = current_music_id;
         this.active_skin_id = active_skin_id;
     }
-
-    DebugInfo() {
-        return `Player: ${this.username}
-            Points: ${this.points}
-            Winrate: ${this.winrate}%
-            Games Played: ${this.all_games_played}
-            Kills: ${this.kills}
-            Deaths: ${this.deaths}
-            Most Used Music ID: ${this.most_used_music_id}
-            Current Music ID: ${this.current_music_id}
-            Active Skin ID: ${this.active_skin_id}`;
-    }
 }
 
 leaderboard = [];
@@ -104,7 +92,7 @@ function GetLeaderboardData() {
                     <td class="${placementDesign}">${player.username}</td>
                     <td class="${placementDesign}"></td>
                     <td class="${placementDesign}">${player.points}</td>
-                    <td class="${placementDesign}">${player.winrate}</td>
+                    <td class="${placementDesign}">${player.winrate.toFixed(1)}%</td>
                     <td class="${placementDesign}">${player.all_games_played}</td>
                     <td class="${placementDesign}">${player.kills}</td>
                     <td class="${placementDesign}">${player.deaths}</td>
