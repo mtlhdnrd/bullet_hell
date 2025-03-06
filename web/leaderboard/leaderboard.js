@@ -30,6 +30,7 @@ $(document).ready(function () {
 });
 
 function GetLeaderboardData() {
+    var current_player = $("#login-username").html().trim();
     var number_of_pages = 1;
     $.ajax({
         type: "GET",
@@ -87,7 +88,11 @@ function GetLeaderboardData() {
                     break;
             }
             console.log(placementDesign);
-            let playerData = `<tr>
+            let playerData = `<tr`;
+            if(player.username == current_player) {
+                playerData += ` class="current-player"`;
+            }
+            playerData += `>
                     <td class="${placementDesign}">${player.rank}</td>
                     <td class="${placementDesign}">${player.username}</td>
                     <td class="${placementDesign}"></td>
