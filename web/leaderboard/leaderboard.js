@@ -81,7 +81,6 @@ function GetLeaderboardData() {
         },
     }).then((result) => {
         let tableContents = "";
-        let medal = `<td><img src="../src/images/ui/medal-1.jpg" class="img-fluid img-thumbnail" width="50"></td>`;
         leaderboard.forEach((player) => {
             let placementDesign, rowBg;
             switch(player.rank)

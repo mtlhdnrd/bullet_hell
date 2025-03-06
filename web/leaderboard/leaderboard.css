@@ -1,12 +1,12 @@
-.first-place-row{
-    background-color: #FFD700!important;
+.table-dark .first-place-row{
+    background-color: #998100!important;
 }
-.second-place-row{
-    background-color: #C0C0C0!important;
+.table-dark .second-place-row{
+    background-color: #6a6b6c!important;
 }
-.third-place-row{
-    background-color: #CD7F32!important;
+.table-dark .third-place-row{
+    background-color: #a46628!important;
 }
 body{
-    background-color: rgb(48, 43, 43)!important;
+    background-color: #302b2b!important;
 }
