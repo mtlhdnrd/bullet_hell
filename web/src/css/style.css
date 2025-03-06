@@ -4,6 +4,9 @@
     --darker-bg:#282c2f;
     --header-bg: #171b2e;
 }
+body{
+    background-color: var(--dark-bg)!important;
+}
 table tr:nth-child(2n+1){
     background-color: var(--dark-bg) !important;
 }
