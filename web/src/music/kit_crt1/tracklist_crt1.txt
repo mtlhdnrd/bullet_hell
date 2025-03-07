@@ -1,0 +1,7 @@
+AUTHOR: crt_head
+FIGHT1: aim high
+FIGHT2:	yamaha death
+FIGHT3: neotokyo
+MENU1:	electrosphere
+MENU2:	gunstar heroes
+MVP:	night ops

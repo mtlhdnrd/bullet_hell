@@ -1,0 +1,7 @@
+AUTHOR: Mute City
+FIGHT1:	Computer Pause Program (first half, cut it pls)
+FIGHT2:	Deep Forest
+FIGHT3:	Zero Gravity Flying Eye
+MENU1:	How to Disassociate Completely
+MENU2:	Compliance
+MVP:	Loser Talk

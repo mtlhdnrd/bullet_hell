@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
             break;
         case 'characters':
             $username = $_SESSION['username'];
-            $query = "SELECT player_skins.id, player_skins.name, player_skins.display_image, player_skins.background_image, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Owned' ELSE 'Unowned' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? ORDER BY player_skins.id;";
+            $query = "SELECT player_skins.id, player_skins.name, player_skins.display_image, player_skins.background_image, player_skins.description, CASE WHEN player_skin_inventory.skin_id IS NOT NULL THEN 'Unlocked' ELSE 'Locked' END as ownership_status FROM player_skins LEFT JOIN player_skin_inventory ON player_skins.id = player_skin_inventory.skin_id AND player_skin_inventory.player_id = ? ORDER BY player_skins.id;";
             $stmt = $conn->prepare($query);
             $stmt->bind_param('s', $username);
             $stmt->execute();

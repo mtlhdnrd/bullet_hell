@@ -1,0 +1,7 @@
+AUTHOR: hellstar.plus
+FIGHT1:	cyberist ritual
+FIGHT2:	hkf
+FIGHT3:	any time
+MENU1:	heretical priestess
+MENU2:	sever
+MVP:	red raw against the grain
