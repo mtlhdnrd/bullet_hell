@@ -1,24 +1,11 @@
 export class Character {
-  constructor(id, name, display_image, background_image, description) {
+  constructor(id, name, display_image, background_image, description, ownership_status) {
     this.id = id;
     this.name = name;
     this.display_image = display_image;
     this.background_image = background_image;
     this.description = description;
-  }
-
-  DebugInfo() {
-    const separator = "-".repeat(30);
-    return `
-            ${separator}
-            Character Debug Info:
-            ${separator}
-            ID: ${this.id}
-            Name: ${this.name}
-            File Name: ${this.display_image}
-            Description: ${this.description}
-            ${separator}
-                    `;
+    this.ownership_status = ownership_status;
   }
 }
 
@@ -30,14 +17,15 @@ function LoadCharacters() {
     data: { data_type: "characters" },
     dataType: "json",
     success: function (data, textStatus, xhr) {
-      $.each(data, function (index, character) {
+      $.each(data, function (index, char) {
         characters.push(
           new Character(
-            character.id,
-            character.name,
-            character.display_image,
-            character.background_image,
-            character.description
+            char.id,
+            char.name,
+            char.display_image,
+            char.background_image,
+            char.description,
+            char.ownership_status
           )
         );
       });
@@ -90,9 +78,10 @@ function DisplayCharacters() {
       $this.append($overlay); // Append the overlay FIRST
 
       //Create description text element
-      let descriptionText = GetCharacterById($this.attr("id")).description;
+      let character = GetCharacterById($this.attr("id"));
+      let descriptionText = character.description;
       let $description = $(
-        `<p class="description-text">${descriptionText}</p>`
+        `<p class="description-text">${descriptionText} - <span class="${character.ownership_status == 'Unlocked' ? 'unlocked' : 'locked'}-status">${character.ownership_status}</span></p>`
       );
       $this.append($description);
 

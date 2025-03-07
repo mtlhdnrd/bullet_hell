@@ -10,11 +10,10 @@ body {
 
 .login-container {
     width: 100%;
-    max-width: 450px; 
+    max-width: 450px;
     padding: 2rem;
-    background-color: #343a40; 
-    border-radius: 15px; 
-    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.3); 
+    background-color: #343a40;
+    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .login-header {
@@ -31,20 +30,18 @@ body {
     background-color: #222;
     border: none;
     color: #fff;
-    border-radius: 5px;
     padding: 0.75rem 1rem;
     transition: background-color 0.3s ease;
 }
 
 .credential-input:focus {
     background-color: #333;
-    outline: none; 
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 .form-control::-webkit-slider-runnable-track {
       background: linear-gradient(to right, #007bff, #007bff);
       height:5px;
-      border-radius: 10px;
   }
 .form-control::-webkit-slider-thumb{
     -webkit-appearance: none;
@@ -52,7 +49,6 @@ body {
     width:15px;
     height:15px;
     background-color: #007bff;
-    border-radius: 50%;
     margin-top:-5px;
 
 }
@@ -60,19 +56,18 @@ label{
     color: white;
 }
 .btn-primary {
-    background-color: #007bff; 
+    background-color: #007bff;
     border: none;
-    border-radius: 5px;
     padding: 0.75rem 1.5rem;
     transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3;
 }
 
 .btn-secondary {
-     background-color: #444; 
+     background-color: #444;
      border: none;
 }
 

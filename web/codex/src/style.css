@@ -201,3 +201,12 @@ body {
 .fade-in {
   opacity: 1;
 }
+
+.unlocked-status{
+  background-color: #21b621;
+  padding: 5px;
+}
+.locked-status{
+  background-color: #b12424;
+  padding: 5px;
+}
