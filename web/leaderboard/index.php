@@ -20,6 +20,12 @@ if (!is_logged_in()) {
 
     <div class="container">
         <h1 class="pixel-font text-center my-3 py-2 bg-dark border border-secondary text-light">LEADERBOARD</h1>
+        <label for="page_size">Number of players per page:</label>
+        <select name="page_size">
+            <option value="75">75</option>
+            <option value="50" selected>50</option>
+            <option value="25">25</option>
+        </select>
         <table class="table table-dark my-2">
             <thead class="thead">
                 <tr>
