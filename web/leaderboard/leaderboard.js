@@ -26,6 +26,29 @@ class Player {
 
 leaderboard = [];
 $(document).ready(function () {
+    $("#page_size").change(function() {
+        $.ajax({
+            type: "POST",
+            url: "set_page_size.php",
+            data: { size: $("#page_size").val() },
+            success: function (data, textStatus, xhr) {
+                switch (xhr.status) {
+                    case 200:
+                        $(".table-contents").html("");
+                        leaderboard = [];
+                        GetLeaderboardData();
+                        break;
+                    case 400:
+                        console.log("ERROR: couldn't change page size");
+                        break;
+                }
+            },
+            error: function (data, textStatus, xhr) {
+                console.error(xhr);
+            },
+        });
+    });
+
     GetLeaderboardData();
 });
 
@@ -88,7 +111,11 @@ function GetLeaderboardData() {
                     break;
             }
             console.log(placementDesign);
-            let playerData = `<tr>
+            let playerData = `<tr`;
+            if(player.username == current_player) {
+                playerData += ` class="current-player"`;
+            }
+            playerData += `>
                     <td class="${placementDesign}">${player.rank}</td>
                     <td class="${placementDesign}">${player.username}</td>
                     <td class="${placementDesign}"></td>

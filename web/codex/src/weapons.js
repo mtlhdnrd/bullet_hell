@@ -24,27 +24,6 @@ export class Weapon {
         this.description = description;
         this.devinfo = devinfo;
     }
-
-    DebugInfo() {
-        const separator = "-".repeat(30);
-        return `
-            ${separator}
-            Weapon Debug Info:
-            ${separator}
-            ID: ${this.id}
-            Name: ${this.name}
-            File Name: ${this.file_name}
-            Damage: ${this.damage}
-            Fire Rate: ${this.fire_rate}
-            Semi Auto: ${this.semi_auto ? "Yes" : "No"} 
-            Rarity: ${this.rarity}
-            Projectile Speed: ${this.projectile_speed}
-            Magazine Size: ${this.mag}
-            Description: ${this.description}
-            Dev Info: ${this.devinfo}
-            ${separator}
-                    `;
-    }
 }
 
 export class WeaponFactory {

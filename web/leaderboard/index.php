@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 if (!is_logged_in()) {
     header("Location: ../login/login.php");
 }
@@ -20,11 +21,25 @@ if (!is_logged_in()) {
 
     <div class="container">
         <h1 class="pixel-font text-center my-3 py-2 bg-dark border border-secondary text-light">LEADERBOARD</h1>
+<<<<<<< HEAD
         <label for="page_size" class="text-light">Number of players per page:</label>
         <select name="page_size">
             <option value="75">75</option>
             <option value="50" selected>50</option>
             <option value="25">25</option>
+=======
+        <label for="page_size">Number of players per page:</label>
+        <select name="page_size" id="page_size">
+            <?php
+                foreach($GLOBALS["page_sizes"] as $size) {
+                    echo "<option value=\"$size\"";
+                    if($size == $_SESSION["players_per_page"]) {
+                        echo " selected";
+                    }
+                    echo ">$size</option>";
+                }
+            ?>
+>>>>>>> 555a2c0e53e0463daebf4b02b11e6faef1ca3b0d
         </select>
         <table class="table table-dark my-2">
             <thead class="thead">

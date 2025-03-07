@@ -1,9 +1,13 @@
 .table-dark .first-place-row{
-    background-color: #998100!important;
+    background-color: #998100 !important;
 }
 .table-dark .second-place-row{
-    background-color: #6a6b6c!important;
+    background-color: #6a6b6c !important;
 }
 .table-dark .third-place-row{
-    background-color: #a46628!important;
+    background-color: #a46628 !important;
+}
+
+.current-player, .current-player td {
+    background-color: #649710 !important;
 }
