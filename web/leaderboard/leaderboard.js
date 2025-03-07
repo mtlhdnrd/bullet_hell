@@ -111,7 +111,11 @@ function GetLeaderboardData() {
                     break;
             }
             console.log(placementDesign);
-            let playerData = `<tr>
+            let playerData = `<tr`;
+            if(player.username == current_player) {
+                playerData += ` class="current-player"`;
+            }
+            playerData += `>
                     <td class="${placementDesign}">${player.rank}</td>
                     <td class="${placementDesign}">${player.username}</td>
                     <td class="${placementDesign}"></td>
