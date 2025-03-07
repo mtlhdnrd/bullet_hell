@@ -16,6 +16,9 @@ if (!is_logged_in()) {
 
 <body>
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php"); ?>
+    <div class="hero-content d-flex justify-contents-center">
+        <img src="src/images/logo.png" alt="" class="img-fluid mx-auto">
+    </div>
 </body>
 
 </html>

@@ -70,7 +70,6 @@ function GetLeaderboardData() {
         },
     }).then((result) => {
         let tableContents = "";
-        let medal = `<td><img src="../src/images/ui/medal-1.jpg" class="img-fluid img-thumbnail" width="50"></td>`;
         leaderboard.forEach((player) => {
             let placementDesign, rowBg;
             switch(player.rank)
@@ -81,7 +80,7 @@ function GetLeaderboardData() {
                 case 2:
                     placementDesign = "second-place-row";
                     break;
-                case 3: 
+                case 3:
                     placementDesign = "third-place-row";
                     break;
                 default:
@@ -89,11 +88,7 @@ function GetLeaderboardData() {
                     break;
             }
             console.log(placementDesign);
-            let playerData = `<tr`;
-            if(player.username == current_player) {
-                playerData += ` class="current-player"`;
-            }
-            playerData += `>
+            let playerData = `<tr>
                     <td class="${placementDesign}">${player.rank}</td>
                     <td class="${placementDesign}">${player.username}</td>
                     <td class="${placementDesign}"></td>

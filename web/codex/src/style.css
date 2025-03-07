@@ -1,166 +1,203 @@
-@import url('../../src/css/style.css');
+@import url("../../src/css/style.css");
 
 .codex-menu-tile {
-    margin: 0px;
-    border: 1px solid black;
-    filter: grayscale(100%);
+  margin: 0px;
+  border: 1px solid black;
+  filter: grayscale(100%);
 }
-.codex-menu-tile:hover{
-    filter: grayscale(0%);
+.codex-menu-tile:hover {
+  filter: grayscale(0%);
 }
 body {
-    text-align: left;
-    font-family: 'Pixelmix', sans-serif;
-    background-color: var(--dark-bg);
+  text-align: left;
+  font-family: "Pixelmix", sans-serif;
+  background-color: var(--dark-bg);
 }
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .description-attribute {
-    font-weight: 300;
-    color: #827c7c;
-    border-bottom: 1px solid #827c7c;
+  font-weight: 300;
+  color: #827c7c;
+  border-bottom: 1px solid #827c7c;
 }
 
 .hero-image {
-    width: 450px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: auto;
+  width: 450px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
 }
-.hero-section{
-    background-color: var(--darker-bg);
-}
-
-.music-block{
-    background-color: var(--light-bg);
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 5px 3px 10px #000;
-}
-@media screen and (min-width: 992px){
-    .codex-wrapper {
-        display: grid;
-        width: 100%;
-        height: 90vh;
-        aspect-ratio: 16/7;
-        grid-template-columns: repeat(16, 1fr);
-        grid-template-rows: repeat(7, 1fr);
-        margin: auto;
-    }
-    
-    #maps-tile {
-        grid-column: 1 / 9;
-        grid-row: 1 / 6;
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-        padding-left: 20px;
-    }
-    #weapons-tile{
-        grid-column:9/17;
-        grid-row: 1/5;
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-        padding-left: 20px;
-    }
-    #music-tile{
-        grid-column: 1/5;
-        grid-row: 6/8;
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-    }
-    #mechanics-tile{
-        grid-column: 5/9;
-        grid-row: 6/8;
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-    }
-    #characters-tile{
-        grid-column: 9/17;
-        grid-row:5/8;
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-        padding-left: 20px;
-    }
-    
-    .dead-center-text{
-        margin-top: 21%;
-        text-align: center;
-    }
-}
-@media screen and (max-width: 992px){
-    .codex-menu-tile {
-        margin: 0px;
-        border: 1px solid black;
-        filter: grayscale(100%);
-        height: 150px;
-        padding: 20px;
-    }
-    #maps-tile {
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-    }
-    #weapons-tile{
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-    }
-    #music-tile{
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-    }
-    #music-tile > h1{
-        font-size: 47px;
-    }
-    #weapons-tile > h1{
-        font-size: 47px;
-    }
-    #mechanics-tile > h1{
-        font-size: 47px;
-    }
-    #mechanics-tile{
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-    }
-    #characters-tile{
-        background-image: url("../../src/images/wallpaper_test.png");
-        background-size: cover;
-    }
+.hero-section {
+  background-color: var(--darker-bg);
 }
 
-.map-description-tile{
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
-    padding: 50px;
-    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
-    color: white;
+.music-block {
+  background-color: var(--light-bg);
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 5px 3px 10px #000;
+}
+@media screen and (min-width: 992px) {
+  .codex-wrapper {
+    display: grid;
     width: 100%;
-    height: 200px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+    height: 90vh;
+    aspect-ratio: 16/7;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    margin: auto;
+  }
+
+  #maps-tile {
+    grid-column: 1 / 9;
+    grid-row: 1 / 6;
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+    padding-left: 20px;
+  }
+  #weapons-tile {
+    grid-column: 9/17;
+    grid-row: 1/5;
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+    padding-left: 20px;
+  }
+  #music-tile {
+    grid-column: 1/5;
+    grid-row: 6/8;
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+  }
+  #mechanics-tile {
+    grid-column: 5/9;
+    grid-row: 6/8;
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+  }
+  #characters-tile {
+    grid-column: 9/17;
+    grid-row: 5/8;
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+    padding-left: 20px;
+  }
+
+  .dead-center-text {
+    margin-top: 21%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 992px) {
+  .codex-menu-tile {
+    margin: 0px;
+    border: 1px solid black;
+    filter: grayscale(100%);
+    height: 150px;
+    padding: 20px;
+  }
+  #maps-tile {
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+  }
+  #weapons-tile {
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+  }
+  #music-tile {
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+  }
+  #music-tile > h1 {
+    font-size: 47px;
+  }
+  #weapons-tile > h1 {
+    font-size: 47px;
+  }
+  #mechanics-tile > h1 {
+    font-size: 47px;
+  }
+  #mechanics-tile {
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+  }
+  #characters-tile {
+    background-image: url("../../src/images/wallpaper_test.png");
+    background-size: cover;
+  }
 }
 
-.character-slide{
-    background-repeat: no-repeat;
-    background-size: cover;
-    color:#d4cece;
+.map-description-tile {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  padding: 50px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+  color: white;
+  width: 100%;
+  height: 200px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
-.character-slide h2{
-    font-size: 20vh!important;
+
+.character-slide {
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  height: 300px;
+  overflow: hidden;
 }
-.character-slide .row{
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    transition: 0.5s;
+.character-slide > img {
+  width: 100%;
+  object-fit: cover;
 }
-.character-slide .row:hover{
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+.description-text {
+  text-align: center;
+  font-size: 25pt;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  z-index: 2;
+  box-sizing: border-box;
 }
-.fade-out{
-    transition: 3s;
-    opacity: 0;
-    display: block;
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; 
 }
-.fade-in{
-    opacity: 1;
+.character-slide h2 {
+  font-size: 20vh !important;
+}
+.character-slide .row {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0)
+  );
+  transition: 0.5s;
+}
+.character-slide .row:hover {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  );
+}
+.fade-out {
+  transition: 3s;
+  opacity: 0;
+  display: block;
+}
+.fade-in {
+  opacity: 1;
 }

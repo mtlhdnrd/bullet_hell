@@ -73,7 +73,7 @@ if (!is_logged_in()) {
                 </div>
                 <div class="col-lg-3 col-sm-12 p-5 stat-card mx-auto" title="Players's favourite music">
                     <br>
-                    <h3 class="text-center display-5" id="stat-music"></h3>
+                    <h3 class="text-center display-5" id="stat-music">No music</h3>
                 </div>
             </div>
             <hr>
@@ -107,6 +107,7 @@ if (!is_logged_in()) {
         </div>
     </div>
     <script src="../src/js/form_utils.js"></script>
+    <script src="load_profile_data.js"></script>
 </body>
 
 </html>

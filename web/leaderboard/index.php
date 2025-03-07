@@ -10,23 +10,23 @@ if (!is_logged_in()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="leaderboard.css">
     <title>Bullet Hell - Leaderboard</title>
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
+    <link rel="stylesheet" href="leaderboard.css">
 </head>
 
 <body>
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php"); ?>
 
     <div class="container">
-        <h1 class="pixel-font text-center my-3 py-2 bg-dark text-light border border-secondary">LEADERBOARD</h1>
+        <h1 class="pixel-font text-center my-3 py-2 bg-dark border border-secondary text-light">LEADERBOARD</h1>
         <label for="page_size">Number of players per page:</label>
         <select name="page_size">
             <option value="75">75</option>
             <option value="50" selected>50</option>
             <option value="25">25</option>
         </select>
-        <table class="table my-2">
+        <table class="table table-dark my-2">
             <thead class="thead">
                 <tr>
                     <th scope="col">Rank</th>
