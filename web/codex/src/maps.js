@@ -12,10 +12,6 @@ class Map {
         this.music_pack_name = music_pack_name;
         this.music_pack_description = music_pack_description;
     }
-
-    DebugInfo() {
-        return `Map object with name: ${this.name}, file name: ${this.file_name}, description: ${this.description}, and music_pack_id: ${this.music_pack_id}`;
-    }
 }
 
 function LoadMaps() {
