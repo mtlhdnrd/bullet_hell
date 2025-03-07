@@ -26,6 +26,12 @@ tr td {
     border-radius: 0 !important;
 }
 
+input, select, input::placeholder {
+    background-color: var(--darker-bg) !important;
+    color: var(--font-light) !important;
+    border-color: var(--light-bg) !important;
+}
+
 .pw_visibility {
     background: url("src/pw/1.png");
     height: 70px;
