@@ -3,9 +3,14 @@
     --dark-bg: #343a40;
     --darker-bg:#282c2f;
     --header-bg: #171b2e;
+    --font-light: rgb(212, 205, 205);
+}
+html{
+    scroll-behavior:smooth;
 }
 body{
     background-color: var(--dark-bg)!important;
+    color: var(--font-light);
 }
 table tr:nth-child(2n+1){
     background-color: var(--dark-bg) !important;
@@ -90,4 +95,24 @@ tr td {
     image-rendering: pixelated; /* Universal support since 2021   */
     image-rendering: optimize-contrast; /* CSS3 Proposed                  */
     -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
+}
+
+
+/*Main page design*/
+.fade-in{
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+}
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+
+.hero-content{
+    background-color: var(--darker-bg);
+    box-shadow: inset 0px 0px 3px 3px #e7e6e4;
+}
+.yt-video{
+    margin-bottom: 200px;
 }
