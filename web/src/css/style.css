@@ -22,6 +22,10 @@ tr td {
     background-color: inherit !important;
 }
 
+* {
+    border-radius: 0 !important;
+}
+
 .pw_visibility {
     background: url("src/pw/1.png");
     height: 70px;
