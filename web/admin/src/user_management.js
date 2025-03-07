@@ -1,7 +1,23 @@
 function LoadUserTable() {
+    var number_of_pages = 1;
     $.ajax({
         type: "GET",
-        url: "./api/admin_get_user_data.php",
+        url: "../src/php/get_number_of_pages.php",
+        async: false,
+        success: function (data, textStatus, xhr) {
+            number_of_pages = Number(data);
+            if (isNaN(number_of_pages) || number_of_pages < 1) {
+                number_of_pages = 1;
+            }
+        },
+    });
+    var page = Number(GetUrlParameter("p"));
+    if (isNaN(page) || page < 1 || page > number_of_pages) {
+        window.location.search = "p=1";
+    }
+    $.ajax({
+        type: "GET",
+        url: `./api/admin_get_user_data.php?p=${page}`,
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -20,6 +36,28 @@ function LoadUserTable() {
                 tableContents += playerData;
             });
             $(".table-contents").html(tableContents);
+
+            var pagecontrols = "";
+            var previous_page = null;
+            if (page != 1) {
+                previous_page = page - 1;
+            }
+            var next_page = null;
+            if (page < number_of_pages) {
+                next_page = page + 1;
+            }
+
+            if (previous_page != null) {
+                pagecontrols += `<a class="h-100 text-decoration-none" href="${window.location.pathname}?p=${previous_page}">
+                    <img src="../src/images/ui/carousel-prev-icon.png" alt="" class="img-fluid anti-alias">
+                </a>`;
+            }
+            if (next_page != null) {
+                pagecontrols += `<a class="h-100 text-decoration-none" href="${window.location.pathname}?p=${next_page}">
+                    <img src="../src/images/ui/carousel-next-icon.png" alt="" class="img-fluid anti-alias">
+                </a>`;
+            }
+            $("#page-controls").html(pagecontrols);
             $(".delete-btn").click(function () {
                 ConfirmDelete($(this).attr("id"));
             });
@@ -48,5 +86,27 @@ function DeleteUser(username) {
 }
 
 $(document).ready(function () {
+    $("#page_size").change(function () {
+        $.ajax({
+            type: "POST",
+            url: "../src/php/set_page_size.php",
+            data: { size: $("#page_size").val() },
+            success: function (data, textStatus, xhr) {
+                switch (xhr.status) {
+                    case 200:
+                        $(".table-contents").html("");
+                        LoadUserTable();
+                        break;
+                    case 400:
+                        console.log("ERROR: couldn't change page size");
+                        break;
+                }
+            },
+            error: function (data, textStatus, xhr) {
+                console.error(xhr);
+            },
+        });
+    });
+
     LoadUserTable();
 });

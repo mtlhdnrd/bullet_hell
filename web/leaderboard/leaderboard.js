@@ -26,10 +26,10 @@ class Player {
 
 leaderboard = [];
 $(document).ready(function () {
-    $("#page_size").change(function() {
+    $("#page_size").change(function () {
         $.ajax({
             type: "POST",
-            url: "set_page_size.php",
+            url: "../src/php/set_page_size.php",
             data: { size: $("#page_size").val() },
             success: function (data, textStatus, xhr) {
                 switch (xhr.status) {
@@ -57,17 +57,17 @@ function GetLeaderboardData() {
     var number_of_pages = 1;
     $.ajax({
         type: "GET",
-        url: "get_number_of_pages.php",
+        url: "../src/php/get_number_of_pages.php",
         async: false,
         success: function (data, textStatus, xhr) {
-            number_of_pages = Number(data)
-            if(isNaN(number_of_pages) || number_of_pages < 1) {
+            number_of_pages = Number(data);
+            if (isNaN(number_of_pages) || number_of_pages < 1) {
                 number_of_pages = 1;
             }
-        }
+        },
     });
     var page = Number(GetUrlParameter("p"));
-    if(isNaN(page) || page < 1 || page > number_of_pages) {
+    if (isNaN(page) || page < 1 || page > number_of_pages) {
         window.location.search = "p=1";
     }
     $.ajax({
@@ -95,8 +95,7 @@ function GetLeaderboardData() {
         let tableContents = "";
         leaderboard.forEach((player) => {
             let placementDesign, rowBg;
-            switch(player.rank)
-            {
+            switch (player.rank) {
                 case 1:
                     placementDesign = "first-place-row";
                     break;
@@ -110,9 +109,8 @@ function GetLeaderboardData() {
                     placementDesign = "";
                     break;
             }
-            console.log(placementDesign);
             let playerData = `<tr`;
-            if(player.username == current_player) {
+            if (player.username == current_player) {
                 playerData += ` class="current-player"`;
             }
             playerData += `>
@@ -132,41 +130,24 @@ function GetLeaderboardData() {
 
         var pagecontrols = "";
         var previous_page = null;
-        if(page != 1) {
+        if (page != 1) {
             previous_page = page - 1;
         }
         var next_page = null;
-        if(page < number_of_pages) {
+        if (page < number_of_pages) {
             next_page = page + 1;
         }
 
-        if(previous_page != null) {
+        if (previous_page != null) {
             pagecontrols += `<a class="h-100 text-decoration-none" href="${window.location.pathname}?p=${previous_page}">
                 <img src="../src/images/ui/carousel-prev-icon.png" alt="" class="img-fluid anti-alias">
-            </a>`
+            </a>`;
         }
-        if(next_page != null) {
+        if (next_page != null) {
             pagecontrols += `<a class="h-100 text-decoration-none" href="${window.location.pathname}?p=${next_page}">
                 <img src="../src/images/ui/carousel-next-icon.png" alt="" class="img-fluid anti-alias">
-            </a>`
+            </a>`;
         }
         $("#page-controls").html(pagecontrols);
     });
-}
-
-// credit: https://stackoverflow.com/questions/19491336/how-to-get-url-parameter-using-jquery-or-plain-javascript
-function GetUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
-    }
-    return false;
 }

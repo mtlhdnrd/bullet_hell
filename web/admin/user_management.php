@@ -21,7 +21,19 @@ if (!is_admin_logged_in()) {
 <body>
     <?php require_once("admin_header.php"); ?>
     <div class="content">
-        <h1>Players</h1>
+        <h1>Users</h1>
+        <label for="page_size">Number of users per page:</label>
+        <select name="page_size" id="page_size">
+            <?php
+                foreach($GLOBALS["page_sizes"] as $size) {
+                    echo "<option value=\"$size\"";
+                    if($size == $_SESSION["players_per_page"]) {
+                        echo " selected";
+                    }
+                    echo ">$size</option>";
+                }
+            ?>
+        </select>
         <table class="table table-dark table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -37,7 +49,10 @@ if (!is_admin_logged_in()) {
             <tbody class="table-contents">
             </tbody>
         </table>
+        <div class="bg-dark text-center rounded" id="page-controls">
+        </div>
     </div>
+    <script src="../src/js/url_utils.js"></script>
     <script src="src/user_management.js"></script>
 </body>
 

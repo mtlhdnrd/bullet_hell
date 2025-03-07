@@ -53,6 +53,7 @@ if (!is_logged_in()) {
         </div>
     </div>
 
+    <script src="../src/js/url_utils.js"></script>
     <script src="leaderboard.js"></script>
 </body>
 
