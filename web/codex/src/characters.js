@@ -6,20 +6,6 @@ export class Character {
     this.background_image = background_image;
     this.description = description;
   }
-
-  DebugInfo() {
-    const separator = "-".repeat(30);
-    return `
-            ${separator}
-            Character Debug Info:
-            ${separator}
-            ID: ${this.id}
-            Name: ${this.name}
-            File Name: ${this.display_image}
-            Description: ${this.description}
-            ${separator}
-                    `;
-  }
 }
 
 var characters = [];
