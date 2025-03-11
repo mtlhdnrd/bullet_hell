@@ -45,7 +45,7 @@ function LoadMaps() {
 
 function DisplayMaps(maps) {
     let carouselElements = '';
-    maps.forEach((map, index) => { 
+    maps.forEach((map, index) => {
         carouselElements += `
         <div class="carousel-item ${index === 0 ? 'active' : ''}">
                 <img src="../src/images/maps/${map.map_file_name}" alt="${map.name}">

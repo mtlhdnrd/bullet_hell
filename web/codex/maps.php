@@ -21,23 +21,21 @@ if (!is_logged_in()) {
 
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
     ?>
-    <div class="container-fluid p-0 h-100 d-flex justify-content-center align-items-center bg-dark">
-        <!-- Bootstrap centering -->
-        <div id="carousel-wrapper">
-            <div id="image-carousel">
-                <div id="carousel-items-container"> <!-- Container for carousel items -->
-                </div>
-
-                <button id="prevBtn" class="carousel-control-prev" type="button">
-                    <img src="../src/images/ui/carousel-prev-icon.png" alt="Previous">
-                </button>
-                <button id="nextBtn" class="carousel-control-next" type="button">
-                    <img src="../src/images/ui/carousel-next-icon.png" alt="Next">
-                </button>
+    <!-- Bootstrap centering -->
+    <div id="carousel-wrapper" class="w-100">
+        <div id="image-carousel">
+            <div id="carousel-items-container"> <!-- Container for carousel items -->
             </div>
+
+            <button id="prevBtn" class="carousel-control-prev" type="button">
+                <img src="../src/images/ui/carousel-prev-icon.png" alt="Previous">
+            </button>
+            <button id="nextBtn" class="carousel-control-next" type="button">
+                <img src="../src/images/ui/carousel-next-icon.png" alt="Next">
+            </button>
         </div>
     </div>
     <script src="src/maps.js"></script>
-    </body>
+</body>
 
 </html>
