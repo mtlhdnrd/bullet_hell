@@ -3,7 +3,7 @@ if ($_SERVER["REQUEST_URI"] == "/bullet_hell/web/admin/admin_header.php") {
     header("Location: /bullet_hell/web/index.php");
 }
 ?>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Bullet hell - Admin</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
