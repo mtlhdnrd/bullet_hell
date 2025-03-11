@@ -27,7 +27,7 @@ if (!is_user_admin()) {
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card bg-dark text-light">
                     <div class="card-header">
                         Login
                     </div>
@@ -38,7 +38,7 @@ if (!is_user_admin()) {
                                 <input type="password" name="password_admin" class="form-control credential-input"
                                     id="password" required>
                                 <div class="input-group-append">
-                                    <button class="btn btn-secondary" type="button" onclick="togglePwVisibility()">
+                                    <button class="btn btn-secondary" type="button" onclick="TogglePwVisibility()">
                                         <i class="fa fa-eye" id="eyeIcon"></i>
                                     </button>
                                 </div>
