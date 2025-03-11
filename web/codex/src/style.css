@@ -5,14 +5,17 @@
   border: 1px solid black;
   filter: grayscale(100%);
 }
+
 .codex-menu-tile:hover {
   filter: grayscale(0%);
 }
+
 body {
   text-align: left;
   font-family: "Pixelmix", sans-serif;
   background-color: var(--dark-bg);
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -30,6 +33,7 @@ body {
   display: block;
   margin: auto;
 }
+
 .hero-section {
   background-color: var(--darker-bg);
 }
@@ -39,6 +43,7 @@ body {
   padding: 20px;
   box-shadow: 5px 3px 10px #000;
 }
+
 @media screen and (min-width: 992px) {
   .codex-wrapper {
     display: grid;
@@ -57,6 +62,7 @@ body {
     background-size: cover;
     padding-left: 20px;
   }
+
   #weapons-tile {
     grid-column: 9/17;
     grid-row: 1/5;
@@ -64,18 +70,21 @@ body {
     background-size: cover;
     padding-left: 20px;
   }
+
   #music-tile {
     grid-column: 1/5;
     grid-row: 6/8;
     background-image: url("../../src/images/wallpaper_test.png");
     background-size: cover;
   }
+
   #mechanics-tile {
     grid-column: 5/9;
     grid-row: 6/8;
     background-image: url("../../src/images/wallpaper_test.png");
     background-size: cover;
   }
+
   #characters-tile {
     grid-column: 9/17;
     grid-row: 5/8;
@@ -89,6 +98,7 @@ body {
     text-align: center;
   }
 }
+
 @media screen and (max-width: 992px) {
   .codex-menu-tile {
     margin: 0px;
@@ -97,31 +107,39 @@ body {
     height: 150px;
     padding: 20px;
   }
+
   #maps-tile {
     background-image: url("../../src/images/wallpaper_test.png");
     background-size: cover;
   }
+
   #weapons-tile {
     background-image: url("../../src/images/wallpaper_test.png");
     background-size: cover;
   }
+
   #music-tile {
     background-image: url("../../src/images/wallpaper_test.png");
     background-size: cover;
   }
-  #music-tile > h1 {
+
+  #music-tile>h1 {
     font-size: 47px;
   }
-  #weapons-tile > h1 {
+
+  #weapons-tile>h1 {
     font-size: 47px;
   }
-  #mechanics-tile > h1 {
+
+  #mechanics-tile>h1 {
     font-size: 47px;
   }
+
   #mechanics-tile {
     background-image: url("../../src/images/wallpaper_test.png");
     background-size: cover;
   }
+
   #characters-tile {
     background-image: url("../../src/images/wallpaper_test.png");
     background-size: cover;
@@ -147,10 +165,12 @@ body {
   height: 300px;
   overflow: hidden;
 }
-.character-slide > img {
+
+.character-slide>img {
   width: 100%;
   object-fit: cover;
 }
+
 .description-text {
   text-align: center;
   font-size: 25pt;
@@ -166,37 +186,38 @@ body {
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
+
 .character-slide h2 {
   font-size: 20vh !important;
 }
+
 .character-slide .row {
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0)
-  );
+  background-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0));
   transition: 0.5s;
 }
+
 .character-slide .row:hover {
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0)
-  );
+  background-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0));
 }
+
 .fade-out {
   transition: 3s;
   opacity: 0;
   display: block;
 }
+
 .fade-in {
   opacity: 1;
 }
@@ -213,11 +234,18 @@ body {
   background-size: cover;
 }
 
-.unlocked-status{
+.unlocked-status {
   background-color: #21b621;
   padding: 5px;
 }
-.locked-status{
+
+.locked-status {
   background-color: #b12424;
   padding: 5px;
+}
+
+
+.yt-video {
+  margin-bottom: 20px;
+  margin-top: 50px;
 }

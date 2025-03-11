@@ -16,13 +16,54 @@ if (!is_logged_in()) {
 </head>
 
 <body data-page="mechanics">
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
+    ?>
+    <div class="container">
+        <div class="mechanics-container">
+            <div class="row text-white mx-auto mb-4">
+                <div class="col-12 d-flex flex-column align-items-center">
+                    <div class="row yt-video">
+                        <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
+                            <iframe class="embed-responsive-item" width="600" height="400"
+                                src="https://www.youtube.com/embed/mjF1rmSV1dM">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="text-start w-100">
+                        <div class="col-12">
+                            <h2>Movement</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore tenetur deleniti
+                                doloribus enim dolorem. Expedita nisi aut accusantium non, alias culpa error est
+                                assumenda velit. Ut aperiam iure fugit, nulla facere nobis non odit autem!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
 
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");?>
-    <div class="container p-0 bg-dark">
-        <div class="character-slides-container container-fluid p-0">
+            <div class="row text-white mx-auto mb-4">
+                <div class="col-12 d-flex flex-column align-items-center">
+                    <div class="row yt-video">
+                        <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
+                            <iframe class="embed-responsive-item" width="600" height="400"
+                                src="https://www.youtube.com/embed/3Y-J7sBT_no">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="text-start w-100">
+                        <div class="col-12">
+                            <h2>Acquiring weapons</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore tenetur deleniti
+                                doloribus enim dolorem. Expedita nisi aut accusantium non, alias culpa error est
+                                assumenda velit. Ut aperiam iure fugit, nulla facere nobis non odit autem!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
         </div>
     </div>
-    <script src="src/mechanics.js" type="module"></script>
+
 </body>
 
 </html>
