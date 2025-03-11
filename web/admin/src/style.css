@@ -30,3 +30,17 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.container {
+    max-width: 400px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.content {
+    flex: 1;
+}
+
+nav {
+    max-width: 300px;
+}
