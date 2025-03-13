@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_URI"] == "/bullet_hell/web/src/php/header.php") {
                 <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                     <li class="nav-item">
                         <a class="nav-link mx-lg-4 menu-element text-white fs-5" aria-current="page"
-                            href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/index.php#rolunk">the
+                            href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/index.php">the
                             game</a>
                     </li>
                     <li class="nav-item ">
