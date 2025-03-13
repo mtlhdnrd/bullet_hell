@@ -4,7 +4,9 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-image: url("../src/images/i\ am\ starving\ brother.jpg");
+    background-image: url("../src/images/maps/slaughterhouse.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 
 }
 
@@ -14,6 +16,7 @@ body {
     padding: 2rem;
     background-color: #343a40;
     box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
 }
 
 .login-header {
