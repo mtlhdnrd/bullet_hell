@@ -53,6 +53,7 @@ $(document).ready(function () {
 });
 
 function GetLeaderboardData() {
+    $(".table-contents").html('<tr><td colspan="8">Loading...</td></tr>');
     var current_player = $("#login-username").html().trim();
     var number_of_pages = 1;
     $.ajax({

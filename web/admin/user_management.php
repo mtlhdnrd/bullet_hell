@@ -47,6 +47,9 @@ if (!is_admin_logged_in()) {
                 </tr>
             </thead>
             <tbody class="table-contents">
+                <tr>
+                    <td colspan="7">Loading...</td>
+                </tr>
             </tbody>
         </table>
         <div class="bg-dark text-center rounded" id="page-controls">

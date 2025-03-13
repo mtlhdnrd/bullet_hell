@@ -1,4 +1,5 @@
 function LoadUserTable() {
+    $(".table-contents").html('<tr><td colspan="7">Loading...</td></tr>');
     var number_of_pages = 1;
     $.ajax({
         type: "GET",
