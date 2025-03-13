@@ -7,7 +7,7 @@ body {
     background-image: url("../src/images/maps/slaughterhouse.png");
     background-size: cover;
     background-repeat: no-repeat;
-
+    background-position: center;
 }
 
 .login-container {
