@@ -7,7 +7,9 @@ if (isset($_GET['username'])) {
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    header("Content-Type: application/json");
     echo json_encode($result);
 } else {
+    http_response_code(400);
     echo "USERNAME NOT SET";
 }
