@@ -1,9 +1,9 @@
 function RegisterUser() {
     let allowed_username = /^[a-zA-Z0-9]{2,30}$/;
     if (!$("#username").val().match(allowed_username)) {
-        $("#username-invalid-character").removeClass("d-none");
+        $("#incorrect-register").removeClass("d-none");
     } else {
-        $("#username-invalid-character").addClass("d-none");
+        $("#incorrect-register").addClass("d-none");
         let username = $("#username").val();
         HashPassword($("#password").val()).then(function(hash) {
             $.ajax({

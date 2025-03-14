@@ -42,7 +42,7 @@ if (is_logged_in()) {
                                 </div>
                             </div>
                         </div>
-                        <p class="text-danger d-none pixel-font" id="incorrect-register">Incorrect login credentials!</p>
+                        <p class="text-danger d-none pixel-font" id="incorrect-register">Invalid characters in username!</p>
                         <button type="button" class="btn btn-success my-3 px-4 py-2 pixel-font" id="credential-submit-button" onclick="RegisterUser()">Sign up</button>
                         </form>
 

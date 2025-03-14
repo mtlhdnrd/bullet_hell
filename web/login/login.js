@@ -22,22 +22,10 @@ $(document).ready(function () {
 function checkUsername(username, callback) {
     let allowed_username = /^[a-zA-Z0-9]{2,30}$/;
     if (!username.match(allowed_username)) {
-        $("#username-invalid-character").removeClass("d-none");
+        $("#incorrect-login").removeClass("d-none");
     } else {
-        $("#username-invalid-character").addClass("d-none");
+        $("#incorrect-login").addClass("d-none");
     }
-    let url = `../src/php/username_exists.php?user=${username}`;
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: function (data) {
-            if (eval(`data.${username}`) == 1) {
-                $("#username-exists").removeClass("d-none");
-            } else {
-                $("#username-exists").addClass("d-none");
-            }
-        },
-    });
 }
 
 function LoginUser() {
