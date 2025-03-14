@@ -5,21 +5,25 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 $username = $password = $confirm_password = "";
 if (isset($_GET['username']) && isset($_GET['password']) && count($_GET) == 2) {
     $username = $_GET['username'];
-    $result = $conn->prepare("SELECT password FROM player_login WHERE `username` = ?;");
+    $password = $_GET['password'];
+    $result = $conn->prepare("SELECT password, players.points FROM player_login INNER JOIN players ON player_login.username = players.username WHERE player_login.username = ?;");
     $result->bind_param('s', $username);
     $result->execute();
-    $result->bind_result($queried_pw);
+    $result->bind_result($queried_pw, $points); // Bind both password and points
     $result->fetch();
-    if ($queried_pw === $_GET['password']) {
+
+    if ($queried_pw === $password) { // Compare with the password from the GET request
         $_SESSION['username'] = $username;
+        $return = ['username' => $username, 'points' => $points]; // Create the array to encode
+        echo json_encode($return);
         http_response_code(200);
 
     } else {
-        echo $queried_pw."<br>";
-        echo $_GET["password"]."<br>";
+        echo "Queried Password: " . $queried_pw . "<br>";
+        echo "Received Password: " . $password . "<br>";
         http_response_code(401);
     }
-    //echo json_encode($return);
 } else {
     print_r($_GET);
+    http_response_code(400);
 }
