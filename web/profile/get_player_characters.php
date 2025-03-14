@@ -8,6 +8,7 @@ if (isset($_GET['username'])) {
     $stmt->execute();
     $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     http_response_code(200);
+    header("Content-Type: application/json");
     echo json_encode($result);
 } else {
     http_response_code(400);
