@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2025 at 10:56 AM
+-- Generation Time: Mar 14, 2025 at 10:50 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -160,6 +160,7 @@ INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kil
 ('Ac9ufadx2722H30eACn2NfEW1mExlv', 45, 46.00093078613281, 253, 5, 2, 4, 5, 5),
 ('AIbApDvmikugKOxND42n99WcpWA24F', 26, 87.32313537597656, 72, 1, 1, 4, 5, 4),
 ('B1eSKklBqaQSjTlUP7M1BEQZIVan01', 86, 58.964210510253906, 362, 3, 3, 1, 1, 3),
+('batyuzo', 0, 0, 0, 0, 0, 1, 5, 2),
 ('BQJciB6R4dI36I8YCIAVYcKceBwSpN', 89, 26.170578002929688, 28, 1, 1, 1, 2, 5),
 ('BQPrvoXcMmGKYBAalsWMqTf9vKtw5L', 92, 26.301855087280273, 8, 5, 2, 3, 2, 1),
 ('d1Ed6nneGM7tYm7kNe6BikRz7XFdlm', 10, 74.65819549560547, 45, 1, 5, 5, 5, 2),
@@ -175,7 +176,7 @@ INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kil
 ('fzcXct8fHuDX4zYIk04ZJzQtq92NtC', 75, 37.88502502441406, 77, 3, 3, 4, 3, 1),
 ('G9rsK2uZAlBbRUfWunJM3D2Fd6CMyu', 83, 63.79164505004883, 310, 1, 3, 3, 1, 2),
 ('GEJ25qlmv790IUukzc0OPYzBpj2sII', 19, 3.70985746383667, 327, 1, 5, 1, 1, 4),
-('girmany', 0, 0, 0, 0, 0, 1, 1, 1),
+('girmany', 0, 0, 0, 0, 0, 1, 2, 1),
 ('GoRI8gtpAw0eGzJcrjvpkMA7gbGV5a', 99, 32.50837707519531, 353, 4, 3, 5, 4, 1),
 ('gqRYIffFtBm5pitEBsyjs0leStBLmf', 71, 8.398913383483887, 299, 2, 5, 5, 2, 5),
 ('GwaVl5UvMnuaFxDCI0qqMV1Geh4xlm', 8, 27.295448303222656, 373, 5, 5, 5, 3, 2),
@@ -279,6 +280,7 @@ INSERT INTO `player_login` (`username`, `password`, `is_admin`) VALUES
 ('Ac9ufadx2722H30eACn2NfEW1mExlv', '25e2ec77c5593078508d4a96f6f26fb0482a4e1fd7f9f245e6694683493e5ef2355d3437f908d34d457c02154e58b4a36b313d9ef7cb136946f676ef991c4979', 0),
 ('AIbApDvmikugKOxND42n99WcpWA24F', '8472286eb290402d4e70e2bac45121f6185f3acdbe2df15dc4fe829deca163c5cc243e43b448bf2543b3de98675ec836a64127c51ad0079f8e78d6d6b7a1c2df', 0),
 ('B1eSKklBqaQSjTlUP7M1BEQZIVan01', '1deafd35f10b4966ea5301859ceae7f4baaeb85708d7717a12138fd01df2f5f90c1650bf7f373872be9551322166fba5056a1e8bd09481e69af15bc0598dd907', 0),
+('batyuzo', '2d8555fc6d8b5e60baef404b48647f85773ceda476b9cf970b0c1d31eb49094988cde5a7fba16284e1328ccee855509fa6ed0a5f9aba6e340dd3e2d3c5e62216', 0),
 ('BQJciB6R4dI36I8YCIAVYcKceBwSpN', 'b3cd4686758a3c5f15ad29cebcc4216dab654702e779945c6e55f528c025cf66022a248bc2096fd7ed14db3525a48d0a5d7b8e14e242a08ded1157b5d6241260', 0),
 ('BQPrvoXcMmGKYBAalsWMqTf9vKtw5L', 'a09430bd41b788ae71b1e346d826da99afc09fcb3b135aa92c466a07b85cb3061cdbe905b7242085e4b4cf7f40a26c2722faceb998e511983f693f63f97a4f2b', 0),
 ('d1Ed6nneGM7tYm7kNe6BikRz7XFdlm', 'a8a8019db4ced932c0a2e14532734e13b04f32e3cefab989e11f24f1f8aa193b8b8f6737f570596c837531944050b71e04833438792324fa7acef26f722d722e', 0),
@@ -368,6 +370,15 @@ CREATE TABLE `player_music_inventory` (
   `player_id` varchar(255) NOT NULL,
   `music_pack_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- Dumping data for table `player_music_inventory`
+--
+
+INSERT INTO `player_music_inventory` (`player_id`, `music_pack_id`) VALUES
+('batyuzo', 5),
+('girmany', 2),
+('girmany', 3);
 
 -- --------------------------------------------------------
 
