@@ -95,6 +95,7 @@ input, select, input::placeholder, textarea {
 #logout {
     color: white;
     text-decoration: none;
+    padding: 8px 20px;
 }
 
 .anti-alias {

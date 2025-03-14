@@ -8,6 +8,16 @@
     background-color: #a46628 !important;
 }
 
-.current-player, .current-player td {
-    background-color: #50790d !important;
+.current-player, .current-player {
+    border: 5px solid #19e724 !important;
+}
+
+.table {
+    font-size: 1.4em;
+    opacity: 0.9;
+}
+
+body {
+    background-image: url("../src/images/maps/slaughterhouse.png");
+    background-size: contain;
 }

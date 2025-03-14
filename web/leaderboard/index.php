@@ -21,8 +21,8 @@ if (!is_logged_in()) {
 
     <div class="container">
         <h1 class="pixel-font text-center my-3 py-2 bg-dark border border-secondary text-light">LEADERBOARD</h1>
-        <label for="page_size">Number of players per page:</label>
-        <select name="page_size" id="page_size">
+        <label class="pixel-font" for="page_size">Number of players per page:</label>
+        <select class="pixel-font" name="page_size" id="page_size">
             <?php
                 foreach($GLOBALS["page_sizes"] as $size) {
                     echo "<option value=\"$size\"";
@@ -33,7 +33,7 @@ if (!is_logged_in()) {
                 }
             ?>
         </select>
-        <table class="table table-dark my-2">
+        <table class="table table-dark pixel-font my-2">
             <thead class="thead">
                 <tr>
                     <th scope="col">Rank</th>
