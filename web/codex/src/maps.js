@@ -14,6 +14,17 @@ class Map {
     }
 }
 
+function setBackgroundImage(imageUrl) {
+    if (window.innerWidth <= 768) { // Apply only on mobile/tablet
+        document.body.style.backgroundImage = `url('${imageUrl}')`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed"; // Optional: Keeps bg fixed during scroll
+    } else {
+        document.body.style.backgroundImage = 'none'; // Remove background on larger screens
+    }
+}
+
 function LoadMaps() {
     // Return the promise from $.ajax
     return $.ajax({
@@ -45,6 +56,7 @@ function LoadMaps() {
 
 function DisplayMaps(maps) {
     let carouselElements = '';
+    
     maps.forEach((map, index) => {
         carouselElements += `
         <div class="carousel-item ${index === 0 ? 'active' : ''}">
@@ -62,7 +74,9 @@ function DisplayMaps(maps) {
 $(document).ready(function() {
     LoadMaps().then(function(maps) {
         DisplayMaps(maps);
-
+        if (maps.length > 0) {
+            setBackgroundImage(`../src/images/maps/${maps[0].map_file_name}`);
+          }
         // --- Carousel Logic
         const $prevBtn = $('#prevBtn');
         const $nextBtn = $('#nextBtn');
@@ -74,6 +88,10 @@ $(document).ready(function() {
             const outClass = `slide-out-${direction === 'right' ? 'left' : 'right'}`;
 
             $carouselItems.eq(newIndex).addClass(inClass);
+
+            //Update background image
+            const newImageUrl = $carouselItems.eq(newIndex).find('img').attr('src');
+            setBackgroundImage(newImageUrl);
 
             setTimeout(() => {
                 $carouselItems.eq(currentItemIndex).addClass(outClass);
@@ -95,5 +113,9 @@ $(document).ready(function() {
             let prevIndex = (currentItemIndex - 1 + $carouselItems.length) % $carouselItems.length;
             slide(prevIndex, 'left');
         });
+        const carouselWrapper = document.getElementById("carousel-wrapper");
+        if (carouselWrapper) {
+            carouselWrapper.scrollIntoView({ behavior: "smooth" });
+        }
     });
 });
