@@ -11,23 +11,6 @@ function TogglePwVisibility() {
     }
 }
 
-$(document).ready(function () {
-    $("#username").keyup(function () {
-        let username = $(this).val();
-        if (username != "") {
-            checkUsername(username);
-        }
-    });
-});
-function checkUsername(username, callback) {
-    let allowed_username = /^[a-zA-Z0-9]{2,30}$/;
-    if (!username.match(allowed_username)) {
-        $("#incorrect-login").removeClass("d-none");
-    } else {
-        $("#incorrect-login").addClass("d-none");
-    }
-}
-
 function LoginUser() {
     HashPassword($("#password").val()).then(function(hash) {
         let url = "login_check.php";
