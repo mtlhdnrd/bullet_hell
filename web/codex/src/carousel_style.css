@@ -1,7 +1,9 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     font-family: 'Pixelmix', sans-serif;
+    transition: background-image 0.5s ease;
 }
 
 #image-carousel {
@@ -10,16 +12,11 @@ html, body {
     position: relative;
     overflow: hidden;
 }
+
 #carousel-wrapper {
     width: 100%;
     aspect-ratio: 16 / 9;
     position: relative;
-}
-#image-carousel {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
 }
 .carousel-item {
     position: absolute;
@@ -28,28 +25,25 @@ html, body {
     transition: transform 0.6s ease;
     transform: translateX(100%);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* For large screens, stack image above description */
 }
+
 .carousel-item img {
     width: 100%;
     height: auto;
     object-fit: contain;
-    flex-grow: 1;
+    flex-grow: 1; /* Image takes up available space */
+    /*border: 1px solid white;*/
 }
+
 .carousel-item.active {
     display: block;
     transform: translateX(0);
 }
-.carousel-item.next {
-    display: block;
-    transform: translateX(100%);
-}
 
-.carousel-item.prev {
-    display: block;
-    transform: translateX(-100%);
-}
-.carousel-control-prev, .carousel-control-next {
+
+.carousel-control-prev,
+.carousel-control-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -59,13 +53,14 @@ html, body {
     border: none;
     padding: 0;
 }
-.description-label{
-    position: absolute;
+
+.description-label {
+    position: absolute; /* Absolute positioning on larger screens */
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 300px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+    height: 300px; /*  You might want to adjust this */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
     color: white;
     padding: 130px 20px 0px 20px;
     box-sizing: border-box;
@@ -80,10 +75,13 @@ html, body {
 .carousel-control-next {
     right: 20px;
 }
-.carousel-control-prev img, .carousel-control-next img{
-  width: 50px;
-  height: 50px;
+
+.carousel-control-prev img,
+.carousel-control-next img {
+    width: 50px;
+    height: 50px;
 }
+
 .carousel-item.slide-in-right {
     transform: translateX(100%);
     animation: slideInRight 0.6s forwards;
@@ -105,21 +103,90 @@ html, body {
 }
 
 @keyframes slideInRight {
-    from { transform: translateX(100%); }
-    to   { transform: translateX(0); }
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 @keyframes slideInLeft {
-    from { transform: translateX(-100%); }
-    to   { transform: translateX(0); }
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 @keyframes slideOutRight {
-    from { transform: translateX(0); }
-    to   { transform: translateX(100%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
 }
 
 @keyframes slideOutLeft {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-100%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+    /* Center the ENTIRE carousel wrapper */
+    #carousel-wrapper {
+        display: flex;         /* Flex container */
+        justify-content: center; /* Horizontal centering */
+        align-items: center;    /* Vertical centering */
+        height: 100vh;          /*  Use 100vh for full viewport height */
+        overflow: auto;         /* Allow scrolling if content overflows */
+    }
+
+    #image-carousel { /*Give image-carousel 100% height and width*/
+      height: auto;
+      width: 100%;
+    }
+
+    .carousel-item {
+        position: relative;  /* Stack items */
+        display: block;     /* Block display */
+        width: auto;          /* Let width be determined by content */
+        height: auto;        /* Let height be determined by content */
+        max-width: 100%;   /* Prevent overflow */
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /*  'contain' is often better for responsive images */
+        flex-grow: 0;        /* No longer needed */
+    }
+
+    .description-label {
+        position: static;
+        height: auto;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        text-align: left;
+        width: 100%;
+    }
+      .description-label h1{
+            font-size: 1.5em; /*Reduce the font-size of h1 on smaller screens*/
+    }
+    .description-label p{
+        font-size: 1em; /*Reduce the font-size of p on smaller screens*/
+    }
 }
