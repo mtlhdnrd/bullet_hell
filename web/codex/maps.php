@@ -1,6 +1,5 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php");
 if (!is_logged_in()) {
     header("Location: ../login/login.php");
 }
@@ -12,15 +11,14 @@ if (!is_logged_in()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maps</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/links.php"); ?>
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="src/carousel_style.css">
 </head>
 
-<body data-page="weapons">
+<body data-page="maps">
 
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");
-    ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php");?>
     <!-- Bootstrap centering -->
     <div id="carousel-wrapper" class="w-100">
         <div id="image-carousel">
