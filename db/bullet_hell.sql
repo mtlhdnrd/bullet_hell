@@ -49,18 +49,6 @@ INSERT INTO `maps` (`id`, `name`, `file_name`, `description`, `music_pack_id`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `map_assets`
---
-
-CREATE TABLE `map_assets` (
-  `asset_id` int(11) NOT NULL,
-  `map_id` int(11) NOT NULL,
-  `file_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `map_weapons`
 --
 
@@ -490,13 +478,6 @@ ALTER TABLE `maps`
   ADD KEY `music_pack_id` (`music_pack_id`);
 
 --
--- Indexes for table `map_assets`
---
-ALTER TABLE `map_assets`
-  ADD PRIMARY KEY (`asset_id`),
-  ADD KEY `map_id` (`map_id`);
-
---
 -- Indexes for table `map_weapons`
 --
 ALTER TABLE `map_weapons`
@@ -568,12 +549,6 @@ ALTER TABLE `maps`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `map_assets`
---
-ALTER TABLE `map_assets`
-  MODIFY `asset_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `music_packs`
 --
 ALTER TABLE `music_packs`
@@ -606,12 +581,6 @@ ALTER TABLE `weapons`
 --
 ALTER TABLE `maps`
   ADD CONSTRAINT `maps_ibfk_1` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `map_assets`
---
-ALTER TABLE `map_assets`
-  ADD CONSTRAINT `map_assets_ibfk_1` FOREIGN KEY (`map_id`) REFERENCES `maps` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `map_weapons`
