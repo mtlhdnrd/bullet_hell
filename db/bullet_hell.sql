@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 14, 2025 at 10:50 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2025. Már 18. 10:15
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bullet_hell`
+-- Adatbázis: `bullet_hell`
 --
 CREATE DATABASE IF NOT EXISTS `bullet_hell` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
 USE `bullet_hell`;
@@ -26,7 +26,7 @@ USE `bullet_hell`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `maps`
+-- Tábla szerkezet ehhez a táblához `maps`
 --
 
 CREATE TABLE `maps` (
@@ -38,7 +38,7 @@ CREATE TABLE `maps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `maps`
+-- A tábla adatainak kiíratása `maps`
 --
 
 INSERT INTO `maps` (`id`, `name`, `file_name`, `description`, `music_pack_id`) VALUES
@@ -49,19 +49,7 @@ INSERT INTO `maps` (`id`, `name`, `file_name`, `description`, `music_pack_id`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `map_assets`
---
-
-CREATE TABLE `map_assets` (
-  `asset_id` int(11) NOT NULL,
-  `map_id` int(11) NOT NULL,
-  `file_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `map_weapons`
+-- Tábla szerkezet ehhez a táblához `map_weapons`
 --
 
 CREATE TABLE `map_weapons` (
@@ -70,7 +58,7 @@ CREATE TABLE `map_weapons` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `map_weapons`
+-- A tábla adatainak kiíratása `map_weapons`
 --
 
 INSERT INTO `map_weapons` (`map_id`, `weapon_id`) VALUES
@@ -90,7 +78,7 @@ INSERT INTO `map_weapons` (`map_id`, `weapon_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `music_packs`
+-- Tábla szerkezet ehhez a táblához `music_packs`
 --
 
 CREATE TABLE `music_packs` (
@@ -104,7 +92,7 @@ CREATE TABLE `music_packs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `music_packs`
+-- A tábla adatainak kiíratása `music_packs`
 --
 
 INSERT INTO `music_packs` (`id`, `name`, `cover_image`, `anthem`, `main_menu_theme1`, `main_menu_theme2`, `description`) VALUES
@@ -117,7 +105,7 @@ INSERT INTO `music_packs` (`id`, `name`, `cover_image`, `anthem`, `main_menu_the
 -- --------------------------------------------------------
 
 --
--- Table structure for table `players`
+-- Tábla szerkezet ehhez a táblához `players`
 --
 
 CREATE TABLE `players` (
@@ -133,7 +121,7 @@ CREATE TABLE `players` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `players`
+-- A tábla adatainak kiíratása `players`
 --
 
 INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kills`, `deaths`, `most_used_music_id`, `music_pack_id`, `active_skin_id`) VALUES
@@ -243,7 +231,7 @@ INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kil
 -- --------------------------------------------------------
 
 --
--- Table structure for table `player_login`
+-- Tábla szerkezet ehhez a táblához `player_login`
 --
 
 CREATE TABLE `player_login` (
@@ -253,7 +241,7 @@ CREATE TABLE `player_login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `player_login`
+-- A tábla adatainak kiíratása `player_login`
 --
 
 INSERT INTO `player_login` (`username`, `password`, `is_admin`) VALUES
@@ -363,7 +351,7 @@ INSERT INTO `player_login` (`username`, `password`, `is_admin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `player_music_inventory`
+-- Tábla szerkezet ehhez a táblához `player_music_inventory`
 --
 
 CREATE TABLE `player_music_inventory` (
@@ -372,7 +360,7 @@ CREATE TABLE `player_music_inventory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `player_music_inventory`
+-- A tábla adatainak kiíratása `player_music_inventory`
 --
 
 INSERT INTO `player_music_inventory` (`player_id`, `music_pack_id`) VALUES
@@ -383,7 +371,7 @@ INSERT INTO `player_music_inventory` (`player_id`, `music_pack_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `player_skins`
+-- Tábla szerkezet ehhez a táblához `player_skins`
 --
 
 CREATE TABLE `player_skins` (
@@ -395,20 +383,20 @@ CREATE TABLE `player_skins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `player_skins`
+-- A tábla adatainak kiíratása `player_skins`
 --
 
 INSERT INTO `player_skins` (`id`, `name`, `display_image`, `background_image`, `description`) VALUES
-(1, 'Knight', 'knight.png', '', 'The most common soldier'),
-(2, 'Rogue', 'rogue.png', '', 'Beheaded his own master. Imagine what he can do to you...'),
-(3, 'Samurai', 'samurai.png', 'samurai_1_00000.png', 'Bound by loyalty, but not by law. Beware!'),
-(4, 'Entity', 'entity.png', '', 'Zero identity, defined only by its boundaries.'),
-(5, 'Butcher', 'butcher.png', '', 'Set free from the Váci hentes, on his way to kill the furries. (He killed the Duolingo Owl btw)');
+(1, 'knight', 'knight.png', '', 'The most common soldier'),
+(2, 'rogue', 'rogue.png', '', 'Beheaded his own master. Imagine what he can do to you...'),
+(3, 'samurai', 'samurai.png', 'samurai_bg.png', 'Bound by loyalty, but not by law. Beware!'),
+(4, 'entity', 'entity.png', '', 'Zero identity, defined only by its boundaries.'),
+(5, 'butcher', 'butcher.png', '', 'Set free from the Váci hentes, on his way to kill the furries. (He killed the Duolingo Owl btw)');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `player_skin_inventory`
+-- Tábla szerkezet ehhez a táblához `player_skin_inventory`
 --
 
 CREATE TABLE `player_skin_inventory` (
@@ -419,7 +407,7 @@ CREATE TABLE `player_skin_inventory` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rarities`
+-- Tábla szerkezet ehhez a táblához `rarities`
 --
 
 CREATE TABLE `rarities` (
@@ -428,7 +416,7 @@ CREATE TABLE `rarities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `rarities`
+-- A tábla adatainak kiíratása `rarities`
 --
 
 INSERT INTO `rarities` (`id`, `rarity`) VALUES
@@ -439,7 +427,7 @@ INSERT INTO `rarities` (`id`, `rarity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `weapons`
+-- Tábla szerkezet ehhez a táblához `weapons`
 --
 
 CREATE TABLE `weapons` (
@@ -457,11 +445,11 @@ CREATE TABLE `weapons` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `weapons`
+-- A tábla adatainak kiíratása `weapons`
 --
 
 INSERT INTO `weapons` (`id`, `name`, `file_name`, `damage`, `fire_rate`, `semi_auto`, `rarity_id`, `projectile_speed`, `mag`, `description`, `devinfo`) VALUES
-(11, 'Scythe', 'def_scythe.png', 100, 1, 1, 3, NULL, NULL, 'A lethal and cool-looking weapon wielded by Death itself', 'FIRE: melee attack\nALTFIRE: take away enemy weapon\nUNEQUIP: default'),
+(11, 'Death', 'def_death.png', 100, 1, 1, 3, NULL, NULL, 'A lethal and cool-looking weapon wielded by Death itself', 'FIRE: melee attack\nALTFIRE: take away enemy weapon\nUNEQUIP: default'),
 (12, 'Nailgun', 'def_nailgun.png', 20, 3, 2, 2, 0.8, 13, 'Safety instructions would suggest you NOT to pin coworkers to a wall...', 'FIRE: shoot (gravity)\nALTFIRE: -\nUNEQUIP: default'),
 (13, 'Cleaver', 'def_cleaver.png', 70, 0.8, 1, 1, 0.4, NULL, 'Chop things up with this very nuanced instrument of destruction. Don\'t cut your finger.', 'FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),
 (14, 'Chainsaw', 'def_chainsaw.png', 3, 20, 2, 2, NULL, 200, 'Ever heard of Mick Gordon? The Doom Slayer? Hell, maybe?', 'FIRE: rev, damage on\nALTFIRE: -\nUNEQUIP: default'),
@@ -476,41 +464,35 @@ INSERT INTO `weapons` (`id`, `name`, `file_name`, `damage`, `fire_rate`, `semi_a
 (33, 'Kunai', 'def_kunai.png', 40, 1, 1, 1, 0.6, NULL, 'If your arms aren\'t long enough... damn that\'s a straight line...', 'FIRE: melee attack\nALTFIRE: throw\nUNEQUIP: default'),
 (34, 'Dagger', 'def_dagger.png', 50, 1.5, 3, 1, NULL, NULL, 'If all else fails...', 'FIRE: melee attack\nALTFIRE: -\nUNEQUIP: default'),
 (35, 'Katana', 'def_katana.png', 75, 1, 3, 2, NULL, NULL, 'Craftsmanship and lethality meet in your hands.', 'FIRE: melee attack\nALTFIRE: stab\nUNEQUIP: default'),
-(36, 'Kusarigama', 'def_kusarigama.png', 50, 0.6, 3, 1, 0.4, NULL, 'A deadly weapon...', 'FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default');
+(36, 'Kusarigama', 'def_kusarigama.png', 50, 0.6, 3, 1, 0.4, NULL, 'A deadly weapon...', 'FIRE: melee attack\nALTFIRE: throw (gravity)\nUNEQUIP: default'),
+(41, 'Sniper', 'def_sniper.png', 20, 1, 0, 3, 10, 5, 'A deadly weapon', 'FIRE:');
 
 --
--- Indexes for dumped tables
+-- Indexek a kiírt táblákhoz
 --
 
 --
--- Indexes for table `maps`
+-- A tábla indexei `maps`
 --
 ALTER TABLE `maps`
   ADD PRIMARY KEY (`id`),
   ADD KEY `music_pack_id` (`music_pack_id`);
 
 --
--- Indexes for table `map_assets`
---
-ALTER TABLE `map_assets`
-  ADD PRIMARY KEY (`asset_id`),
-  ADD KEY `map_id` (`map_id`);
-
---
--- Indexes for table `map_weapons`
+-- A tábla indexei `map_weapons`
 --
 ALTER TABLE `map_weapons`
   ADD PRIMARY KEY (`map_id`,`weapon_id`),
   ADD KEY `weapon_id` (`weapon_id`);
 
 --
--- Indexes for table `music_packs`
+-- A tábla indexei `music_packs`
 --
 ALTER TABLE `music_packs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `players`
+-- A tábla indexei `players`
 --
 ALTER TABLE `players`
   ADD PRIMARY KEY (`username`),
@@ -519,109 +501,97 @@ ALTER TABLE `players`
   ADD KEY `fk_players_player_skins` (`active_skin_id`);
 
 --
--- Indexes for table `player_login`
+-- A tábla indexei `player_login`
 --
 ALTER TABLE `player_login`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `player_music_inventory`
+-- A tábla indexei `player_music_inventory`
 --
 ALTER TABLE `player_music_inventory`
   ADD PRIMARY KEY (`player_id`,`music_pack_id`),
   ADD KEY `music_pack_id` (`music_pack_id`);
 
 --
--- Indexes for table `player_skins`
+-- A tábla indexei `player_skins`
 --
 ALTER TABLE `player_skins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `player_skin_inventory`
+-- A tábla indexei `player_skin_inventory`
 --
 ALTER TABLE `player_skin_inventory`
   ADD PRIMARY KEY (`player_id`,`skin_id`),
   ADD KEY `skin_id` (`skin_id`);
 
 --
--- Indexes for table `rarities`
+-- A tábla indexei `rarities`
 --
 ALTER TABLE `rarities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `weapons`
+-- A tábla indexei `weapons`
 --
 ALTER TABLE `weapons`
   ADD PRIMARY KEY (`id`),
   ADD KEY `rarity_id` (`rarity_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- A kiírt táblák AUTO_INCREMENT értéke
 --
 
 --
--- AUTO_INCREMENT for table `maps`
+-- AUTO_INCREMENT a táblához `maps`
 --
 ALTER TABLE `maps`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `map_assets`
---
-ALTER TABLE `map_assets`
-  MODIFY `asset_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `music_packs`
+-- AUTO_INCREMENT a táblához `music_packs`
 --
 ALTER TABLE `music_packs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `player_skins`
+-- AUTO_INCREMENT a táblához `player_skins`
 --
 ALTER TABLE `player_skins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `rarities`
+-- AUTO_INCREMENT a táblához `rarities`
 --
 ALTER TABLE `rarities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `weapons`
+-- AUTO_INCREMENT a táblához `weapons`
 --
 ALTER TABLE `weapons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- Constraints for dumped tables
+-- Megkötések a kiírt táblákhoz
 --
 
 --
--- Constraints for table `maps`
+-- Megkötések a táblához `maps`
 --
 ALTER TABLE `maps`
   ADD CONSTRAINT `maps_ibfk_1` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `map_assets`
---
-ALTER TABLE `map_assets`
-  ADD CONSTRAINT `map_assets_ibfk_1` FOREIGN KEY (`map_id`) REFERENCES `maps` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `map_weapons`
+-- Megkötések a táblához `map_weapons`
 --
 ALTER TABLE `map_weapons`
   ADD CONSTRAINT `map_weapons_ibfk_1` FOREIGN KEY (`map_id`) REFERENCES `maps` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `map_weapons_ibfk_2` FOREIGN KEY (`weapon_id`) REFERENCES `weapons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `players`
+-- Megkötések a táblához `players`
 --
 ALTER TABLE `players`
   ADD CONSTRAINT `fk_players_player_skins` FOREIGN KEY (`active_skin_id`) REFERENCES `player_skins` (`id`),
@@ -629,26 +599,26 @@ ALTER TABLE `players`
   ADD CONSTRAINT `players_ibfk_2` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`);
 
 --
--- Constraints for table `player_login`
+-- Megkötések a táblához `player_login`
 --
 ALTER TABLE `player_login`
   ADD CONSTRAINT `player_login_ibfk_1` FOREIGN KEY (`username`) REFERENCES `players` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `player_music_inventory`
+-- Megkötések a táblához `player_music_inventory`
 --
 ALTER TABLE `player_music_inventory`
   ADD CONSTRAINT `player_music_inventory_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`username`),
   ADD CONSTRAINT `player_music_inventory_ibfk_2` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`);
 
 --
--- Constraints for table `player_skin_inventory`
+-- Megkötések a táblához `player_skin_inventory`
 --
 ALTER TABLE `player_skin_inventory`
   ADD CONSTRAINT `player_skin_inventory_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `weapons`
+-- Megkötések a táblához `weapons`
 --
 ALTER TABLE `weapons`
   ADD CONSTRAINT `weapons_ibfk_1` FOREIGN KEY (`rarity_id`) REFERENCES `rarities` (`id`);
