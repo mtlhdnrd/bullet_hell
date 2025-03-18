@@ -26,24 +26,24 @@ player_skin_inventory (*player_id*, *skin_id*)
 player_music_inventory (*player_id*, *music_pack_id*)
 
 # 3NF
-maps (id, name, file_name, description, music_pack_id)
+maps (*id*, name, file_name, description, music_pack_id)
 
-map_weapons (map_id, weapon_id)
+map_weapons (*map_id*, *weapon_id*)
 
-music_packs (id, name, cover_image, anthem, main_menu_theme1, main_menu_theme2, description)
+music_packs (*id*, name, cover_image, anthem, main_menu_theme1, main_menu_theme2, description)
 
-players (username, points, winrate, all_games_played, kills, deaths, most_used_music_id, music_pack_id, active_skin_id) [^1]
+players (*username*, points, winrate, all_games_played, kills, deaths, most_used_music_id, music_pack_id, active_skin_id) [^1]
 
-player_login (username, password, is_admin)
+player_login (*username*, password, is_admin)
 
-player_music_inventory (player_id, music_pack_id)
+player_music_inventory (*player_id*, *music_pack_id*)
 
-player_skins (id, name, display_image, background_image, description)
+player_skins (*id*, name, display_image, background_image, description)
 
-player_skin_inventory (player_id, skin_id)
+player_skin_inventory (*player_id*, *skin_id*)
 
-rarities (id, rarity)
+rarities (*id*, rarity)
 
-weapons (id, name, file_name, damage, fire_rate, semi_auto, rarity_id, projectile_speed, mag, description, devinfo)
+weapons (*id*, name, file_name, damage, fire_rate, semi_auto, rarity_id, projectile_speed, mag, description, devinfo)
 
 [^1]: doesnt technically have to be two separate tables but it makes sense to not mix login info with gameplay data
