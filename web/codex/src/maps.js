@@ -17,9 +17,6 @@ class Map {
 function setBackgroundImage(imageUrl) {
     if (window.innerWidth <= 768) { // Apply only on mobile/tablet
         document.body.style.backgroundImage = `url('${imageUrl}')`;
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundAttachment = "fixed"; // Optional: Keeps bg fixed during scroll
     } else {
         document.body.style.backgroundImage = 'none'; // Remove background on larger screens
     }
@@ -56,7 +53,7 @@ function LoadMaps() {
 
 function DisplayMaps(maps) {
     let carouselElements = '';
-    
+
     maps.forEach((map, index) => {
         carouselElements += `
         <div class="carousel-item ${index === 0 ? 'active' : ''}">
