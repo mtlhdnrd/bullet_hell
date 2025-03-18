@@ -198,6 +198,7 @@ function DisplayWeapons() {
     $(".swap-btn").click(function () {
         let index = $(this).attr("id").split('-')[1];
         currentWeapon = index;
+        $('.hero-section')[0].scrollIntoView();
         DisplayWeapons();
     });
 

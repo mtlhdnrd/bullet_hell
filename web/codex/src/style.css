@@ -164,11 +164,15 @@ body {
   color: #ffffff;
   height: 300px;
   overflow: hidden;
+  position: relative;
 }
-
-.character-slide>img {
-  width: 100%;
-  object-fit: cover;
+.character-image{
+  position: absolute;
+  width: auto;
+  height: 100%;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 
 .description-text {
@@ -210,6 +214,24 @@ body {
   background-image: linear-gradient(to right,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0));
+}
+
+@media (max-width: 768px) { /*  Bootstrap's 'sm' breakpoint - adjust as needed */
+
+  .character-slide .row:hover {
+    background-image: linear-gradient(to right,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0));
+  }
+
+  .description-text {
+      position: relative;
+      left: 0;
+      width: 100%;
+  }
+  .overlay{
+    display: block;
+  }
 }
 
 .fade-out {
