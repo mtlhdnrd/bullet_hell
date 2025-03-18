@@ -49,7 +49,7 @@ INSERT INTO `maps` (`id`, `name`, `file_name`, `description`, `music_pack_id`) V
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `map_weapons`
+-- Table structure for table `map_weapons`
 --
 
 CREATE TABLE `map_weapons` (
@@ -479,7 +479,7 @@ ALTER TABLE `maps`
   ADD KEY `music_pack_id` (`music_pack_id`);
 
 --
--- A tábla indexei `map_weapons`
+-- Indexes for table `map_weapons`
 --
 ALTER TABLE `map_weapons`
   ADD PRIMARY KEY (`map_id`,`weapon_id`),
@@ -550,7 +550,7 @@ ALTER TABLE `maps`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT a táblához `music_packs`
+-- AUTO_INCREMENT for table `music_packs`
 --
 ALTER TABLE `music_packs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
@@ -584,7 +584,7 @@ ALTER TABLE `maps`
   ADD CONSTRAINT `maps_ibfk_1` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Megkötések a táblához `map_weapons`
+-- Constraints for table `map_weapons`
 --
 ALTER TABLE `map_weapons`
   ADD CONSTRAINT `map_weapons_ibfk_1` FOREIGN KEY (`map_id`) REFERENCES `maps` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
