@@ -22,18 +22,20 @@ if (!is_admin_logged_in()) {
     <?php require_once("admin_header.php"); ?>
     <div class="content">
         <h1>Maps</h1>
-        <table class="table table-dark table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Music pack</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody class="table-contents">
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table class="table table-dark table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Music pack</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody class="table-contents">
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="container">
         <h1>Add New Map</h1>
