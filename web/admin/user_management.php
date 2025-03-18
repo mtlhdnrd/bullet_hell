@@ -34,24 +34,26 @@ if (!is_admin_logged_in()) {
                 }
             ?>
         </select>
-        <table class="table table-dark table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Username</th>
-                    <th scope="col">Points</th>
-                    <th scope="col">Winrate</th>
-                    <th scope="col">Games Played</th>
-                    <th scope="col">Kills</th>
-                    <th scope="col">Deaths</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody class="table-contents">
-                <tr>
-                    <td colspan="7">Loading...</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table class="table table-dark table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Points</th>
+                        <th scope="col">Winrate</th>
+                        <th scope="col">Games Played</th>
+                        <th scope="col">Kills</th>
+                        <th scope="col">Deaths</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody class="table-contents">
+                    <tr>
+                        <td colspan="7">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="bg-dark text-center rounded" id="page-controls">
         </div>
     </div>

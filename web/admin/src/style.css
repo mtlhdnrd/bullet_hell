@@ -44,3 +44,7 @@
 nav {
     max-width: 300px;
 }
+
+.table-container {
+    overflow-x: scroll;
+}

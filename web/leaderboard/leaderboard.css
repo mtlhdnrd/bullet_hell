@@ -17,6 +17,10 @@
     opacity: 0.9;
 }
 
+.leaderboard-table {
+    overflow-x: scroll;
+}
+
 body {
     background-image: url("../src/images/maps/slaughterhouse.png");
     background-size: contain;

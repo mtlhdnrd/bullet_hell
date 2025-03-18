@@ -72,7 +72,6 @@ if (!is_logged_in()) {
                     <h3 class="text-center">Total Deaths</h3>
                 </div>
                 <div class="col-lg-3 col-sm-12 p-5 stat-card mx-auto" title="Players's favourite music">
-                    <br>
                     <h3 class="text-center display-5" id="stat-music">No music</h3>
                 </div>
             </div>

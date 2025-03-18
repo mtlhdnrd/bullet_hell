@@ -33,25 +33,27 @@ if (!is_logged_in()) {
                 }
             ?>
         </select>
-        <table class="table table-dark pixel-font my-2">
-            <thead class="thead">
-                <tr>
-                    <th scope="col">Rank</th>
-                    <th scope="col">Username</th>
-                    <th scope="col"></th>
-                    <th scope="col">Points</th>
-                    <th scope="col">Winrate</th>
-                    <th scope="col">Games played</th>
-                    <th scope="col">Kills</th>
-                    <th scope="col">Deaths</th>
-                </tr>
-            </thead>
-            <tbody class="table-contents">
-                <tr>
-                    <td colspan="8">Loading...</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="leaderboard-table">
+            <table class="table table-dark pixel-font my-2">
+                <thead class="thead">
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Username</th>
+                        <th scope="col"></th>
+                        <th scope="col">Points</th>
+                        <th scope="col">Winrate</th>
+                        <th scope="col">Games played</th>
+                        <th scope="col">Kills</th>
+                        <th scope="col">Deaths</th>
+                    </tr>
+                </thead>
+                <tbody class="table-contents">
+                    <tr>
+                        <td colspan="8">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="bg-dark text-center rounded" id="page-controls">
         </div>
     </div>
