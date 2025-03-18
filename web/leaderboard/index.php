@@ -41,7 +41,7 @@ if (!is_logged_in()) {
                     <th scope="col"></th>
                     <th scope="col">Points</th>
                     <th scope="col">Winrate</th>
-                    <th scope="col">Games Played</th>
+                    <th scope="col">Games played</th>
                     <th scope="col">Kills</th>
                     <th scope="col">Deaths</th>
                 </tr>
