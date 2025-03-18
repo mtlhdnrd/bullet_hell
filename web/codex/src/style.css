@@ -165,10 +165,13 @@ body {
   height: 300px;
   overflow: hidden;
 }
-
-.character-slide>img {
-  width: 100%;
-  object-fit: cover;
+.character-image{
+  position: absolute;
+  width: auto;
+  height: 100%;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 
 .description-text {

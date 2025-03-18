@@ -54,14 +54,14 @@ function DisplayCharacters() {
   $(".character-slides-container").html(characterSlides);
   $(".character-slide").each(function () {
     let charId = $(this).attr("id");
-    let character = GetCharacterById(charId); // Store the result for efficiency
+    let character = GetCharacterById(charId);
     if (character && character.background_image) {
-      // Check if character and image exist
       $(this).css(
         "background",
-        `url(../src/images/characters/display/${character.background_image})`
+        `url(../src/images/characters/display/${character.name}/${character.background_image})`
       );
       $(this).css("background-size", `cover`);
+      $(this).append(`<img src="../src/images/characters/display/${character.name}/${character.name}.png" class="character-image">`);
     } else {
       console.warn(
         `No background image found for character with ID: ${charId}`

@@ -113,9 +113,6 @@ $(document).ready(function() {
             let prevIndex = (currentItemIndex - 1 + $carouselItems.length) % $carouselItems.length;
             slide(prevIndex, 'left');
         });
-        const carouselWrapper = document.getElementById("carousel-wrapper");
-        if (carouselWrapper) {
-            carouselWrapper.scrollIntoView({ behavior: "smooth" });
-        }
+        $('#carousel-wrapper')[0].scrollIntoView();
     });
 });
