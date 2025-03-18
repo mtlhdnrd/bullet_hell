@@ -4,6 +4,9 @@ body {
     margin: 0;
     font-family: 'Pixelmix', sans-serif;
     transition: background-image 0.5s ease;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #image-carousel {
