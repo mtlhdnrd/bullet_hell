@@ -27,6 +27,7 @@ body{
 
 .stat-card {
     transition: 0.2s;
+    align-content: center;
 }
 
 .stat-card:hover {
