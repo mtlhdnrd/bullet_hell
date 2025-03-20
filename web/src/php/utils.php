@@ -24,3 +24,11 @@ function is_user_admin() {
     }
     return false;
 }
+
+function username_exists($username) {
+    $stmt = $GLOBALS["conn"]->prepare("SELECT COUNT(username) FROM players WHERE username = ?;");
+    $stmt->bind_param("s", $username);
+    if($stmt->execute()) {
+        return $stmt->get_result()->fetch_row()[0] == 1;
+    }
+}
