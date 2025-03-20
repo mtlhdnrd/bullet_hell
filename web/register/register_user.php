@@ -5,6 +5,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
+    if(username_exists($username)) {
+        http_response_code(400);
+        die("username already exists");
+    }
     $query = "INSERT INTO `players` (username,points,winrate,all_games_played, kills, deaths,most_used_music_id,music_pack_id,active_skin_id) VALUES (?,0,0,0,0,0,NULL, NULL, NULL);";
     $result = $conn->prepare($query);
     $result->bind_param("s", $username);

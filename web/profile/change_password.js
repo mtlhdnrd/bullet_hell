@@ -20,7 +20,7 @@ function changePassword() {
                     HashPassword(newpw).then(function(hash) {
                         $.ajax({
                             type: "POST",
-                            url: "../src/php/change_password.php",
+                            url: "./change_password.php",
                             data: { username: username, newpw: hash },
                             success: function (data, textStatus, xhr) {
                                 switch (xhr.status) {
