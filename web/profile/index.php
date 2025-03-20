@@ -21,7 +21,7 @@ if (!is_logged_in()) {
 <body>
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php"); ?>
     <script src="<?php $_SERVER['DOCUMENT_ROOT']; ?>/bullet_hell/web/profile/load_profile_data.js" defer></script>
-    <script src="<?php $_SERVER['DOCUMENT_ROOT']; ?>/bullet_hell/web/src/js/change_password.js" defer></script>
+    <script src="<?php $_SERVER['DOCUMENT_ROOT']; ?>/bullet_hell/web/profile/change_password.js" defer></script>
     <div class="profile-container">
         <div class="profile-pic-container py-3">
             <?php
