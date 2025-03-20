@@ -16,9 +16,9 @@ class BHMap {
 
 function setBackgroundImage(imageUrl) {
     if (window.innerWidth <= 768) { // Apply only on mobile/tablet
-        document.body.style.backgroundImage = `url('${imageUrl}')`;
+        $("#carousel-wrapper").css("background-image", `url('${imageUrl}')`);
     } else {
-        document.body.style.backgroundImage = 'none'; // Remove background on larger screens
+        $("#carousel-wrapper").css("background-image", `none`); // Remove background on larger screens
     }
 }
 
@@ -110,6 +110,6 @@ $(document).ready(function() {
             let prevIndex = (currentItemIndex - 1 + $carouselItems.length) % $carouselItems.length;
             slide(prevIndex, 'left');
         });
-        $('#carousel-wrapper')[0].scrollIntoView();
+        window.scrollTo(0, document.body.scrollHeight);
     });
 });
