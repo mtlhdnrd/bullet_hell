@@ -1,4 +1,4 @@
-class Map {
+class BHMap {
     constructor(
         name,
         file_name,
@@ -16,9 +16,9 @@ class Map {
 
 function setBackgroundImage(imageUrl) {
     if (window.innerWidth <= 768) { // Apply only on mobile/tablet
-        document.body.style.backgroundImage = `url('${imageUrl}')`;
+        $("#carousel-wrapper").css("background-image", `url('${imageUrl}')`);
     } else {
-        document.body.style.backgroundImage = 'none'; // Remove background on larger screens
+        $("#carousel-wrapper").css("background-image", `none`); // Remove background on larger screens
     }
 }
 
@@ -34,7 +34,7 @@ function LoadMaps() {
             const maps = [];
             $.each(data, function (index, map) {
                 maps.push(
-                    new Map(
+                    new BHMap(
                         map.name,
                         map.map_file_name,
                         map.map_description,
@@ -73,7 +73,7 @@ $(document).ready(function() {
         DisplayMaps(maps);
         if (maps.length > 0) {
             setBackgroundImage(`../src/images/maps/${maps[0].map_file_name}`);
-          }
+        }
         // --- Carousel Logic
         const $prevBtn = $('#prevBtn');
         const $nextBtn = $('#nextBtn');
@@ -110,6 +110,6 @@ $(document).ready(function() {
             let prevIndex = (currentItemIndex - 1 + $carouselItems.length) % $carouselItems.length;
             slide(prevIndex, 'left');
         });
-        $('#carousel-wrapper')[0].scrollIntoView();
+        window.scrollTo(0, document.body.scrollHeight);
     });
 });

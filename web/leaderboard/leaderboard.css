@@ -23,5 +23,7 @@
 
 body {
     background-image: url("../src/images/maps/slaughterhouse.png");
-    background-size: contain;
+    background-size: 100%;
+    background-position-x: center;
+    transition: 3.3s;
 }
