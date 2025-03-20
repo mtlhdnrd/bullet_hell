@@ -1,4 +1,4 @@
-class Map {
+class BHMap {
     constructor(
         name,
         file_name,
@@ -34,7 +34,7 @@ function LoadMaps() {
             const maps = [];
             $.each(data, function (index, map) {
                 maps.push(
-                    new Map(
+                    new BHMap(
                         map.name,
                         map.map_file_name,
                         map.map_description,
@@ -73,7 +73,7 @@ $(document).ready(function() {
         DisplayMaps(maps);
         if (maps.length > 0) {
             setBackgroundImage(`../src/images/maps/${maps[0].map_file_name}`);
-          }
+        }
         // --- Carousel Logic
         const $prevBtn = $('#prevBtn');
         const $nextBtn = $('#nextBtn');
