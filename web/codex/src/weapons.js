@@ -82,6 +82,7 @@ var weapons = [];
 const urlParams = new URLSearchParams(window.location.search);
 let currentWeapon = -1;
 addEventListener("load", LoadWeapons());
+let weaponcache = [];
 
 function LoadWeapons() {
     $.ajax({
@@ -106,6 +107,9 @@ function LoadWeapons() {
                         weapon.devinfo
                     )
                 );
+                let img = new Image();
+                img.src = `../src/images/weapons/${weapon.file_name}`;
+                weaponcache.push(img);
             });
             DisplayWeapons();
         },
