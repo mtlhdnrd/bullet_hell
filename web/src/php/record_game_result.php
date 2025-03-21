@@ -30,9 +30,11 @@ if (isset($_POST["player1"], $_POST["player2"], $_POST["p1kills"], $_POST["p1dea
     }
     if ($result) {
         $conn->commit();
+        echo "success";
         http_response_code(200);
     } else {
         $conn->rollback();
+        echo "failed";
         http_response_code(500);
     }
 } else {
