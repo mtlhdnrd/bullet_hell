@@ -19,7 +19,7 @@ try {
     }
 
     // probably not needed, explained in add_music_pack_to_player.php
-    $username = htmlspecialcharss(trim($_POST["username"]));
+    $username = htmlspecialchars(trim($_POST["username"]));
     $skinName = trim($_POST["skinName"]); // Get skin name
 
     // Input validation
