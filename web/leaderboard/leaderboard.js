@@ -77,7 +77,6 @@ function GetLeaderboardData() {
                 if(player.winrate == null) {
                     player.winrate = 0;
                 }
-                console.log(player);
                 leaderboard.push(
                     new Player(
                         player.rank,
