@@ -11,6 +11,7 @@ function is_admin_logged_in() {
 function logout() {
     unset($_SESSION['username']);
     unset($_SESSION['admin_login']);
+    session_destroy();
 }
 
 function is_user_admin() {
