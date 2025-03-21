@@ -27,3 +27,8 @@ body {
     background-position-x: center;
     transition: 3.3s;
 }
+
+a.disabled {
+    pointer-events: none;
+    filter: brightness(50%);
+}

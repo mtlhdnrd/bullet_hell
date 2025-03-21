@@ -46,5 +46,10 @@ nav {
 }
 
 .table-container {
-    overflow-x: scroll;
+    overflow-x: auto;
+}
+
+a.disabled {
+    pointer-events: none;
+    filter: brightness(50%);
 }
