@@ -20,11 +20,22 @@ if (isset($_POST["player1"], $_POST["player2"], $_POST["p1kills"], $_POST["p1dea
     for($i = 0; $i < 2; $i++) {
         array_push($points, $kills[$i] * 25 - $deaths[$i] * 25);
     }
+    $winner = null;
+    if($kills[0] > $kills[1]) {
+        $winner = $players[0];
+    } else if($kills[1] > $kills[0]) {
+        $winner = $players[1];
+    }
 
     $conn->begin_transaction();
     $result = true;
     for($i = 0; $result && $i < 2; $i++) {
-        $stmt = $conn->prepare("UPDATE players SET all_games_played = all_games_played + 1, kills = kills + ?, deaths = deaths + ?, points = points + ? WHERE username=?;");
+        $query = "UPDATE players SET all_games_played = all_games_played + 1, kills = kills + ?, deaths = deaths + ?, points = points + ?";
+        if($winner != null && $winner == $players[$i]) {
+            $query = $query.", all_wins = all_wins + 1";
+        }
+        $query = $query." WHERE username=?;";
+        $stmt = $conn->prepare($query);
         $stmt->bind_param("iiis", $kills[$i], $deaths[$i], $points[$i], $players[$i]);
         $result = $result && $stmt->execute();
     }
