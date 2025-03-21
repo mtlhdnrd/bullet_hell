@@ -3,7 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $players_per_page = $_SESSION["players_per_page"];
-    $query = "SELECT players.username, players.points, players.winrate, players.all_games_played, players.kills, players.deaths FROM players INNER JOIN player_login ON players.username = player_login.username LIMIT $players_per_page";
+    $query = "SELECT players.username, players.points, players.all_wins / players.all_games_played * 100 AS winrate, players.all_games_played, players.kills, players.deaths FROM players INNER JOIN player_login ON players.username = player_login.username LIMIT $players_per_page";
     if (isset($_GET["p"])) {
         $page = intval($_GET["p"]);
         if(!is_integer($page) || $page < 1) {
