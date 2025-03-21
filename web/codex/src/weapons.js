@@ -106,6 +106,8 @@ function LoadWeapons() {
                         weapon.devinfo
                     )
                 );
+                var img = new Image();
+                img.src = `../src/images/weapons/${weapon.file_name}`;
             });
             DisplayWeapons();
         },
