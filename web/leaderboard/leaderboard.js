@@ -7,7 +7,6 @@ class Player {
         all_games_played,
         kills,
         deaths,
-        most_used_music_id,
         current_music_id,
         active_skin_id
     ) {
@@ -18,7 +17,6 @@ class Player {
         this.all_games_played = all_games_played;
         this.kills = kills;
         this.deaths = deaths;
-        this.most_used_music_id = most_used_music_id;
         this.current_music_id = current_music_id;
         this.active_skin_id = active_skin_id;
     }
@@ -85,7 +83,6 @@ function GetLeaderboardData() {
                         player.all_games_played,
                         player.kills,
                         player.deaths,
-                        player.most_used_music_id,
                         player.current_music_id,
                         player.active_skin_id
                     )
@@ -119,7 +116,7 @@ function GetLeaderboardData() {
                     <td class="${placementDesign}">${player.username}</td>
                     <td class="${placementDesign}"></td>
                     <td class="${placementDesign}">${player.points}</td>
-                    <td class="${placementDesign}">${player.winrate.toFixed(1)}%</td>
+                    <td class="${placementDesign}">${parseFloat(player.winrate).toFixed(1)}%</td>
                     <td class="${placementDesign}">${player.all_games_played}</td>
                     <td class="${placementDesign}">${player.kills}</td>
                     <td class="${placementDesign}">${player.deaths}</td>

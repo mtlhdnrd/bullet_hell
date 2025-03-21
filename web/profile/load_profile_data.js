@@ -6,7 +6,7 @@ function LoadUserData(username) {
         data: { username: username },
         success: function (data, textStatus, xhr) {
             $("#stat-points").text(data[0].points);
-            $("#stat-winrate").text(`${data[0].winrate}%`);
+            $("#stat-winrate").text(`${parseFloat(data[0].winrate).toFixed(1)}%`);
             $("#stat-gamesplayed").text(data[0].all_games_played);
             $("#stat-kills").text(data[0].kills);
             $("#stat-deaths").text(data[0].deaths);

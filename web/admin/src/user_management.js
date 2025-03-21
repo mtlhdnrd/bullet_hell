@@ -27,7 +27,7 @@ function LoadUserTable() {
                     <tr>
                         <td>${user.username}</td>
                         <td>${user.points}</td>
-                        <td>${user.winrate}</td>
+                        <td>${parseFloat(user.winrate)}</td>
                         <td>${user.all_games_played}</td>
                         <td>${user.kills}</td>
                         <td>${user.deaths}</td>

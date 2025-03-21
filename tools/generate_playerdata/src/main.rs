@@ -6,11 +6,10 @@ use sha2::{Sha512, Digest};
 struct Player {
     username: String,
     points: i32,
-    winrate: f32,
+    all_wins: i32,
     all_games_played: i32,
     kills: i32,
     deaths: i32,
-    most_used_music_id: i32,
     music_pack_id: i32,
     active_skin_id: i32,
 }
@@ -22,11 +21,10 @@ impl Player {
         Self {
             username,
             points: rng.random_range(0..=100),
-            winrate: rng.random_range(0.0..=91.2),
+            all_wins: rng.random_range(0..=511),
             all_games_played: rng.random_range(0..=511),
             kills: rng.random_range(1..=5),
             deaths: rng.random_range(1..=5),
-            most_used_music_id: rng.random_range(1..=5),
             music_pack_id: rng.random_range(1..=5),
             active_skin_id: rng.random_range(1..=5),
         }
@@ -79,16 +77,15 @@ fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     let mut conn = pool.get_conn()?;
 
     conn.exec_batch(
-        r"INSERT INTO players (username, points, winrate, all_games_played, kills, deaths, most_used_music_id, music_pack_id, active_skin_id)
-          VALUES (:username, :points, :winrate, :all_games_played, :kills, :deaths, :most_used_music_id, :music_pack_id, :active_skin_id)",
+        r"INSERT INTO players (username, points, all_wins, all_games_played, kills, deaths, music_pack_id, active_skin_id)
+          VALUES (:username, :points, :all_wins, :all_games_played, :kills, :deaths, :music_pack_id, :active_skin_id)",
         players.iter().map(|p| params! {
             "username" => p.username.clone(),
             "points" => p.points,
-            "winrate" => p.winrate,
+            "all_wins" => p.all_wins,
             "all_games_played" => p.all_games_played,
             "kills" => p.kills,
             "deaths" => p.deaths,
-            "most_used_music_id" => p.most_used_music_id,
             "music_pack_id" => p.music_pack_id,
             "active_skin_id" => p.active_skin_id,
         })

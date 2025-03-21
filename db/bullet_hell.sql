@@ -111,7 +111,7 @@ INSERT INTO `music_packs` (`id`, `name`, `cover_image`, `anthem`, `main_menu_the
 CREATE TABLE `players` (
   `username` varchar(255) NOT NULL,
   `points` int(11) NOT NULL DEFAULT 0,
-  `winrate` double NOT NULL DEFAULT 0,
+  `all_wins` double NOT NULL DEFAULT 0,
   `all_games_played` int(11) NOT NULL DEFAULT 0,
   `kills` int(11) NOT NULL DEFAULT 0,
   `deaths` int(11) NOT NULL DEFAULT 0,
@@ -123,7 +123,7 @@ CREATE TABLE `players` (
 -- A tábla adatainak kiíratása `players`
 --
 
-INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kills`, `deaths`, `music_pack_id`, `active_skin_id`) VALUES
+INSERT INTO `players` (`username`, `points`, `all_wins`, `all_games_played`, `kills`, `deaths`, `music_pack_id`, `active_skin_id`) VALUES
 ('1L8Y3YgHyyQcYL4sQL7iTClB1kMHuK', 0, 48.11907958984375, 339, 1, 1, 5, 1),
 ('1m1tI3L062gBsMgYcO0Jnn53K4sobv', 40, 85.78626251220703, 340, 4, 5, 2, 5),
 ('2BfNgWsFKsQCL8gZppUjHI3Gs5eRJv', 87, 59.23424530029297, 464, 2, 1, 1, 3),
