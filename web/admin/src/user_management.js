@@ -23,6 +23,9 @@ function LoadUserTable() {
         success: function (data, textStatus, xhr) {
             let tableContents = "";
             $.each(data, function (index, user) {
+                if(user.winrate == null) {
+                    user.winrate = 0;
+                }
                 let playerData = `
                     <tr>
                         <td>${user.username}</td>
