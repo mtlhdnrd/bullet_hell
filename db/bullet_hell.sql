@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 18. 10:15
+-- Létrehozás ideje: 2025. Már 20. 13:45
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.0.30
 
@@ -49,7 +49,7 @@ INSERT INTO `maps` (`id`, `name`, `file_name`, `description`, `music_pack_id`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `map_weapons`
+-- Tábla szerkezet ehhez a táblához `map_weapons`
 --
 
 CREATE TABLE `map_weapons` (
@@ -115,7 +115,6 @@ CREATE TABLE `players` (
   `all_games_played` int(11) NOT NULL DEFAULT 0,
   `kills` int(11) NOT NULL DEFAULT 0,
   `deaths` int(11) NOT NULL DEFAULT 0,
-  `most_used_music_id` int(11) DEFAULT NULL,
   `music_pack_id` int(11) DEFAULT NULL,
   `active_skin_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
@@ -124,109 +123,109 @@ CREATE TABLE `players` (
 -- A tábla adatainak kiíratása `players`
 --
 
-INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kills`, `deaths`, `most_used_music_id`, `music_pack_id`, `active_skin_id`) VALUES
-('1L8Y3YgHyyQcYL4sQL7iTClB1kMHuK', 0, 48.11907958984375, 339, 1, 1, 1, 5, 1),
-('1m1tI3L062gBsMgYcO0Jnn53K4sobv', 40, 85.78626251220703, 340, 4, 5, 2, 2, 5),
-('2BfNgWsFKsQCL8gZppUjHI3Gs5eRJv', 87, 59.23424530029297, 464, 2, 1, 3, 1, 3),
-('305g7suEStTzgn85HDZUREnKCAvR8u', 34, 57.1812858581543, 456, 5, 5, 1, 4, 4),
-('3HHc9Au7bUzw1qNazuzqNFWe3pJkLf', 15, 5.283454418182373, 25, 5, 2, 3, 2, 3),
-('3YXo10e5h1xhX3CEY2OValjUY1Z2fW', 23, 14.273298263549805, 293, 3, 5, 5, 2, 5),
-('3zoon1ewiUV1f6zug6DkpRFQ5MhlKH', 85, 8.324136734008789, 270, 1, 3, 1, 5, 5),
-('4AxrgYipFNN2i8FzssJZyIiEuYpY8L', 22, 53.56177520751953, 501, 4, 3, 4, 2, 1),
-('5E5gWNjojNniwL1BivRF34MwQeY7Cf', 87, 27.17460823059082, 62, 2, 4, 3, 5, 4),
-('646S3tqSif2eiXvHbF8ambvvtsCjmX', 93, 0.3915727436542511, 151, 3, 5, 5, 5, 2),
-('6fYPHpUkbmCs1K7DOOShnXu0ILfJtn', 47, 73.56202697753906, 18, 5, 5, 4, 5, 2),
-('6PVDoQo3zE70zxV20YjI0phyq20p1S', 77, 36.19692611694336, 277, 1, 3, 1, 1, 4),
-('7OScroYo3gEUOc4yfAENEZBVGw9HM8', 34, 9.325675964355469, 455, 1, 2, 3, 2, 1),
-('8hSrFgjOCBNTCa4yoa5jr6wKbbz8Vb', 74, 52.22958755493164, 25, 1, 1, 3, 4, 5),
-('8JzCn2HqlCWkAcyU70rFbEBJxBb2pi', 94, 63.92066192626953, 355, 4, 3, 2, 4, 3),
-('8ORIAMn0TYSEgiQ9tid7kLp0SubONP', 92, 26.019588470458984, 206, 3, 2, 2, 4, 5),
-('8R1gTeEXoXZWMvZvxNQam1Gf71JSj1', 55, 78.61824798583984, 391, 5, 2, 1, 1, 4),
-('92bv0nnq1RfjnHGIcIwsvVORYbreJT', 35, 89.52974700927734, 382, 1, 4, 3, 4, 2),
-('9tdXt0AfvESjC1PSjRTJxc4xfIe7If', 84, 27.323301315307617, 111, 3, 1, 1, 1, 3),
-('A5LChEKM8VPBuwlviFgDlX8IUEqOwu', 41, 90.1505126953125, 136, 3, 3, 2, 1, 3),
-('Ac9ufadx2722H30eACn2NfEW1mExlv', 45, 46.00093078613281, 253, 5, 2, 4, 5, 5),
-('AIbApDvmikugKOxND42n99WcpWA24F', 26, 87.32313537597656, 72, 1, 1, 4, 5, 4),
-('B1eSKklBqaQSjTlUP7M1BEQZIVan01', 86, 58.964210510253906, 362, 3, 3, 1, 1, 3),
-('batyuzo', 0, 0, 0, 0, 0, 1, 5, 2),
-('BQJciB6R4dI36I8YCIAVYcKceBwSpN', 89, 26.170578002929688, 28, 1, 1, 1, 2, 5),
-('BQPrvoXcMmGKYBAalsWMqTf9vKtw5L', 92, 26.301855087280273, 8, 5, 2, 3, 2, 1),
-('d1Ed6nneGM7tYm7kNe6BikRz7XFdlm', 10, 74.65819549560547, 45, 1, 5, 5, 5, 2),
-('DbRKCpu6rIbiipKXLFS2p2rYbIgp6p', 91, 66.20183563232422, 147, 3, 4, 4, 5, 5),
-('dEVlbX8PmrxBXETd3gRpiNZG50NYhJ', 39, 85.34215545654297, 224, 3, 2, 2, 5, 2),
-('doXiXSG9hfWJZnAaI50g9pyM3RBERj', 3, 87.22749328613281, 23, 3, 1, 3, 3, 3),
-('EibZx409KVxwgTQw9MjcC7nqUvxuuy', 0, 67.94385528564453, 285, 5, 1, 2, 1, 4),
-('eM5OXfMclkP3y7PXzz2sY8XQd5meZf', 61, 18.041112899780273, 447, 5, 2, 4, 5, 5),
-('Ermq4UHRGce1vv870Bu93aPfI3aDYU', 64, 84.69005584716797, 273, 5, 2, 5, 1, 2),
-('EsMpVNMrpe86ND15Y83agxpBhYBjRZ', 65, 45.45181655883789, 328, 1, 5, 1, 4, 1),
-('FcjNSo2s3V7XUDZLxmhvUahTVpGFJm', 90, 1.437209129333496, 417, 4, 1, 4, 1, 1),
-('FFmknezxDsOa1WDfxxLBhESdePvIcG', 83, 38.79008865356445, 506, 3, 1, 2, 5, 1),
-('fzcXct8fHuDX4zYIk04ZJzQtq92NtC', 75, 37.88502502441406, 77, 3, 3, 4, 3, 1),
-('G9rsK2uZAlBbRUfWunJM3D2Fd6CMyu', 83, 63.79164505004883, 310, 1, 3, 3, 1, 2),
-('GEJ25qlmv790IUukzc0OPYzBpj2sII', 19, 3.70985746383667, 327, 1, 5, 1, 1, 4),
-('girmany', 0, 0, 0, 0, 0, 1, 2, 1),
-('GoRI8gtpAw0eGzJcrjvpkMA7gbGV5a', 99, 32.50837707519531, 353, 4, 3, 5, 4, 1),
-('gqRYIffFtBm5pitEBsyjs0leStBLmf', 71, 8.398913383483887, 299, 2, 5, 5, 2, 5),
-('GwaVl5UvMnuaFxDCI0qqMV1Geh4xlm', 8, 27.295448303222656, 373, 5, 5, 5, 3, 2),
-('GyreUnY65NFkk9ZKMIFsTmE3C8nvQk', 21, 86.69529724121094, 34, 1, 1, 5, 3, 4),
-('hpu4fqkAUPE0Nj9hwq0VMwhpISE0MD', 97, 36.1702766418457, 176, 5, 2, 3, 4, 4),
-('IlucTQFAAyHpm1ODBEFWiXwNCn1Qea', 62, 54.95365905761719, 433, 5, 3, 1, 4, 1),
-('Iw43BAeocVF4gJsfT8iwhgcgdzwnzv', 8, 26.81791114807129, 311, 3, 1, 4, 4, 1),
-('jd8mHEuq6doS7tgoTN5deNR22pvLKD', 7, 4.668888092041016, 360, 1, 2, 3, 5, 5),
-('JHkNVJC0lfIOoh4RzDhHODSmLUTWS6', 22, 68.26019287109375, 120, 4, 1, 5, 3, 5),
-('jiJrg8AXrRL7kwRFNFxEeVyUVYI7AK', 90, 20.248367309570312, 241, 4, 5, 4, 4, 4),
-('jjUVAHjhvIUT3kJSVf5ELKn7qSawGn', 27, 29.582035064697266, 289, 1, 5, 2, 5, 4),
-('jMzNQwv95mKgnbvlfTZ8NBguNTzshm', 77, 71.1164779663086, 395, 5, 3, 5, 5, 4),
-('JpeQYmVG7bBT2EcszHpRP6RwlQlNis', 23, 16.057592391967773, 418, 5, 4, 4, 2, 5),
-('jwMIqaJSqiylvVYK0MejPGM4NyWNII', 58, 85.62911224365234, 419, 3, 2, 1, 3, 3),
-('KcM4jrZVIqk9iyklEGmHLgkpQbygDA', 61, 55.03556823730469, 251, 5, 5, 2, 2, 4),
-('kcYCQGsdMW2T9VPCvLCcyyzgdJEhLT', 85, 28.136606216430664, 119, 4, 2, 1, 2, 1),
-('KP55s4aVIpDxfYZFy4jHhgjb4zo06w', 80, 22.955520629882812, 131, 3, 2, 3, 1, 3),
-('kTyzbKKELENEGZHsXDSUbAz3KtuDT4', 65, 41.51688766479492, 472, 4, 5, 1, 3, 5),
-('l63LKjRsvnmX3Vb911mkPLZrZXDkRS', 16, 5.656457901000977, 121, 5, 3, 4, 2, 1),
-('LAgbdlAVm0ijUUk45Yi6qHY4qJVMAK', 39, 73.39669799804688, 391, 4, 4, 3, 1, 3),
-('LgqFGXkbGaLeUD88eXfCKuwY5CUIeJ', 81, 6.598050117492676, 478, 1, 2, 2, 3, 1),
-('loRnvE3N2fNXKak5qBgKoeNaYJiyXJ', 9, 54.85017013549805, 386, 5, 4, 1, 5, 5),
-('M3gPkEBSMR68DLo0JBQ8df5CPzLDb3', 99, 90.84004974365234, 381, 2, 3, 4, 1, 5),
-('mJcyf5nXAZrAHoovkb1HcZLM49OZ85', 64, 63.73416519165039, 123, 3, 5, 2, 2, 2),
-('mOqMbXXztnM8EJTmAtdWku7w8rQUc1', 75, 13.721451759338379, 283, 2, 2, 3, 3, 5),
-('n2s1cQS9jN3bdZQ37V20obLJNbVVi0', 49, 76.76345825195312, 77, 5, 5, 1, 4, 3),
-('Nu7ERH9Nnsl7TbIU4JbIkzl17puUqf', 84, 38.41058349609375, 287, 5, 2, 4, 5, 4),
-('nVokFVU5yBctd2uWdsibAApz7fzcVn', 37, 10.1513090133667, 457, 5, 3, 4, 2, 1),
-('O47pMVD9H6ctdoqJYYNHCQhxhboIKu', 10, 62.8253173828125, 384, 2, 4, 4, 3, 1),
-('o4kws3zITZ3Nmul4QlfKiBiF4eY6a2', 83, 40.491851806640625, 385, 4, 4, 4, 1, 5),
-('O9Hx5zKhSKcHVgvfxhSVUvdV3zSMl8', 78, 2.2491867542266846, 115, 3, 1, 1, 3, 1),
-('OBeRuHrKM3sbvVYsWYTgQevLVlFcub', 91, 77.70797729492188, 460, 2, 2, 3, 4, 3),
-('OHuYRYbRUf6ug5nOFLQN5qPzUzygaI', 57, 84.48912811279297, 162, 2, 4, 4, 3, 5),
-('PFU10T7u1TRqE8Nv0HU1rzqJMbrHag', 91, 70.0355453491211, 498, 5, 1, 1, 5, 3),
-('PtRp6vW4y4Ax7mkn5LjF5rh5wDnTh3', 86, 90.04255676269531, 1, 1, 5, 5, 3, 4),
-('PXVMkw57AXZ0KALQ3mU0lyJogiHj1s', 47, 16.48195457458496, 382, 4, 5, 3, 4, 4),
-('QBcQvIRunjqqh5IgnNhd0LLICuz941', 16, 74.30912017822266, 489, 5, 1, 4, 3, 1),
-('QXyeYicDpnp38skGYMnTw7XpTorxNF', 98, 48.77619934082031, 286, 5, 4, 5, 4, 5),
-('rMVfYQGJjN8XwByPdAAikeMAfTpWRo', 78, 13.773506164550781, 389, 3, 5, 4, 2, 4),
-('suiN4blH7ft1ZWmE0gDTs3qJDBZCx4', 41, 14.962336540222168, 360, 5, 3, 3, 5, 4),
-('sXFcdzuzdPNKRj6nwMiP9PNUjE3Lkz', 76, 51.481624603271484, 123, 5, 3, 2, 4, 3),
-('t1rH64wUHDdCCvFRUnGb29j70v4Dno', 4, 50.038143157958984, 425, 3, 4, 4, 1, 3),
-('tCLaCGLnrMngbghdTFHvmOhORG84ED', 77, 41.249080657958984, 386, 5, 2, 3, 2, 2),
-('TzLxo1VTUrcLka7M5j8sFdSHoIZcmr', 35, 64.46807861328125, 72, 1, 5, 2, 3, 4),
-('U3GFTHCUej2W8NEbJg4vNZBSnGJc52', 26, 55.17939376831055, 360, 4, 1, 5, 3, 5),
-('UIFqSfbVFD79PpkRaQfugzuMujgxiz', 30, 79.68014526367188, 379, 1, 4, 3, 2, 4),
-('UxNqByyTHk7cg049yhErfLdHYTDkUL', 21, 18.37464141845703, 72, 2, 5, 4, 1, 5),
-('uyj2OS0ivkmnlpaF4qHsibupb8wOhg', 41, 61.73285675048828, 371, 3, 5, 5, 3, 3),
-('ve6k3dz1eb3AscGEpuUPJpCClw2RzB', 13, 41.86898422241211, 485, 1, 2, 1, 4, 3),
-('W4b2iV036yJATmERqtCn2KsZgM80A0', 97, 42.20929718017578, 383, 4, 1, 4, 2, 4),
-('wa2jQj2SZDyG43dJ23P9TMaqZ5snEG', 1, 54.789363861083984, 269, 2, 4, 3, 2, 5),
-('wdcDVVDUSYOa0t90PlChuwFE7AbPr1', 99, 34.141357421875, 362, 4, 3, 3, 2, 4),
-('wZBEFyrCDUUnlmXMdV3zyvtXYTqd1K', 25, 72.39051055908203, 125, 4, 3, 4, 3, 4),
-('y80c28Bmj8xF9B1PAilYtqljpnLwpC', 12, 37.13568115234375, 72, 5, 2, 5, 1, 4),
-('YfdeyveGokeVMOKqmbWxqA6xye0T5v', 68, 41.31850814819336, 454, 2, 1, 3, 2, 5),
-('YUzLxHSbj0ibeGv2Zoiuj4l9SSstI8', 6, 58.52395248413086, 409, 4, 5, 5, 3, 2),
-('ZaM39cVV1t2FHzb0QNB9ohDXTvy5Sn', 10, 88.75666809082031, 422, 2, 3, 1, 5, 3),
-('zb5cycJXuq5NilOtJgWfVzOd2FvJ7O', 71, 0.9022035002708435, 502, 2, 3, 3, 2, 3),
-('zBwnn7o8UjFMCSG0xno9fuPslTyRdK', 0, 32.41590118408203, 328, 5, 5, 3, 5, 5),
-('zi9hxNs4oDlf4P50BTT4fvAhA1UjHf', 22, 1.7086039781570435, 14, 5, 2, 2, 3, 1),
-('zqc5c2sKZeRnOn9JTCEo9WitPNlA8j', 56, 83.03341674804688, 177, 4, 3, 1, 1, 1),
-('zz1SDRrtAa6mPN8XKvhMNpMaRAFLbN', 66, 26.61227035522461, 390, 3, 2, 1, 2, 4);
+INSERT INTO `players` (`username`, `points`, `winrate`, `all_games_played`, `kills`, `deaths`, `music_pack_id`, `active_skin_id`) VALUES
+('1L8Y3YgHyyQcYL4sQL7iTClB1kMHuK', 0, 48.11907958984375, 339, 1, 1, 5, 1),
+('1m1tI3L062gBsMgYcO0Jnn53K4sobv', 40, 85.78626251220703, 340, 4, 5, 2, 5),
+('2BfNgWsFKsQCL8gZppUjHI3Gs5eRJv', 87, 59.23424530029297, 464, 2, 1, 1, 3),
+('305g7suEStTzgn85HDZUREnKCAvR8u', 34, 57.1812858581543, 456, 5, 5, 4, 4),
+('3HHc9Au7bUzw1qNazuzqNFWe3pJkLf', 15, 5.283454418182373, 25, 5, 2, 2, 3),
+('3YXo10e5h1xhX3CEY2OValjUY1Z2fW', 23, 14.273298263549805, 293, 3, 5, 2, 5),
+('3zoon1ewiUV1f6zug6DkpRFQ5MhlKH', 85, 8.324136734008789, 270, 1, 3, 5, 5),
+('4AxrgYipFNN2i8FzssJZyIiEuYpY8L', 22, 53.56177520751953, 501, 4, 3, 2, 1),
+('5E5gWNjojNniwL1BivRF34MwQeY7Cf', 87, 27.17460823059082, 62, 2, 4, 5, 4),
+('646S3tqSif2eiXvHbF8ambvvtsCjmX', 93, 0.3915727436542511, 151, 3, 5, 5, 2),
+('6fYPHpUkbmCs1K7DOOShnXu0ILfJtn', 47, 73.56202697753906, 18, 5, 5, 5, 2),
+('6PVDoQo3zE70zxV20YjI0phyq20p1S', 77, 36.19692611694336, 277, 1, 3, 1, 4),
+('7OScroYo3gEUOc4yfAENEZBVGw9HM8', 34, 9.325675964355469, 455, 1, 2, 2, 1),
+('8hSrFgjOCBNTCa4yoa5jr6wKbbz8Vb', 74, 52.22958755493164, 25, 1, 1, 4, 5),
+('8JzCn2HqlCWkAcyU70rFbEBJxBb2pi', 94, 63.92066192626953, 355, 4, 3, 4, 3),
+('8ORIAMn0TYSEgiQ9tid7kLp0SubONP', 92, 26.019588470458984, 206, 3, 2, 4, 5),
+('8R1gTeEXoXZWMvZvxNQam1Gf71JSj1', 55, 78.61824798583984, 391, 5, 2, 1, 4),
+('92bv0nnq1RfjnHGIcIwsvVORYbreJT', 35, 89.52974700927734, 382, 1, 4, 4, 2),
+('9tdXt0AfvESjC1PSjRTJxc4xfIe7If', 84, 27.323301315307617, 111, 3, 1, 1, 3),
+('A5LChEKM8VPBuwlviFgDlX8IUEqOwu', 41, 90.1505126953125, 136, 3, 3, 1, 3),
+('Ac9ufadx2722H30eACn2NfEW1mExlv', 45, 46.00093078613281, 253, 5, 2, 5, 5),
+('AIbApDvmikugKOxND42n99WcpWA24F', 26, 87.32313537597656, 72, 1, 1, 5, 4),
+('B1eSKklBqaQSjTlUP7M1BEQZIVan01', 86, 58.964210510253906, 362, 3, 3, 1, 3),
+('batyuzo', 0, 0, 0, 0, 0, 5, 2),
+('BQJciB6R4dI36I8YCIAVYcKceBwSpN', 89, 26.170578002929688, 28, 1, 1, 2, 5),
+('BQPrvoXcMmGKYBAalsWMqTf9vKtw5L', 92, 26.301855087280273, 8, 5, 2, 2, 1),
+('d1Ed6nneGM7tYm7kNe6BikRz7XFdlm', 10, 74.65819549560547, 45, 1, 5, 5, 2),
+('DbRKCpu6rIbiipKXLFS2p2rYbIgp6p', 91, 66.20183563232422, 147, 3, 4, 5, 5),
+('dEVlbX8PmrxBXETd3gRpiNZG50NYhJ', 39, 85.34215545654297, 224, 3, 2, 5, 2),
+('doXiXSG9hfWJZnAaI50g9pyM3RBERj', 3, 87.22749328613281, 23, 3, 1, 3, 3),
+('EibZx409KVxwgTQw9MjcC7nqUvxuuy', 0, 67.94385528564453, 285, 5, 1, 1, 4),
+('eM5OXfMclkP3y7PXzz2sY8XQd5meZf', 61, 18.041112899780273, 447, 5, 2, 5, 5),
+('Ermq4UHRGce1vv870Bu93aPfI3aDYU', 64, 84.69005584716797, 273, 5, 2, 1, 2),
+('EsMpVNMrpe86ND15Y83agxpBhYBjRZ', 65, 45.45181655883789, 328, 1, 5, 4, 1),
+('FcjNSo2s3V7XUDZLxmhvUahTVpGFJm', 90, 1.437209129333496, 417, 4, 1, 1, 1),
+('FFmknezxDsOa1WDfxxLBhESdePvIcG', 83, 38.79008865356445, 506, 3, 1, 5, 1),
+('fzcXct8fHuDX4zYIk04ZJzQtq92NtC', 75, 37.88502502441406, 77, 3, 3, 3, 1),
+('G9rsK2uZAlBbRUfWunJM3D2Fd6CMyu', 83, 63.79164505004883, 310, 1, 3, 1, 2),
+('GEJ25qlmv790IUukzc0OPYzBpj2sII', 19, 3.70985746383667, 327, 1, 5, 1, 4),
+('girmany', 0, 0, 0, 0, 0, 2, 1),
+('GoRI8gtpAw0eGzJcrjvpkMA7gbGV5a', 99, 32.50837707519531, 353, 4, 3, 4, 1),
+('gqRYIffFtBm5pitEBsyjs0leStBLmf', 71, 8.398913383483887, 299, 2, 5, 2, 5),
+('GwaVl5UvMnuaFxDCI0qqMV1Geh4xlm', 8, 27.295448303222656, 373, 5, 5, 3, 2),
+('GyreUnY65NFkk9ZKMIFsTmE3C8nvQk', 21, 86.69529724121094, 34, 1, 1, 3, 4),
+('hpu4fqkAUPE0Nj9hwq0VMwhpISE0MD', 97, 36.1702766418457, 176, 5, 2, 4, 4),
+('IlucTQFAAyHpm1ODBEFWiXwNCn1Qea', 62, 54.95365905761719, 433, 5, 3, 4, 1),
+('Iw43BAeocVF4gJsfT8iwhgcgdzwnzv', 8, 26.81791114807129, 311, 3, 1, 4, 1),
+('jd8mHEuq6doS7tgoTN5deNR22pvLKD', 7, 4.668888092041016, 360, 1, 2, 5, 5),
+('JHkNVJC0lfIOoh4RzDhHODSmLUTWS6', 22, 68.26019287109375, 120, 4, 1, 3, 5),
+('jiJrg8AXrRL7kwRFNFxEeVyUVYI7AK', 90, 20.248367309570312, 241, 4, 5, 4, 4),
+('jjUVAHjhvIUT3kJSVf5ELKn7qSawGn', 27, 29.582035064697266, 289, 1, 5, 5, 4),
+('jMzNQwv95mKgnbvlfTZ8NBguNTzshm', 77, 71.1164779663086, 395, 5, 3, 5, 4),
+('JpeQYmVG7bBT2EcszHpRP6RwlQlNis', 23, 16.057592391967773, 418, 5, 4, 2, 5),
+('jwMIqaJSqiylvVYK0MejPGM4NyWNII', 58, 85.62911224365234, 419, 3, 2, 3, 3),
+('KcM4jrZVIqk9iyklEGmHLgkpQbygDA', 61, 55.03556823730469, 251, 5, 5, 2, 4),
+('kcYCQGsdMW2T9VPCvLCcyyzgdJEhLT', 85, 28.136606216430664, 119, 4, 2, 2, 1),
+('KP55s4aVIpDxfYZFy4jHhgjb4zo06w', 80, 22.955520629882812, 131, 3, 2, 1, 3),
+('kTyzbKKELENEGZHsXDSUbAz3KtuDT4', 65, 41.51688766479492, 472, 4, 5, 3, 5),
+('l63LKjRsvnmX3Vb911mkPLZrZXDkRS', 16, 5.656457901000977, 121, 5, 3, 2, 1),
+('LAgbdlAVm0ijUUk45Yi6qHY4qJVMAK', 39, 73.39669799804688, 391, 4, 4, 1, 3),
+('LgqFGXkbGaLeUD88eXfCKuwY5CUIeJ', 81, 6.598050117492676, 478, 1, 2, 3, 1),
+('loRnvE3N2fNXKak5qBgKoeNaYJiyXJ', 9, 54.85017013549805, 386, 5, 4, 5, 5),
+('M3gPkEBSMR68DLo0JBQ8df5CPzLDb3', 99, 90.84004974365234, 381, 2, 3, 1, 5),
+('mJcyf5nXAZrAHoovkb1HcZLM49OZ85', 64, 63.73416519165039, 123, 3, 5, 2, 2),
+('mOqMbXXztnM8EJTmAtdWku7w8rQUc1', 75, 13.721451759338379, 283, 2, 2, 3, 5),
+('n2s1cQS9jN3bdZQ37V20obLJNbVVi0', 49, 76.76345825195312, 77, 5, 5, 4, 3),
+('Nu7ERH9Nnsl7TbIU4JbIkzl17puUqf', 84, 38.41058349609375, 287, 5, 2, 5, 4),
+('nVokFVU5yBctd2uWdsibAApz7fzcVn', 37, 10.1513090133667, 457, 5, 3, 2, 1),
+('O47pMVD9H6ctdoqJYYNHCQhxhboIKu', 10, 62.8253173828125, 384, 2, 4, 3, 1),
+('o4kws3zITZ3Nmul4QlfKiBiF4eY6a2', 83, 40.491851806640625, 385, 4, 4, 1, 5),
+('O9Hx5zKhSKcHVgvfxhSVUvdV3zSMl8', 78, 2.2491867542266846, 115, 3, 1, 3, 1),
+('OBeRuHrKM3sbvVYsWYTgQevLVlFcub', 91, 77.70797729492188, 460, 2, 2, 4, 3),
+('OHuYRYbRUf6ug5nOFLQN5qPzUzygaI', 57, 84.48912811279297, 162, 2, 4, 3, 5),
+('PFU10T7u1TRqE8Nv0HU1rzqJMbrHag', 91, 70.0355453491211, 498, 5, 1, 5, 3),
+('PtRp6vW4y4Ax7mkn5LjF5rh5wDnTh3', 86, 90.04255676269531, 1, 1, 5, 3, 4),
+('PXVMkw57AXZ0KALQ3mU0lyJogiHj1s', 47, 16.48195457458496, 382, 4, 5, 4, 4),
+('QBcQvIRunjqqh5IgnNhd0LLICuz941', 16, 74.30912017822266, 489, 5, 1, 3, 1),
+('QXyeYicDpnp38skGYMnTw7XpTorxNF', 98, 48.77619934082031, 286, 5, 4, 4, 5),
+('rMVfYQGJjN8XwByPdAAikeMAfTpWRo', 78, 13.773506164550781, 389, 3, 5, 2, 4),
+('suiN4blH7ft1ZWmE0gDTs3qJDBZCx4', 41, 14.962336540222168, 360, 5, 3, 5, 4),
+('sXFcdzuzdPNKRj6nwMiP9PNUjE3Lkz', 76, 51.481624603271484, 123, 5, 3, 4, 3),
+('t1rH64wUHDdCCvFRUnGb29j70v4Dno', 4, 50.038143157958984, 425, 3, 4, 1, 3),
+('tCLaCGLnrMngbghdTFHvmOhORG84ED', 77, 41.249080657958984, 386, 5, 2, 2, 2),
+('TzLxo1VTUrcLka7M5j8sFdSHoIZcmr', 35, 64.46807861328125, 72, 1, 5, 3, 4),
+('U3GFTHCUej2W8NEbJg4vNZBSnGJc52', 26, 55.17939376831055, 360, 4, 1, 3, 5),
+('UIFqSfbVFD79PpkRaQfugzuMujgxiz', 30, 79.68014526367188, 379, 1, 4, 2, 4),
+('UxNqByyTHk7cg049yhErfLdHYTDkUL', 21, 18.37464141845703, 72, 2, 5, 1, 5),
+('uyj2OS0ivkmnlpaF4qHsibupb8wOhg', 41, 61.73285675048828, 371, 3, 5, 3, 3),
+('ve6k3dz1eb3AscGEpuUPJpCClw2RzB', 13, 41.86898422241211, 485, 1, 2, 4, 3),
+('W4b2iV036yJATmERqtCn2KsZgM80A0', 97, 42.20929718017578, 383, 4, 1, 2, 4),
+('wa2jQj2SZDyG43dJ23P9TMaqZ5snEG', 1, 54.789363861083984, 269, 2, 4, 2, 5),
+('wdcDVVDUSYOa0t90PlChuwFE7AbPr1', 99, 34.141357421875, 362, 4, 3, 2, 4),
+('wZBEFyrCDUUnlmXMdV3zyvtXYTqd1K', 25, 72.39051055908203, 125, 4, 3, 3, 4),
+('y80c28Bmj8xF9B1PAilYtqljpnLwpC', 12, 37.13568115234375, 72, 5, 2, 1, 4),
+('YfdeyveGokeVMOKqmbWxqA6xye0T5v', 68, 41.31850814819336, 454, 2, 1, 2, 5),
+('YUzLxHSbj0ibeGv2Zoiuj4l9SSstI8', 6, 58.52395248413086, 409, 4, 5, 3, 2),
+('ZaM39cVV1t2FHzb0QNB9ohDXTvy5Sn', 10, 88.75666809082031, 422, 2, 3, 5, 3),
+('zb5cycJXuq5NilOtJgWfVzOd2FvJ7O', 71, 0.9022035002708435, 502, 2, 3, 2, 3),
+('zBwnn7o8UjFMCSG0xno9fuPslTyRdK', 0, 32.41590118408203, 328, 5, 5, 5, 5),
+('zi9hxNs4oDlf4P50BTT4fvAhA1UjHf', 22, 1.7086039781570435, 14, 5, 2, 3, 1),
+('zqc5c2sKZeRnOn9JTCEo9WitPNlA8j', 56, 83.03341674804688, 177, 4, 3, 1, 1),
+('zz1SDRrtAa6mPN8XKvhMNpMaRAFLbN', 66, 26.61227035522461, 390, 3, 2, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -479,7 +478,7 @@ ALTER TABLE `maps`
   ADD KEY `music_pack_id` (`music_pack_id`);
 
 --
--- Indexes for table `map_weapons`
+-- A tábla indexei `map_weapons`
 --
 ALTER TABLE `map_weapons`
   ADD PRIMARY KEY (`map_id`,`weapon_id`),
@@ -496,7 +495,6 @@ ALTER TABLE `music_packs`
 --
 ALTER TABLE `players`
   ADD PRIMARY KEY (`username`),
-  ADD KEY `most_used_music_id` (`most_used_music_id`),
   ADD KEY `music_pack_id` (`music_pack_id`),
   ADD KEY `fk_players_player_skins` (`active_skin_id`);
 
@@ -550,7 +548,7 @@ ALTER TABLE `maps`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `music_packs`
+-- AUTO_INCREMENT a táblához `music_packs`
 --
 ALTER TABLE `music_packs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
@@ -584,7 +582,7 @@ ALTER TABLE `maps`
   ADD CONSTRAINT `maps_ibfk_1` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `map_weapons`
+-- Megkötések a táblához `map_weapons`
 --
 ALTER TABLE `map_weapons`
   ADD CONSTRAINT `map_weapons_ibfk_1` FOREIGN KEY (`map_id`) REFERENCES `maps` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -595,7 +593,6 @@ ALTER TABLE `map_weapons`
 --
 ALTER TABLE `players`
   ADD CONSTRAINT `fk_players_player_skins` FOREIGN KEY (`active_skin_id`) REFERENCES `player_skins` (`id`),
-  ADD CONSTRAINT `players_ibfk_1` FOREIGN KEY (`most_used_music_id`) REFERENCES `music_packs` (`id`),
   ADD CONSTRAINT `players_ibfk_2` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`);
 
 --
