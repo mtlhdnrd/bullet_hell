@@ -2,33 +2,35 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/config.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/utils.php");
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 header('Content-Type: application/json');
 
 try {
     // Check if the request method is POST
     if ($_SERVER['REQUEST_METHOD'] !== "POST") {
-        throw new Exception("Invalid request method.  Only POST requests are allowed.", 405);
+        http_response_code(405);
+        throw new Exception("Invalid request method.  Only POST requests are allowed.");
     }
 
     // Validate input data
     if (!isset($_POST["username"]) || !isset($_POST["musicKit"])) {
-        throw new Exception("Missing required parameters (username and/or musicKit).", 400);
+        http_response_code(400);
+        throw new Exception("Missing required parameters (username and/or musicKit).");
     }
 
-    $username = trim($_POST["username"]); // Trim whitespace
+    // not really needed to feed it through htmlspecialchars since it's an fk and registration
+    // is sanitized, but better safe than sorry
+    $username = htmlspecialchars(trim($_POST["username"]));
     $musicKitName = trim($_POST["musicKit"]); // Get music kit name
 
     // Input validation
     if (empty($username)) {
-        throw new Exception("Username cannot be empty.", 400);
+        http_response_code(400);
+        throw new Exception("Username cannot be empty.");
     }
 
     if (empty($musicKitName)) {
-        throw new Exception("Music Kit Name cannot be empty.", 400);
+        http_response_code(400);
+        throw new Exception("Music Kit Name cannot be empty.");
     }
 
 
@@ -37,7 +39,8 @@ try {
     $stmt = $conn->prepare($query);
 
     if ($stmt === false) {
-        throw new Exception("Prepare failed: " . $conn->error, 500);
+        http_response_code(500);
+        throw new Exception("Prepare failed: " . $conn->error);
     }
 
     $stmt->bind_param("s", $musicKitName);
@@ -46,11 +49,13 @@ try {
 
 
     if ($stmt->errno) {
-        throw new Exception("Execute failed: " . $stmt->error, 500);
+        http_response_code(500);
+        throw new Exception("Execute failed: " . $stmt->error);
     }
 
     if ($result->num_rows === 0) {
-        throw new Exception("Music kit with name '" . htmlspecialchars($musicKitName) . "' not found.", 404); // 404 Not Found
+        http_response_code(404);
+        throw new Exception("Music kit with name '" . $musicKitName . "' not found."); // 404 Not Found
     }
 
 
@@ -63,7 +68,8 @@ try {
     $stmt = $conn->prepare($query);
 
     if ($stmt === false) {
-        throw new Exception("Prepare failed: " . $conn->error, 500);
+        http_response_code(500);
+        throw new Exception("Prepare failed: " . $conn->error);
     }
 
     // Bind parameters
@@ -74,12 +80,14 @@ try {
 
     // Check for errors after execution
     if ($stmt->errno) {
-        throw new Exception("Execute failed: " . $stmt->error, 500);
+        http_response_code(500);
+        throw new Exception("Execute failed: " . $stmt->error);
     }
 
     // Check if any rows were affected (optional)
     if ($stmt->affected_rows === 0) {
-        throw new Exception("No rows were inserted.  Possible duplicate entry or data issue.", 409);
+        http_response_code(409);
+        throw new Exception("No rows were inserted.  Possible duplicate entry or data issue.");
     }
 
     // Respond with success message
@@ -93,11 +101,5 @@ try {
 } catch (Exception $e) {
     // Handle exceptions
     $response = array("status" => "error", "message" => $e->getMessage());
-    http_response_code($e->getCode() ?: 500);
     echo json_encode($response);
-} finally {
-    // Close the database connection (if applicable)
-    if (isset($conn)) {
-        $conn->close();
-    }
 }
