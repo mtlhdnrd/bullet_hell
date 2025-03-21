@@ -61,7 +61,7 @@ function DisplayCharacters() {
         `url(../src/images/characters/display/${character.name}/${character.background_image})`
       );
       $(this).css("background-size", `cover`);
-      $(this).append(`<img src="../src/images/characters/display/${character.name}/${character.name}.png" class="character-image">`);
+      $(this).append(`<img src="../src/images/characters/display/${character.name}/${character.name}.png" class="character-image" alt="${character.name}">`);
     } else {
       console.warn(
         `No background image found for character with ID: ${charId}`
