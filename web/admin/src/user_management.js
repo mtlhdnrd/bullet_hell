@@ -2,7 +2,6 @@ var sort_criterion = "username";
 var sort_asc = true;
 
 function LoadUserTable() {
-    $(".table-contents").html('<tr><td colspan="7">Loading...</td></tr>');
     var number_of_pages = 1;
     $.ajax({
         type: "GET",
@@ -19,6 +18,7 @@ function LoadUserTable() {
     if (isNaN(page) || page < 1 || page > number_of_pages) {
         window.location.search = "p=1";
     }
+    var data_loaded = false;
     $.ajax({
         type: "GET",
         url: `./api/admin_get_user_data.php?p=${page}&sort_criterion=${sort_criterion}&sort_asc=${sort_asc}`,
@@ -65,8 +65,14 @@ function LoadUserTable() {
             $(".delete-btn").click(function () {
                 ConfirmDelete($(this).attr("id"));
             });
+            data_loaded = true;
         },
     });
+    setTimeout(function() {
+        if(!data_loaded) {
+            $(".table-contents").html('<tr><td colspan="7">Loading...</td></tr>');
+        }
+    }, 250);
 }
 
 function ConfirmDelete(username) {
@@ -82,7 +88,7 @@ function DeleteUser(username) {
         success: function (data, textStatus, xhr) {
             switch (xhr.status) {
                 case 200:
-                    LoadUserTable();
+                    LoadUserTable(false);
                     break;
             }
         },
@@ -99,7 +105,7 @@ $(document).ready(function () {
                 switch (xhr.status) {
                     case 200:
                         $(".table-contents").html("");
-                        LoadUserTable();
+                        LoadUserTable(true);
                         break;
                     case 400:
                         console.log("ERROR: couldn't change page size");
@@ -112,7 +118,7 @@ $(document).ready(function () {
         });
     });
 
-    LoadUserTable();
+    LoadUserTable(true);
 
     $("#username, #points, #winrate, #all_games_played, #kills, #deaths").click(function() {
         if(sort_criterion = $(this).attr("id")) {
@@ -127,6 +133,6 @@ $(document).ready(function () {
         } else {
             $(this).children("span").html("🞃");
         }
-        LoadUserTable();
+        LoadUserTable(false);
     });
 });
