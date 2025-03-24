@@ -1,3 +1,6 @@
+var sort_criterion = "username";
+var sort_asc = true;
+
 function LoadUserTable() {
     $(".table-contents").html('<tr><td colspan="7">Loading...</td></tr>');
     var number_of_pages = 1;
@@ -18,7 +21,7 @@ function LoadUserTable() {
     }
     $.ajax({
         type: "GET",
-        url: `./api/admin_get_user_data.php?p=${page}`,
+        url: `./api/admin_get_user_data.php?p=${page}&sort_criterion=${sort_criterion}&sort_asc=${sort_asc}`,
         dataType: "json",
         success: function (data, textStatus, xhr) {
             let tableContents = "";
@@ -110,4 +113,14 @@ $(document).ready(function () {
     });
 
     LoadUserTable();
+
+    $("#username, #points, #winrate, #all_games_played, #kills, #deaths").click(function() {
+        if(sort_criterion = $(this).attr("id")) {
+            sort_asc = !sort_asc;
+        } else {
+            sort_criterion = $(this).attr("id");
+            sort_asc = true;
+        }
+        LoadUserTable();
+    });
 });

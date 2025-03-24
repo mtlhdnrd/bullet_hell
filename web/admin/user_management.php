@@ -38,12 +38,12 @@ if (!is_admin_logged_in()) {
             <table class="table table-dark table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Username</th>
-                        <th scope="col">Points</th>
-                        <th scope="col">Winrate</th>
-                        <th scope="col">Games Played</th>
-                        <th scope="col">Kills</th>
-                        <th scope="col">Deaths</th>
+                        <th class="clickable_head" id="username" scope="col">Username</th>
+                        <th class="clickable_head" id="points" scope="col">Points</th>
+                        <th class="clickable_head" id="winrate" scope="col">Winrate</th>
+                        <th class="clickable_head" id="all_games_played" scope="col">Games Played</th>
+                        <th class="clickable_head" id="kills" scope="col">Kills</th>
+                        <th class="clickable_head" id="deaths" scope="col">Deaths</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>

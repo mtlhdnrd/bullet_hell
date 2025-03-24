@@ -53,3 +53,8 @@ a.disabled {
     pointer-events: none;
     filter: brightness(50%);
 }
+
+.clickable_head {
+    cursor: pointer;
+    user-select: none;
+}
