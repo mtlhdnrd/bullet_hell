@@ -121,6 +121,12 @@ $(document).ready(function () {
             sort_criterion = $(this).attr("id");
             sort_asc = true;
         }
+        $(".clickable_head").children("span").html("");
+        if(sort_asc) {
+            $(this).children("span").html("🞁");
+        } else {
+            $(this).children("span").html("🞃");
+        }
         LoadUserTable();
     });
 });
