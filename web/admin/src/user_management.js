@@ -121,7 +121,7 @@ $(document).ready(function () {
     LoadUserTable(true);
 
     $("#username, #points, #winrate, #all_games_played, #kills, #deaths").click(function() {
-        if(sort_criterion = $(this).attr("id")) {
+        if(sort_criterion == $(this).attr("id")) {
             sort_asc = !sort_asc;
         } else {
             sort_criterion = $(this).attr("id");
