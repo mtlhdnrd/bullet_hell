@@ -8,10 +8,10 @@
         display: flex;
     }
 }
-body{
-    font-family: 'Pixelmix', sans-serif;
+body {
+    font-family: "Pixelmix", sans-serif;
 }
-.profile-container{
+.profile-container {
     background-color: var(--dark-bg);
     color: white;
 }
@@ -33,9 +33,14 @@ body{
 .stat-card:hover {
     background-color: var(--light-bg);
 }
-.profile-pic-container{
+.profile-pic-container {
     background-color: var(--darker-bg);
+    max-width: 500px;
 }
-.profile-data-container{
+.profile-data-container {
     background-color: var(--dark-bg);
+}
+
+#username {
+    word-wrap: break-word;
 }
