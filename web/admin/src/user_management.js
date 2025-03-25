@@ -1,5 +1,14 @@
-var sort_criterion = "username";
-var sort_asc = true;
+var sort_criterion = sessionStorage.getItem("sort_criterion");
+if(sort_criterion == null) {
+    sort_criterion = "username";
+    sessionStorage.setItem("sort_criterion", sort_criterion);
+}
+
+var sort_asc = sessionStorage.getItem("sort_asc");
+if(sort_asc == null) {
+    sort_asc = "true";
+    sessionStorage.setItem("sort_asc", sort_asc);
+}
 
 function LoadUserTable() {
     var number_of_pages = 1;
@@ -96,6 +105,13 @@ function DeleteUser(username) {
 }
 
 $(document).ready(function () {
+    if(sort_asc == "true") {
+        $(`#${sort_criterion}`).children("span").html("🞁");
+        console.log("im being a bitch");
+    } else {
+        $(`#${sort_criterion}`).children("span").html("🞃");
+        console.log("im not being a bitch");
+    }
     $("#page_size").change(function () {
         $.ajax({
             type: "POST",
@@ -126,7 +142,9 @@ $(document).ready(function () {
         } else {
             sort_criterion = $(this).attr("id");
             sort_asc = true;
+            sessionStorage.setItem("sort_criterion", sort_criterion);
         }
+        sessionStorage.setItem("sort_asc", sort_asc);
         $(".clickable_head").children("span").html("");
         if(sort_asc) {
             $(this).children("span").html("🞁");

@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if(($_GET["sort_asc"] ?? "true") == "false") {
         $sort_asc = false;
     }
-    //var_dump($sort_asc);
     $possible_criteria = ["username", "points", "winrate", "all_games_played", "kills", "deaths"];
     if(!in_array($sort_criterion, $possible_criteria)) {
         $sort_criterion = $possible_criteria[0];
