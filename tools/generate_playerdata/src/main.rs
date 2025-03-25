@@ -1,7 +1,7 @@
 use mysql::prelude::*;
 use mysql::*;
 use rand::prelude::*;
-use sha2::{Sha512, Digest};
+use sha2::{Digest, Sha512};
 
 struct Player {
     username: String,
@@ -18,15 +18,25 @@ impl Player {
     fn new(username: String) -> Self {
         let mut rng = rand::rng();
 
+        let all_games_played = rng.random_range(0..=511);
+        let all_wins = rng.random_range(0..=all_games_played);
+        let kills = all_wins * 3;
+        let deaths = (all_wins as f32 * rng.random_range(0.0..=2.0)
+            + (all_games_played - all_wins) as f32 * rng.random_range(2.0..=3.0))
+            as i32;
+        let points = kills * 25 + deaths * -25;
+        let music_pack_id = rng.random_range(1..=5);
+        let active_skin_id = rng.random_range(1..=5);
+
         Self {
             username,
-            points: rng.random_range(0..=100),
-            all_wins: rng.random_range(0..=511),
-            all_games_played: rng.random_range(0..=511),
-            kills: rng.random_range(1..=5),
-            deaths: rng.random_range(1..=5),
-            music_pack_id: rng.random_range(1..=5),
-            active_skin_id: rng.random_range(1..=5),
+            points,
+            all_wins,
+            all_games_played,
+            kills,
+            deaths,
+            music_pack_id,
+            active_skin_id,
         }
     }
 }
