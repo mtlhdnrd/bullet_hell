@@ -111,7 +111,7 @@ function GetLeaderboardData() {
                     break;
             }
             let playerData = `<tr`;
-            if (player.username == current_player) {
+            if (player.username.toLowerCase() == current_player.toLowerCase()) {
                 playerData += ` class="current-player"`;
             }
             playerData += `>
