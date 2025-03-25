@@ -7,7 +7,6 @@ if (isset($_GET['username']) && isset($_GET['password']) && count($_GET) == 2) {
     $username = $_GET['username'];
     $password = $_GET['password'];
     $result = $conn->prepare("SELECT password, players.points FROM player_login INNER JOIN players ON player_login.username = players.username WHERE player_login.username = ?;");
-    $result = $conn->prepare("SELECT password FROM player_login WHERE username = ?;");
     $result->bind_param('s', $username);
     $result->execute();
     $result->bind_result($queried_pw, $points); // Bind both password and points
