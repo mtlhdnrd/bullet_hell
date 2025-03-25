@@ -81,8 +81,11 @@ export class WeaponFactory {
 var weapons = [];
 const urlParams = new URLSearchParams(window.location.search);
 let currentWeapon = -1;
-addEventListener("load", LoadWeapons());
 let weaponcache = [];
+
+$(document).ready(function() {
+    LoadWeapons();
+});
 
 function LoadWeapons() {
     $.ajax({
@@ -126,7 +129,7 @@ function GetWeaponById(id) {
     else return null;
 }
 
-function DisplayWeapons() {
+function DisplayHeroWeapon() {
     let heroWeapon =
         currentWeapon === -1 ? weapons[0] : GetWeaponById(currentWeapon);
     let heroSection = `
@@ -164,9 +167,12 @@ function DisplayWeapons() {
                 </div>
             </div>
         </div>
-    </div>
-    `;
+        </div>
+        `;
+    $(".hero-section").html(heroSection);
+}
 
+function DisplayWeapons() {
     let rowNum =
         parseInt(weapons.length) % 4 == 0
             ? parseInt(weapons.length / 4)
@@ -197,16 +203,16 @@ function DisplayWeapons() {
         containerHtml += row;
     });
     containerHtml += "</div>";
-    $(".hero-section").html(heroSection);
     $(".other-weapons-section").html(containerHtml);
     $(".swap-btn").click(function () {
         let index = $(this).attr("id").split('-')[1];
         currentWeapon = index;
         $('.hero-section')[0].scrollIntoView();
-        DisplayWeapons();
+        DisplayHeroWeapon();
     });
 
     weapons.forEach(weapon => {
             $(`#weapon-${weapon.id}`).css("background-image", `url("../src/images/weapons/display/${weapon.name}/${weapon.name}_2_00000.png")`);
     });
+    DisplayHeroWeapon();
 }
