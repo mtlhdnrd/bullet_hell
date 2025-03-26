@@ -107,10 +107,8 @@ function DeleteUser(username) {
 $(document).ready(function () {
     if(sort_asc == "true") {
         $(`#${sort_criterion}`).children("span").html("🞁");
-        console.log("im being a bitch");
     } else {
         $(`#${sort_criterion}`).children("span").html("🞃");
-        console.log("im not being a bitch");
     }
     $("#page_size").change(function () {
         $.ajax({

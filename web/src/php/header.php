@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_URI"] == "/bullet_hell/web/src/php/header.php") {
             id="login-username">
             <?php echo $_SESSION['username']; ?>
         </a>
-        <a href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/php/logout.php" id="logout"><i
+        <a href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/php/logout.php" id="logout" onclick="sessionStorage.clear()"><i
                 class="fa-solid fa-right-from-bracket"></i></a>
         <button class="navbar-toggler shadow-none border-0 pe-0" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
