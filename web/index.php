@@ -35,7 +35,8 @@ if (!is_logged_in()) {
             <div class="about-game-section w-50 mx-auto">
                 <h2 class="text-left">The game</h2>
                 <hr>
-                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolores fuga suscipit ex incidunt quo corporis molestiae harum, praesentium voluptates non saepe quidem ipsam in. Animi dolores suscipit est beatae reprehenderit nemo voluptates eligendi molestias quo quis cum distinctio hic, dolor ut dicta, labore vel! Ratione harum voluptatibus velit ex.</p>
+                <p class="text-justify">Bullet Hell is a 2D, 1v1 platformer shooter. The aim of the game is for players to test their skills in a local multiplayer environment, where one player uses a keyboard and mouse and the other player uses a connected gamepad for control. The game is designed in a pixelart style, with all visual elements created by a member of the development team, ensuring a consistent and unique look.</p>
+                <p>The gameplay focuses on quick reflexes and tactical thinking. Players have a wide arsenal of weapons to choose from, including both melee (e.g. katana, scythe, knife) and ranged (e.g. pistol, musket, shotgun, kunai). Apart from basic movement options (left and right, jumping, ladder climbing), there are no special abilities, so players must rely solely on the effective use of weapons and the opportunities provided by the maps.</p>
             </div>
         </div>
         <div class="row">
