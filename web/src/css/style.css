@@ -40,7 +40,13 @@ input, select, input::placeholder, textarea {
 }
 @font-face {
     font-family: 'Pixelmix';
+    unicode-range: U+0000-007F;
     src: url('../fonts/pixelmix/pixelmix.ttf');
+}
+@font-face {
+    font-family: 'Pixelmix';
+    unicode-range: U+0080-00FF;
+    src: url('../fonts/fusion_pixel/fusion-pixel-12px-proportional-sc-latin-400-normal.ttf');
 }
 @font-face {
     font-family: 'Pixelbold';
