@@ -11,6 +11,7 @@
 - translate db normalization footnotes
 - utils.php is_logged_in() desc order swapped
 - task distribution
+- db norm footnotes are pasted in as normal text under the whole thing
 
 # checks, reviews
 - review task distribution table

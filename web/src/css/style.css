@@ -26,7 +26,7 @@ tr td {
     border-radius: 0 !important;
 }
 
-input, select, input::placeholder, textarea {
+input, select, input::placeholder, textarea, textarea::placeholder {
     background-color: var(--darker-bg) !important;
     color: var(--font-light) !important;
     border-color: var(--light-bg) !important;
