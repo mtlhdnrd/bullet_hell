@@ -42,15 +42,15 @@ if (!is_admin_logged_in()) {
         <form action="" id="map-form" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="Awesome Map" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Awesome Map" required>
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">File</label>
-                <input type="text" class="form-control" id="file" name="file" value="no_file.jpg" required>
+                <input type="text" class="form-control" id="file" name="file" placeholder="no_file.jpg" required>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description">A standard issue map.</textarea>
+                <textarea class="form-control" id="description" name="description" placeholder="A standard issue map."></textarea>
             </div>
             <div class="mb-3">
 

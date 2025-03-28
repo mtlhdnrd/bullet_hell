@@ -41,20 +41,19 @@ if (!is_admin_logged_in()) {
         <form action="" id="character-form" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="vanguard" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="vanguard" required>
             </div>
             <div class="mb-3">
                 <label for="display_image" class="form-label">Display image</label>
-                <input type="text" class="form-control" id="display_image" name="display_image" value="vanguard_display.png" required>
+                <input type="text" class="form-control" id="display_image" name="display_image" placeholder="vanguard_display.png" required>
             </div>
             <div class="mb-3">
                 <label for="background_image" class="form-label">Background image</label>
-                <input type="text" class="form-control" id="background_image" name="background_image" value="vanguard_background.png" required>
+                <input type="text" class="form-control" id="background_image" name="background_image" placeholder="vanguard_background.png" required>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description"
-                    name="description">A fierce warrior leading the charge.</textarea>
+                <textarea class="form-control" id="description" name="description" placeholder="A fierce warrior leading the charge."></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Add Character</button>
         </form>
