@@ -46,10 +46,6 @@ function DeleteCharacter(id) {
 
 $(document).ready(function () {
     LoadCharacterTable();
-});
-
-$(document).ready(function () {
-    LoadCharacterTable();
     $("#character-form").submit(function (event) {
         event.preventDefault();
         $.ajax({
