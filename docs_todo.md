@@ -5,8 +5,13 @@
 - redo shit that barni managed to revert with #78
 - update db diagram
 - update db tables description
-- check code blocks for any changes
 - possibly fix bs admin privileges
 - webapp utils.php require_once is formatted wrong
 - login_check.php embed formatting is weird, first line is separated
+- translate db normalization footnotes
+
+# checks, reviews
 - review task distribution table
+- check code blocks for any changes
+- review task distribution table
+- check if normalization steps are up-to-date
