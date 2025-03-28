@@ -115,15 +115,12 @@ CREATE TABLE `players` (
   `all_games_played` int(11) NOT NULL DEFAULT 0,
   `kills` int(11) NOT NULL DEFAULT 0,
   `deaths` int(11) NOT NULL DEFAULT 0,
-  `most_used_music_id` int(11) DEFAULT NULL,
   `music_pack_id` int(11) DEFAULT NULL,
   `active_skin_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`username`),
-  KEY `most_used_music_id` (`most_used_music_id`),
   KEY `music_pack_id` (`music_pack_id`),
   KEY `fk_players_player_skins` (`active_skin_id`),
   CONSTRAINT `fk_players_player_skins` FOREIGN KEY (`active_skin_id`) REFERENCES `player_skins` (`id`),
-  CONSTRAINT `players_ibfk_1` FOREIGN KEY (`most_used_music_id`) REFERENCES `music_packs` (`id`),
   CONSTRAINT `players_ibfk_2` FOREIGN KEY (`music_pack_id`) REFERENCES `music_packs` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
