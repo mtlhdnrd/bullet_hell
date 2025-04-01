@@ -9,7 +9,7 @@ if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
         http_response_code(400);
         die("username already exists");
     }
-    $query = "INSERT INTO `players` (username,points,all_wins,all_games_played,kills,deaths,music_pack_id,active_skin_id) VALUES (?,0,0,0,0,0,NULL,NULL);";
+    $query = "INSERT INTO `players` (username,points,all_wins,all_games_played,kills,deaths,music_pack_id,active_skin_id) VALUES (?,0,0,0,0,0,NULL,(SELECT `id` FROM `player_skins` WHERE `name` = 'knight'));";
     $result = $conn->prepare($query);
     $result->bind_param("s", $username);
     $result->execute();
