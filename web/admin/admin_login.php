@@ -35,8 +35,7 @@ if (!is_user_admin()) {
                         <div class="form-group">
                             <label for="password_admin">Password</label>
                             <div class="input-group">
-                                <input type="password" name="password_admin" class="form-control credential-input"
-                                    id="password" required>
+                                <input type="password" name="password_admin" class="form-control credential-input" id="password" required>
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary" type="button" onclick="TogglePwVisibility()">
                                         <i class="fa fa-eye" id="eyeIcon"></i>
