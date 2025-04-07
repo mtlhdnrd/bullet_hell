@@ -47,7 +47,7 @@ if (is_logged_in()) {
                         </form>
 
                     <div class="text-center mt-3 text-white pixel-font">
-                        Already have an account? <a href="../login/login.php" class="text-info">Sign in my brother</a>
+                        Already have an account? <a href="../login/login.php" class="text-info">Sign in</a>
                     </div>
                 </div>
             </div>
