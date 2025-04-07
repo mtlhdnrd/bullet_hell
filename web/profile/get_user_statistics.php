@@ -7,6 +7,9 @@ if (isset($_GET['username'])) {
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    if(count($result) == 1 && $result[0]["winrate"] == NULL) {
+        $result[0]["winrate"] = 0;
+    }
     header("Content-Type: application/json");
     echo json_encode($result);
 } else {
