@@ -46,7 +46,7 @@ if (is_logged_in()) {
                         <button class="btn btn-primary my-3 px-4 py-2 pixel-font" type="button" id="credential-submit-button" onclick="LoginUser()">Log in</button>
 
                     <div class="text-center mt-3 text-white pixel-font">
-                        Don't have an account? <a href="../register/register.php" class="text-info">Make one my brother</a>
+                        Don't have an account? <a href="../register/register.php" class="text-info">Register</a>
                     </div>
                 </div>
             </div>
