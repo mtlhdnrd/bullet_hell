@@ -64,7 +64,7 @@ if (!is_admin_logged_in()) {
                         echo $stmt->error;
                     }
                     $result = $stmt->get_result();
-                    $musics = [];
+                    $music = [];
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
