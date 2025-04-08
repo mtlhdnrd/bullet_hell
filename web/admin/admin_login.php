@@ -23,7 +23,7 @@ if (!is_user_admin()) {
 <body>
     <div class="container mt-5">
         <div class="row mb-5">
-            <h1 class="text-center text-black">Admin Panel</h1>
+            <h1 class="text-center text-white">Admin Panel</h1>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
