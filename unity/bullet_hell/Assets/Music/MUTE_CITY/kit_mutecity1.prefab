@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artist: MUTE CITY
-  coverart: {fileID: 21300000, guid: 6444c38c48912ff4d8fcf4f0c8aeafde, type: 3}
-  titleF1: COMPUTER PAUSE PTOGRAM
+  coverart: {fileID: 21300000, guid: 0030ac958cd727b4ea62bc7c28504c49, type: 3}
+  titleF1: COMPUTER PAUSE PROGRAM
   fight1: {fileID: 8300000, guid: 420cdb70904312844a9aa3ec1d1256fa, type: 3}
   titleF2: DEEP FOREST
   fight2: {fileID: 8300000, guid: 25baaf592d0eae240b089e38561a1d0d, type: 3}
@@ -58,3 +58,6 @@ MonoBehaviour:
   menu2: {fileID: 8300000, guid: c3335cecde3b9d54fa3c8fb9d07c0e54, type: 3}
   titleMVP: LOSER TALK
   MVP: {fileID: 8300000, guid: 6b86462c964411d47a0421489e0b4fdb, type: 3}
+  desc: 'Mute City is the place you stand, all alone, after beating every one of
+    your brothers. You may think to yourself: "Where do we go from here?"... Who
+    said you can''t do it again?'

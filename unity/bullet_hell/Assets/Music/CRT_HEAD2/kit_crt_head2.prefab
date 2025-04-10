@@ -45,16 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artist: CRT_HEAD
-  coverart: {fileID: 21300000, guid: fb5803eaa517c91418009442edfc56a1, type: 3}
+  coverart: {fileID: 21300000, guid: dcf17c6afc2acc44fa10ee66d8fddbb7, type: 3}
   titleF1: NUCLEAR SPITE
-  fight1: {fileID: 8300000, guid: de12224fad5daf549ad5fd9959f3e85a, type: 3}
+  fight1: {fileID: 8300000, guid: 851708089b98b2245a594f87fb9aaeb2, type: 3}
   titleF2: YOKAI BLEED
-  fight2: {fileID: 8300000, guid: 18ab7c1dfe39f3d4da529e8376ae703b, type: 3}
+  fight2: {fileID: 8300000, guid: f3b93a2f03ce30f4fa69f1e2c4fc770b, type: 3}
   titleF3: FLOWER FIELDS
-  fight3: {fileID: 8300000, guid: 082cb3f3a29fc8b418e31101768fca52, type: 3}
+  fight3: {fileID: 8300000, guid: e5dd707f18d815245b269e3876c3d677, type: 3}
   titleM1: DEJA VU
-  menu1: {fileID: 8300000, guid: 6c3be64ad47a5c84f9e99e76a7f0fc21, type: 3}
+  menu1: {fileID: 8300000, guid: 78959a42ba861e7439351c79c5c0e893, type: 3}
   titleM2: BOCTOK
-  menu2: {fileID: 8300000, guid: d4cc033d2d94cf6479b2ba96e20915a1, type: 3}
+  menu2: {fileID: 8300000, guid: 3c97d0d3d396ccc48a9855fd4b06f6aa, type: 3}
   titleMVP: AZURE
-  MVP: {fileID: 8300000, guid: 81f0c6e5b6cecf5478f57cec0b855ef4, type: 3}
+  MVP: {fileID: 8300000, guid: 120598d8b4c453b44b843b5806775815, type: 3}
+  desc: 'The slaughterhouse has produced another set of electric screams just for
+    you to consume.  '
