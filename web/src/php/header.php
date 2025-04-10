@@ -6,12 +6,12 @@ if ($_SERVER["REQUEST_URI"] == "/bullet_hell/web/src/php/header.php") {
 <nav class="navbar navbar-expand-lg bg-custom px-lg-5">
     <div class="container-fluid">
         <a class="navbar-brand me-auto" href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/index.php"><img
-                src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/logo.png" width="70" height="70"
+                src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/logo/logoNaked5x.png" width="70" height="70"
                 alt=""></a>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a href="index.php"><img
-                            src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/logo.png" width="70"
+                            src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/bullet_hell/web/src/images/logo/logoNaked5x.png" width="70"
                             height="70" alt=""></a></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>

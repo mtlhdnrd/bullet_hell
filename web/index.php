@@ -18,11 +18,12 @@ if (!is_logged_in()) {
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php"); ?>
     <div class="hero-content container fade-in pixel-font">
         <div class="row">
-            <img src="src/images/logo.png" alt="" class="img-fluid mx-auto w-50">
+            <img src="src/images/logo/logoSquare10x.png" alt="" class="anti-alias mx-auto w-50 my-3">
         </div>
         <div class="row">
-            <p class="text-center w-50 mx-auto"><i>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum
-                    numquam accusantium veniam voluptas deserunt repudiandae dicta mollitia soluta quod iusto."</i></p>
+            <p class="text-center w-50 mx-auto"><i>With impeccable symmetry, you can still get lucky. With enough time though, the stronger warrior will prevail.
+                    This 2D platformer-shooter aims to give both players a level playing field, with equal chances, all on one screen.
+                </i></p>
         </div>
         <div class="row yt-video">
             <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
@@ -41,7 +42,7 @@ if (!is_logged_in()) {
         </div>
         <div class="row">
             <div class="about-game-section w-50 mx-auto">
-                <h2 >Inspiration</h2>
+                <h2>Inspiration</h2>
                 <hr>
                 <p class="text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolores fuga suscipit ex incidunt quo corporis molestiae harum, praesentium voluptates non saepe quidem ipsam in. Animi dolores suscipit est beatae reprehenderit nemo voluptates eligendi molestias quo quis cum distinctio hic, dolor ut dicta, labore vel! Ratione harum voluptatibus velit ex.</p>
             </div>
