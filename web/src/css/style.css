@@ -128,7 +128,6 @@ input, select, input::placeholder, textarea, textarea::placeholder {
 
 .hero-content{
     background-color: var(--darker-bg);
-    box-shadow: inset 0px 0px 3px 3px #e7e6e4;
 }
 .yt-video{
     margin-bottom: 200px;
