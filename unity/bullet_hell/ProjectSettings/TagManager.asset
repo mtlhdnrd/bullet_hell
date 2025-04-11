@@ -15,6 +15,9 @@ TagManager:
   - healthbar
   - passedData
   - refHandler
+  - projectile
+  - shootingPoint
+  - meleeCheck
   layers:
   - Default
   - TransparentFX

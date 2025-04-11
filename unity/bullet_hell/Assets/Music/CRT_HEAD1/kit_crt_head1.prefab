@@ -45,16 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artist: CRT_HEAD
-  coverart: {fileID: 21300000, guid: 390aa185dd4ac614499f5499fd03f1fc, type: 3}
+  coverart: {fileID: 21300000, guid: fe2bc79946af4db4cb2fa2e35340e113, type: 3}
   titleF1: AIM HIGH
-  fight1: {fileID: 8300000, guid: 23ab4a25905d2e14ab47188107b13f5b, type: 3}
+  fight1: {fileID: 8300000, guid: c97dcc1bb549d7b4b9cf206589833b73, type: 3}
   titleF2: YAMAHA DEATH
-  fight2: {fileID: 8300000, guid: 9108d6c0f17af184b9d69b069c974c23, type: 3}
+  fight2: {fileID: 8300000, guid: 826a7efba97b8a24eb23ea8982dd3474, type: 3}
   titleF3: NEOTOKYO
-  fight3: {fileID: 8300000, guid: 57131ea3806c185468efd7a434ab9458, type: 3}
+  fight3: {fileID: 8300000, guid: a45f40b22bab9b840948f88de6355fb4, type: 3}
   titleM1: ELECTROSPHERE
-  menu1: {fileID: 8300000, guid: 1e195d9297152c740a6ff3e7d7f6a96a, type: 3}
+  menu1: {fileID: 8300000, guid: ce30a9afc1f372a4b9bf918cbac63061, type: 3}
   titleM2: GUNSTAR HEROES
-  menu2: {fileID: 8300000, guid: 94854a451d6448c43a783cd72f04fbf5, type: 3}
+  menu2: {fileID: 8300000, guid: 8b7aacfcc2565bc4c8900e6ce0e193cf, type: 3}
   titleMVP: NIGHT OPS
-  MVP: {fileID: 8300000, guid: 006603677c7c32a43a5cb1a113206b11, type: 3}
+  MVP: {fileID: 8300000, guid: df18d831ed069f748929d06c8acc6556, type: 3}
+  desc: Adrenaline and bloodthirst come together in this engaging kit, if it makes
+    your skin crawl, it's already made the difference.

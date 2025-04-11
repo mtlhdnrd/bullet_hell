@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artist: HELLSTAR.PLUS
-  coverart: {fileID: 21300000, guid: d0bbdd6d3a687ae4cba94e2150f35e3f, type: 3}
+  coverart: {fileID: 21300000, guid: 852979226c7b494439b2f637f9b67297, type: 3}
   titleF1: CYBERIST RITUAL 202
   fight1: {fileID: 8300000, guid: c0fd801e59463594999c5d8c1c430a58, type: 3}
   titleF2: HKF
@@ -58,3 +58,5 @@ MonoBehaviour:
   menu2: {fileID: 8300000, guid: 3aaf55d8a6a600b4aa3ab627c39220bf, type: 3}
   titleMVP: RED RAW AGAINST THE GRAIN
   MVP: {fileID: 8300000, guid: e4b8ecd79415d824db3131ca4fba1ece, type: 3}
+  desc: Adjust your heart rate to the beat, and you are guaranteed to see things
+    in slow motion. Use your time gains, practice makes perfect.
