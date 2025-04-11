@@ -18,6 +18,7 @@ if (!is_logged_in()) {
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/bullet_hell/web/src/php/header.php"); ?>
     <div class="hero-content container fade-in pixel-font">
         <div class="row">
+            <h1 class="text-center my-5">Bullet Hell</h1>
             <img src="src/images/logo/logoSquare10x.png" alt="" class="anti-alias mx-auto w-50 my-3">
         </div>
         <div class="row">
@@ -27,9 +28,10 @@ if (!is_logged_in()) {
         </div>
         <div class="row yt-video">
             <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
-                <iframe class="embed-responsive-item" width="600" height="400"
-                    src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                </iframe>
+                <video width="800" height="600" autoplay loop muted>
+                    <source src="src/videos/gameplayFootage.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
         <div class="row">
@@ -44,7 +46,12 @@ if (!is_logged_in()) {
             <div class="about-game-section w-50 mx-auto">
                 <h2>Inspiration</h2>
                 <hr>
-                <p class="text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolores fuga suscipit ex incidunt quo corporis molestiae harum, praesentium voluptates non saepe quidem ipsam in. Animi dolores suscipit est beatae reprehenderit nemo voluptates eligendi molestias quo quis cum distinctio hic, dolor ut dicta, labore vel! Ratione harum voluptatibus velit ex.</p>
+                <p class="text-right">LORN's discography and music video for Weigh Me Down - the slaughterhouse, and the overall industrial, bleak aesthetics
+                    Hotline Miami - pixelart, violence, adrenaline, directness towards player
+                    Tekken - Split-screen, local co-op, fighting game
+                    Drifters - Nobunaga's character and castle
+                    Warframe - for the idea of over-the-top weapons and a bit of parkour implementation, and the high-and-mighty tone
+                </p>
             </div>
         </div>
     </div>
