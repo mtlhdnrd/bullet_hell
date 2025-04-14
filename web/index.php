@@ -46,10 +46,10 @@ if (!is_logged_in()) {
             <div class="about-game-section w-50 mx-auto">
                 <h2>Inspiration</h2>
                 <hr>
-                <p class="text-right">LORN's discography and music video for Weigh Me Down - the slaughterhouse, and the overall industrial, bleak aesthetics
-                    Hotline Miami - pixelart, violence, adrenaline, directness towards player
-                    Tekken - Split-screen, local co-op, fighting game
-                    Drifters - Nobunaga's character and castle
+                <p class="text-right">LORN's discography and music video for Weigh Me Down - the slaughterhouse, and the overall industrial, bleak aesthetics<br>
+                    Hotline Miami - pixelart, violence, adrenaline, directness towards player<br>
+                    Tekken - Split-screen, local co-op, fighting game<br>
+                    Drifters - Nobunaga's character and castle<br>
                     Warframe - for the idea of over-the-top weapons and a bit of parkour implementation, and the high-and-mighty tone
                 </p>
             </div>
