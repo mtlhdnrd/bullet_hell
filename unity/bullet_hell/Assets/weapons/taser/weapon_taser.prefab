@@ -278,7 +278,7 @@ MonoBehaviour:
   collOffset: {x: 0, y: 0}
   weaponAnim: []
   weaponAnimCurrent: {x: 0, y: 0, z: 0}
-  shootingPointObj: {fileID: 0}
+  shootingPointObj: {fileID: 6096683487358449654}
   spOffset: {x: 0, y: 0}
   flipped: 0
   shooting: 0

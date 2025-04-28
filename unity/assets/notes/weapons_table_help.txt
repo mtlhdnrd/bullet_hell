@@ -23,11 +23,11 @@ EDO
 1;kusarigama;		done
 
 WARZONE
-3;sniper;		missing
-2;ak;			missing
-1;mp40			missing
+3;sniper;		done
+2;ak;			dead
+1;mp40			dead
 1;pistol;		done
 2;shotgun		done
-1;machete		done
+1;machete		dead
 
 practice tool has ALL the weapons ()
