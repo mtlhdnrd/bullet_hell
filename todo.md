@@ -16,7 +16,7 @@
 
 ## checks, reviews
 - ~~review task distribution table~~
-- check code blocks for any changes
+- ~~check code blocks for any changes~~
 - ~~check if normalization steps are up-to-date~~
 - ~~registration register.php missing~~
 
