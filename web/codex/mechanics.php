@@ -23,9 +23,9 @@ if (!is_logged_in()) {
                 <div class="col-12 d-flex flex-column align-items-center">
                     <div class="row yt-video">
                         <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
-                            <iframe class="embed-responsive-item" width="600" height="400"
-                                src="https://www.youtube.com/embed/mjF1rmSV1dM">
-                            </iframe>
+                            <img class="img-fluid"
+                                src="../src/videos/horizontal_.gif">
+                            </im>
                         </div>
                     </div>
                     <div class="text-start w-100">
@@ -43,9 +43,9 @@ if (!is_logged_in()) {
                 <div class="col-12 d-flex flex-column align-items-center">
                     <div class="row yt-video">
                         <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
-                            <iframe class="embed-responsive-item" width="600" height="400"
-                                src="https://www.youtube.com/embed/FcVz1KXkzoA">
-                            </iframe>
+                        <img class="img-fluid"
+                                src="../src/videos/climb.gif">
+                            </im>
                         </div>
                     </div>
                     <div class="text-start w-100">
@@ -63,9 +63,9 @@ if (!is_logged_in()) {
                 <div class="col-12 d-flex flex-column align-items-center">
                     <div class="row yt-video">
                         <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
-                            <iframe class="embed-responsive-item" width="600" height="400"
-                                src="https://www.youtube.com/embed/3Y-J7sBT_no">
-                            </iframe>
+                        <img class="img-fluid"
+                                src="../src/videos/equip.gif">
+                            </im>
                         </div>
                     </div>
                     <div class="text-start w-100">
@@ -84,9 +84,9 @@ if (!is_logged_in()) {
                 <div class="col-12 d-flex flex-column align-items-center">
                     <div class="row yt-video">
                         <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
-                            <iframe class="embed-responsive-item" width="600" height="400"
-                                src="https://www.youtube.com/embed/sIrRewJVeHI">
-                            </iframe>
+                        <img class="img-fluid"
+                                src="../src/videos/altfire.gif">
+                            </im>
                         </div>
                     </div>
                     <div class="text-start w-100">
@@ -103,9 +103,9 @@ if (!is_logged_in()) {
                 <div class="col-12 d-flex flex-column align-items-center">
                     <div class="row yt-video">
                         <div class="embed-responsive embed-responsive-4by3 d-flex justify-content-center align-items-center">
-                            <iframe class="embed-responsive-item" width="600" height="400"
-                                src="https://www.youtube.com/embed/zYhcRn_34ko">
-                            </iframe>
+                        <img class="img-fluid"
+                                src="../src/videos/fire.gif">
+                            </im>
                         </div>
                     </div>
                     <div class="text-start w-100">
