@@ -9,8 +9,6 @@ using UnityEngine.UIElements;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-using Unity.VisualScripting;
-using System.Linq;
 public class gameManager : MonoBehaviour
 {
     [Header("fight refs")]//fetched on initFight
@@ -60,47 +58,67 @@ public class gameManager : MonoBehaviour
             //winner by fightEnd
             StartCoroutine(APIManager.RecordGameResult(passedData.p1Name, passedData.p2Name, p1Wins, p2Wins, p2Wins, p1Wins, RecordResult));
             giveReward();
-            
-            SceneManager.LoadScene("menu");
 
+            SceneManager.LoadScene("menu");
         }
     }
     public void giveReward()
     {
         string reward = null;
+        //skin or music
         if (UnityEngine.Random.Range(0, 2) > 0)
         {
+            //skin
             reward = lootGiver.getSkinReward(winner, passedData.map, passedData);
-            if (reward != null)
+            if (reward != null)//can give skin
             {
-                StartCoroutine(APIManager.AddSkinLoot(winner == "p1" ? passedData.p1Name : passedData.p2Name, reward));
+                //local reward update (skin)
+                if (winner == "p1")
+                {
+                    passedData.p1Skins.Add(reward);
+                }
+                else
+                {
+                    passedData.p2Skins.Add(reward);
+                }
+
+                if (!passedData.devMode) { StartCoroutine(APIManager.AddSkinLoot(winner == "p1" ? passedData.p1Name : passedData.p2Name, reward)); }
             }
-            else
+            else//fallback: music given
             {
                 reward = lootGiver.getMusicReward(winner, passedData.map, passedData);
-                if (reward != null)
+                if (reward != null)//can give music
                 {
-                    StartCoroutine(APIManager.AddMusicLoot(winner == "p1" ? passedData.p1Name : passedData.p2Name, reward));
+                    //local reward update (music)
+                    if (winner == "p1")
+                    {
+                        passedData.p1Kits.Add(musicAssets.GetAssetByName(reward));
+                    }
+                    else
+                    {
+                        passedData.p2Kits.Add(musicAssets.GetAssetByName(reward));
+                    }
+
+                    if (!passedData.devMode) { StartCoroutine(APIManager.AddMusicLoot(winner == "p1" ? passedData.p1Name : passedData.p2Name, reward)); }
                 }
             }
         }
-        else
+        else//music
         {
             reward = lootGiver.getMusicReward(winner, passedData.map, passedData);
 
-            if (reward != null)
+            if (reward != null)//can give music
             {
-                StartCoroutine(APIManager.AddMusicLoot(winner == "p1" ? passedData.p1Name : passedData.p2Name, reward));
+                if (!passedData.devMode) { StartCoroutine(APIManager.AddMusicLoot(winner == "p1" ? passedData.p1Name : passedData.p2Name, reward)); }
             }
-            else
+            else//fallback: skin given
             {
                 reward = lootGiver.getSkinReward(winner, passedData.map, passedData);
-                if (reward != null)
+                if (reward != null)//can give skin
                 {
-                    StartCoroutine(APIManager.AddSkinLoot(winner == "p1" ? passedData.p1Name : passedData.p2Name, reward));
+                    if (!passedData.devMode) { StartCoroutine(APIManager.AddSkinLoot(winner == "p1" ? passedData.p1Name : passedData.p2Name, reward)); }
                 }
             }
-
         }
     }
     public bool fightEnd()
@@ -200,7 +218,7 @@ public class gameManager : MonoBehaviour
             passedData.defaults(musicAssets.crt1Kit, "knight", playerAssets.knight_desc, musicAssets.crt1Kit.desc, "prac");
         }
         menuScript.init(passedData, musicPlayer, musicAssets, playerAssets);
-        musicPlayer.init(passedData.p1Kit, passedData.p2Kit, 0.5f, "menu");
+        musicPlayer.init(passedData.p1Kit, passedData.p2Kit, "menu", passedData.musicVolume);
     }
     public void initFight()
     {
@@ -217,7 +235,7 @@ public class gameManager : MonoBehaviour
     private void resetFight()
     {
         fightUi.set(passedData, p1Wins, p2Wins, 60);
-        musicPlayer.init(passedData.p1Kit, passedData.p2Kit, 0.5f, "fight");
+        musicPlayer.init(passedData.p1Kit, passedData.p2Kit, "fight", passedData.musicVolume);
         healthbarP1.set("p1", passedData.map);
         healthbarP2.set("p2", passedData.map);
         if (passedData.map == "prac")
@@ -236,32 +254,29 @@ public class gameManager : MonoBehaviour
     }
     private void initPlayers(string[] playerskins, Vector2 spawnAt, int health)
     {
-        //p1Device assign
-        if (passedData.p1Device.Count() > 0)
+        //devices assign
+        if (passedData.p1Gamepad == null)//p1 mouse+keyboard
         {
-            player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme(passedData.p1Device.ToArray());
+            Debug.Log("case: p1 keyboardMouse");
+            player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme(new InputDevice[2] { Keyboard.current, Mouse.current });
         }
-        else
+        else//p1 gamepad
         {
-            player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme(Mouse.current, Keyboard.current);
+            Debug.Log("case: p1 gamepad");
+            player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme(passedData.p1Gamepad);
         }
-        //p2Device assign
-        if (passedData.p2Device.Count() > 0)
-        {
-            player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme(passedData.p2Device.ToArray());
-        }
-        else
-        {
-            if (Gamepad.current != null)
-            {
-                player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme(Gamepad.current);
-            }
-            else
-            {
-                player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad");
 
-            }
+        if (passedData.p2Gamepad != null)//p2 gamepad
+        {
+            Debug.Log("case: p2 gamepad");
+            player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme(passedData.p2Gamepad);
         }
+        else//p2 no device
+        {
+            Debug.Log("case: p2 nothing");
+            player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Mouse.current);
+        }
+
         //player
         player1.GetComponent<playerController>().init(playerskins[0], spawnAt, health, playerAssets, new Vector2(1, 0));
         player2.GetComponent<playerController>().init(playerskins[1], spawnAt * new Vector3(-1, 1), health, playerAssets, new Vector2(-1, 0));

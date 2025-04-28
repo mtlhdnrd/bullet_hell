@@ -1,0 +1,29 @@
+Basic player controls:
+Horizontal movement
+Jump
+Climb
+Equip
+Drop
+Fire
+Alternative Fire
+
+REWARDS:
+Each map has a list of characters and music kits; after winning the fight, you get a random item from this list.
+Rank points also get awarded accordingly
+
+RANKING:
+The winner gains, the loser loses their precious rank points
+Tie means you couldn't defeat your opponent, therefore you both lose
+Base value: 100
+Multiplier: difference in round wins
+Bonus: 50*smallerRank/biggerRank*winDiff
+ifWon: 1 for winner, -1 for loser
+Points awarded: ifwon*(100+50*smallerRank/biggerRank*winDiff)
+
+WEAPON MECHANICS:
+Shotgun - 7 pellets spread in a cone (-15,+15 degs)
+Nailgun - Losing pressure with each shot, the projectile steadily gets slower as the magazine drains. (projSpeed=projSpeed-(13-magazine))
+Knife - Hold the attack for fully automatic functionality
+Death - Hitting the enemy makes them drop their weapon
+Taser - Hitting the enemy halves their horizontal speed and jump height
+Cleaver and pistol works as you would expect

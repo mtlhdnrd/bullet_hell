@@ -146,7 +146,7 @@ public class APIManager : MonoBehaviour
     static public IEnumerator GetOwnedMusic(string username, string player, Action<AssetResponse> callback)
     {
         //Define the api endpoint
-        string endpoint = $"/profile/get_player_musics.php?username={username}";
+        string endpoint = $"/profile/get_player_music.php?username={username}";
         UnityWebRequest uwr = UnityWebRequest.Get(baseUrl + endpoint);
         yield return uwr.SendWebRequest();
         AssetResponse response = new AssetResponse(new Dictionary<string, bool>(), false, ""); // Initialize dictionary

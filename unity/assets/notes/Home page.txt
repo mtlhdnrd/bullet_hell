@@ -1,0 +1,26 @@
+BULLET HELL
+*title plate*
+
+MAIN INTRODUCTION
+With impeccable symmetry, you can still get lucky. With enough time though, the stronger warrior will prevail.
+This 2D platformer-shooter aims to give both players a level playing field, with equal chances, all on one screen.
+
+HOW TO PLAY
+-Plug in one or two gamepads
+-Choose your character and anthem
+-Acquire a weapon
+-And the rest will follow...
+
+SOME MORE INFORMATION
+The taste of victory is sweetened by loot for each win!
+Several maps with a range of possible weapon loadouts!
+
+INSPIRATIONS
+LORN's discography and music video for Weigh Me Down - the slaughterhouse, and the overall industrial, bleak aesthetics
+Hotline Miami - pixelart, violence, adrenaline, directness towards player
+Tekken - Split-screen, local co-op, fighting game
+Drifters - Nobunaga's character and castle
+Warframe - for the idea of over-the-top weapons and a bit of parkour implementation, and the high-and-mighty tone
+
+More information on github:
+https://github.com/batyuzo/BulletHell_prototypes

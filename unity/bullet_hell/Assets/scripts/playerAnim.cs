@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class bodyAnim : MonoBehaviour
 {
-
     [Header("script refs")]
     [SerializeField] playerController player;
     [SerializeField] playerAssets playerAssets;
@@ -24,7 +23,6 @@ public class bodyAnim : MonoBehaviour
     [SerializeField] GameObject handCloseObj;
     [SerializeField] GameObject handFarObj;
     [SerializeField] GameObject headObj;
-
 
     [Header("walkcycle refs")]
     [SerializeField] Sprite walk1;
@@ -192,5 +190,4 @@ public class bodyAnim : MonoBehaviour
         }
 
     }
-
 }

@@ -15,10 +15,10 @@ public class musicPlayer : MonoBehaviour
     public musicShowFight musicShowFight;
     public musicShowMenu musicShowMenu;
     private bool ready = false;
-    public void init(musicKit activePack1, musicKit activePack2, float vol, string scenarioRef)
+    public void init(musicKit activePack1, musicKit activePack2, string scenarioRef, float volume)
     {
+        changeVolume(volume);
         scenario = scenarioRef;
-        player.volume = vol;
         player.loop = false;
         packP1 = activePack1;
         packP2 = activePack2;
@@ -153,6 +153,11 @@ public class musicPlayer : MonoBehaviour
         }
         player.Play();
 
+    }
+    public void changeVolume(float volume)
+    {
+        Debug.Log("changeVolume happens");
+        player.volume = volume;
     }
     private void Update()
     {
